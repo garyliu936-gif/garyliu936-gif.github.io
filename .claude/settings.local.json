@@ -8,7 +8,11 @@
       "Bash(curl -s http://localhost:3000/getting-a-dog/index.html)",
       "mcp__Claude_in_Chrome__switch_browser",
       "mcp__Claude_in_Chrome__list_connected_browsers",
-      "mcp__Claude_in_Chrome__select_browser"
+      "mcp__Claude_in_Chrome__select_browser",
+      "Bash(git config *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git push *)"
     ]
   }
 }
