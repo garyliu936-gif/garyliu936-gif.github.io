@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PetCareHub — The Complete Dog Encyclopedia</title>
+  <meta name="description" content="Your complete dog encyclopedia. Explore dog breeds, training guides, health information, nutrition tips, and more. Free, trusted, and in-depth." />
+  <meta name="keywords" content="dog encyclopedia, dog breeds guide, dog training, dog health, puppy guide, dog nutrition, pet care" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/home.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="/index.html" class="nav-logo">
+        <span class="logo-paw">🐾</span>
+        <span class="logo-text">PetCare<span class="logo-accent">Hub</span></span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/breeds/index.html">Dog Breeds</a></li>
+        <li><a href="/getting-a-dog/index.html">Getting a Dog</a></li>
+        <li><a href="/training/index.html">Training</a></li>
+        <li><a href="/health/index.html">Health</a></li>
+        <li><a href="/nutrition/index.html">Nutrition</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="enc-hero">
+    <div class="container">
+      <div class="enc-hero-content">
+        <div class="enc-hero-tag">Free · Trusted · In-Depth</div>
+        <h1>The Complete<br /><span class="hero-highlight">Dog Encyclopedia</span></h1>
+        <p>Everything you need to know about dogs — breeds, training, health, nutrition, and more. Written for dog lovers, by dog lovers.</p>
+        <div class="enc-search-wrap">
+          <span class="enc-search-icon">🔍</span>
+          <input type="text" placeholder="Search breeds, training tips, health topics..." id="homeSearch" />
+          <button class="enc-search-btn" onclick="handleSearch()">Search</button>
+        </div>
+        <div class="enc-popular">
+          <span>Popular:</span>
+          <a href="/breeds/labrador-retriever.html">Labrador Retriever</a>
+          <a href="/breeds/golden-retriever.html">Golden Retriever</a>
+          <a href="/breeds/french-bulldog.html">French Bulldog</a>
+          <a href="/breeds/german-shepherd.html">German Shepherd</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BROWSE BY TOPIC -->
+  <section class="browse-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Browse Topics</span>
+        <h2>What Would You Like to Learn?</h2>
+        <p>Choose a topic to explore our in-depth guides and articles.</p>
+      </div>
+      <div class="topic-grid">
+        <a href="/breeds/index.html" class="topic-card">
+          <div class="topic-icon">🐕</div>
+          <h3>Dog Breeds</h3>
+          <p>Profiles for 24+ breeds — temperament, size, care, health, and more.</p>
+          <span class="topic-count">24 breeds</span>
+        </a>
+        <a href="/training/index.html" class="topic-card coming-soon">
+          <div class="topic-icon">🎓</div>
+          <h3>Training</h3>
+          <p>Basic commands, puppy training, leash manners, and fixing behavior problems.</p>
+          <span class="topic-count">Coming soon</span>
+        </a>
+        <a href="/health/index.html" class="topic-card coming-soon">
+          <div class="topic-icon">🏥</div>
+          <h3>Health & Symptoms</h3>
+          <p>Common illnesses, what symptoms mean, vet visit guides, and preventive care.</p>
+          <span class="topic-count">Coming soon</span>
+        </a>
+        <a href="/nutrition/index.html" class="topic-card coming-soon">
+          <div class="topic-icon">🍽️</div>
+          <h3>Nutrition & Diet</h3>
+          <p>Feeding guides by breed and age, best foods, toxic foods, and treats.</p>
+          <span class="topic-count">Coming soon</span>
+        </a>
+        <a href="/puppies/index.html" class="topic-card coming-soon">
+          <div class="topic-icon">🐣</div>
+          <h3>Puppy Guide</h3>
+          <p>First week home, vaccinations, potty training, socialization, and growth.</p>
+          <span class="topic-count">Coming soon</span>
+        </a>
+        <a href="/grooming/index.html" class="topic-card coming-soon">
+          <div class="topic-icon">✂️</div>
+          <h3>Grooming</h3>
+          <p>At-home grooming tips, breed-specific coat care, and tool recommendations.</p>
+          <span class="topic-count">Coming soon</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED BREEDS -->
+  <section class="featured-breeds">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Dog Breeds</span>
+        <h2>Most Popular Breeds</h2>
+        <p>Start with the most searched dog breeds in America.</p>
+      </div>
+      <div class="featured-grid">
+        <a href="/breeds/labrador-retriever.html" class="featured-card">
+          <div class="featured-img" data-api="labrador">
+            <img class="featured-real-photo" alt="Labrador Retriever" />
+            <span class="featured-emoji">🦮</span>
+          </div>
+          <div class="featured-info">
+            <span class="featured-rank">#1 Most Popular</span>
+            <h3>Labrador Retriever</h3>
+            <p>Friendly, loyal, and endlessly energetic. America's favorite dog for 31 years.</p>
+            <span class="featured-link">Read full profile →</span>
+          </div>
+        </a>
+        <a href="/breeds/golden-retriever.html" class="featured-card">
+          <div class="featured-img" data-api="retriever/golden">
+            <img class="featured-real-photo" alt="Golden Retriever" />
+            <span class="featured-emoji">🐕</span>
+          </div>
+          <div class="featured-info">
+            <span class="featured-rank">#3 Most Popular</span>
+            <h3>Golden Retriever</h3>
+            <p>Gentle, loving, and deeply loyal. One of the world's best family dogs.</p>
+            <span class="featured-link">Read full profile →</span>
+          </div>
+        </a>
+        <a href="/breeds/french-bulldog.html" class="featured-card">
+          <div class="featured-img" data-api="bulldog/french">
+            <img class="featured-real-photo" alt="French Bulldog" />
+            <span class="featured-emoji">🐶</span>
+          </div>
+          <div class="featured-info">
+            <span class="featured-rank">#2 Most Popular</span>
+            <h3>French Bulldog</h3>
+            <p>Playful, adaptable, and full of personality. The perfect city dog.</p>
+            <span class="featured-link">Read full profile →</span>
+          </div>
+        </a>
+        <a href="/breeds/german-shepherd.html" class="featured-card">
+          <div class="featured-img" data-api="germanshepherd">
+            <img class="featured-real-photo" alt="German Shepherd" />
+            <span class="featured-emoji">🐕‍🦺</span>
+          </div>
+          <div class="featured-info">
+            <span class="featured-rank">#4 Most Popular</span>
+            <h3>German Shepherd</h3>
+            <p>Intelligent, courageous, and devoted. The world's top working dog.</p>
+            <span class="featured-link">Read full profile →</span>
+          </div>
+        </a>
+      </div>
+      <div style="text-align:center; margin-top:40px">
+        <a href="/breeds/index.html" class="btn btn-primary">Browse All 24 Dog Breeds →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DID YOU KNOW -->
+  <section class="did-you-know">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Dog Facts</span>
+        <h2>Did You Know?</h2>
+      </div>
+      <div class="facts-grid">
+        <div class="fact-card">
+          <span class="fact-num">340M+</span>
+          <p>A dog's nose has 300 million scent receptors — humans only have 6 million.</p>
+        </div>
+        <div class="fact-card">
+          <span class="fact-num">450+</span>
+          <p>There are over 450 recognized dog breeds worldwide according to the FCI.</p>
+        </div>
+        <div class="fact-card">
+          <span class="fact-num">15,000</span>
+          <p>Dogs were domesticated from wolves approximately 15,000 years ago.</p>
+        </div>
+        <div class="fact-card">
+          <span class="fact-num">250</span>
+          <p>The smartest dog breeds can understand up to 250 words and gestures.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="nav-logo">
+            <span class="logo-paw">🐾</span>
+            <span class="logo-text">PetCare<span class="logo-accent">Hub</span></span>
+          </div>
+          <p>A free, in-depth encyclopedia for dog owners and lovers. No ads, no bias — just reliable information.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Dog Breeds</h4>
+          <ul>
+            <li><a href="/breeds/labrador-retriever.html">Labrador Retriever</a></li>
+            <li><a href="/breeds/golden-retriever.html">Golden Retriever</a></li>
+            <li><a href="/breeds/french-bulldog.html">French Bulldog</a></li>
+            <li><a href="/breeds/german-shepherd.html">German Shepherd</a></li>
+            <li><a href="/breeds/index.html">All Breeds →</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Topics</h4>
+          <ul>
+            <li><a href="/training/index.html">Dog Training</a></li>
+            <li><a href="/health/index.html">Dog Health</a></li>
+            <li><a href="/nutrition/index.html">Nutrition & Diet</a></li>
+            <li><a href="/puppies/index.html">Puppy Guide</a></li>
+            <li><a href="/grooming/index.html">Grooming</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Browse</h4>
+          <ul>
+            <li><a href="/breeds/index.html?size=small">Small Dogs</a></li>
+            <li><a href="/breeds/index.html?size=large">Large Dogs</a></li>
+            <li><a href="/breeds/index.html?kids=yes">Good with Kids</a></li>
+            <li><a href="/breeds/index.html?energy=low">Low Energy Breeds</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 PetCareHub — The Complete Dog Encyclopedia. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Load real breed photos on the homepage
+    document.querySelectorAll('.featured-img[data-api]').forEach(wrap => {
+      const api = wrap.dataset.api;
+      const img = wrap.querySelector('.featured-real-photo');
+      const emoji = wrap.querySelector('.featured-emoji');
+      fetch(`https://dog.ceo/api/breed/${api}/images`)
+        .then(r => r.json())
+        .then(data => {
+          img.src = data.message[2];
+          img.onload = () => {
+            img.style.display = 'block';
+            if (emoji) emoji.style.display = 'none';
+          };
+        }).catch(() => {});
+    });
+
+    function handleSearch() {
+      const q = document.getElementById('homeSearch').value.trim().toLowerCase();
+      if (q) window.location.href = `/breeds/index.html?search=${encodeURIComponent(q)}`;
+    }
+
+    document.getElementById('homeSearch').addEventListener('keydown', e => {
+      if (e.key === 'Enter') handleSearch();
+    });
+  </script>
+</body>
+</html>

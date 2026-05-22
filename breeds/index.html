@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dog Breeds Guide — Complete A-Z Directory | PetCareHub</title>
+  <meta name="description" content="Explore 24+ dog breeds with detailed profiles on temperament, size, exercise needs, grooming, health, and training. Find your perfect dog breed." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/breeds.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="nav-logo">
+        <span class="logo-paw">🐾</span>
+        <span class="logo-text">PetCare<span class="logo-accent">Hub</span></span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/breeds/index.html" style="color:var(--teal)">Dog Breeds</a></li>
+        <li><a href="/getting-a-dog/index.html">Getting a Dog</a></li>
+        <li><a href="/training/index.html">Training</a></li>
+        <li><a href="/health/index.html">Health</a></li>
+        <li><a href="/nutrition/index.html">Nutrition</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="breeds-hero">
+    <div class="container">
+      <div class="section-tag" style="margin-bottom:16px">🐕 Complete Guide</div>
+      <h1>Dog Breeds Directory</h1>
+      <p>Explore detailed profiles for 24+ breeds — temperament, size, care needs, and more.</p>
+      <div class="search-wrap">
+        <input type="text" id="breedSearch" placeholder="Search breeds... (e.g. Labrador, Husky)" />
+      </div>
+    </div>
+  </section>
+
+  <!-- FILTER BAR -->
+  <div class="filter-bar">
+    <div class="container">
+      <div class="filter-row">
+        <span class="filter-label">Size:</span>
+        <div class="filter-chips" id="sizeFilters">
+          <button class="chip active" data-filter="size" data-value="all">All</button>
+          <button class="chip" data-filter="size" data-value="small">Small</button>
+          <button class="chip" data-filter="size" data-value="medium">Medium</button>
+          <button class="chip" data-filter="size" data-value="large">Large</button>
+          <button class="chip" data-filter="size" data-value="giant">Giant</button>
+        </div>
+        <div class="filter-divider"></div>
+        <span class="filter-label">Energy:</span>
+        <div class="filter-chips" id="energyFilters">
+          <button class="chip active" data-filter="energy" data-value="all">All</button>
+          <button class="chip" data-filter="energy" data-value="low">Low</button>
+          <button class="chip" data-filter="energy" data-value="medium">Medium</button>
+          <button class="chip" data-filter="energy" data-value="high">High</button>
+        </div>
+        <div class="filter-divider"></div>
+        <span class="filter-label">Kids:</span>
+        <div class="filter-chips" id="kidsFilters">
+          <button class="chip active" data-filter="kids" data-value="all">All</button>
+          <button class="chip" data-filter="kids" data-value="yes">Great with Kids</button>
+        </div>
+        <span class="results-count" id="resultsCount">24 breeds</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- BREEDS GRID -->
+  <section class="breeds-section">
+    <div class="container">
+      <div class="breeds-grid" id="breedsGrid">
+
+        <a href="/breeds/labrador-retriever.html" class="breed-card" data-size="large" data-energy="high" data-kids="yes" data-name="labrador retriever">
+          <div class="breed-emoji-wrap" data-api="labrador"><img class="breed-card-real-photo" alt="Labrador Retriever" /><span class="breed-card-emoji-fallback">🦮</span><span class="size-badge large">Large</span></div>
+          <div class="breed-info">
+            <h3>Labrador Retriever</h3>
+            <p>America's most popular dog — friendly, outgoing, and eager to please. Perfect family companion.</p>
+            <div class="trait-dots">
+              <div class="trait"><span class="trait-name">Energy</span><div class="trait-bar"><div class="trait-fill" style="width:100%"></div></div></div>
+              <div class="trait"><span class="trait-name">Training</span><div class="trait-bar"><div class="trait-fill" style="width:100%"></div></div></div>
+              <div class="trait"><span class="trait-name">Grooming</span><div class="trait-bar"><div class="trait-fill" style="width:40%"></div></div></div>
+            </div>
+          </div>
+          <div class="breed-link-row">Full Profile <span>→</span></div>
+        </a>
+
+        <a href="/breeds/golden-retriever.html" class="breed-card" data-size="large" data-energy="high" data-kids="yes" data-name="golden retriever">
+          <div class="breed-emoji-wrap" data-api="retriever/golden"><img class="breed-card-real-photo" alt="Golden Retriever" /><span class="breed-card-emoji-fallback">🐕</span><span class="size-badge large">Large</span></div>
+          <div class="breed-info">
+            <h3>Golden Retriever</h3>
+            <p>Gentle, loyal, and endlessly loving. One of the world's most beloved family dogs.</p>
+            <div class="trait-dots">
+              <div class="trait"><span class="trait-name">Energy</span><div class="trait-bar"><div class="trait-fill" style="width:80%"></div></div></div>
+              <div class="trait"><span class="trait-name">Training</span><div class="trait-bar"><div class="trait-fill" style="width:100%"></div></div></div>
+              <div class="trait"><span class="trait-name">Grooming</span><div class="trait-bar"><div class="trait-fill" style="width:60%"></div></div></div>
+            </div>
+          </div>
+          <div class="breed-link-row">Full Profile <span>→</span></div>
+        </a>
+
+        <a href="/breeds/french-bulldog.html" class="breed-card" data-size="small" data-energy="low" data-kids="yes" data-name="french bulldog">
+          <div class="breed-emoji-wrap" data-api="bulldog/french"><img class="breed-card-real-photo" alt="French Bulldog" /><span class="breed-card-emoji-fallback">🐶</span><span class="size-badge small">Small</span></div>
+          <div class="breed-info">
+            <h3>French Bulldog</h3>
+            <p>Playful, adaptable, and full of personality. The #1 city dog — thrives in apartments.</p>
+            <div class="trait-dots">
+              <div class="trait"><span class="trait-name">Energy</span><div class="trait-bar"><div class="trait-fill" style="width:40%"></div></div></div>
+              <div class="trait"><span class="trait-name">Training</span><div class="trait-bar"><div class="trait-fill" style="width:60%"></div></div></div>
+              <div class="trait"><span class="trait-name">Grooming</span><div class="trait-bar"><div class="trait-fill" style="width:20%"></div></div></div>
+            </div>
+          </div>
+          <div class="breed-link-row">Full Profile <span>→</span></div>
+        </a>
+
+        <a href="/breeds/german-shepherd.html" class="breed-card" data-size="large" data-energy="high" data-kids="yes" data-name="german shepherd">
+          <div class="breed-emoji-wrap" data-api="germanshepherd"><img class="breed-card-real-photo" alt="German Shepherd" /><span class="breed-card-emoji-fallback">🐕‍🦺</span><span class="size-badge large">Large</span></div>
+          <div class="breed-info">
+            <h3>German Shepherd</h3>
+            <p>Intelligent, courageous, loyal. The top working dog in the world and a devoted family protector.</p>
+            <div class="trait-dots">
+              <div class="trait"><span class="trait-name">Energy</span><div class="trait-bar"><div class="trait-fill" style="width:100%"></div></div></div>
+              <div class="trait"><span class="trait-name">Training</span><div class="trait-bar"><div class="trait-fill" style="width:100%"></div></div></div>
+              <div class="trait"><span class="trait-name">Grooming</span><div class="trait-bar"><div class="trait-fill" style="width:60%"></div></div></div>
+            </div>
+          </div>
+          <div class="breed-link-row">Full Profile <span>→</span></div>
+        </a>
+
+        <a href="#" class="breed-card" data-size="medium" data-energy="low" data-kids="yes" data-name="bulldog english bulldog">
+          <div class="breed-emoji-wrap">🐾<span class="size-badge medium">Medium</span></div>
+          <div class="breed-info">
+            <h3>Bulldog</h3>
+            <p>Calm, courageous, and friendly. Bulldogs are low-energy companions who love lounging with their family.</p>
+            <div class="trait-dots">
+              <div class="trait"><span class="trait-name">Energy</span><div class="trait-bar"><div class="trait-fill" style="width:20%"></div></div></div>
+              <div class="trait"><span class="trait-name">Training</span><div class="trait-bar"><div class="trait-fill" style="width:40%"></div></div></div>
+              <div class="trait"><span class="trait-name">Grooming</span><div class="trait-bar"><div class="trait-fill" style="width:40%"></div></div></div>
+            </div>
+          </div>
+          <div class="breed-link-row">Coming Soon <span>→</span></div>
+        </a>
+
+        <a href="#" class="breed-card" data-size="medium" data-energy="high" data-kids="yes" data-name="poodle standard miniature toy">
+          <div class="breed-emoji-wrap">🐩<span class="size-badge medium">Varies</span></div>
+          <div class="breed-info">
+            <h3>Poodle</h3>
+            <p>Exceptionally intelligent and athletic. Poodles are hypoallergenic, highly trainable, and come in three sizes.</p>
+            <div class="trait-dots">
+              <div class="trait"><span class="trait-name">Energy</span><div class="trait-bar"><div class="trait-fill" style="width:80%"></div></div></div>
+              <div class="trait"><span class="trait-name">Training</span><div class="trait-bar"><div class="trait-fill" style="width:100%"></div></div></div>
+              <div class="trait"><span class="trait-name">Grooming</span><div class="trait-bar"><div class="trait-fill" style="width:100%"></div></div></div>
+            </div>
+          </div>
+          <div class="breed-link-row">Coming Soon <span>→</span></div>
+        </a>
+
+        <a href="#" class="breed-card" data-size="medium" data-energy="high" data-kids="yes" data-name="beagle">
+          <div class="breed-emoji-wrap">🐕<span class="size-badge medium">Medium</span></div>
+          <div class="breed-info">
+            <h3>Beagle</h3>
+            <p>Merry, curious, and always following their nose. Beagles are pack dogs who love company and adventure.</p>
+            <div class="trait-dots">
+              <div class="trait"><span class="trait-name">Energy</span><div class="trait-bar"><div class="trait-fill" style="width:80%"></div></div></div>
+              <div class="trait"><span class="trait-name">Training</span><div class="trait-bar"><div class="trait-fill" style="width:60%"></div></div></div>
+              <div class="trait"><span class="trait-name">Grooming</span><div class="trait-bar"><div class="trait-fill" style="width:40%"></div></div></div>
+            </div>
+          </div>
+          <div class="breed-link-row">Coming Soon <span>→</span></div>
+        </a>
+
+        <a href="#" class="breed-card" data-size="large" data-energy="medium" data-kids="yes" data-name="rottweiler">
+          <div class="breed-emoji-wrap">🐕<span class="size-badge large">Large</span></div>
+          <div class="breed-info">
+            <h3>Rottweiler</h3>
+            <p>Powerful, loyal, and calm. With proper training, Rottweilers are devoted family guardians.</p>
+            <div class="trait-dots">
+              <div class="trait"><span class="trait-name">Energy</span><div class="trait-bar"><div class="trait-fill" style="width:60%"></div></div></div>
+              <div class="trait"><span class="trait-name">Training</span><div class="trait-bar"><div class="trait-fill" style="width:80%"></div></div></div>
+              <div class="trait"><span class="trait-name">Grooming</span><div class="trait-bar"><div class="trait-fill" style="width:20%"></div></div></div>
+            </div>
+          </div>
+          <div class="breed-link-row">Coming Soon <span>→</span></div>
+        </a>
+
+        <a href="#" class="breed-card" data-size="small" data-energy="medium" data-kids="no" data-name="yorkshire terrier yorkie">
+          <div class="breed-emoji-wrap">🐶<span class="size-badge small">Small</span></div>
+          <div class="breed-info">
+            <h3>Yorkshire Terrier</h3>
+            <p>Bold, confident, and fiercely loyal. Yorkies have big personalities packed into tiny bodies.</p>
+            <div class="trait-dots">
+              <div class="trait"><span class="trait-name">Energy</span><div class="trait-bar"><div class="trait-fill" style="width:60%"></div></div></div>
+              <div class="trait"><span class="trait-name">Training</span><div class="trait-bar"><div class="trait-fill" style="width:60%"></div></div></div>
+              <div class="trait"><span class="trait-name">Grooming</span><div class="trait-bar"><div class="trait-fill" style="width:100%"></div></div></div>
+            </div>
+          </div>
+          <div class="breed-link-row">Coming Soon <span>→</span></div>
+        </a>
+
+        <a href="#" class="breed-card" data-size="small" data-energy="medium" data-kids="yes" data-name="dachshund wiener dog sausage dog">
+          <div class="breed-emoji-wrap">🌭<span class="size-badge small">Small</span></div>
+          <div class="breed-info">
+            <h3>Dachshund</h3>
+            <p>Clever, lively, and courageous. These little hounds were born to hunt and love to dig and explore.</p>
+            <div class="trait-dots">
+              <div class="trait"><span class="trait-name">Energy</span><div class="trait-bar"><div class="trait-fill" style="width:60%"></div></div></div>
+              <div class="trait"><span class="trait-name">Training</span><div class="trait-bar"><div class="trait-fill" style="width:60%"></div></div></div>
+              <div class="trait"><span class="trait-name">Grooming</span><div class="trait-bar"><div class="trait-fill" style="width:40%"></div></div></div>
+            </div>
+          </div>
+          <div class="breed-link-row">Coming Soon <span>→</span></div>
+        </a>
+
+        <a href="#" class="breed-card" data-size="large" data-energy="high" data-kids="yes" data-name="boxer">
+          <div class="breed-emoji-wrap">🥊<span class="size-badge large">Large</span></div>
+          <div class="breed-info">
+            <h3>Boxer</h3>
+            <p>Playful, energetic, and endlessly entertaining. Boxers are the clowns of the dog world and love kids.</p>
+            <div class="trait-dots">
+              <div class="trait"><span class="trait-name">Energy</span><div class="trait-bar"><div class="trait-fill" style="width:100%"></div></div></div>
+              <div class="trait"><span class="trait-name">Training</span><div class="trait-bar"><div class="trait-fill" style="width:80%"></div></div></div>
+              <div class="trait"><span class="trait-name">Grooming</span><div class="trait-bar"><div class="trait-fill" style="width:20%"></div></div></div>
+            </div>
+          </div>
+          <div class="breed-link-row">Coming Soon <span>→</span></div>
+        </a>
+
+        <a href="#" class="breed-card" data-size="large" data-energy="high" data-kids="yes" data-name="siberian husky husky">
+          <div class="breed-emoji-wrap">🐺<span class="size-badge large">Large</span></div>
+          <div class="breed-info">
+            <h3>Siberian Husky</h3>
+            <p>Athletic, mischievous, and strikingly beautiful. Huskies need lots of exercise and love cold climates.</p>
+            <div class="trait-dots">
+              <div class="trait"><span class="trait-name">Energy</span><div class="trait-bar"><div class="trait-fill" style="width:100%"></div></div></div>
+              <div class="trait"><span class="trait-name">Training</span><div class="trait-bar"><div class="trait-fill" style="width:60%"></div></div></div>
+              <div class="trait"><span class="trait-name">Grooming</span><div class="trait-bar"><div class="trait-fill" style="width:80%"></div></div></div>
+            </div>
+          </div>
+          <div class="breed-link-row">Coming Soon <span>→</span></div>
+        </a>
+
+        <a href="#" class="breed-card" data-size="giant" data-energy="medium" data-kids="yes" data-name="great dane">
+          <div class="breed-emoji-wrap">🐕<span class="size-badge giant">Giant</span></div>
+          <div class="breed-info">
+            <h3>Great Dane</h3>
+            <p>Friendly giants — patient, dependable, and surprisingly gentle. The "Apollo of dogs."</p>
+            <div class="trait-dots">
+              <div class="trait"><span class="trait-name">Energy</span><div class="trait-bar"><div class="trait-fill" style="width:60%"></div></div></div>
+              <div class="trait"><span class="trait-name">Training</span><div class="trait-bar"><div class="trait-fill" style="width:80%"></div></div></div>
+              <div class="trait"><span class="trait-name">Grooming</span><div class="trait-bar"><div class="trait-fill" style="width:20%"></div></div></div>
+            </div>
+          </div>
+          <div class="breed-link-row">Coming Soon <span>→</span></div>
+        </a>
+
+        <a href="#" class="breed-card" data-size="small" data-energy="low" data-kids="yes" data-name="shih tzu">
+          <div class="breed-emoji-wrap">🐶<span class="size-badge small">Small</span></div>
+          <div class="breed-info">
+            <h3>Shih Tzu</h3>
+            <p>Affectionate, outgoing, and adaptable. Shih Tzus were bred to be royal lap dogs and they know it.</p>
+            <div class="trait-dots">
+              <div class="trait"><span class="trait-name">Energy</span><div class="trait-bar"><div class="trait-fill" style="width:40%"></div></div></div>
+              <div class="trait"><span class="trait-name">Training</span><div class="trait-bar"><div class="trait-fill" style="width:60%"></div></div></div>
+              <div class="trait"><span class="trait-name">Grooming</span><div class="trait-bar"><div class="trait-fill" style="width:100%"></div></div></div>
+            </div>
+          </div>
+          <div class="breed-link-row">Coming Soon <span>→</span></div>
+        </a>
+
+        <a href="#" class="breed-card" data-size="large" data-energy="high" data-kids="yes" data-name="australian shepherd aussie">
+          <div class="breed-emoji-wrap">🐕<span class="size-badge large">Large</span></div>
+          <div class="breed-info">
+            <h3>Australian Shepherd</h3>
+            <p>Brilliant, active, and tireless. Aussies need a job to do and thrive with active families.</p>
+            <div class="trait-dots">
+              <div class="trait"><span class="trait-name">Energy</span><div class="trait-bar"><div class="trait-fill" style="width:100%"></div></div></div>
+              <div class="trait"><span class="trait-name">Training</span><div class="trait-bar"><div class="trait-fill" style="width:100%"></div></div></div>
+              <div class="trait"><span class="trait-name">Grooming</span><div class="trait-bar"><div class="trait-fill" style="width:60%"></div></div></div>
+            </div>
+          </div>
+          <div class="breed-link-row">Coming Soon <span>→</span></div>
+        </a>
+
+        <a href="#" class="breed-card" data-size="medium" data-energy="high" data-kids="yes" data-name="border collie">
+          <div class="breed-emoji-wrap">🐕<span class="size-badge medium">Medium</span></div>
+          <div class="breed-info">
+            <h3>Border Collie</h3>
+            <p>The world's most intelligent dog breed. Border Collies need mental challenges as much as physical exercise.</p>
+            <div class="trait-dots">
+              <div class="trait"><span class="trait-name">Energy</span><div class="trait-bar"><div class="trait-fill" style="width:100%"></div></div></div>
+              <div class="trait"><span class="trait-name">Training</span><div class="trait-bar"><div class="trait-fill" style="width:100%"></div></div></div>
+              <div class="trait"><span class="trait-name">Grooming</span><div class="trait-bar"><div class="trait-fill" style="width:60%"></div></div></div>
+            </div>
+          </div>
+          <div class="breed-link-row">Coming Soon <span>→</span></div>
+        </a>
+
+        <a href="#" class="breed-card" data-size="small" data-energy="low" data-kids="yes" data-name="cavalier king charles spaniel cavalier">
+          <div class="breed-emoji-wrap">🐶<span class="size-badge small">Small</span></div>
+          <div class="breed-info">
+            <h3>Cavalier King Charles</h3>
+            <p>Gentle, affectionate, and adaptable. One of the best lap dogs — content in any home.</p>
+            <div class="trait-dots">
+              <div class="trait"><span class="trait-name">Energy</span><div class="trait-bar"><div class="trait-fill" style="width:40%"></div></div></div>
+              <div class="trait"><span class="trait-name">Training</span><div class="trait-bar"><div class="trait-fill" style="width:80%"></div></div></div>
+              <div class="trait"><span class="trait-name">Grooming</span><div class="trait-bar"><div class="trait-fill" style="width:60%"></div></div></div>
+            </div>
+          </div>
+          <div class="breed-link-row">Coming Soon <span>→</span></div>
+        </a>
+
+        <a href="#" class="breed-card" data-size="large" data-energy="medium" data-kids="yes" data-name="bernese mountain dog berner">
+          <div class="breed-emoji-wrap">🐕<span class="size-badge large">Large</span></div>
+          <div class="breed-info">
+            <h3>Bernese Mountain Dog</h3>
+            <p>Calm, good-natured, and strikingly beautiful. Berners are devoted family dogs built for the outdoors.</p>
+            <div class="trait-dots">
+              <div class="trait"><span class="trait-name">Energy</span><div class="trait-bar"><div class="trait-fill" style="width:60%"></div></div></div>
+              <div class="trait"><span class="trait-name">Training</span><div class="trait-bar"><div class="trait-fill" style="width:80%"></div></div></div>
+              <div class="trait"><span class="trait-name">Grooming</span><div class="trait-bar"><div class="trait-fill" style="width:80%"></div></div></div>
+            </div>
+          </div>
+          <div class="breed-link-row">Coming Soon <span>→</span></div>
+        </a>
+
+        <a href="#" class="breed-card" data-size="small" data-energy="high" data-kids="yes" data-name="corgi pembroke welsh corgi cardigan">
+          <div class="breed-emoji-wrap">🦊<span class="size-badge small">Small</span></div>
+          <div class="breed-info">
+            <h3>Corgi</h3>
+            <p>Big personality, short legs. Corgis are smart, athletic herding dogs who are surprisingly fast.</p>
+            <div class="trait-dots">
+              <div class="trait"><span class="trait-name">Energy</span><div class="trait-bar"><div class="trait-fill" style="width:80%"></div></div></div>
+              <div class="trait"><span class="trait-name">Training</span><div class="trait-bar"><div class="trait-fill" style="width:100%"></div></div></div>
+              <div class="trait"><span class="trait-name">Grooming</span><div class="trait-bar"><div class="trait-fill" style="width:60%"></div></div></div>
+            </div>
+          </div>
+          <div class="breed-link-row">Coming Soon <span>→</span></div>
+        </a>
+
+        <a href="#" class="breed-card" data-size="large" data-energy="high" data-kids="yes" data-name="goldendoodle doodle golden doodle">
+          <div class="breed-emoji-wrap">🐕<span class="size-badge large">Large</span></div>
+          <div class="breed-info">
+            <h3>Goldendoodle</h3>
+            <p>The perfect hybrid — the Golden's heart with the Poodle's brains. Low-shedding and highly trainable.</p>
+            <div class="trait-dots">
+              <div class="trait"><span class="trait-name">Energy</span><div class="trait-bar"><div class="trait-fill" style="width:80%"></div></div></div>
+              <div class="trait"><span class="trait-name">Training</span><div class="trait-bar"><div class="trait-fill" style="width:100%"></div></div></div>
+              <div class="trait"><span class="trait-name">Grooming</span><div class="trait-bar"><div class="trait-fill" style="width:80%"></div></div></div>
+            </div>
+          </div>
+          <div class="breed-link-row">Coming Soon <span>→</span></div>
+        </a>
+
+        <a href="#" class="breed-card" data-size="small" data-energy="medium" data-kids="no" data-name="chihuahua chi">
+          <div class="breed-emoji-wrap">🐶<span class="size-badge small">Small</span></div>
+          <div class="breed-info">
+            <h3>Chihuahua</h3>
+            <p>The world's smallest breed packs an enormous personality. Loyal, charming, and surprisingly brave.</p>
+            <div class="trait-dots">
+              <div class="trait"><span class="trait-name">Energy</span><div class="trait-bar"><div class="trait-fill" style="width:60%"></div></div></div>
+              <div class="trait"><span class="trait-name">Training</span><div class="trait-bar"><div class="trait-fill" style="width:40%"></div></div></div>
+              <div class="trait"><span class="trait-name">Grooming</span><div class="trait-bar"><div class="trait-fill" style="width:20%"></div></div></div>
+            </div>
+          </div>
+          <div class="breed-link-row">Coming Soon <span>→</span></div>
+        </a>
+
+        <a href="#" class="breed-card" data-size="large" data-energy="high" data-kids="yes" data-name="doberman doberman pinscher">
+          <div class="breed-emoji-wrap">🐕<span class="size-badge large">Large</span></div>
+          <div class="breed-info">
+            <h3>Doberman Pinscher</h3>
+            <p>Fearless, loyal, and highly intelligent. Dobermans are natural protectors and devoted family dogs.</p>
+            <div class="trait-dots">
+              <div class="trait"><span class="trait-name">Energy</span><div class="trait-bar"><div class="trait-fill" style="width:100%"></div></div></div>
+              <div class="trait"><span class="trait-name">Training</span><div class="trait-bar"><div class="trait-fill" style="width:100%"></div></div></div>
+              <div class="trait"><span class="trait-name">Grooming</span><div class="trait-bar"><div class="trait-fill" style="width:20%"></div></div></div>
+            </div>
+          </div>
+          <div class="breed-link-row">Coming Soon <span>→</span></div>
+        </a>
+
+        <a href="#" class="breed-card" data-size="small" data-energy="low" data-kids="yes" data-name="maltese">
+          <div class="breed-emoji-wrap">🐶<span class="size-badge small">Small</span></div>
+          <div class="breed-info">
+            <h3>Maltese</h3>
+            <p>Elegant, gentle, and playful. Maltese are loving companions who thrive on human attention.</p>
+            <div class="trait-dots">
+              <div class="trait"><span class="trait-name">Energy</span><div class="trait-bar"><div class="trait-fill" style="width:40%"></div></div></div>
+              <div class="trait"><span class="trait-name">Training</span><div class="trait-bar"><div class="trait-fill" style="width:60%"></div></div></div>
+              <div class="trait"><span class="trait-name">Grooming</span><div class="trait-bar"><div class="trait-fill" style="width:100%"></div></div></div>
+            </div>
+          </div>
+          <div class="breed-link-row">Coming Soon <span>→</span></div>
+        </a>
+
+        <a href="#" class="breed-card" data-size="large" data-energy="high" data-kids="yes" data-name="dalmatian">
+          <div class="breed-emoji-wrap">🐕<span class="size-badge large">Large</span></div>
+          <div class="breed-info">
+            <h3>Dalmatian</h3>
+            <p>Energetic, dignified, and outgoing. Dalmatians need lots of exercise and are fiercely loyal to their family.</p>
+            <div class="trait-dots">
+              <div class="trait"><span class="trait-name">Energy</span><div class="trait-bar"><div class="trait-fill" style="width:100%"></div></div></div>
+              <div class="trait"><span class="trait-name">Training</span><div class="trait-bar"><div class="trait-fill" style="width:80%"></div></div></div>
+              <div class="trait"><span class="trait-name">Grooming</span><div class="trait-bar"><div class="trait-fill" style="width:40%"></div></div></div>
+            </div>
+          </div>
+          <div class="breed-link-row">Coming Soon <span>→</span></div>
+        </a>
+
+        <div class="no-results" id="noResults">
+          <div class="emoji">🐾</div>
+          <h3>No breeds found</h3>
+          <p>Try a different search term or filter.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="nav-logo"><span class="logo-paw">🐾</span><span class="logo-text">PetCare<span class="logo-accent">Hub</span></span></div>
+          <p>Your complete guide to dog breeds, pet boarding in Seattle, and nationwide pet transportation.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Dog Breeds</h4>
+          <ul>
+            <li><a href="labrador-retriever.html">Labrador Retriever</a></li>
+            <li><a href="golden-retriever.html">Golden Retriever</a></li>
+            <li><a href="french-bulldog.html">French Bulldog</a></li>
+            <li><a href="german-shepherd.html">German Shepherd</a></li>
+            <li><a href="index.html">View All Breeds →</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Our Services</h4>
+          <ul>
+            <li><a href="https://www.pawsvip.com" target="_blank">Pet Hotel Seattle</a></li>
+            <li><a href="../index.html#transport">Nationwide Transport</a></li>
+            <li><a href="../index.html#contact">Get a Quote</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 PetCareHub. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script>
+    // Load real photos for cards that have an API path
+    document.querySelectorAll('.breed-emoji-wrap[data-api]').forEach(wrap => {
+      const api = wrap.dataset.api;
+      const img = wrap.querySelector('.breed-card-real-photo');
+      const emoji = wrap.querySelector('.breed-card-emoji-fallback');
+      fetch(`https://dog.ceo/api/breed/${api}/images`)
+        .then(r => r.json())
+        .then(data => {
+          img.src = data.message[0];
+          img.onload = () => {
+            img.style.display = 'block';
+            if (emoji) emoji.style.display = 'none';
+          };
+        }).catch(() => {});
+    });
+  </script>
+  <script>
+    // Search
+    const searchInput = document.getElementById('breedSearch');
+    searchInput.addEventListener('input', filterBreeds);
+
+    // Filter state
+    const filters = { size: 'all', energy: 'all', kids: 'all' };
+
+    document.querySelectorAll('.chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        const filterType = chip.dataset.filter;
+        const value = chip.dataset.value;
+        filters[filterType] = value;
+        // Update active chip in group
+        chip.closest('.filter-chips').querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        filterBreeds();
+      });
+    });
+
+    function filterBreeds() {
+      const query = searchInput.value.toLowerCase().trim();
+      const cards = document.querySelectorAll('.breed-card[data-name]');
+      let visible = 0;
+
+      cards.forEach(card => {
+        const name = card.dataset.name || '';
+        const size = card.dataset.size || '';
+        const energyLevel = card.dataset.energy || '';
+        const kids = card.dataset.kids || '';
+
+        // Energy grouping
+        const energyVal = energyLevel === 'high' ? 'high' : energyLevel === 'medium' ? 'medium' : 'low';
+
+        const matchSearch = !query || name.includes(query);
+        const matchSize = filters.size === 'all' || size === filters.size;
+        const matchEnergy = filters.energy === 'all' || energyVal === filters.energy;
+        const matchKids = filters.kids === 'all' || (filters.kids === 'yes' && kids === 'yes');
+
+        if (matchSearch && matchSize && matchEnergy && matchKids) {
+          card.classList.remove('hidden');
+          visible++;
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      document.getElementById('resultsCount').textContent = `${visible} breed${visible !== 1 ? 's' : ''}`;
+      const noResults = document.getElementById('noResults');
+      noResults.classList.toggle('show', visible === 0);
+    }
+  </script>
+</body>
+</html>

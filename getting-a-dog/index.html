@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Getting a Dog — Complete First-Time Owner Guide | PetCareHub</title>
+  <meta name="description" content="Everything you need to know before getting a dog. Find your perfect breed, learn the real costs, adoption vs breeder, how to prepare your home, and more." />
+  <meta name="keywords" content="getting a dog, first time dog owner, what dog should I get, adopting a dog, dog breed quiz, how much does a dog cost, preparing for a puppy" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/getting-a-dog.css" />
+</head>
+<body>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="/index.html" class="nav-logo">
+        <span class="logo-paw">🐾</span>
+        <span class="logo-text">PetCare<span class="logo-accent">Hub</span></span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/breeds/index.html">Dog Breeds</a></li>
+        <li><a href="/getting-a-dog/index.html" style="color:var(--teal)">Getting a Dog</a></li>
+        <li><a href="/training/index.html">Training</a></li>
+        <li><a href="/health/index.html">Health</a></li>
+        <li><a href="/nutrition/index.html">Nutrition</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="gad-hero">
+    <div class="container">
+      <span class="section-tag">Future Pet Owners</span>
+      <h1>Thinking About<br /><span class="hero-highlight">Getting a Dog?</span></h1>
+      <p>You're in the right place. Getting a dog is one of the best decisions you'll ever make — but it helps to go in prepared. We cover everything: finding the right breed, real costs, adoption, and how to prepare your home.</p>
+      <div class="gad-hero-steps">
+        <div class="hero-step"><span>1</span> Find your breed</div>
+        <div class="hero-arrow">→</div>
+        <div class="hero-step"><span>2</span> Understand the cost</div>
+        <div class="hero-arrow">→</div>
+        <div class="hero-step"><span>3</span> Adopt or buy</div>
+        <div class="hero-arrow">→</div>
+        <div class="hero-step"><span>4</span> Bring them home</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BREED FINDER QUIZ -->
+  <section class="quiz-section" id="quiz">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">✨ Interactive</span>
+        <h2>Find Your Perfect Dog Breed</h2>
+        <p>Answer 5 quick questions and we'll match you with the best breeds for your lifestyle.</p>
+      </div>
+
+      <div class="quiz-card" id="quizCard">
+
+        <!-- Q1 -->
+        <div class="quiz-step active" id="q1">
+          <div class="quiz-progress"><div class="quiz-bar" style="width:20%"></div></div>
+          <div class="quiz-q-num">Question 1 of 5</div>
+          <h3>Where do you live?</h3>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-q="1" data-val="apartment">🏢 Apartment or small space</button>
+            <button class="quiz-opt" data-q="1" data-val="house">🏠 House with a small yard</button>
+            <button class="quiz-opt" data-q="1" data-val="large">🌳 House with a large yard</button>
+            <button class="quiz-opt" data-q="1" data-val="rural">🌾 Rural / farm / lots of space</button>
+          </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="quiz-step" id="q2">
+          <div class="quiz-progress"><div class="quiz-bar" style="width:40%"></div></div>
+          <div class="quiz-q-num">Question 2 of 5</div>
+          <h3>How active are you?</h3>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-q="2" data-val="low">🛋️ I prefer relaxing — short walks only</button>
+            <button class="quiz-opt" data-q="2" data-val="medium">🚶 Moderate — daily walks, occasional hikes</button>
+            <button class="quiz-opt" data-q="2" data-val="high">🏃 Very active — running, hiking, outdoor sports</button>
+          </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="quiz-step" id="q3">
+          <div class="quiz-progress"><div class="quiz-bar" style="width:60%"></div></div>
+          <div class="quiz-q-num">Question 3 of 5</div>
+          <h3>Do you have children at home?</h3>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-q="3" data-val="young">👶 Yes — young children (under 8)</button>
+            <button class="quiz-opt" data-q="3" data-val="older">🧒 Yes — older children (8+)</button>
+            <button class="quiz-opt" data-q="3" data-val="no">🚫 No children</button>
+          </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="quiz-step" id="q4">
+          <div class="quiz-progress"><div class="quiz-bar" style="width:80%"></div></div>
+          <div class="quiz-q-num">Question 4 of 5</div>
+          <h3>How much grooming are you willing to do?</h3>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-q="4" data-val="low">✂️ As little as possible — low maintenance</button>
+            <button class="quiz-opt" data-q="4" data-val="medium">🪮 Some brushing — I don't mind weekly grooming</button>
+            <button class="quiz-opt" data-q="4" data-val="high">💅 I love grooming — no problem with high maintenance</button>
+          </div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="quiz-step" id="q5">
+          <div class="quiz-progress"><div class="quiz-bar" style="width:100%"></div></div>
+          <div class="quiz-q-num">Question 5 of 5</div>
+          <h3>Have you owned a dog before?</h3>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-q="5" data-val="first">🐾 First-time dog owner</button>
+            <button class="quiz-opt" data-q="5" data-val="some">🐕 Some experience</button>
+            <button class="quiz-opt" data-q="5" data-val="experienced">🏆 Very experienced dog owner</button>
+          </div>
+        </div>
+
+        <!-- RESULTS -->
+        <div class="quiz-step" id="qResult">
+          <div class="quiz-result-header">
+            <div class="quiz-result-icon">🎉</div>
+            <h3>Your Best Breed Matches</h3>
+            <p id="resultIntro"></p>
+          </div>
+          <div class="quiz-result-breeds" id="resultBreeds"></div>
+          <button class="quiz-restart" onclick="restartQuiz()">↺ Retake the Quiz</button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- GUIDE ARTICLES -->
+  <section class="guides-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Complete Guides</span>
+        <h2>Everything You Need to Know</h2>
+        <p>Step-by-step guides for every stage of getting your first dog.</p>
+      </div>
+      <div class="guides-grid">
+
+        <div class="guide-card priority">
+          <div class="guide-icon">🏆</div>
+          <div class="guide-label">Start here</div>
+          <h3>Best Dog Breeds for First-Time Owners</h3>
+          <p>Not every breed is beginner-friendly. These 8 breeds are forgiving, easy to train, and perfect for new dog owners.</p>
+          <a href="/getting-a-dog/best-breeds-first-time-owners.html" class="guide-link">Read guide →</a>
+        </div>
+
+        <div class="guide-card">
+          <div class="guide-icon">💰</div>
+          <h3>The Real Cost of Owning a Dog</h3>
+          <p>Puppy price is just the beginning. Here's a complete breakdown of what you'll actually spend in year one and every year after.</p>
+          <a href="/getting-a-dog/cost-of-owning-a-dog.html" class="guide-link">Read guide →</a>
+        </div>
+
+        <div class="guide-card">
+          <div class="guide-icon">🏠</div>
+          <h3>Adopting vs. Buying From a Breeder</h3>
+          <p>Both are great options — but they're very different. We break down the pros, cons, costs, and what to watch out for.</p>
+          <a href="/getting-a-dog/adopt-vs-breeder.html" class="guide-link">Read guide →</a>
+        </div>
+
+        <div class="guide-card">
+          <div class="guide-icon">🔍</div>
+          <h3>How to Find a Reputable Breeder</h3>
+          <p>Avoid puppy mills and scams. Learn the exact questions to ask, red flags to watch for, and what a responsible breeder looks like.</p>
+          <a href="/getting-a-dog/find-reputable-breeder.html" class="guide-link">Read guide →</a>
+        </div>
+
+        <div class="guide-card">
+          <div class="guide-icon">🏡</div>
+          <h3>Preparing Your Home for a Puppy</h3>
+          <p>A complete puppy-proofing checklist — what to buy, what to put away, and how to set up your space before day one.</p>
+          <a href="/getting-a-dog/prepare-home-for-puppy.html" class="guide-link">Read guide →</a>
+        </div>
+
+        <div class="guide-card">
+          <div class="guide-icon">🏢</div>
+          <h3>Best Dog Breeds for Apartments</h3>
+          <p>Live in a small space? These breeds thrive in apartments — low noise, lower energy, and perfectly sized for city living.</p>
+          <a href="/breeds/index.html">Browse small breeds →</a>
+        </div>
+
+        <div class="guide-card">
+          <div class="guide-icon">👨‍👩‍👧</div>
+          <h3>Best Dog Breeds for Families with Kids</h3>
+          <p>Safety, patience, and playfulness — these breeds are proven to be gentle and loving with children of all ages.</p>
+          <a href="/breeds/index.html">Browse family breeds →</a>
+        </div>
+
+        <div class="guide-card">
+          <div class="guide-icon">📋</div>
+          <h3>New Puppy Checklist</h3>
+          <p>Everything you need to buy before your puppy comes home. From crates to food bowls — a complete, printable checklist.</p>
+          <a href="/getting-a-dog/new-puppy-checklist.html" class="guide-link">Read guide →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICK FACTS FOR FUTURE OWNERS -->
+  <section class="owner-facts">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Good to Know</span>
+        <h2>Before You Decide</h2>
+        <p>Honest facts every future dog owner should know.</p>
+      </div>
+      <div class="facts-row">
+        <div class="owner-fact">
+          <span class="fact-emoji">⏰</span>
+          <h4>10–15 Years</h4>
+          <p>The average dog lives 10–15 years. This is a long-term commitment — make sure you're ready for the full journey.</p>
+        </div>
+        <div class="owner-fact">
+          <span class="fact-emoji">💸</span>
+          <h4>$1,000–$3,000 / year</h4>
+          <p>The average annual cost of owning a dog including food, vet, grooming, and supplies. Larger breeds cost more.</p>
+        </div>
+        <div class="owner-fact">
+          <span class="fact-emoji">🕐</span>
+          <h4>2+ Hours Daily</h4>
+          <p>Most dogs need at least 1–2 hours of attention and activity every single day — exercise, playtime, and interaction.</p>
+        </div>
+        <div class="owner-fact">
+          <span class="fact-emoji">🐾</span>
+          <h4>Personality Matters More Than Looks</h4>
+          <p>The most common mistake: choosing a breed based on appearance. Always research temperament and energy level first.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="nav-logo"><span class="logo-paw">🐾</span><span class="logo-text">PetCare<span class="logo-accent">Hub</span></span></div>
+          <p>A free, in-depth encyclopedia for dog owners and lovers.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Getting a Dog</h4>
+          <ul>
+            <li><a href="/getting-a-dog/index.html#quiz">Breed Finder Quiz</a></li>
+            <li><a href="/getting-a-dog/best-breeds-first-time-owners.html">Best for First-Timers</a></li>
+            <li><a href="/getting-a-dog/cost-of-owning-a-dog.html">Cost of a Dog</a></li>
+            <li><a href="/getting-a-dog/adopt-vs-breeder.html">Adopt vs. Buy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Dog Breeds</h4>
+          <ul>
+            <li><a href="/breeds/labrador-retriever.html">Labrador Retriever</a></li>
+            <li><a href="/breeds/golden-retriever.html">Golden Retriever</a></li>
+            <li><a href="/breeds/french-bulldog.html">French Bulldog</a></li>
+            <li><a href="/breeds/german-shepherd.html">German Shepherd</a></li>
+            <li><a href="/breeds/index.html">All Breeds →</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>More Topics</h4>
+          <ul>
+            <li><a href="/training/index.html">Dog Training</a></li>
+            <li><a href="/health/index.html">Dog Health</a></li>
+            <li><a href="/nutrition/index.html">Nutrition & Diet</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 PetCareHub — The Complete Dog Encyclopedia. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script>
+    // ── BREED QUIZ LOGIC ──────────────────────────────────────
+    // Think of this like a decision tree — each answer gets stored,
+    // then at the end we pick the best breed matches.
+
+    const answers = {};
+    let currentQ = 1;
+
+    document.querySelectorAll('.quiz-opt').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const q = btn.dataset.q;
+        const val = btn.dataset.val;
+        answers[q] = val;
+
+        // Highlight selected
+        btn.closest('.quiz-options').querySelectorAll('.quiz-opt').forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+
+        // Move to next question after short delay
+        setTimeout(() => {
+          if (currentQ < 5) {
+            document.getElementById('q' + currentQ).classList.remove('active');
+            currentQ++;
+            document.getElementById('q' + currentQ).classList.add('active');
+          } else {
+            document.getElementById('q5').classList.remove('active');
+            showResults();
+          }
+        }, 350);
+      });
+    });
+
+    function showResults() {
+      // Score each breed based on answers
+      const breeds = [
+        {
+          name: 'Labrador Retriever',
+          emoji: '🦮',
+          url: '/breeds/labrador-retriever.html',
+          desc: 'Friendly, trainable, and great with everyone. One of the best all-around family dogs.',
+          scores: { apartment: -1, house: 1, large: 2, rural: 2, low: -1, medium: 1, high: 2, young: 2, older: 2, no: 1, lowGroom: 2, medGroom: 2, highGroom: 1, first: 2, some: 2, experienced: 1 }
+        },
+        {
+          name: 'Golden Retriever',
+          emoji: '🐕',
+          url: '/breeds/golden-retriever.html',
+          desc: 'Gentle, loving, and endlessly patient. Exceptional with children and easy to train.',
+          scores: { apartment: -1, house: 1, large: 2, rural: 2, low: -1, medium: 1, high: 2, young: 2, older: 2, no: 1, lowGroom: 0, medGroom: 1, highGroom: 2, first: 2, some: 2, experienced: 1 }
+        },
+        {
+          name: 'French Bulldog',
+          emoji: '🐶',
+          url: '/breeds/french-bulldog.html',
+          desc: 'Perfect for apartments and low-activity lifestyles. Big personality in a small package.',
+          scores: { apartment: 3, house: 2, large: 1, rural: 0, low: 3, medium: 1, high: -1, young: 1, older: 2, no: 2, lowGroom: 3, medGroom: 1, highGroom: 0, first: 2, some: 2, experienced: 1 }
+        },
+        {
+          name: 'German Shepherd',
+          emoji: '🐕‍🦺',
+          url: '/breeds/german-shepherd.html',
+          desc: 'Loyal, intelligent, and protective. Thrives with experienced owners who love an active lifestyle.',
+          scores: { apartment: -2, house: 1, large: 2, rural: 3, low: -2, medium: 0, high: 3, young: 1, older: 2, no: 0, lowGroom: 0, medGroom: 1, highGroom: 1, first: -1, some: 1, experienced: 3 }
+        },
+        {
+          name: 'Cavalier King Charles',
+          emoji: '🐾',
+          url: '/breeds/index.html',
+          desc: 'Sweet, gentle, and adaptable. One of the best lap dogs for relaxed households.',
+          scores: { apartment: 3, house: 2, large: 1, rural: 0, low: 3, medium: 2, high: 0, young: 1, older: 2, no: 2, lowGroom: 0, medGroom: 2, highGroom: 1, first: 3, some: 2, experienced: 1 }
+        },
+        {
+          name: 'Border Collie',
+          emoji: '🐕',
+          url: '/breeds/index.html',
+          desc: 'The world\'s most intelligent breed. Needs lots of exercise and mental stimulation every day.',
+          scores: { apartment: -3, house: 0, large: 2, rural: 3, low: -3, medium: 0, high: 3, young: 1, older: 2, no: 0, lowGroom: 1, medGroom: 2, highGroom: 1, first: -2, some: 1, experienced: 3 }
+        },
+        {
+          name: 'Corgi',
+          emoji: '🦊',
+          url: '/breeds/index.html',
+          desc: 'Smart, playful, and surprisingly athletic. Great for active owners in smaller spaces.',
+          scores: { apartment: 1, house: 2, large: 2, rural: 1, low: 0, medium: 2, high: 2, young: 2, older: 2, no: 1, lowGroom: 0, medGroom: 2, highGroom: 1, first: 2, some: 2, experienced: 2 }
+        },
+        {
+          name: 'Shih Tzu',
+          emoji: '🐶',
+          url: '/breeds/index.html',
+          desc: 'Affectionate, low-energy, and happy anywhere. A perfect companion for quieter households.',
+          scores: { apartment: 3, house: 2, large: 1, rural: 0, low: 3, medium: 2, high: -1, young: 0, older: 2, no: 2, lowGroom: -1, medGroom: 1, highGroom: 3, first: 2, some: 2, experienced: 1 }
+        }
+      ];
+
+      // Map answer values to score keys
+      const a1 = answers[1]; // apartment, house, large, rural
+      const a2 = answers[2]; // low, medium, high → energy
+      const a3 = answers[3]; // young, older, no → kids
+      const a4 = answers[4]; // low, medium, high → grooming (add "Groom" suffix)
+      const a5 = answers[5]; // first, some, experienced
+
+      breeds.forEach(b => {
+        b.total = (b.scores[a1] || 0) +
+                  (b.scores[a2] || 0) +
+                  (b.scores[a3] || 0) +
+                  (b.scores[a4 + 'Groom'] || 0) +
+                  (b.scores[a5] || 0);
+      });
+
+      // Sort by score, take top 3
+      const top3 = breeds.sort((a, b) => b.total - a.total).slice(0, 3);
+
+      // Show result panel
+      document.getElementById('resultIntro').textContent =
+        'Based on your lifestyle, here are your top 3 breed matches:';
+
+      const container = document.getElementById('resultBreeds');
+      container.innerHTML = top3.map((b, i) => `
+        <a href="${b.url}" class="result-breed-card">
+          <div class="result-rank">${['🥇','🥈','🥉'][i]}</div>
+          <div class="result-emoji">${b.emoji}</div>
+          <div class="result-info">
+            <strong>${b.name}</strong>
+            <span>${b.desc}</span>
+          </div>
+          <span class="result-arrow">→</span>
+        </a>
+      `).join('');
+
+      document.getElementById('qResult').classList.add('active');
+    }
+
+    function restartQuiz() {
+      // Reset everything
+      Object.keys(answers).forEach(k => delete answers[k]);
+      currentQ = 1;
+      document.querySelectorAll('.quiz-step').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.quiz-opt').forEach(b => b.classList.remove('selected'));
+      document.getElementById('q1').classList.add('active');
+    }
+  </script>
+</body>
+</html>
