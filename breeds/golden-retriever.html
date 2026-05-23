@@ -66,6 +66,14 @@
       <div class="breed-main">
 
         <div class="breed-section">
+          <h2>🎬 Golden Retriever Facts</h2>
+          <p>Watch this video for a quick overview of the Golden Retriever — perfect if you want to see the breed in action before diving into the details.</p>
+          <div class="video-embed">
+            <iframe src="https://www.youtube.com/embed/gQv-12K2vpE" title="Golden Retriever Dog 101: Everything You Need to Know" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <div class="breed-section">
           <h2>🐾 Overview</h2>
           <p>The Golden Retriever is arguably the most universally loved dog breed on the planet. Developed in Scotland in the mid-1800s by Lord Tweedmouth, who crossed a yellow Flat-Coated Retriever with a now-extinct Tweed Water Spaniel, Goldens were bred to retrieve game in the rugged Scottish Highlands — which explains their love of water, gentle mouth, and tireless work ethic.</p>
           <p>What sets Goldens apart is their remarkable emotional intelligence. They seem to understand human emotions deeply, which is why they're among the most commonly used therapy, search-and-rescue, and service dogs in the world. In Seattle's mild, rainy climate, Goldens absolutely thrive — they were born for Pacific Northwest weather.</p>
@@ -74,6 +82,19 @@
             <div class="info-box"><div class="info-box-label">AKC Group</div><div class="info-box-value">Sporting</div></div>
             <div class="info-box"><div class="info-box-label">Bred For</div><div class="info-box-value">Retrieving waterfowl</div></div>
             <div class="info-box"><div class="info-box-label">Coat Type</div><div class="info-box-value">Dense, water-repellent double coat</div></div>
+          </div>
+        </div>
+
+        <div class="breed-section">
+          <h2>📸 Photo Gallery</h2>
+          <p>Real Golden Retrievers — puppies, adults, and seniors in action.</p>
+          <div class="breed-gallery" id="breedGallery">
+            <img class="gallery-photo" id="gp1" alt="Golden Retriever photo 1" />
+            <img class="gallery-photo" id="gp2" alt="Golden Retriever photo 2" />
+            <img class="gallery-photo" id="gp3" alt="Golden Retriever photo 3" />
+            <img class="gallery-photo" id="gp4" alt="Golden Retriever photo 4" />
+            <img class="gallery-photo" id="gp5" alt="Golden Retriever photo 5" />
+            <img class="gallery-photo" id="gp6" alt="Golden Retriever photo 6" />
           </div>
         </div>
 
@@ -219,18 +240,84 @@
       <div class="footer-bottom"><p>© 2024 AllDogFacts. All rights reserved.</p></div>
     </div>
   </footer>
+  <!-- Lightbox overlay -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose">✕</button>
+    <button class="lightbox-prev" id="lightboxPrev">&#9664;</button>
+    <img id="lightboxImg" src="" alt="Enlarged Golden Retriever photo" />
+    <button class="lightbox-next" id="lightboxNext">&#9654;</button>
+  </div>
+
   <script src="../js/main.js"></script>
   <script>
+    let galleryPhotos = [];
+    let currentPhotoIndex = 0;
+
     fetch('https://dog.ceo/api/breed/retriever/golden/images')
       .then(r => r.json())
       .then(data => {
-        const img = document.getElementById('breedPhoto');
-        img.src = data.message[2];
-        img.onload = () => {
-          img.style.display = 'block';
+        const photos = data.message;
+
+        // Hero photo
+        const hero = document.getElementById('breedPhoto');
+        hero.src = photos[2];
+        hero.onload = () => {
+          hero.style.display = 'block';
           document.getElementById('breedEmoji').style.display = 'none';
         };
+
+        // Gallery photos
+        const picks = [8, 12, 20, 30, 50, 55];
+        picks.forEach((index, i) => {
+          const el = document.getElementById('gp' + (i + 1));
+          if (el && photos[index]) {
+            galleryPhotos.push(photos[index]);
+            el.src = photos[index];
+            el.addEventListener('click', () => openLightbox(i));
+          }
+        });
       }).catch(() => {});
+
+    function openLightbox(index) {
+      currentPhotoIndex = index;
+      document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex];
+      document.getElementById('lightbox').classList.add('open');
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+    }
+
+    document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+
+    document.getElementById('lightboxPrev').addEventListener('click', (e) => {
+      e.stopPropagation();
+      currentPhotoIndex = (currentPhotoIndex - 1 + galleryPhotos.length) % galleryPhotos.length;
+      document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex];
+    });
+
+    document.getElementById('lightboxNext').addEventListener('click', (e) => {
+      e.stopPropagation();
+      currentPhotoIndex = (currentPhotoIndex + 1) % galleryPhotos.length;
+      document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex];
+    });
+
+    document.getElementById('lightbox').addEventListener('click', (e) => {
+      if (e.target === e.currentTarget) closeLightbox();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (!document.getElementById('lightbox').classList.contains('open')) return;
+      if (e.key === 'ArrowLeft') {
+        currentPhotoIndex = (currentPhotoIndex - 1 + galleryPhotos.length) % galleryPhotos.length;
+        document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex];
+      } else if (e.key === 'ArrowRight') {
+        currentPhotoIndex = (currentPhotoIndex + 1) % galleryPhotos.length;
+        document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex];
+      } else if (e.key === 'Escape') {
+        closeLightbox();
+      }
+    });
   </script>
 </body>
 </html>
