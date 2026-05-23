@@ -66,6 +66,14 @@
       <div class="breed-main">
 
         <div class="breed-section">
+          <h2>🎬 German Shepherd Facts</h2>
+          <p>Watch this video for a quick overview of the German Shepherd — perfect if you want to see the breed in action before diving into the details.</p>
+          <div class="video-embed">
+            <iframe src="https://www.youtube.com/embed/Ro0jtsvkHII" title="German Shepherd 101 - Everything You Need To Know" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <div class="breed-section">
           <h2>🐾 Overview</h2>
           <p>The German Shepherd is the gold standard of working dogs. Developed in Germany in the late 1800s by Captain Max von Stephanitz, who sought to create the perfect herding dog, the GSD has since become the world's most versatile working breed — serving as police K9s, military dogs, search-and-rescue teams, guide dogs, and beloved family protectors.</p>
           <p>German Shepherds are the second most popular breed in the United States, and for good reason. They combine extraordinary intelligence, loyalty, athleticism, and courage with a deep devotion to their family. A well-bred, well-trained German Shepherd is one of the most magnificent dogs you'll ever encounter.</p>
@@ -74,6 +82,19 @@
             <div class="info-box"><div class="info-box-label">AKC Group</div><div class="info-box-value">Herding</div></div>
             <div class="info-box"><div class="info-box-label">Bred For</div><div class="info-box-value">Herding, guarding, police/military work</div></div>
             <div class="info-box"><div class="info-box-label">Coat Type</div><div class="info-box-value">Double coat — medium or long</div></div>
+          </div>
+        </div>
+
+        <div class="breed-section">
+          <h2>📸 Photo Gallery</h2>
+          <p>Real German Shepherds — working dogs, family companions, and puppies showing the breed's versatility.</p>
+          <div class="breed-gallery" id="breedGallery">
+            <img class="gallery-photo" id="gp1" alt="German Shepherd photo 1" />
+            <img class="gallery-photo" id="gp2" alt="German Shepherd photo 2" />
+            <img class="gallery-photo" id="gp3" alt="German Shepherd photo 3" />
+            <img class="gallery-photo" id="gp4" alt="German Shepherd photo 4" />
+            <img class="gallery-photo" id="gp5" alt="German Shepherd photo 5" />
+            <img class="gallery-photo" id="gp6" alt="German Shepherd photo 6" />
           </div>
         </div>
 
@@ -219,18 +240,80 @@
       <div class="footer-bottom"><p>© 2024 AllDogFacts. All rights reserved.</p></div>
     </div>
   </footer>
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose">✕</button>
+    <button class="lightbox-prev" id="lightboxPrev">&#9664;</button>
+    <img id="lightboxImg" src="" alt="Enlarged dog photo" />
+    <button class="lightbox-next" id="lightboxNext">&#9654;</button>
+  </div>
+
   <script src="../js/main.js"></script>
   <script>
-    fetch('https://dog.ceo/api/breed/germanshepherd/images')
+    let galleryPhotos = [];
+    let currentPhotoIndex = 0;
+
+    fetch('https://dog.ceo/api/breed/german/shepherd/images')
       .then(r => r.json())
       .then(data => {
-        const img = document.getElementById('breedPhoto');
-        img.src = data.message[1];
-        img.onload = () => {
-          img.style.display = 'block';
+        const photos = data.message;
+        const hero = document.getElementById('breedPhoto');
+        hero.src = photos[1];
+        hero.onload = () => {
+          hero.style.display = 'block';
           document.getElementById('breedEmoji').style.display = 'none';
         };
+        const picks = [1, 6, 7, 9, 100, 120];
+        picks.forEach((index, i) => {
+          const el = document.getElementById('gp' + (i + 1));
+          const src = photos[index];
+          if (el && src) {
+            galleryPhotos.push(src);
+            el.src = src;
+            el.addEventListener('click', () => openLightbox(i));
+          }
+        });
       }).catch(() => {});
+
+    function openLightbox(index) {
+      currentPhotoIndex = index;
+      document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex];
+      document.getElementById('lightbox').classList.add('open');
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+    }
+
+    document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+
+    document.getElementById('lightboxPrev').addEventListener('click', (e) => {
+      e.stopPropagation();
+      currentPhotoIndex = (currentPhotoIndex - 1 + galleryPhotos.length) % galleryPhotos.length;
+      document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex];
+    });
+
+    document.getElementById('lightboxNext').addEventListener('click', (e) => {
+      e.stopPropagation();
+      currentPhotoIndex = (currentPhotoIndex + 1) % galleryPhotos.length;
+      document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex];
+    });
+
+    document.getElementById('lightbox').addEventListener('click', (e) => {
+      if (e.target === e.currentTarget) closeLightbox();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (!document.getElementById('lightbox').classList.contains('open')) return;
+      if (e.key === 'ArrowLeft') {
+        currentPhotoIndex = (currentPhotoIndex - 1 + galleryPhotos.length) % galleryPhotos.length;
+        document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex];
+      } else if (e.key === 'ArrowRight') {
+        currentPhotoIndex = (currentPhotoIndex + 1) % galleryPhotos.length;
+        document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex];
+      } else if (e.key === 'Escape') {
+        closeLightbox();
+      }
+    });
   </script>
 </body>
 </html>
