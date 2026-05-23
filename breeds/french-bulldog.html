@@ -66,6 +66,14 @@
       <div class="breed-main">
 
         <div class="breed-section">
+          <h2>🎬 French Bulldog Facts</h2>
+          <p>Watch this video for a quick overview of the French Bulldog — perfect if you want to see the breed in action before diving into the details.</p>
+          <div class="video-embed">
+            <iframe src="https://www.youtube.com/embed/m-RYLhKsuRI" title="French Bulldog Breed Guide | Dogs 101" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <div class="breed-section">
           <h2>🐾 Overview</h2>
           <p>The French Bulldog dethroned the Labrador Retriever as America's most popular breed in 2022 after an unprecedented rise. Originally bred in England from miniature Bulldogs, they were brought to France by lace workers during the Industrial Revolution — hence the name. Parisians fell in love with their bat ears and clown personality, and the rest is history.</p>
           <p>Frenchies are the quintessential urban companion. They don't need much space or intense exercise, they're quiet compared to most breeds, and their compact size makes them perfect for apartments and city life. They pack an enormous personality into a small, wrinkly package — curious, playful, and absolutely devoted to their people.</p>
@@ -74,6 +82,19 @@
             <div class="info-box"><div class="info-box-label">AKC Group</div><div class="info-box-value">Non-Sporting</div></div>
             <div class="info-box"><div class="info-box-label">Bred For</div><div class="info-box-value">Companionship</div></div>
             <div class="info-box"><div class="info-box-label">Coat Type</div><div class="info-box-value">Short, smooth, easy-care</div></div>
+          </div>
+        </div>
+
+        <div class="breed-section">
+          <h2>📸 Photo Gallery</h2>
+          <p>Real French Bulldogs — fawn, brindle, and pied Frenchies showing off their big personalities.</p>
+          <div class="breed-gallery" id="breedGallery">
+            <img class="gallery-photo" id="gp1" alt="French Bulldog photo 1" />
+            <img class="gallery-photo" id="gp2" alt="French Bulldog photo 2" />
+            <img class="gallery-photo" id="gp3" alt="French Bulldog photo 3" />
+            <img class="gallery-photo" id="gp4" alt="French Bulldog photo 4" />
+            <img class="gallery-photo" id="gp5" alt="French Bulldog photo 5" />
+            <img class="gallery-photo" id="gp6" alt="French Bulldog photo 6" />
           </div>
         </div>
 
@@ -221,18 +242,80 @@
       <div class="footer-bottom"><p>© 2024 AllDogFacts. All rights reserved.</p></div>
     </div>
   </footer>
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose">✕</button>
+    <button class="lightbox-prev" id="lightboxPrev">&#9664;</button>
+    <img id="lightboxImg" src="" alt="Enlarged dog photo" />
+    <button class="lightbox-next" id="lightboxNext">&#9654;</button>
+  </div>
+
   <script src="../js/main.js"></script>
   <script>
+    let galleryPhotos = [];
+    let currentPhotoIndex = 0;
+
     fetch('https://dog.ceo/api/breed/bulldog/french/images')
       .then(r => r.json())
       .then(data => {
-        const img = document.getElementById('breedPhoto');
-        img.src = data.message[0];
-        img.onload = () => {
-          img.style.display = 'block';
+        const photos = data.message;
+        const hero = document.getElementById('breedPhoto');
+        hero.src = photos[3];
+        hero.onload = () => {
+          hero.style.display = 'block';
           document.getElementById('breedEmoji').style.display = 'none';
         };
+        const picks = [0, 1, 2, 146, 50, 80];
+        picks.forEach((index, i) => {
+          const el = document.getElementById('gp' + (i + 1));
+          const src = photos[index];
+          if (el && src) {
+            galleryPhotos.push(src);
+            el.src = src;
+            el.addEventListener('click', () => openLightbox(i));
+          }
+        });
       }).catch(() => {});
+
+    function openLightbox(index) {
+      currentPhotoIndex = index;
+      document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex];
+      document.getElementById('lightbox').classList.add('open');
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+    }
+
+    document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+
+    document.getElementById('lightboxPrev').addEventListener('click', (e) => {
+      e.stopPropagation();
+      currentPhotoIndex = (currentPhotoIndex - 1 + galleryPhotos.length) % galleryPhotos.length;
+      document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex];
+    });
+
+    document.getElementById('lightboxNext').addEventListener('click', (e) => {
+      e.stopPropagation();
+      currentPhotoIndex = (currentPhotoIndex + 1) % galleryPhotos.length;
+      document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex];
+    });
+
+    document.getElementById('lightbox').addEventListener('click', (e) => {
+      if (e.target === e.currentTarget) closeLightbox();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (!document.getElementById('lightbox').classList.contains('open')) return;
+      if (e.key === 'ArrowLeft') {
+        currentPhotoIndex = (currentPhotoIndex - 1 + galleryPhotos.length) % galleryPhotos.length;
+        document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex];
+      } else if (e.key === 'ArrowRight') {
+        currentPhotoIndex = (currentPhotoIndex + 1) % galleryPhotos.length;
+        document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex];
+      } else if (e.key === 'Escape') {
+        closeLightbox();
+      }
+    });
   </script>
 </body>
 </html>
