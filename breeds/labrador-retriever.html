@@ -83,6 +83,14 @@
       <!-- MAIN COLUMN -->
       <div class="breed-main">
 
+        <div class="breed-section">
+          <h2>🎬 Labrador Retriever Facts</h2>
+          <p>Watch this video for a quick overview of the Labrador Retriever — perfect if you want to see the breed in action before diving into the details.</p>
+          <div class="video-embed">
+            <iframe src="https://www.youtube.com/embed/QlDMc6N6zfw" title="Everything About the Labrador Retriever | Dogs 101" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+
         <!-- TAB NAVIGATION — like binder dividers, click to switch sections -->
         <nav class="breed-tabs-nav">
           <button class="breed-tab active" data-tab="profile">🐾 Profile</button>
@@ -531,13 +539,14 @@
   <!-- Lightbox overlay (click any gallery photo to enlarge) -->
   <div class="lightbox" id="lightbox">
     <button class="lightbox-close" id="lightboxClose">✕</button>
+    <button class="lightbox-prev" id="lightboxPrev">&#9664;</button>
     <img id="lightboxImg" src="" alt="Enlarged dog photo" />
+    <button class="lightbox-next" id="lightboxNext">&#9654;</button>
   </div>
 
   <script>
-    // "fetch" means: go to a website and bring back data — like asking a librarian for a book
-    // "data.message" is the list of all Labrador photos the API sends back
-    // We pick specific numbers so the same photos always show up
+    let galleryPhotos = [];
+    let currentPhotoIndex = 0;
 
     fetch('https://dog.ceo/api/breed/labrador/images')
       .then(r => r.json())
@@ -552,31 +561,58 @@
           document.getElementById('breedEmoji').style.display = 'none';
         };
 
-        // Gallery photos — each picks a different spot in the album
-        const picks = [8, 15, 22, 30, 40, 55];
+        // Gallery photos — build the galleryPhotos array so arrows can navigate
+        const picks = [8, 15, 25, 38, 17, 62];
         picks.forEach((index, i) => {
           const el = document.getElementById('gp' + (i + 1));
-          if (el && photos[index]) {
-            el.src = photos[index];
-            // clicking a photo opens the lightbox (enlarged view)
-            el.addEventListener('click', () => openLightbox(photos[index]));
+          const src = (i === 4) ? '../images/lab-grass.jpg' : photos[index];
+          if (el && src) {
+            galleryPhotos.push(src);
+            el.src = src;
+            el.addEventListener('click', () => openLightbox(i));
           }
         });
       }).catch(() => {});
 
-    // Lightbox: shows a big version of the photo when you click it
-    function openLightbox(src) {
-      document.getElementById('lightboxImg').src = src;
+    function openLightbox(index) {
+      currentPhotoIndex = index;
+      document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex];
       document.getElementById('lightbox').classList.add('open');
     }
 
-    document.getElementById('lightboxClose').addEventListener('click', () => {
+    function closeLightbox() {
       document.getElementById('lightbox').classList.remove('open');
+    }
+
+    document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+
+    document.getElementById('lightboxPrev').addEventListener('click', (e) => {
+      e.stopPropagation();
+      currentPhotoIndex = (currentPhotoIndex - 1 + galleryPhotos.length) % galleryPhotos.length;
+      document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex];
+    });
+
+    document.getElementById('lightboxNext').addEventListener('click', (e) => {
+      e.stopPropagation();
+      currentPhotoIndex = (currentPhotoIndex + 1) % galleryPhotos.length;
+      document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex];
     });
 
     document.getElementById('lightbox').addEventListener('click', (e) => {
-      if (e.target === e.currentTarget) {
-        document.getElementById('lightbox').classList.remove('open');
+      if (e.target === e.currentTarget) closeLightbox();
+    });
+
+    // Keyboard: left/right arrows to navigate, Escape to close
+    document.addEventListener('keydown', (e) => {
+      if (!document.getElementById('lightbox').classList.contains('open')) return;
+      if (e.key === 'ArrowLeft') {
+        currentPhotoIndex = (currentPhotoIndex - 1 + galleryPhotos.length) % galleryPhotos.length;
+        document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex];
+      } else if (e.key === 'ArrowRight') {
+        currentPhotoIndex = (currentPhotoIndex + 1) % galleryPhotos.length;
+        document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex];
+      } else if (e.key === 'Escape') {
+        closeLightbox();
       }
     });
   </script>
