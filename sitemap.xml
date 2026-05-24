@@ -211,4 +211,7 @@
 
   <url><loc>https://www.alldogfacts.com/breeds/pomsky.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.alldogfacts.com/breeds/schnoodle.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <url><loc>https://www.alldogfacts.com/breeds/yorkipoo.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.alldogfacts.com/breeds/shorkie.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>
