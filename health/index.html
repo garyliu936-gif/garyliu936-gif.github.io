@@ -17,6 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/section-index.css" />
   <link rel="stylesheet" href="../css/health.css" />
 </head>
 <body>
@@ -39,345 +40,317 @@
   </nav>
 
   <!-- HERO -->
-  <section class="hl-hero">
+  <section class="si-hero si-health" style="background:linear-gradient(135deg,#0f172a 0%,#1a3a2a 100%)">
     <div class="container">
-      <span class="hl-hero-tag">Trusted Dog Health Information</span>
-      <h1>Keep Your Dog<br /><span class="hero-highlight">Healthy & Happy</span></h1>
-      <p>From puppy vaccinations to senior dog care — our health guides help you understand what's normal, spot warning signs early, and know when to call your vet.</p>
-      <div class="hl-hero-pills">
-        <a href="#symptoms" class="hl-pill">Symptom Guide</a>
-        <a href="#preventive" class="hl-pill">Preventive Care</a>
-        <a href="#illnesses" class="hl-pill">Common Illnesses</a>
-        <a href="#dental" class="hl-pill">Dental Health</a>
-        <a href="#senior" class="hl-pill">Senior Dogs</a>
+      <div class="si-hero-tag">Trusted Dog Health Information</div>
+      <h1>Dog<br /><span style="color:#86efac">Health</span></h1>
+      <p>From puppy vaccinations to senior dog care — understand what's normal, spot warning signs early, and know exactly when to call your vet.</p>
+      <div class="si-search-wrap">
+        <input type="text" id="hlSearch" placeholder="Search guides... (e.g. vomiting, vaccines, dental)" />
       </div>
     </div>
   </section>
 
-  <!-- EMERGENCY WARNING SIGNS -->
+  <!-- EMERGENCY SIGNS — always visible above filter -->
   <section class="emergency-section">
     <div class="container">
       <div class="emergency-header">
         <span class="emergency-icon">🚨</span>
         <div>
           <h2>Emergency Warning Signs — Call Your Vet Immediately</h2>
-          <p>If your dog shows any of these symptoms, do not wait — contact your vet or emergency animal hospital right away.</p>
+          <p>If your dog shows any of these symptoms, do not wait. Contact your vet or an emergency animal hospital right away.</p>
         </div>
       </div>
       <div class="emergency-grid">
-        <div class="emergency-sign">
-          <span class="e-icon">😮‍💨</span>
-          <div>
-            <strong>Difficulty Breathing</strong>
-            <span>Gasping, blue-tinged gums, or labored breathing at rest</span>
-          </div>
-        </div>
-        <div class="emergency-sign">
-          <span class="e-icon">🫀</span>
-          <div>
-            <strong>Bloated or Distended Belly</strong>
-            <span>Especially in large breeds — can be life-threatening bloat (GDV)</span>
-          </div>
-        </div>
-        <div class="emergency-sign">
-          <span class="e-icon">⚡</span>
-          <div>
-            <strong>Seizures or Collapse</strong>
-            <span>Any seizure lasting more than 2 minutes is a medical emergency</span>
-          </div>
-        </div>
-        <div class="emergency-sign">
-          <span class="e-icon">🩸</span>
-          <div>
-            <strong>Uncontrolled Bleeding</strong>
-            <span>Deep cuts, internal bleeding signs, or blood in vomit / stool</span>
-          </div>
-        </div>
-        <div class="emergency-sign">
-          <span class="e-icon">🤢</span>
-          <div>
-            <strong>Repeated Vomiting or Diarrhea</strong>
-            <span>More than 2–3 times in a few hours, or with blood present</span>
-          </div>
-        </div>
-        <div class="emergency-sign">
-          <span class="e-icon">😵</span>
-          <div>
-            <strong>Loss of Consciousness</strong>
-            <span>Unresponsive, won't wake up, or extreme sudden weakness</span>
-          </div>
-        </div>
-        <div class="emergency-sign">
-          <span class="e-icon">🧪</span>
-          <div>
-            <strong>Known Toxin Ingestion</strong>
-            <span>Ate chocolate, grapes, xylitol, rat poison, or any medication</span>
-          </div>
-        </div>
-        <div class="emergency-sign">
-          <span class="e-icon">🌡️</span>
-          <div>
-            <strong>Suspected Heatstroke</strong>
-            <span>Excessive panting, drooling, stumbling — especially in hot weather</span>
-          </div>
-        </div>
+        <div class="emergency-sign"><span class="e-icon">😮‍💨</span><div><strong>Difficulty Breathing</strong><span>Gasping, blue-tinged gums, or labored breathing at rest</span></div></div>
+        <div class="emergency-sign"><span class="e-icon">🫀</span><div><strong>Bloated or Distended Belly</strong><span>Especially in large breeds — can be life-threatening bloat (GDV)</span></div></div>
+        <div class="emergency-sign"><span class="e-icon">⚡</span><div><strong>Seizures or Collapse</strong><span>Any seizure lasting more than 2 minutes is a medical emergency</span></div></div>
+        <div class="emergency-sign"><span class="e-icon">🩸</span><div><strong>Uncontrolled Bleeding</strong><span>Deep cuts, internal bleeding signs, or blood in vomit / stool</span></div></div>
+        <div class="emergency-sign"><span class="e-icon">🤢</span><div><strong>Repeated Vomiting or Diarrhea</strong><span>More than 2–3 times in a few hours, or with blood present</span></div></div>
+        <div class="emergency-sign"><span class="e-icon">😵</span><div><strong>Loss of Consciousness</strong><span>Unresponsive, won't wake up, or extreme sudden weakness</span></div></div>
+        <div class="emergency-sign"><span class="e-icon">🧪</span><div><strong>Known Toxin Ingestion</strong><span>Ate chocolate, grapes, xylitol, rat poison, or any medication</span></div></div>
+        <div class="emergency-sign"><span class="e-icon">🌡️</span><div><strong>Suspected Heatstroke</strong><span>Excessive panting, drooling, stumbling — especially in hot weather</span></div></div>
       </div>
     </div>
   </section>
 
-  <!-- HEALTH GUIDES -->
-  <section class="hl-guides">
+  <!-- FILTER BAR -->
+  <div class="si-filter-bar">
     <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Complete Guides</span>
-        <h2>Dog Health — Every Topic Covered</h2>
-        <p>In-depth guides written in plain English — no medical degree required.</p>
-      </div>
-
-      <!-- SYMPTOMS -->
-      <div class="hl-category" id="symptoms">
-        <div class="hl-cat-header">
-          <span class="hl-cat-icon">🔍</span>
-          <div>
-            <h3>Recognizing Symptoms</h3>
-            <p>Dogs can't tell you they feel sick. Learn to read the signs before a problem becomes serious.</p>
-          </div>
+      <div class="si-filter-row">
+        <span class="si-filter-label">Topic:</span>
+        <div class="si-chips" id="hlTopicChips">
+          <button class="si-chip active" data-filter="topic" data-value="all">All Guides</button>
+          <button class="si-chip" data-filter="topic" data-value="symptoms">Symptoms</button>
+          <button class="si-chip" data-filter="topic" data-value="preventive">Preventive Care</button>
+          <button class="si-chip" data-filter="topic" data-value="illness">Common Illnesses</button>
+          <button class="si-chip" data-filter="topic" data-value="dental">Dental Health</button>
+          <button class="si-chip" data-filter="topic" data-value="senior">Senior Dogs</button>
         </div>
-        <div class="hl-cards-row">
-          <div class="hl-card priority">
-            <div class="hl-card-badge">Read First</div>
-            <div class="hl-card-icon">🩺</div>
-            <h4>What's Normal vs. What's Not</h4>
-            <p>A complete guide to your dog's baseline health — what their stool, eyes, ears, coat, and energy should look like when they're healthy.</p>
-            <a href="#" class="hl-link">Read guide →</a>
+        <span class="si-results-count" id="hlCount">18 guides</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- GUIDE CARDS -->
+  <section class="si-section si-health">
+    <div class="container">
+      <div class="si-grid" id="hlGrid">
+
+        <!-- SYMPTOMS -->
+        <a href="#" class="gi-card" data-topic="symptoms" data-name="normal vs not dog baseline health coat eyes stool symptoms">
+          <div class="gi-card-top">
+            <span>🩺</span>
+            <span class="gi-start">Read First</span>
+            <span class="gi-topic tc-red">Symptoms</span>
           </div>
-          <div class="hl-card">
-            <div class="hl-card-icon">🤒</div>
-            <h4>Is My Dog Sick? — Symptom Checker</h4>
+          <div class="gi-card-body">
+            <h3>What's Normal vs. What's Not</h3>
+            <p>A complete guide to your dog's baseline health — what stool, eyes, ears, coat, and energy should look like when they're healthy.</p>
+          </div>
+          <div class="gi-card-footer">Read guide <span>→</span></div>
+        </a>
+
+        <a href="#" class="gi-card" data-topic="symptoms" data-name="is my dog sick symptom checker lethargy appetite limping coughing">
+          <div class="gi-card-top">
+            <span>🤒</span>
+            <span class="gi-topic tc-red">Symptoms</span>
+          </div>
+          <div class="gi-card-body">
+            <h3>Is My Dog Sick? — Symptom Checker</h3>
             <p>Lethargy, loss of appetite, limping, coughing — what each symptom means and when it warrants a vet visit.</p>
-            <a href="#" class="hl-link">Read guide →</a>
           </div>
-          <div class="hl-card">
-            <div class="hl-card-icon">🐾</div>
-            <h4>Limping and Joint Pain</h4>
+          <div class="gi-card-footer">Read guide <span>→</span></div>
+        </a>
+
+        <a href="#" class="gi-card" data-topic="symptoms" data-name="limping joint pain leg lame limp injury symptoms">
+          <div class="gi-card-top">
+            <span>🐾</span>
+            <span class="gi-topic tc-red">Symptoms</span>
+          </div>
+          <div class="gi-card-body">
+            <h3>Limping and Joint Pain</h3>
             <p>Occasional limping vs. chronic lameness — causes, at-home assessment, and when to seek treatment.</p>
-            <a href="#" class="hl-link">Read guide →</a>
           </div>
-          <div class="hl-card">
-            <div class="hl-card-icon">💧</div>
-            <h4>Vomiting & Diarrhea — When to Worry</h4>
-            <p>A clear decision guide: treat at home vs. call the vet. Includes hydration tips and what to feed a sick dog.</p>
-            <a href="#" class="hl-link">Read guide →</a>
-          </div>
-        </div>
-      </div>
+          <div class="gi-card-footer">Read guide <span>→</span></div>
+        </a>
 
-      <!-- PREVENTIVE CARE -->
-      <div class="hl-category" id="preventive">
-        <div class="hl-cat-header">
-          <span class="hl-cat-icon">🛡️</span>
-          <div>
-            <h3>Preventive Care</h3>
-            <p>The most powerful tool for your dog's health isn't medicine — it's prevention.</p>
+        <a href="#" class="gi-card" data-topic="symptoms" data-name="vomiting diarrhea when to worry stomach upset sick dog symptoms">
+          <div class="gi-card-top">
+            <span>💧</span>
+            <span class="gi-topic tc-red">Symptoms</span>
           </div>
-        </div>
-        <div class="hl-cards-row">
-          <div class="hl-card priority">
-            <div class="hl-card-badge">Essential</div>
-            <div class="hl-card-icon">💉</div>
-            <h4>Vaccination Schedule — Puppy to Adult</h4>
+          <div class="gi-card-body">
+            <h3>Vomiting & Diarrhea — When to Worry</h3>
+            <p>A clear decision guide: treat at home vs. call the vet now. Includes hydration tips and what to feed a sick dog.</p>
+          </div>
+          <div class="gi-card-footer">Read guide <span>→</span></div>
+        </a>
+
+        <!-- PREVENTIVE CARE -->
+        <a href="#" class="gi-card" data-topic="preventive" data-name="vaccination schedule puppy adult shots required rabies distemper preventive">
+          <div class="gi-card-top">
+            <span>💉</span>
+            <span class="gi-start">Essential</span>
+            <span class="gi-topic tc-green">Preventive Care</span>
+          </div>
+          <div class="gi-card-body">
+            <h3>Vaccination Schedule — Puppy to Adult</h3>
             <p>Which vaccines your dog needs, when to give them, which are required by law, and what to expect after each shot.</p>
-            <a href="#" class="hl-link">Read guide →</a>
           </div>
-          <div class="hl-card">
-            <div class="hl-card-icon">🦟</div>
-            <h4>Fleas, Ticks & Heartworm Prevention</h4>
-            <p>Monthly prevention options compared — oral pills vs. topicals vs. collars. What works, what doesn't, and what's safe.</p>
-            <a href="#" class="hl-link">Read guide →</a>
+          <div class="gi-card-footer">Read guide <span>→</span></div>
+        </a>
+
+        <a href="#" class="gi-card" data-topic="preventive" data-name="fleas ticks heartworm prevention monthly treatment topical oral preventive">
+          <div class="gi-card-top">
+            <span>🦟</span>
+            <span class="gi-topic tc-green">Preventive Care</span>
           </div>
-          <div class="hl-card">
-            <div class="hl-card-icon">🏥</div>
-            <h4>How Often Should I Take My Dog to the Vet?</h4>
+          <div class="gi-card-body">
+            <h3>Fleas, Ticks & Heartworm Prevention</h3>
+            <p>Monthly prevention options compared — oral pills vs. topicals vs. collars. What works, what doesn't, what's safe.</p>
+          </div>
+          <div class="gi-card-footer">Read guide <span>→</span></div>
+        </a>
+
+        <a href="#" class="gi-card" data-topic="preventive" data-name="how often vet visit annual checkup wellness exam preventive">
+          <div class="gi-card-top">
+            <span>🏥</span>
+            <span class="gi-topic tc-green">Preventive Care</span>
+          </div>
+          <div class="gi-card-body">
+            <h3>How Often Should I Take My Dog to the Vet?</h3>
             <p>Annual vs. bi-annual checkups, what the vet checks at each visit, and how to get the most out of your appointment.</p>
-            <a href="#" class="hl-link">Read guide →</a>
           </div>
-          <div class="hl-card">
-            <div class="hl-card-icon">⚖️</div>
-            <h4>Keeping Your Dog at a Healthy Weight</h4>
-            <p>60% of US dogs are overweight. How to assess your dog's body condition, reduce weight safely, and prevent weight gain.</p>
-            <a href="#" class="hl-link">Read guide →</a>
-          </div>
-        </div>
-      </div>
+          <div class="gi-card-footer">Read guide <span>→</span></div>
+        </a>
 
-      <!-- COMMON ILLNESSES -->
-      <div class="hl-category" id="illnesses">
-        <div class="hl-cat-header">
-          <span class="hl-cat-icon">🏨</span>
-          <div>
-            <h3>Common Illnesses</h3>
-            <p>The most frequently diagnosed conditions in dogs — what causes them, how they're treated, and what to expect.</p>
+        <a href="#" class="gi-card" data-topic="preventive" data-name="healthy weight overweight obese body condition score diet preventive">
+          <div class="gi-card-top">
+            <span>⚖️</span>
+            <span class="gi-topic tc-green">Preventive Care</span>
           </div>
-        </div>
-        <div class="hl-cards-row">
-          <div class="hl-card">
-            <div class="hl-card-icon">😤</div>
-            <h4>Kennel Cough — Causes & Treatment</h4>
+          <div class="gi-card-body">
+            <h3>Keeping Your Dog at a Healthy Weight</h3>
+            <p>60% of US dogs are overweight. How to assess your dog's body condition, reduce weight safely, and prevent gain.</p>
+          </div>
+          <div class="gi-card-footer">Read guide <span>→</span></div>
+        </a>
+
+        <!-- COMMON ILLNESSES -->
+        <a href="#" class="gi-card" data-topic="illness" data-name="kennel cough bordetella respiratory illness contagious treatment">
+          <div class="gi-card-top">
+            <span>😤</span>
+            <span class="gi-topic tc-orange">Common Illnesses</span>
+          </div>
+          <div class="gi-card-body">
+            <h3>Kennel Cough — Causes & Treatment</h3>
             <p>The most common respiratory illness in dogs. Highly contagious but usually mild — here's what to do if your dog gets it.</p>
-            <a href="#" class="hl-link">Read guide →</a>
           </div>
-          <div class="hl-card">
-            <div class="hl-card-icon">🦴</div>
-            <h4>Hip Dysplasia — Breeds, Signs & Options</h4>
+          <div class="gi-card-footer">Read guide <span>→</span></div>
+        </a>
+
+        <a href="#" class="gi-card" data-topic="illness" data-name="hip dysplasia large breed joint pain signs treatment surgery illness">
+          <div class="gi-card-top">
+            <span>🦴</span>
+            <span class="gi-topic tc-orange">Common Illnesses</span>
+          </div>
+          <div class="gi-card-body">
+            <h3>Hip Dysplasia — Breeds, Signs & Options</h3>
             <p>Affects 15–20% of large breed dogs. Understanding the condition, managing pain, and what treatment looks like.</p>
-            <a href="#" class="hl-link">Read guide →</a>
           </div>
-          <div class="hl-card">
-            <div class="hl-card-icon">🐾</div>
-            <h4>Allergies in Dogs — Skin, Food & Environment</h4>
+          <div class="gi-card-footer">Read guide <span>→</span></div>
+        </a>
+
+        <a href="#" class="gi-card" data-topic="illness" data-name="allergies itching skin paw licking ear infections food environmental illness">
+          <div class="gi-card-top">
+            <span>🌿</span>
+            <span class="gi-topic tc-orange">Common Illnesses</span>
+          </div>
+          <div class="gi-card-body">
+            <h3>Allergies in Dogs — Skin, Food & Environment</h3>
             <p>Itching, paw licking, and ear infections can all be allergies. How to identify the trigger and find lasting relief.</p>
-            <a href="#" class="hl-link">Read guide →</a>
           </div>
-          <div class="hl-card">
-            <div class="hl-card-icon">🦮</div>
-            <h4>Parvovirus — Prevention is Everything</h4>
+          <div class="gi-card-footer">Read guide <span>→</span></div>
+        </a>
+
+        <a href="#" class="gi-card" data-topic="illness" data-name="parvovirus parvo deadly puppy unvaccinated prevention emergency illness">
+          <div class="gi-card-top">
+            <span>🦠</span>
+            <span class="gi-topic tc-orange">Common Illnesses</span>
+          </div>
+          <div class="gi-card-body">
+            <h3>Parvovirus — Prevention is Everything</h3>
             <p>A deadly virus in unvaccinated puppies. Understanding parvo, the vaccination timeline, and what to do if exposed.</p>
-            <a href="#" class="hl-link">Read guide →</a>
           </div>
-        </div>
-      </div>
+          <div class="gi-card-footer">Read guide <span>→</span></div>
+        </a>
 
-      <!-- DENTAL -->
-      <div class="hl-category" id="dental">
-        <div class="hl-cat-header">
-          <span class="hl-cat-icon">🦷</span>
-          <div>
-            <h3>Dental Health</h3>
-            <p>80% of dogs over age 3 have dental disease — and most owners don't realize it.</p>
+        <!-- DENTAL HEALTH -->
+        <a href="#" class="gi-card" data-topic="dental" data-name="how to brush dog teeth dental hygiene toothpaste step by step dental">
+          <div class="gi-card-top">
+            <span>🪥</span>
+            <span class="gi-start">Overlooked</span>
+            <span class="gi-topic tc-teal">Dental Health</span>
           </div>
-        </div>
-        <div class="hl-cards-row">
-          <div class="hl-card priority">
-            <div class="hl-card-badge">Overlooked</div>
-            <div class="hl-card-icon">🪥</div>
-            <h4>How to Brush Your Dog's Teeth</h4>
-            <p>Step-by-step guide for dogs who hate having their teeth touched. Takes 2 minutes a day and prevents thousands in vet bills.</p>
-            <a href="#" class="hl-link">Read guide →</a>
+          <div class="gi-card-body">
+            <h3>How to Brush Your Dog's Teeth</h3>
+            <p>Step-by-step for dogs who hate teeth-brushing. Takes 2 minutes a day and prevents thousands in vet bills.</p>
           </div>
-          <div class="hl-card">
-            <div class="hl-card-icon">👄</div>
-            <h4>Signs of Dental Disease</h4>
+          <div class="gi-card-footer">Read guide <span>→</span></div>
+        </a>
+
+        <a href="#" class="gi-card" data-topic="dental" data-name="dental disease signs gum disease tartar bad breath tooth pain dental">
+          <div class="gi-card-top">
+            <span>👄</span>
+            <span class="gi-topic tc-teal">Dental Health</span>
+          </div>
+          <div class="gi-card-body">
+            <h3>Signs of Dental Disease</h3>
             <p>Bad breath is not normal — it's a symptom. How to spot gum disease, tooth pain, and when a dental cleaning is needed.</p>
-            <a href="#" class="hl-link">Read guide →</a>
           </div>
-          <div class="hl-card">
-            <div class="hl-card-icon">🦴</div>
-            <h4>Best Dental Chews — What Actually Works</h4>
-            <p>Not all dental chews are equal. We review the ones with actual clinical evidence behind them vs. the marketing hype.</p>
-            <a href="#" class="hl-link">Read guide →</a>
-          </div>
-        </div>
-      </div>
+          <div class="gi-card-footer">Read guide <span>→</span></div>
+        </a>
 
-      <!-- SENIOR -->
-      <div class="hl-category" id="senior">
-        <div class="hl-cat-header">
-          <span class="hl-cat-icon">🐾</span>
-          <div>
-            <h3>Senior Dog Care</h3>
-            <p>Dogs age faster than we do. Here's how to adjust their care as they enter their golden years.</p>
+        <a href="#" class="gi-card" data-topic="dental" data-name="dental chews best clinical evidence greenies oravet review dental">
+          <div class="gi-card-top">
+            <span>🦴</span>
+            <span class="gi-topic tc-teal">Dental Health</span>
           </div>
-        </div>
-        <div class="hl-cards-row">
-          <div class="hl-card priority">
-            <div class="hl-card-badge">Important</div>
-            <div class="hl-card-icon">📅</div>
-            <h4>When Is a Dog "Senior"?</h4>
-            <p>Small breeds age slower than large breeds. A complete breakdown by breed size — and what health changes to expect at each stage.</p>
-            <a href="#" class="hl-link">Read guide →</a>
+          <div class="gi-card-body">
+            <h3>Best Dental Chews — What Actually Works</h3>
+            <p>Not all dental chews are equal. We review the ones with actual clinical evidence vs. the marketing hype.</p>
           </div>
-          <div class="hl-card">
-            <div class="hl-card-icon">💊</div>
-            <h4>Arthritis & Joint Pain in Older Dogs</h4>
+          <div class="gi-card-footer">Read guide <span>→</span></div>
+        </a>
+
+        <!-- SENIOR DOGS -->
+        <a href="#" class="gi-card" data-topic="senior" data-name="when is dog senior age size breed life stage changes senior">
+          <div class="gi-card-top">
+            <span>📅</span>
+            <span class="gi-start">Important</span>
+            <span class="gi-topic tc-purple">Senior Dogs</span>
+          </div>
+          <div class="gi-card-body">
+            <h3>When Is a Dog "Senior"?</h3>
+            <p>Small breeds age slower than large breeds. A full breakdown by size — and what health changes to expect at each stage.</p>
+          </div>
+          <div class="gi-card-footer">Read guide <span>→</span></div>
+        </a>
+
+        <a href="#" class="gi-card" data-topic="senior" data-name="arthritis joint pain older senior dog treatment supplements pain management">
+          <div class="gi-card-top">
+            <span>💊</span>
+            <span class="gi-topic tc-purple">Senior Dogs</span>
+          </div>
+          <div class="gi-card-body">
+            <h3>Arthritis & Joint Pain in Older Dogs</h3>
             <p>The most common condition in senior dogs. Symptoms, treatments, supplements, and home modifications that help.</p>
-            <a href="#" class="hl-link">Read guide →</a>
           </div>
-          <div class="hl-card">
-            <div class="hl-card-icon">🧠</div>
-            <h4>Canine Cognitive Dysfunction (Dog Dementia)</h4>
-            <p>Signs of doggy dementia — confusion, night wandering, changed behavior. Management strategies that improve quality of life.</p>
-            <a href="#" class="hl-link">Read guide →</a>
-          </div>
-        </div>
-      </div>
+          <div class="gi-card-footer">Read guide <span>→</span></div>
+        </a>
 
+        <a href="#" class="gi-card" data-topic="senior" data-name="canine cognitive dysfunction dog dementia confusion night wandering senior">
+          <div class="gi-card-top">
+            <span>🧠</span>
+            <span class="gi-topic tc-purple">Senior Dogs</span>
+          </div>
+          <div class="gi-card-body">
+            <h3>Canine Cognitive Dysfunction (Dog Dementia)</h3>
+            <p>Signs of doggy dementia — confusion, night wandering, changed behavior. Management strategies that improve quality of life.</p>
+          </div>
+          <div class="gi-card-footer">Read guide <span>→</span></div>
+        </a>
+
+        <div class="si-no-results" id="hlNoResults">
+          <div class="nr-emoji">🏥</div>
+          <p>No guides match that search. Try a different keyword or browse all guides.</p>
+        </div>
+
+      </div>
     </div>
   </section>
 
-  <!-- QUICK SYMPTOM CHECKER -->
+  <!-- SYMPTOM QUICK REFERENCE -->
   <section class="symptom-checker">
     <div class="container">
       <div class="section-header">
         <span class="section-tag">Quick Reference</span>
         <h2>Common Symptoms — At a Glance</h2>
-        <p>A fast reference guide. Not a substitute for veterinary advice — when in doubt, call your vet.</p>
+        <p>A fast reference guide. Not a substitute for veterinary advice — when in doubt, always call your vet.</p>
       </div>
       <div class="symptom-table">
-        <div class="symptom-row header-row">
-          <span>Symptom</span>
-          <span>Possible Causes</span>
-          <span>Action</span>
-        </div>
-        <div class="symptom-row">
-          <span class="sym-name">🤢 Vomiting (once or twice)</span>
-          <span>Ate too fast, grass, mild upset</span>
-          <span class="sym-action watch">Monitor 24 hrs</span>
-        </div>
-        <div class="symptom-row">
-          <span class="sym-name">🤮 Vomiting (repeated / with blood)</span>
-          <span>Obstruction, toxin, parvo, pancreatitis</span>
-          <span class="sym-action urgent">Call vet now</span>
-        </div>
-        <div class="symptom-row">
-          <span class="sym-name">😴 Lethargy (mild)</span>
-          <span>Tired after exercise, hot day, mild illness</span>
-          <span class="sym-action watch">Monitor 24–48 hrs</span>
-        </div>
-        <div class="symptom-row">
-          <span class="sym-name">😴 Lethargy (sudden, severe)</span>
-          <span>Infection, internal bleeding, heart issue</span>
-          <span class="sym-action urgent">Call vet now</span>
-        </div>
-        <div class="symptom-row">
-          <span class="sym-name">🦶 Limping (sudden, mild)</span>
-          <span>Paw injury, muscle strain</span>
-          <span class="sym-action watch">Rest, check paw, monitor</span>
-        </div>
-        <div class="symptom-row">
-          <span class="sym-name">🦶 Limping (won't bear weight)</span>
-          <span>Fracture, dislocation, severe injury</span>
-          <span class="sym-action urgent">See vet today</span>
-        </div>
-        <div class="symptom-row">
-          <span class="sym-name">🍽️ Won't eat (1–2 meals)</span>
-          <span>Stress, hot weather, mild illness</span>
-          <span class="sym-action watch">Monitor, offer bland food</span>
-        </div>
-        <div class="symptom-row">
-          <span class="sym-name">🍽️ Won't eat (more than 2 days)</span>
-          <span>Dental pain, obstruction, serious illness</span>
-          <span class="sym-action urgent">Call vet</span>
-        </div>
-        <div class="symptom-row">
-          <span class="sym-name">😮‍💨 Coughing (occasional)</span>
-          <span>Kennel cough, allergies, minor irritation</span>
-          <span class="sym-action watch">Monitor 48 hrs</span>
-        </div>
-        <div class="symptom-row">
-          <span class="sym-name">😮‍💨 Coughing + breathing difficulty</span>
-          <span>Heart disease, pneumonia, tracheal collapse</span>
-          <span class="sym-action urgent">Call vet now</span>
-        </div>
+        <div class="symptom-row header-row"><span>Symptom</span><span>Possible Causes</span><span>Action</span></div>
+        <div class="symptom-row"><span class="sym-name">🤢 Vomiting (once or twice)</span><span>Ate too fast, grass, mild upset</span><span class="sym-action watch">Monitor 24 hrs</span></div>
+        <div class="symptom-row"><span class="sym-name">🤮 Vomiting (repeated / with blood)</span><span>Obstruction, toxin, parvo, pancreatitis</span><span class="sym-action urgent">Call vet now</span></div>
+        <div class="symptom-row"><span class="sym-name">😴 Lethargy (mild)</span><span>Tired, hot day, mild illness</span><span class="sym-action watch">Monitor 24–48 hrs</span></div>
+        <div class="symptom-row"><span class="sym-name">😴 Lethargy (sudden, severe)</span><span>Infection, internal bleeding, heart issue</span><span class="sym-action urgent">Call vet now</span></div>
+        <div class="symptom-row"><span class="sym-name">🦶 Limping (sudden, mild)</span><span>Paw injury, muscle strain</span><span class="sym-action watch">Rest, check paw, monitor</span></div>
+        <div class="symptom-row"><span class="sym-name">🦶 Limping (won't bear weight)</span><span>Fracture, dislocation, severe injury</span><span class="sym-action urgent">See vet today</span></div>
+        <div class="symptom-row"><span class="sym-name">🍽️ Won't eat (1–2 meals)</span><span>Stress, hot weather, mild illness</span><span class="sym-action watch">Monitor, offer bland food</span></div>
+        <div class="symptom-row"><span class="sym-name">🍽️ Won't eat (more than 2 days)</span><span>Dental pain, obstruction, serious illness</span><span class="sym-action urgent">Call vet</span></div>
+        <div class="symptom-row"><span class="sym-name">😮‍💨 Coughing (occasional)</span><span>Kennel cough, allergies, minor irritation</span><span class="sym-action watch">Monitor 48 hrs</span></div>
+        <div class="symptom-row"><span class="sym-name">😮‍💨 Coughing + breathing difficulty</span><span>Heart disease, pneumonia, tracheal collapse</span><span class="sym-action urgent">Call vet now</span></div>
       </div>
       <p class="symptom-disclaimer">⚠️ This table is for general guidance only. Your vet is always the right call when you are unsure.</p>
     </div>
@@ -391,22 +364,10 @@
         <h2>Dog Health by the Numbers</h2>
       </div>
       <div class="hl-facts-grid">
-        <div class="hl-fact-card">
-          <span class="hl-fact-num">80%</span>
-          <p>of dogs over age 3 have some form of dental disease — the most preventable health issue in pets.</p>
-        </div>
-        <div class="hl-fact-card">
-          <span class="hl-fact-num">60%</span>
-          <p>of US dogs are overweight or obese, shortening their life expectancy by up to 2 years.</p>
-        </div>
-        <div class="hl-fact-card">
-          <span class="hl-fact-num">$1,500</span>
-          <p>is the average emergency vet bill — pet insurance typically pays for itself after just one unexpected visit.</p>
-        </div>
-        <div class="hl-fact-card">
-          <span class="hl-fact-num">2× faster</span>
-          <p>Cancers are detected earlier and survival rates are higher with annual vet checkups vs. going only when sick.</p>
-        </div>
+        <div class="hl-fact-card"><span class="hl-fact-num">80%</span><p>of dogs over age 3 have some form of dental disease — the most preventable health issue in pets.</p></div>
+        <div class="hl-fact-card"><span class="hl-fact-num">60%</span><p>of US dogs are overweight or obese, shortening their life expectancy by up to 2 years.</p></div>
+        <div class="hl-fact-card"><span class="hl-fact-num">$1,500</span><p>is the average emergency vet bill — pet insurance typically pays for itself after just one unexpected visit.</p></div>
+        <div class="hl-fact-card"><span class="hl-fact-num">2× faster</span><p>Cancers are detected earlier and survival rates are higher with annual vet checkups vs. going only when sick.</p></div>
       </div>
     </div>
   </section>
@@ -422,11 +383,11 @@
         <div class="footer-col">
           <h4>Health Topics</h4>
           <ul>
-            <li><a href="#symptoms">Symptom Guide</a></li>
-            <li><a href="#preventive">Preventive Care</a></li>
-            <li><a href="#illnesses">Common Illnesses</a></li>
-            <li><a href="#dental">Dental Health</a></li>
-            <li><a href="#senior">Senior Dogs</a></li>
+            <li><a href="#">Symptom Guide</a></li>
+            <li><a href="#">Preventive Care</a></li>
+            <li><a href="#">Common Illnesses</a></li>
+            <li><a href="#">Dental Health</a></li>
+            <li><a href="#">Senior Dogs</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -454,5 +415,37 @@
   </footer>
 
   <script src="../js/main.js"></script>
+  <script>
+    const hlSearch = document.getElementById('hlSearch');
+    const hlFilters = { topic: 'all' };
+
+    hlSearch.addEventListener('input', filterHl);
+
+    document.querySelectorAll('#hlTopicChips .si-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        hlFilters.topic = chip.dataset.value;
+        chip.closest('.si-chips').querySelectorAll('.si-chip').forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        filterHl();
+      });
+    });
+
+    function filterHl() {
+      const q = hlSearch.value.toLowerCase().trim();
+      const cards = document.querySelectorAll('#hlGrid .gi-card');
+      let visible = 0;
+      cards.forEach(card => {
+        const topic = card.dataset.topic || '';
+        const name  = card.dataset.name  || '';
+        const matchTopic  = hlFilters.topic === 'all' || topic === hlFilters.topic;
+        const matchSearch = !q || name.includes(q);
+        if (matchTopic && matchSearch) { card.classList.remove('hidden'); visible++; }
+        else card.classList.add('hidden');
+      });
+      document.getElementById('hlCount').textContent = `${visible} guide${visible !== 1 ? 's' : ''}`;
+      document.getElementById('hlNoResults').classList.toggle('show', visible === 0);
+    }
+    filterHl();
+  </script>
 </body>
 </html>

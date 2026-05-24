@@ -17,6 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/section-index.css" />
   <link rel="stylesheet" href="../css/nutrition.css" />
 </head>
 <body>
@@ -39,22 +40,172 @@
   </nav>
 
   <!-- HERO -->
-  <section class="nu-hero">
+  <section class="si-hero si-nutrition" style="background:linear-gradient(135deg,#0f172a 0%,#3b1f05 100%)">
     <div class="container">
-      <span class="nu-hero-tag">Evidence-Based Feeding Advice</span>
-      <h1>Feed Your Dog<br /><span class="hero-highlight">Right</span></h1>
-      <p>What your dog eats affects everything — their weight, coat, energy, joints, and lifespan. Our guides help you choose the right food, feed the right amount, and avoid dangerous mistakes.</p>
-      <div class="nu-hero-pills">
-        <a href="#feeding-guide" class="nu-pill">Feeding Guide</a>
-        <a href="#food-types" class="nu-pill">Food Types</a>
-        <a href="#toxic" class="nu-pill">Toxic Foods</a>
-        <a href="#treats" class="nu-pill">Treats & Chews</a>
-        <a href="#articles" class="nu-pill">All Guides</a>
+      <div class="si-hero-tag">Evidence-Based Feeding Advice</div>
+      <h1>Dog<br /><span style="color:#fbbf24">Nutrition</span></h1>
+      <p>What your dog eats affects everything — weight, coat, energy, joints, and lifespan. Find the right food, the right amount, and avoid dangerous mistakes.</p>
+      <div class="si-search-wrap">
+        <input type="text" id="nuSearch" placeholder="Search guides... (e.g. puppy, toxic, raw food)" />
       </div>
     </div>
   </section>
 
-  <!-- TOXIC FOODS — High priority, high search value -->
+  <!-- FILTER BAR -->
+  <div class="si-filter-bar">
+    <div class="container">
+      <div class="si-filter-row">
+        <span class="si-filter-label">Topic:</span>
+        <div class="si-chips" id="nuTopicChips">
+          <button class="si-chip active" data-filter="topic" data-value="all">All Guides</button>
+          <button class="si-chip" data-filter="topic" data-value="feeding">Feeding Guide</button>
+          <button class="si-chip" data-filter="topic" data-value="food-types">Food Types</button>
+          <button class="si-chip" data-filter="topic" data-value="safety">Toxic & Safe Foods</button>
+          <button class="si-chip" data-filter="topic" data-value="treats">Treats & Chews</button>
+          <button class="si-chip" data-filter="topic" data-value="supplements">Supplements</button>
+        </div>
+        <span class="si-results-count" id="nuCount">10 guides</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- GUIDE CARDS -->
+  <section class="si-section si-nutrition">
+    <div class="container">
+      <div class="si-grid" id="nuGrid">
+
+        <a href="#" class="gi-card" data-topic="food-types" data-name="how to choose best dog food label ingredients aafco quality">
+          <div class="gi-card-top">
+            <span>🏆</span>
+            <span class="gi-start">Start Here</span>
+            <span class="gi-topic tc-amber">Food Types</span>
+          </div>
+          <div class="gi-card-body">
+            <h3>How to Choose the Best Dog Food</h3>
+            <p>How to read a dog food label, what ingredients to look for, which to avoid, and what the AAFCO statement means.</p>
+          </div>
+          <div class="gi-card-footer">Read guide <span>→</span></div>
+        </a>
+
+        <a href="#" class="gi-card" data-topic="safety" data-name="toxic foods never feed dogs chocolate grapes xylitol onion garlic dangerous poison">
+          <div class="gi-card-top">
+            <span>⚠️</span>
+            <span class="gi-start">Must Know</span>
+            <span class="gi-topic tc-red">Toxic & Safe</span>
+          </div>
+          <div class="gi-card-body">
+            <h3>Foods That Are Toxic to Dogs</h3>
+            <p>Chocolate, grapes, xylitol, onions — these can cause serious illness or death. Every owner needs to know this list.</p>
+          </div>
+          <div class="gi-card-footer">Read guide <span>→</span></div>
+        </a>
+
+        <a href="#" class="gi-card" data-topic="feeding" data-name="daily feeding guide how much feed dog size weight cups amount">
+          <div class="gi-card-top">
+            <span>🥣</span>
+            <span class="gi-topic tc-teal">Feeding Guide</span>
+          </div>
+          <div class="gi-card-body">
+            <h3>Daily Feeding Guide by Dog Size</h3>
+            <p>Toy to giant breeds — how many cups per day, how many meals, and how to adjust for activity level and age.</p>
+          </div>
+          <div class="gi-card-footer">Read guide <span>→</span></div>
+        </a>
+
+        <a href="#" class="gi-card" data-topic="feeding" data-name="puppy feeding guide week by week when switch adult food schedule amount">
+          <div class="gi-card-top">
+            <span>🐣</span>
+            <span class="gi-topic tc-teal">Feeding Guide</span>
+          </div>
+          <div class="gi-card-body">
+            <h3>Puppy Feeding Guide — Week by Week</h3>
+            <p>When to switch from mother's milk, how often to feed, and how to transition to adult food at the right time.</p>
+          </div>
+          <div class="gi-card-footer">Read guide <span>→</span></div>
+        </a>
+
+        <a href="#" class="gi-card" data-topic="feeding" data-name="dog overweight obese body condition score weight loss diet calories">
+          <div class="gi-card-top">
+            <span>⚖️</span>
+            <span class="gi-topic tc-teal">Feeding Guide</span>
+          </div>
+          <div class="gi-card-body">
+            <h3>Is My Dog Overweight? How to Tell & Fix It</h3>
+            <p>How to assess body condition score, calculate calories, and safely reduce weight without nutritional deficiency.</p>
+          </div>
+          <div class="gi-card-footer">Read guide <span>→</span></div>
+        </a>
+
+        <a href="#" class="gi-card" data-topic="treats" data-name="best dog treats healthy unhealthy training reward 10 percent calorie">
+          <div class="gi-card-top">
+            <span>🦴</span>
+            <span class="gi-topic tc-green">Treats & Chews</span>
+          </div>
+          <div class="gi-card-body">
+            <h3>Best Dog Treats — Healthy vs. Harmful</h3>
+            <p>Treats should be under 10% of daily calories. The safest options, what to avoid, and how to use them in training.</p>
+          </div>
+          <div class="gi-card-footer">Read guide <span>→</span></div>
+        </a>
+
+        <a href="#" class="gi-card" data-topic="supplements" data-name="dog supplements fish oil glucosamine probiotics omega what works evidence">
+          <div class="gi-card-top">
+            <span>💊</span>
+            <span class="gi-topic tc-purple">Supplements</span>
+          </div>
+          <div class="gi-card-body">
+            <h3>Dog Supplements — What Actually Works</h3>
+            <p>Fish oil, glucosamine, probiotics, and more — which supplements have real science behind them and who needs them.</p>
+          </div>
+          <div class="gi-card-footer">Read guide <span>→</span></div>
+        </a>
+
+        <a href="#" class="gi-card" data-topic="safety" data-name="safe human foods dogs can eat carrots blueberries chicken eggs banana">
+          <div class="gi-card-top">
+            <span>🥕</span>
+            <span class="gi-topic tc-green">Toxic & Safe</span>
+          </div>
+          <div class="gi-card-body">
+            <h3>Safe Human Foods for Dogs</h3>
+            <p>Which human foods dogs can safely eat as treats — carrots, blueberries, chicken, eggs, and more with serving tips.</p>
+          </div>
+          <div class="gi-card-footer">Read guide <span>→</span></div>
+        </a>
+
+        <a href="#" class="gi-card" data-topic="food-types" data-name="large breed vs small breed food difference calcium phosphorus puppy joint">
+          <div class="gi-card-top">
+            <span>🐕</span>
+            <span class="gi-topic tc-amber">Food Types</span>
+          </div>
+          <div class="gi-card-body">
+            <h3>Large Breed vs. Small Breed Food</h3>
+            <p>Large breed puppies need different calcium ratios to prevent joint problems. Why breed-specific food actually matters.</p>
+          </div>
+          <div class="gi-card-footer">Read guide <span>→</span></div>
+        </a>
+
+        <a href="#" class="gi-card" data-topic="feeding" data-name="how to switch dog food without stomach upset diarrhea transition 7 days">
+          <div class="gi-card-top">
+            <span>🔄</span>
+            <span class="gi-topic tc-teal">Feeding Guide</span>
+          </div>
+          <div class="gi-card-body">
+            <h3>How to Switch Dog Food Without Stomach Upset</h3>
+            <p>Sudden food changes cause diarrhea in 90% of dogs. A proven 7-day transition plan that works with every food type.</p>
+          </div>
+          <div class="gi-card-footer">Read guide <span>→</span></div>
+        </a>
+
+        <div class="si-no-results" id="nuNoResults">
+          <div class="nr-emoji">🍽️</div>
+          <p>No guides match that search. Try a different keyword or browse all guides.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TOXIC FOODS QUICK REFERENCE -->
   <section class="toxic-section" id="toxic">
     <div class="container">
       <div class="toxic-header">
@@ -65,359 +216,42 @@
         </div>
       </div>
       <div class="toxic-grid">
-        <div class="toxic-card danger">
-          <div class="toxic-emoji">🍫</div>
-          <h4>Chocolate</h4>
-          <p>Contains theobromine — toxic to dogs. Dark chocolate and baking chocolate are most dangerous. Even small amounts can cause vomiting, seizures, and death.</p>
-          <span class="danger-level high">Highly Dangerous</span>
-        </div>
-        <div class="toxic-card danger">
-          <div class="toxic-emoji">🍇</div>
-          <h4>Grapes & Raisins</h4>
-          <p>Can cause sudden kidney failure — even a small amount can be fatal. The exact toxin is unknown, so no "safe" dose exists. Avoid completely.</p>
-          <span class="danger-level high">Highly Dangerous</span>
-        </div>
-        <div class="toxic-card danger">
-          <div class="toxic-emoji">🧅</div>
-          <h4>Onions, Garlic & Chives</h4>
-          <p>Damage red blood cells and can cause hemolytic anemia. All forms are dangerous — raw, cooked, powdered. Common in many human foods and sauces.</p>
-          <span class="danger-level high">Highly Dangerous</span>
-        </div>
-        <div class="toxic-card danger">
-          <div class="toxic-emoji">🍬</div>
-          <h4>Xylitol (Artificial Sweetener)</h4>
-          <p>Found in sugar-free gum, peanut butter, candy, and some toothpaste. Causes rapid insulin release and liver failure. Check labels carefully.</p>
-          <span class="danger-level high">Extremely Dangerous</span>
-        </div>
-        <div class="toxic-card caution">
-          <div class="toxic-emoji">🥑</div>
-          <h4>Avocado</h4>
-          <p>Contains persin, which can cause vomiting and diarrhea. The pit is also a choking hazard. Less dangerous than grapes, but avoid feeding it.</p>
-          <span class="danger-level med">Moderate Risk</span>
-        </div>
-        <div class="toxic-card caution">
-          <div class="toxic-emoji">🍺</div>
-          <h4>Alcohol</h4>
-          <p>Even tiny amounts cause intoxication, vomiting, dangerous drops in blood sugar and temperature, and potentially coma. Keep drinks and food made with alcohol away from dogs.</p>
-          <span class="danger-level high">Highly Dangerous</span>
-        </div>
-        <div class="toxic-card caution">
-          <div class="toxic-emoji">🌰</div>
-          <h4>Macadamia Nuts</h4>
-          <p>Can cause vomiting, fever, tremors, and weakness within 12 hours. Especially dangerous if combined with chocolate (common in cookies).</p>
-          <span class="danger-level med">Moderate Risk</span>
-        </div>
-        <div class="toxic-card caution">
-          <div class="toxic-emoji">🍞</div>
-          <h4>Raw Dough (Yeast)</h4>
-          <p>Yeast continues to rise in the stomach, causing bloating and alcohol production from fermentation. Very dangerous — keep unbaked dough away from dogs.</p>
-          <span class="danger-level med">Moderate Risk</span>
-        </div>
+        <div class="toxic-card danger"><div class="toxic-emoji">🍫</div><h4>Chocolate</h4><p>Contains theobromine — toxic to dogs. Dark and baking chocolate are most dangerous. Even small amounts can cause seizures and death.</p><span class="danger-level high">Highly Dangerous</span></div>
+        <div class="toxic-card danger"><div class="toxic-emoji">🍇</div><h4>Grapes & Raisins</h4><p>Can cause sudden kidney failure — even a small amount can be fatal. No "safe" dose exists. Avoid completely.</p><span class="danger-level high">Highly Dangerous</span></div>
+        <div class="toxic-card danger"><div class="toxic-emoji">🧅</div><h4>Onions, Garlic & Chives</h4><p>Damage red blood cells and cause hemolytic anemia. All forms are dangerous — raw, cooked, and powdered.</p><span class="danger-level high">Highly Dangerous</span></div>
+        <div class="toxic-card danger"><div class="toxic-emoji">🍬</div><h4>Xylitol (Sweetener)</h4><p>Found in sugar-free gum, some peanut butters, and toothpaste. Causes rapid insulin release and liver failure.</p><span class="danger-level high">Extremely Dangerous</span></div>
+        <div class="toxic-card caution"><div class="toxic-emoji">🥑</div><h4>Avocado</h4><p>Contains persin, which can cause vomiting and diarrhea. The pit is also a choking hazard.</p><span class="danger-level med">Moderate Risk</span></div>
+        <div class="toxic-card caution"><div class="toxic-emoji">🌰</div><h4>Macadamia Nuts</h4><p>Can cause vomiting, fever, tremors, and weakness within 12 hours. Especially dangerous with chocolate.</p><span class="danger-level med">Moderate Risk</span></div>
+        <div class="toxic-card danger"><div class="toxic-emoji">🍺</div><h4>Alcohol</h4><p>Even tiny amounts cause intoxication, dangerous drops in blood sugar and temperature, and potentially coma.</p><span class="danger-level high">Highly Dangerous</span></div>
+        <div class="toxic-card caution"><div class="toxic-emoji">🍞</div><h4>Raw Dough (Yeast)</h4><p>Yeast continues to rise in the stomach, causing bloating and alcohol production from fermentation.</p><span class="danger-level med">Moderate Risk</span></div>
       </div>
       <div class="toxic-footer-note">
-        <strong>If your dog ate something toxic:</strong> Call the ASPCA Animal Poison Control Center: <strong>(888) 426-4435</strong> or your vet immediately. Do not induce vomiting unless instructed.
+        <strong>If your dog ate something toxic:</strong> Call the ASPCA Animal Poison Control Center: <strong>(888) 426-4435</strong> or your vet immediately.
       </div>
     </div>
   </section>
 
-  <!-- FEEDING GUIDE BY SIZE -->
-  <section class="feeding-guide" id="feeding-guide">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">How Much to Feed</span>
-        <h2>Daily Feeding Guide by Dog Size</h2>
-        <p>These are general guidelines. Always check your specific food's label and adjust for your dog's activity level and body condition.</p>
-      </div>
-      <div class="feed-table-wrap">
-        <div class="feed-table">
-          <div class="feed-row feed-header">
-            <span>Dog Size</span>
-            <span>Weight Range</span>
-            <span>Typical Breed Examples</span>
-            <span>Daily Food Amount*</span>
-            <span>Meals / Day</span>
-          </div>
-          <div class="feed-row">
-            <span class="size-badge xs">Toy</span>
-            <span>Under 10 lbs</span>
-            <span>Chihuahua, Yorkshire Terrier</span>
-            <span>¼ – ½ cup</span>
-            <span>3 (puppy) / 2 (adult)</span>
-          </div>
-          <div class="feed-row">
-            <span class="size-badge sm">Small</span>
-            <span>10–25 lbs</span>
-            <span>Beagle, Shih Tzu, Pomeranian</span>
-            <span>½ – 1 cup</span>
-            <span>2–3</span>
-          </div>
-          <div class="feed-row">
-            <span class="size-badge md">Medium</span>
-            <span>25–50 lbs</span>
-            <span>Corgi, Border Collie, Bulldog</span>
-            <span>1 – 2 cups</span>
-            <span>2</span>
-          </div>
-          <div class="feed-row">
-            <span class="size-badge lg">Large</span>
-            <span>50–90 lbs</span>
-            <span>Lab, Golden, German Shepherd</span>
-            <span>2 – 3 cups</span>
-            <span>2</span>
-          </div>
-          <div class="feed-row">
-            <span class="size-badge xl">Giant</span>
-            <span>90+ lbs</span>
-            <span>Great Dane, Bernese, Cane Corso</span>
-            <span>3 – 5+ cups</span>
-            <span>2 (never 1)</span>
-          </div>
-        </div>
-        <p class="feed-note">*For a standard dry kibble at ~360 kcal/cup. Active dogs need more; sedentary or overweight dogs need less. Puppies need roughly 3× more calories per pound than adults.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOD TYPES -->
-  <section class="food-types" id="food-types">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Dry vs Wet vs Raw</span>
-        <h2>Types of Dog Food — Compared</h2>
-        <p>There's no single "best" food for every dog. Here's an honest comparison to help you decide.</p>
-      </div>
-      <div class="food-type-grid">
-        <div class="food-type-card">
-          <div class="food-type-icon">🥣</div>
-          <h3>Dry Kibble</h3>
-          <div class="food-pros-cons">
-            <div class="food-pros">
-              <h5>Pros</h5>
-              <ul>
-                <li>Most affordable option</li>
-                <li>Easy to store and measure</li>
-                <li>Good for dental health (crunch helps)</li>
-                <li>Huge variety of formulations</li>
-              </ul>
-            </div>
-            <div class="food-cons">
-              <h5>Cons</h5>
-              <ul>
-                <li>Lower moisture content</li>
-                <li>Quality varies widely by brand</li>
-                <li>Highly processed</li>
-              </ul>
-            </div>
-          </div>
-          <div class="food-type-verdict">Best for: Most dogs, especially on a budget. Look for meat as the first ingredient.</div>
-        </div>
-        <div class="food-type-card featured-food">
-          <div class="food-type-badge">Most Popular</div>
-          <div class="food-type-icon">🥩</div>
-          <h3>Wet / Canned Food</h3>
-          <div class="food-pros-cons">
-            <div class="food-pros">
-              <h5>Pros</h5>
-              <ul>
-                <li>High moisture — great for hydration</li>
-                <li>More palatable (picky eaters love it)</li>
-                <li>Often higher in protein</li>
-                <li>Good for senior or dental-sensitive dogs</li>
-              </ul>
-            </div>
-            <div class="food-cons">
-              <h5>Cons</h5>
-              <ul>
-                <li>More expensive per serving</li>
-                <li>Opens must be refrigerated and used quickly</li>
-                <li>Can contribute to tartar buildup</li>
-              </ul>
-            </div>
-          </div>
-          <div class="food-type-verdict">Best for: Senior dogs, picky eaters, and as a kibble topper for extra nutrition.</div>
-        </div>
-        <div class="food-type-card">
-          <div class="food-type-icon">🥚</div>
-          <h3>Raw Food (BARF Diet)</h3>
-          <div class="food-pros-cons">
-            <div class="food-pros">
-              <h5>Pros</h5>
-              <ul>
-                <li>Closest to ancestral diet</li>
-                <li>Shiny coats reported by many owners</li>
-                <li>No fillers or artificial ingredients</li>
-              </ul>
-            </div>
-            <div class="food-cons">
-              <h5>Cons</h5>
-              <ul>
-                <li>Risk of bacterial contamination (Salmonella)</li>
-                <li>Time-consuming to prepare safely</li>
-                <li>Expensive and harder to balance nutritionally</li>
-                <li>Not recommended for immunocompromised dogs</li>
-              </ul>
-            </div>
-          </div>
-          <div class="food-type-verdict">Best for: Experienced owners who can follow strict food-safety protocols. Not for puppies or senior dogs.</div>
-        </div>
-        <div class="food-type-card">
-          <div class="food-type-icon">🍳</div>
-          <h3>Home-Cooked</h3>
-          <div class="food-pros-cons">
-            <div class="food-pros">
-              <h5>Pros</h5>
-              <ul>
-                <li>Full control over ingredients</li>
-                <li>Great for allergy dogs</li>
-                <li>High palatability</li>
-              </ul>
-            </div>
-            <div class="food-cons">
-              <h5>Cons</h5>
-              <ul>
-                <li>Very easy to create nutritional imbalances</li>
-                <li>Time-intensive</li>
-                <li>Must be designed with a veterinary nutritionist</li>
-              </ul>
-            </div>
-          </div>
-          <div class="food-type-verdict">Best for: Dogs with complex allergies. Always consult a vet nutritionist to ensure balance.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- NUTRITION ARTICLES -->
-  <section class="nu-guides" id="articles">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Complete Guides</span>
-        <h2>All Nutrition Guides</h2>
-        <p>Everything you need to know about feeding your dog well at every life stage.</p>
-      </div>
-      <div class="nu-cards-grid">
-        <div class="nu-card priority">
-          <div class="nu-card-badge">Start Here</div>
-          <div class="nu-card-icon">🏆</div>
-          <h4>How to Choose the Best Dog Food</h4>
-          <p>How to read a dog food label, what ingredients to look for, which to avoid, and what the AAFCO statement means.</p>
-          <a href="#" class="nu-link">Read guide →</a>
-        </div>
-        <div class="nu-card">
-          <div class="nu-card-icon">🐣</div>
-          <h4>Puppy Feeding Guide — Week by Week</h4>
-          <p>When to switch from mother's milk, how often to feed, and how to transition to adult food at the right time.</p>
-          <a href="#" class="nu-link">Read guide →</a>
-        </div>
-        <div class="nu-card">
-          <div class="nu-card-icon">⚖️</div>
-          <h4>Is My Dog Overweight? How to Tell & Fix It</h4>
-          <p>How to assess your dog's body condition score, calculate calories, and safely reduce weight without causing nutritional deficiency.</p>
-          <a href="#" class="nu-link">Read guide →</a>
-        </div>
-        <div class="nu-card">
-          <div class="nu-card-icon">🦴</div>
-          <h4>Best Dog Treats — Healthy vs. Harmful</h4>
-          <p>Treats should be under 10% of daily calories. The safest options, what to avoid, and how to use treats effectively in training.</p>
-          <a href="#" class="nu-link">Read guide →</a>
-        </div>
-        <div class="nu-card">
-          <div class="nu-card-icon">💊</div>
-          <h4>Dog Supplements — What Actually Works</h4>
-          <p>Fish oil, glucosamine, probiotics, and more — which supplements have real science behind them and who actually needs them.</p>
-          <a href="#" class="nu-link">Read guide →</a>
-        </div>
-        <div class="nu-card">
-          <div class="nu-card-icon">🥕</div>
-          <h4>Safe Human Foods for Dogs</h4>
-          <p>Which human foods dogs can safely eat as treats — carrots, blueberries, boiled chicken, eggs, and more with serving size tips.</p>
-          <a href="#" class="nu-link">Read guide →</a>
-        </div>
-        <div class="nu-card">
-          <div class="nu-card-icon">🐾</div>
-          <h4>Large Breed vs. Small Breed Food — What's the Difference?</h4>
-          <p>Large breed puppies need different calcium and phosphorus ratios to prevent joint problems. Why breed-specific food matters.</p>
-          <a href="#" class="nu-link">Read guide →</a>
-        </div>
-        <div class="nu-card">
-          <div class="nu-card-icon">🔄</div>
-          <h4>How to Switch Dog Food Without Stomach Upset</h4>
-          <p>Sudden food changes cause diarrhea in 90% of dogs. A 7-day transition plan that works with every type of food.</p>
-          <a href="#" class="nu-link">Read guide →</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SAFE FOODS QUICK REFERENCE -->
-  <section class="safe-foods-section" id="treats">
+  <!-- SAFE FOODS QUICK GRID -->
+  <section class="safe-foods-section">
     <div class="container">
       <div class="section-header">
         <span class="section-tag">Healthy Treats</span>
         <h2>Human Foods Dogs Can Eat</h2>
-        <p>A quick reference for safe snacks — always in moderation, and never as a meal replacement.</p>
+        <p>A quick reference for safe snacks — always in moderation, never as a meal replacement.</p>
       </div>
       <div class="safe-foods-grid">
-        <div class="safe-food">
-          <span class="sf-emoji">🥕</span>
-          <strong>Carrots</strong>
-          <span>Great for teeth, low calorie</span>
-        </div>
-        <div class="safe-food">
-          <span class="sf-emoji">🫐</span>
-          <strong>Blueberries</strong>
-          <span>Antioxidant-rich superfood</span>
-        </div>
-        <div class="safe-food">
-          <span class="sf-emoji">🍎</span>
-          <strong>Apple (no seeds)</strong>
-          <span>Vitamins A & C, fiber</span>
-        </div>
-        <div class="safe-food">
-          <span class="sf-emoji">🍌</span>
-          <strong>Banana</strong>
-          <span>Potassium, magnesium — feed sparingly</span>
-        </div>
-        <div class="safe-food">
-          <span class="sf-emoji">🥜</span>
-          <strong>Peanut Butter (xylitol-free)</strong>
-          <span>High protein, great training treat</span>
-        </div>
-        <div class="safe-food">
-          <span class="sf-emoji">🍗</span>
-          <strong>Boiled Chicken</strong>
-          <span>Best for upset stomachs, pure protein</span>
-        </div>
-        <div class="safe-food">
-          <span class="sf-emoji">🥚</span>
-          <strong>Cooked Eggs</strong>
-          <span>Protein, healthy fats, biotin</span>
-        </div>
-        <div class="safe-food">
-          <span class="sf-emoji">🍠</span>
-          <strong>Sweet Potato (cooked)</strong>
-          <span>Fiber, vitamins — a favorite of most dogs</span>
-        </div>
-        <div class="safe-food">
-          <span class="sf-emoji">🥦</span>
-          <strong>Broccoli (small amounts)</strong>
-          <span>Vitamins, but too much causes gas</span>
-        </div>
-        <div class="safe-food">
-          <span class="sf-emoji">🫘</span>
-          <strong>Green Beans</strong>
-          <span>Low calorie, filling — great diet snack</span>
-        </div>
-        <div class="safe-food">
-          <span class="sf-emoji">🐟</span>
-          <strong>Cooked Salmon</strong>
-          <span>Omega-3s for coat and brain health</span>
-        </div>
-        <div class="safe-food">
-          <span class="sf-emoji">🍉</span>
-          <strong>Watermelon (no seeds/rind)</strong>
-          <span>Hydrating, vitamins A, B6, C</span>
-        </div>
+        <div class="safe-food"><span class="sf-emoji">🥕</span><strong>Carrots</strong><span>Great for teeth, low calorie</span></div>
+        <div class="safe-food"><span class="sf-emoji">🫐</span><strong>Blueberries</strong><span>Antioxidant-rich superfood</span></div>
+        <div class="safe-food"><span class="sf-emoji">🍎</span><strong>Apple (no seeds)</strong><span>Vitamins A & C, fiber</span></div>
+        <div class="safe-food"><span class="sf-emoji">🍌</span><strong>Banana</strong><span>Potassium — feed sparingly</span></div>
+        <div class="safe-food"><span class="sf-emoji">🥜</span><strong>Peanut Butter (xylitol-free)</strong><span>High protein training treat</span></div>
+        <div class="safe-food"><span class="sf-emoji">🍗</span><strong>Boiled Chicken</strong><span>Best for upset stomachs</span></div>
+        <div class="safe-food"><span class="sf-emoji">🥚</span><strong>Cooked Eggs</strong><span>Protein, healthy fats, biotin</span></div>
+        <div class="safe-food"><span class="sf-emoji">🍠</span><strong>Sweet Potato (cooked)</strong><span>Fiber, vitamins — dogs love it</span></div>
+        <div class="safe-food"><span class="sf-emoji">🫘</span><strong>Green Beans</strong><span>Low calorie, filling diet snack</span></div>
+        <div class="safe-food"><span class="sf-emoji">🐟</span><strong>Cooked Salmon</strong><span>Omega-3s for coat & brain</span></div>
+        <div class="safe-food"><span class="sf-emoji">🍉</span><strong>Watermelon (no seeds)</strong><span>Hydrating, vitamins A, B6, C</span></div>
+        <div class="safe-food"><span class="sf-emoji">🥦</span><strong>Broccoli (small amounts)</strong><span>Vitamins — too much causes gas</span></div>
       </div>
     </div>
   </section>
@@ -430,22 +264,10 @@
         <h2>Feeding by the Numbers</h2>
       </div>
       <div class="nu-facts-grid">
-        <div class="nu-fact-card">
-          <span class="nu-fact-num">10%</span>
-          <p>Treats should make up no more than 10% of your dog's daily calories to avoid nutritional imbalances and weight gain.</p>
-        </div>
-        <div class="nu-fact-card">
-          <span class="nu-fact-num">2×/day</span>
-          <p>Most adult dogs should eat twice a day — not once. One large meal increases bloat risk, especially in large breeds.</p>
-        </div>
-        <div class="nu-fact-card">
-          <span class="nu-fact-num">30%+</span>
-          <p>of a dog's daily calories should come from quality animal protein — look for named meats (chicken, salmon, beef) as the first ingredient.</p>
-        </div>
-        <div class="nu-fact-card">
-          <span class="nu-fact-num">7 days</span>
-          <p>is the recommended transition time when switching dog food brands or types — prevents digestive upset and loose stools.</p>
-        </div>
+        <div class="nu-fact-card"><span class="nu-fact-num">10%</span><p>Treats should make up no more than 10% of your dog's daily calories to avoid nutritional imbalances and weight gain.</p></div>
+        <div class="nu-fact-card"><span class="nu-fact-num">2×/day</span><p>Most adult dogs should eat twice a day. One large meal increases bloat risk, especially in large breeds.</p></div>
+        <div class="nu-fact-card"><span class="nu-fact-num">30%+</span><p>of a dog's daily calories should come from quality animal protein — look for named meats as the first ingredient.</p></div>
+        <div class="nu-fact-card"><span class="nu-fact-num">7 days</span><p>is the recommended transition time when switching dog food brands — prevents digestive upset and loose stools.</p></div>
       </div>
     </div>
   </section>
@@ -461,10 +283,10 @@
         <div class="footer-col">
           <h4>Nutrition Topics</h4>
           <ul>
-            <li><a href="#toxic">Toxic Foods</a></li>
-            <li><a href="#feeding-guide">Feeding Guide</a></li>
-            <li><a href="#food-types">Food Types Compared</a></li>
-            <li><a href="#treats">Safe Human Foods</a></li>
+            <li><a href="#">Feeding Guide</a></li>
+            <li><a href="#">Toxic Foods</a></li>
+            <li><a href="#">Food Types</a></li>
+            <li><a href="#">Safe Human Foods</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -492,5 +314,37 @@
   </footer>
 
   <script src="../js/main.js"></script>
+  <script>
+    const nuSearch = document.getElementById('nuSearch');
+    const nuFilters = { topic: 'all' };
+
+    nuSearch.addEventListener('input', filterNu);
+
+    document.querySelectorAll('#nuTopicChips .si-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        nuFilters.topic = chip.dataset.value;
+        chip.closest('.si-chips').querySelectorAll('.si-chip').forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        filterNu();
+      });
+    });
+
+    function filterNu() {
+      const q = nuSearch.value.toLowerCase().trim();
+      const cards = document.querySelectorAll('#nuGrid .gi-card');
+      let visible = 0;
+      cards.forEach(card => {
+        const topic = card.dataset.topic || '';
+        const name  = card.dataset.name  || '';
+        const matchTopic  = nuFilters.topic === 'all' || topic === nuFilters.topic;
+        const matchSearch = !q || name.includes(q);
+        if (matchTopic && matchSearch) { card.classList.remove('hidden'); visible++; }
+        else card.classList.add('hidden');
+      });
+      document.getElementById('nuCount').textContent = `${visible} guide${visible !== 1 ? 's' : ''}`;
+      document.getElementById('nuNoResults').classList.toggle('show', visible === 0);
+    }
+    filterNu();
+  </script>
 </body>
 </html>

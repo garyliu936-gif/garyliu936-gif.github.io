@@ -1,0 +1,272 @@
+/* ═══════════════════════════════════════════════════════════
+   SECTION INDEX — shared styles for Getting a Dog, Training,
+   Health & Nutrition index pages (mirrors breeds/index layout)
+═══════════════════════════════════════════════════════════ */
+
+/* ── HERO (dark gradient, same feel as breeds hero) ──────── */
+.si-hero {
+  padding: 120px 0 72px;
+  text-align: center;
+  color: #fff;
+}
+.si-hero .container { max-width: 760px; margin: 0 auto; }
+.si-hero-tag {
+  display: inline-block;
+  background: rgba(255,255,255,.12);
+  color: rgba(255,255,255,.75);
+  font-size: .73rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 999px;
+  margin-bottom: 20px;
+}
+.si-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4.5vw, 3.4rem);
+  line-height: 1.12;
+  margin-bottom: 16px;
+}
+.si-hero .hero-highlight { color: var(--teal-light, #ccfbf1); }
+.si-hero p {
+  color: rgba(255,255,255,.6);
+  font-size: 1.05rem;
+  max-width: 520px;
+  margin: 0 auto 32px;
+  line-height: 1.7;
+}
+/* search bar (same style as breeds page) */
+.si-search-wrap {
+  max-width: 480px;
+  margin: 0 auto;
+  position: relative;
+}
+.si-search-wrap input {
+  width: 100%;
+  padding: 15px 50px 15px 20px;
+  border-radius: 14px;
+  border: none;
+  font-family: 'Inter', sans-serif;
+  font-size: .97rem;
+  color: #0f172a;
+  background: #fff;
+  box-shadow: 0 8px 32px rgba(0,0,0,.25);
+  outline: none;
+}
+.si-search-wrap::after {
+  content: '🔍';
+  position: absolute;
+  right: 18px; top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* ── FILTER BAR ───────────────────────────────────────────── */
+.si-filter-bar {
+  background: #fff;
+  border-bottom: 1px solid var(--border, #e2e8f0);
+  padding: 14px 0;
+  position: sticky;
+  top: 68px;
+  z-index: 100;
+}
+.si-filter-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.si-filter-label {
+  font-size: .75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--soft, #64748b);
+  flex-shrink: 0;
+}
+.si-chips {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.si-chip {
+  padding: 5px 15px;
+  border-radius: 999px;
+  border: 1.5px solid var(--border, #e2e8f0);
+  background: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: .8rem;
+  font-weight: 600;
+  color: var(--soft, #64748b);
+  cursor: pointer;
+  transition: all .18s;
+}
+.si-chip:hover { border-color: var(--teal); color: var(--teal); }
+.si-chip.active { background: var(--teal); color: #fff; border-color: var(--teal); }
+.si-filter-divider { width: 1px; height: 18px; background: var(--border, #e2e8f0); flex-shrink: 0; }
+.si-results-count {
+  margin-left: auto;
+  font-size: .8rem;
+  color: var(--soft, #64748b);
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+/* ── GUIDE CARD GRID ─────────────────────────────────────── */
+.si-section {
+  padding: 48px 0 96px;
+  background: var(--light, #f8fafc);
+}
+.si-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* Card */
+.gi-card {
+  background: #fff;
+  border-radius: 18px;
+  border: 1px solid var(--border, #e2e8f0);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  transition: transform .25s, box-shadow .25s;
+  cursor: pointer;
+}
+.gi-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(15,23,42,.13);
+}
+.gi-card.hidden { display: none; }
+
+/* Card top (icon area) */
+.gi-card-top {
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  position: relative;
+  background: linear-gradient(135deg, var(--teal-light, #ccfbf1) 0%, #fef3c7 100%);
+  flex-shrink: 0;
+}
+/* Per-section icon area backgrounds */
+.si-training  .gi-card-top { background: linear-gradient(135deg, #dbeafe 0%, #e0e7ff 100%); }
+.si-health    .gi-card-top { background: linear-gradient(135deg, #dcfce7 0%, #d1fae5 100%); }
+.si-nutrition .gi-card-top { background: linear-gradient(135deg, #fef9c3 0%, #fef3c7 100%); }
+
+/* "Start Here" / "Essential" left badge */
+.gi-start {
+  position: absolute;
+  top: 10px; left: 10px;
+  background: var(--teal, #0d9488);
+  color: #fff;
+  font-size: .63rem;
+  font-weight: 800;
+  padding: 3px 9px;
+  border-radius: 999px;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+/* Topic badge (top-right) */
+.gi-topic {
+  position: absolute;
+  top: 10px; right: 10px;
+  font-size: .62rem;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: #fff;
+}
+/* Topic badge colors */
+.gi-topic.tc-teal   { background: #0d9488; }
+.gi-topic.tc-blue   { background: #3b82f6; }
+.gi-topic.tc-amber  { background: #f59e0b; }
+.gi-topic.tc-green  { background: #16a34a; }
+.gi-topic.tc-red    { background: #dc2626; }
+.gi-topic.tc-purple { background: #8b5cf6; }
+.gi-topic.tc-orange { background: #ea580c; }
+.gi-topic.tc-pink   { background: #db2777; }
+
+/* Card body */
+.gi-card-body {
+  padding: 16px 16px 12px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.gi-card-body h3 {
+  font-size: .91rem;
+  font-weight: 700;
+  color: var(--dark, #0f172a);
+  line-height: 1.3;
+  margin: 0;
+}
+.gi-card-body p {
+  font-size: .79rem;
+  color: var(--soft, #64748b);
+  line-height: 1.5;
+  flex: 1;
+  margin: 0;
+}
+
+/* Level pill (training only) */
+.gi-level {
+  display: inline-block;
+  font-size: .65rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 999px;
+  width: fit-content;
+  margin-top: 4px;
+}
+.gi-level.lv-beginner     { background: #dcfce7; color: #166534; }
+.gi-level.lv-intermediate { background: #fef9c3; color: #854d0e; }
+.gi-level.lv-advanced     { background: #fee2e2; color: #991b1b; }
+
+/* Card footer */
+.gi-card-footer {
+  padding: 10px 16px;
+  border-top: 1px solid var(--border, #e2e8f0);
+  font-size: .78rem;
+  font-weight: 600;
+  color: var(--teal, #0d9488);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* No results */
+.si-no-results {
+  display: none;
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--soft, #64748b);
+  grid-column: 1 / -1;
+}
+.si-no-results.show { display: block; }
+.si-no-results .nr-emoji { font-size: 3rem; margin-bottom: 12px; }
+.si-no-results p { font-size: 1rem; }
+
+/* ── RESPONSIVE ──────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .si-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 768px) {
+  .si-grid { grid-template-columns: repeat(2, 1fr); }
+  .si-filter-row { gap: 6px; }
+  .si-results-count { display: none; }
+  .si-hero { padding: 108px 0 56px; }
+}
+@media (max-width: 480px) {
+  .si-grid { grid-template-columns: 1fr 1fr; }
+  .si-chip { padding: 4px 11px; font-size: .76rem; }
+}
