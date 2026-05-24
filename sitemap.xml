@@ -193,4 +193,7 @@
 
   <url><loc>https://www.alldogfacts.com/breeds/german-shorthaired-pointer.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.alldogfacts.com/breeds/miniature-schnauzer.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <url><loc>https://www.alldogfacts.com/breeds/cane-corso.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.alldogfacts.com/breeds/pomeranian.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>
