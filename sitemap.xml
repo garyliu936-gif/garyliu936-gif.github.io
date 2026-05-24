@@ -196,4 +196,7 @@
 
   <url><loc>https://www.alldogfacts.com/breeds/cane-corso.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.alldogfacts.com/breeds/pomeranian.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <url><loc>https://www.alldogfacts.com/breeds/boston-terrier.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.alldogfacts.com/breeds/havanese.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>
