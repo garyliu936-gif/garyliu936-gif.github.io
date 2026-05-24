@@ -190,6 +190,27 @@
     <priority>0.8</priority>
   </url>
 
+  <url>
+    <loc>https://alldogfacts.com/training/</loc>
+    <lastmod>2026-05-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://alldogfacts.com/health/</loc>
+    <lastmod>2026-05-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://alldogfacts.com/nutrition/</loc>
+    <lastmod>2026-05-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 
   <url><loc>https://www.alldogfacts.com/breeds/german-shorthaired-pointer.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.alldogfacts.com/breeds/miniature-schnauzer.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
