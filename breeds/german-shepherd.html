@@ -470,15 +470,14 @@
       .then(data => {
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
-        hero.src = photos[1];
+        hero.src = photos[2];
         hero.onload = () => {
           hero.style.display = 'block';
           document.getElementById('breedEmoji').style.display = 'none';
         };
-        const picks = [1, 6, 7, 9, 100, 120];
-        picks.forEach((index, i) => {
+        [5,10,18,25,33,40].forEach((idx, i) => {
           const el = document.getElementById('gp' + (i + 1));
-          const src = photos[index];
+          const src = photos[idx] || photos[i];
           if (el && src) {
             galleryPhotos.push(src);
             el.src = src;
