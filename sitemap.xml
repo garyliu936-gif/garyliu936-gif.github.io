@@ -351,6 +351,13 @@
     <priority>0.8</priority>
   </url>
 
+  <url>
+    <loc>https://alldogfacts.com/grooming/</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 
   <url><loc>https://www.alldogfacts.com/breeds/german-shorthaired-pointer.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.alldogfacts.com/breeds/miniature-schnauzer.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
