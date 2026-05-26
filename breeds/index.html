@@ -88,7 +88,7 @@
           <button class="chip active" data-filter="kids" data-value="all">All</button>
           <button class="chip" data-filter="kids" data-value="yes">Great with Kids</button>
         </div>
-        <span class="results-count" id="resultsCount">232 breeds</span>
+        <span class="results-count" id="resultsCount">302 breeds</span>
       </div>
     </div>
   </div>
@@ -4141,9 +4141,9 @@
           <div class="ttp-right">
             <span class="ttp-tag">Dog Breeds</span>
             <h3>Find Your Perfect Breed</h3>
-            <p>Profiles for 302 breeds — 202 purebreds and 100 designer hybrids. Covers temperament, size, exercise needs, grooming, health issues, and cost to own.</p>
-            <div class="ttp-highlights"><span class="ttp-highlight">🏆 202 purebred breeds</span><span class="ttp-highlight">🌟 100 hybrid breeds</span><span class="ttp-highlight">📊 AKC 2025 ranked</span></div>
-            <div class="ttp-cta"><a href="/breeds/index.html" class="btn btn-primary">Browse All 232 Breeds →</a></div>
+            <p class="js-breed-desc">Profiles for 302 breeds — 202 purebreds and 100 designer hybrids. Covers temperament, size, exercise needs, grooming, health issues, and cost to own.</p>
+            <div class="ttp-highlights"><span class="ttp-highlight js-purebred-count">🏆 202 purebred breeds</span><span class="ttp-highlight js-hybrid-count">🌟 100 hybrid breeds</span><span class="ttp-highlight">📊 AKC 2025 ranked</span></div>
+            <div class="ttp-cta"><a href="/breeds/index.html" class="btn btn-primary js-breed-btn">Browse All 302 Breeds →</a></div>
           </div>
         </div>
         <div class="topic-tab-panel" id="tab-getting">
@@ -4234,6 +4234,7 @@
   </footer>
 
   <script src="../js/main.js"></script>
+  <script src="../js/breed-count.js"></script>
   <script>
     // Load real photos for cards that have an API path
     document.querySelectorAll('.breed-emoji-wrap[data-api]').forEach(wrap => {

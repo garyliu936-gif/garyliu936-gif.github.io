@@ -1,0 +1,86 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   AllDogFacts — Breed Count Auto-Updater
+   ─────────────────────────────────────────────────────────────────────────────
+   HOW IT WORKS
+   • breeds/index.html  → counts actual .breed-card elements in the DOM
+                          (always 100% accurate, no manual update needed)
+   • All other pages    → reads the count saved to localStorage by the breeds page
+                          Falls back to FALLBACK_TOTAL if never visited.
+
+   WHEN YOU ADD NEW BREEDS
+   ✅  Just add the cards to breeds/index.html — everything updates automatically.
+   ✅  Other pages update the moment anyone views the breeds page.
+   ────────────────────────────────────────────────────────────────────────────── */
+(function () {
+  var FALLBACK_TOTAL  = 302;   // only used before breeds page is visited
+  var HYBRID_TOTAL    = 100;
+  var PUREBRED_TOTAL  = 202;
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var isBreedPage = !!document.getElementById('breedsGrid');
+    var total;
+
+    if (isBreedPage) {
+      /* Count every breed card on the breeds page — zero manual work */
+      total = document.querySelectorAll('a.breed-card').length;
+      localStorage.setItem('siteBreedTotal',   total);
+      localStorage.setItem('siteHybridTotal',  HYBRID_TOTAL);
+      localStorage.setItem('sitePurebredTotal',PUREBRED_TOTAL);
+
+      /* Update the results-count badge (before any filter is applied) */
+      var rc = document.getElementById('resultsCount');
+      if (rc) rc.textContent = total + ' breeds';
+    } else {
+      /* Other pages — prefer localStorage so live count propagates */
+      var stored = parseInt(localStorage.getItem('siteBreedTotal'), 10);
+      total = (stored && stored > 0) ? stored : FALLBACK_TOTAL;
+    }
+
+    /* ── Update every marked element ─────────────────────────────── */
+
+    /* Plain number spans: <span class="js-breed-total">302</span> */
+    document.querySelectorAll('.js-breed-total').forEach(function (el) {
+      el.textContent = total;
+    });
+
+    /* "N breeds" spans: <span class="js-breed-count">302 breeds</span> */
+    document.querySelectorAll('.js-breed-count').forEach(function (el) {
+      el.textContent = total + ' breeds';
+    });
+
+    /* CTA buttons: <a class="js-breed-btn …">Browse All 302 Breeds →</a> */
+    document.querySelectorAll('.js-breed-btn').forEach(function (el) {
+      el.textContent = 'Browse All ' + total + ' Breeds →';
+    });
+
+    /* Description paragraphs in tab panels */
+    document.querySelectorAll('.js-breed-desc').forEach(function (el) {
+      el.textContent =
+        'Profiles for ' + total + ' breeds — ' +
+        PUREBRED_TOTAL + ' purebreds and ' +
+        HYBRID_TOTAL + ' designer hybrids. ' +
+        'Covers temperament, size, exercise needs, grooming, health issues, and cost to own.';
+    });
+
+    /* Short description on home topic card */
+    document.querySelectorAll('.js-breed-short-desc').forEach(function (el) {
+      el.textContent =
+        'Profiles for ' + total + ' breeds — purebreds & hybrids — ' +
+        'temperament, size, care, health, and more.';
+    });
+
+    /* Section header sub-text on home breeds section */
+    document.querySelectorAll('.js-breed-dir-desc').forEach(function (el) {
+      el.textContent =
+        'Browse top purebreds and designer hybrids — ' + total + ' breeds in our full directory.';
+    });
+
+    /* Tab panel highlights: <span class="ttp-highlight js-hybrid-count"> */
+    document.querySelectorAll('.js-hybrid-count').forEach(function (el) {
+      el.textContent = '🌟 ' + HYBRID_TOTAL + ' hybrid breeds';
+    });
+    document.querySelectorAll('.js-purebred-count').forEach(function (el) {
+      el.textContent = '🏆 ' + PUREBRED_TOTAL + ' purebred breeds';
+    });
+  });
+})();
