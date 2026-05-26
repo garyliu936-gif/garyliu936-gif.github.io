@@ -76,8 +76,8 @@
         <a href="/breeds/index.html" class="topic-card">
           <div class="topic-icon">🐕</div>
           <h3>Dog Breeds</h3>
-          <p>Profiles for 40+ breeds and growing — temperament, size, care, health, and more.</p>
-          <span class="topic-count">40+ breeds</span>
+          <p>Profiles for 232 breeds — purebreds & hybrids — temperament, size, care, health, and more.</p>
+          <span class="topic-count">232 breeds</span>
         </a>
         <a href="/training/index.html" class="topic-card">
           <div class="topic-icon">🎓</div>
@@ -118,26 +118,53 @@
     <div class="container">
       <div class="section-header">
         <span class="section-tag">Dog Breeds</span>
-        <h2>Most Popular Breeds</h2>
-        <p>Start with the most searched dog breeds in America.</p>
+        <h2>Explore Popular Breeds</h2>
+        <p>Browse top purebreds and designer hybrids — 232 breeds in our full directory.</p>
       </div>
-      <div class="featured-grid">
-        <a href="/breeds/labrador-retriever.html" class="featured-card">
-          <div class="featured-img" data-api="labrador">
-            <img class="featured-real-photo" alt="Labrador Retriever" />
-            <span class="featured-emoji">🦮</span>
+
+      <!-- Category filter tabs -->
+      <div class="breed-filter-tabs">
+        <button class="breed-tab active" data-filter="all">All Breeds</button>
+        <button class="breed-tab" data-filter="purebred">Purebred</button>
+        <button class="breed-tab" data-filter="hybrid">Hybrid / Mix</button>
+      </div>
+
+      <div class="featured-grid" id="featuredGrid">
+
+        <!-- ── Purebred cards (AKC 2025 top 4) ── -->
+        <a href="/breeds/french-bulldog.html" class="featured-card" data-type="purebred">
+          <div class="featured-img" data-api="bulldog/french">
+            <img class="featured-real-photo" alt="French Bulldog" />
+            <span class="featured-emoji">🐶</span>
+            <span class="featured-type-badge badge-purebred">Purebred</span>
           </div>
           <div class="featured-info">
             <span class="featured-rank">#1 Most Popular</span>
-            <h3>Labrador Retriever</h3>
-            <p>Friendly, loyal, and endlessly energetic. America's favorite dog for 31 years.</p>
+            <h3>French Bulldog</h3>
+            <p>Playful, adaptable, and full of personality. The #1 city dog in America.</p>
             <span class="featured-link">Read full profile →</span>
           </div>
         </a>
-        <a href="/breeds/golden-retriever.html" class="featured-card">
+
+        <a href="/breeds/labrador-retriever.html" class="featured-card" data-type="purebred">
+          <div class="featured-img" data-api="labrador">
+            <img class="featured-real-photo" alt="Labrador Retriever" />
+            <span class="featured-emoji">🦮</span>
+            <span class="featured-type-badge badge-purebred">Purebred</span>
+          </div>
+          <div class="featured-info">
+            <span class="featured-rank">#2 Most Popular</span>
+            <h3>Labrador Retriever</h3>
+            <p>Friendly, loyal, and endlessly energetic. America's beloved family dog.</p>
+            <span class="featured-link">Read full profile →</span>
+          </div>
+        </a>
+
+        <a href="/breeds/golden-retriever.html" class="featured-card" data-type="purebred">
           <div class="featured-img" data-api="retriever/golden">
             <img class="featured-real-photo" alt="Golden Retriever" />
             <span class="featured-emoji">🐕</span>
+            <span class="featured-type-badge badge-purebred">Purebred</span>
           </div>
           <div class="featured-info">
             <span class="featured-rank">#3 Most Popular</span>
@@ -146,22 +173,12 @@
             <span class="featured-link">Read full profile →</span>
           </div>
         </a>
-        <a href="/breeds/french-bulldog.html" class="featured-card">
-          <div class="featured-img" data-api="bulldog/french">
-            <img class="featured-real-photo" alt="French Bulldog" />
-            <span class="featured-emoji">🐶</span>
-          </div>
-          <div class="featured-info">
-            <span class="featured-rank">#2 Most Popular</span>
-            <h3>French Bulldog</h3>
-            <p>Playful, adaptable, and full of personality. The perfect city dog.</p>
-            <span class="featured-link">Read full profile →</span>
-          </div>
-        </a>
-        <a href="/breeds/german-shepherd.html" class="featured-card">
-          <div class="featured-img" data-api="germanshepherd">
+
+        <a href="/breeds/german-shepherd.html" class="featured-card" data-type="purebred">
+          <div class="featured-img" data-api="german/shepherd">
             <img class="featured-real-photo" alt="German Shepherd" />
             <span class="featured-emoji">🐕‍🦺</span>
+            <span class="featured-type-badge badge-purebred">Purebred</span>
           </div>
           <div class="featured-info">
             <span class="featured-rank">#4 Most Popular</span>
@@ -170,9 +187,67 @@
             <span class="featured-link">Read full profile →</span>
           </div>
         </a>
+
+        <!-- ── Hybrid cards (top 4 designer breeds) ── -->
+        <a href="/breeds/goldendoodle.html" class="featured-card" data-type="hybrid">
+          <div class="featured-img" data-api="retriever/golden">
+            <img class="featured-real-photo" alt="Goldendoodle" />
+            <span class="featured-emoji">🌟</span>
+            <span class="featured-type-badge badge-hybrid">Hybrid</span>
+          </div>
+          <div class="featured-info">
+            <span class="featured-rank">#1 Top Hybrid</span>
+            <h3>Goldendoodle</h3>
+            <p>Golden Retriever × Poodle — fluffy, friendly, and low-shedding.</p>
+            <span class="featured-link">Read full profile →</span>
+          </div>
+        </a>
+
+        <a href="/breeds/labradoodle.html" class="featured-card" data-type="hybrid">
+          <div class="featured-img" data-api="labrador">
+            <img class="featured-real-photo" alt="Labradoodle" />
+            <span class="featured-emoji">🐾</span>
+            <span class="featured-type-badge badge-hybrid">Hybrid</span>
+          </div>
+          <div class="featured-info">
+            <span class="featured-rank">#2 Top Hybrid</span>
+            <h3>Labradoodle</h3>
+            <p>Labrador × Poodle — the original designer dog. Smart, gentle, low-shed.</p>
+            <span class="featured-link">Read full profile →</span>
+          </div>
+        </a>
+
+        <a href="/breeds/bernedoodle.html" class="featured-card" data-type="hybrid">
+          <div class="featured-img" data-api="mountain/bernese">
+            <img class="featured-real-photo" alt="Bernedoodle" />
+            <span class="featured-emoji">🐻</span>
+            <span class="featured-type-badge badge-hybrid">Hybrid</span>
+          </div>
+          <div class="featured-info">
+            <span class="featured-rank">#3 Top Hybrid</span>
+            <h3>Bernedoodle</h3>
+            <p>Bernese Mountain Dog × Poodle — a tricolor gentle giant with Poodle brains.</p>
+            <span class="featured-link">Read full profile →</span>
+          </div>
+        </a>
+
+        <a href="/breeds/cockapoo.html" class="featured-card" data-type="hybrid">
+          <div class="featured-img" data-api="spaniel/cocker">
+            <img class="featured-real-photo" alt="Cockapoo" />
+            <span class="featured-emoji">🌸</span>
+            <span class="featured-type-badge badge-hybrid">Hybrid</span>
+          </div>
+          <div class="featured-info">
+            <span class="featured-rank">#4 Top Hybrid</span>
+            <h3>Cockapoo</h3>
+            <p>Cocker Spaniel × Poodle — cheerful, loving, and one of the oldest hybrids.</p>
+            <span class="featured-link">Read full profile →</span>
+          </div>
+        </a>
+
       </div>
       <div style="text-align:center; margin-top:40px">
-        <a href="/breeds/index.html" class="btn btn-primary">Browse All Dog Breeds →</a>
+        <a href="/breeds/index.html" class="btn btn-primary">Browse All 232 Breeds →</a>
       </div>
     </div>
   </section>
@@ -268,6 +343,22 @@
             if (emoji) emoji.style.display = 'none';
           };
         }).catch(() => {});
+    });
+
+    // Featured breeds category filter tabs
+    document.querySelectorAll('.breed-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.breed-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const filter = tab.dataset.filter;
+        document.querySelectorAll('#featuredGrid .featured-card').forEach(card => {
+          if (filter === 'all' || card.dataset.type === filter) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
     });
 
     function handleSearch() {
