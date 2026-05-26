@@ -59,36 +59,59 @@
   <div class="filter-bar">
     <div class="container">
       <div class="filter-row">
-        <span class="filter-label">Size:</span>
-        <div class="filter-chips" id="sizeFilters">
-          <button class="chip active" data-filter="size" data-value="all">All</button>
-          <button class="chip" data-filter="size" data-value="small">Small</button>
-          <button class="chip" data-filter="size" data-value="medium">Medium</button>
-          <button class="chip" data-filter="size" data-value="large">Large</button>
-          <button class="chip" data-filter="size" data-value="giant">Giant</button>
+
+        <!-- SIZE -->
+        <div class="filter-group fg-size">
+          <span class="filter-label">📐 Size</span>
+          <div class="filter-chips" id="sizeFilters">
+            <button class="chip active" data-filter="size" data-value="all">All</button>
+            <button class="chip" data-filter="size" data-value="small">Small</button>
+            <button class="chip" data-filter="size" data-value="medium">Medium</button>
+            <button class="chip" data-filter="size" data-value="large">Large</button>
+            <button class="chip" data-filter="size" data-value="giant">Giant</button>
+          </div>
         </div>
-        <div class="filter-divider"></div>
-        <span class="filter-label">Energy:</span>
-        <div class="filter-chips" id="energyFilters">
-          <button class="chip active" data-filter="energy" data-value="all">All</button>
-          <button class="chip" data-filter="energy" data-value="low">Low</button>
-          <button class="chip" data-filter="energy" data-value="medium">Medium</button>
-          <button class="chip" data-filter="energy" data-value="high">High</button>
+
+        <!-- ENERGY -->
+        <div class="filter-group fg-energy">
+          <span class="filter-label">⚡ Energy</span>
+          <div class="filter-chips" id="energyFilters">
+            <button class="chip active" data-filter="energy" data-value="all">All</button>
+            <button class="chip" data-filter="energy" data-value="low">Low</button>
+            <button class="chip" data-filter="energy" data-value="medium">Medium</button>
+            <button class="chip" data-filter="energy" data-value="high">High</button>
+          </div>
         </div>
-        <div class="filter-divider"></div>
-        <span class="filter-label">Type:</span>
-        <div class="filter-chips" id="typeFilters">
-          <button class="chip active" data-filter="type" data-value="all">All</button>
-          <button class="chip" data-filter="type" data-value="purebred">Purebred</button>
-          <button class="chip" data-filter="type" data-value="hybrid">Hybrid / Mix</button>
+
+        <!-- TYPE -->
+        <div class="filter-group fg-type">
+          <span class="filter-label">🏷️ Type</span>
+          <div class="filter-chips" id="typeFilters">
+            <button class="chip active" data-filter="type" data-value="all">All</button>
+            <button class="chip" data-filter="type" data-value="purebred">Purebred</button>
+            <button class="chip" data-filter="type" data-value="hybrid">Hybrid / Mix</button>
+          </div>
         </div>
-                <div class="filter-divider"></div>
-        <span class="filter-label">Kids:</span>
-        <div class="filter-chips" id="kidsFilters">
-          <button class="chip active" data-filter="kids" data-value="all">All</button>
-          <button class="chip" data-filter="kids" data-value="yes">Great with Kids</button>
+
+        <!-- KIDS -->
+        <div class="filter-group fg-kids">
+          <span class="filter-label">👶 Kids</span>
+          <div class="filter-chips" id="kidsFilters">
+            <button class="chip active" data-filter="kids" data-value="all">All</button>
+            <button class="chip" data-filter="kids" data-value="yes">Great with Kids</button>
+          </div>
         </div>
-        <span class="results-count" id="resultsCount">302 breeds</span>
+
+        <!-- SORT -->
+        <div class="filter-group fg-sort">
+          <span class="filter-label">🔀 Sort</span>
+          <div class="filter-chips" id="sortFilters">
+            <button class="chip active" data-sort="popularity">⭐ Popularity</button>
+            <button class="chip" data-sort="alpha">🔤 A – Z</button>
+          </div>
+        </div>
+
+        <span class="results-count js-breed-count" id="resultsCount">302 breeds</span>
       </div>
     </div>
   </div>
@@ -4260,17 +4283,50 @@
     // Filter state
     const filters = { size: 'all', energy: 'all', type: 'all', kids: 'all' };
 
-    document.querySelectorAll('.chip').forEach(chip => {
+    // ── Filter chips (size / energy / type / kids) ──────────────
+    document.querySelectorAll('.chip[data-filter]').forEach(chip => {
       chip.addEventListener('click', () => {
         const filterType = chip.dataset.filter;
         const value = chip.dataset.value;
         filters[filterType] = value;
-        // Update active chip in group
         chip.closest('.filter-chips').querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
         chip.classList.add('active');
         filterBreeds();
       });
     });
+
+    // ── Sort chips ───────────────────────────────────────────────
+    const grid = document.getElementById('breedsGrid');
+    const noResultsEl = document.getElementById('noResults');
+    // Snapshot original popularity order once the DOM is ready
+    const originalOrder = Array.from(document.querySelectorAll('a.breed-card'));
+    let currentSort = 'popularity';
+
+    document.querySelectorAll('.chip[data-sort]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        currentSort = btn.dataset.sort;
+        document.querySelectorAll('.chip[data-sort]').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        applySort();
+        filterBreeds();
+      });
+    });
+
+    function applySort() {
+      if (currentSort === 'alpha') {
+        const cards = Array.from(document.querySelectorAll('a.breed-card'));
+        cards.sort((a, b) => {
+          // Use first plain-text word of the <h3> for sorting
+          const nameA = (a.querySelector('h3').firstChild.textContent || '').trim().toLowerCase();
+          const nameB = (b.querySelector('h3').firstChild.textContent || '').trim().toLowerCase();
+          return nameA.localeCompare(nameB);
+        });
+        cards.forEach(card => grid.insertBefore(card, noResultsEl));
+      } else {
+        // Restore original popularity order
+        originalOrder.forEach(card => grid.insertBefore(card, noResultsEl));
+      }
+    }
 
     function filterBreeds() {
       const query = searchInput.value.toLowerCase().trim();

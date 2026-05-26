@@ -53,63 +53,110 @@
   pointer-events: none;
 }
 
-/* ---- Filter bar ---- */
+/* ── Filter bar ─────────────────────────────────────────────── */
 .filter-bar {
   background: var(--white);
   border-bottom: 1px solid var(--border);
-  padding: 16px 0;
+  padding: 14px 0;
   position: sticky;
   top: 68px;
   z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,.04);
 }
 
 .filter-row {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
   flex-wrap: wrap;
 }
 
-.filter-label {
-  font-size: .78rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: .08em;
-  color: var(--soft);
+/* ── Each category lives in its own pill-shaped group ── */
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  padding: 5px 10px 5px 12px;
+  background: #fff;
   flex-shrink: 0;
+}
+
+.filter-label {
+  font-size: .7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  white-space: nowrap;
+  flex-shrink: 0;
+  /* colour overridden per group */
+  color: var(--soft);
 }
 
 .filter-chips {
   display: flex;
-  gap: 8px;
+  gap: 5px;
   flex-wrap: wrap;
   align-items: center;
 }
 
 .chip {
-  padding: 6px 16px;
+  padding: 4px 12px;
   border-radius: 999px;
-  border: 1.5px solid var(--border);
-  background: var(--white);
+  border: 1.5px solid transparent;
+  background: transparent;
   font-family: var(--font-body);
-  font-size: .82rem;
+  font-size: .78rem;
   font-weight: 600;
   color: var(--soft);
   cursor: pointer;
-  transition: all .2s;
+  transition: all .18s;
+  white-space: nowrap;
 }
 
-.chip:hover { border-color: var(--teal); color: var(--teal); }
-.chip.active { background: var(--teal); color: var(--white); border-color: var(--teal); }
+/* ── SIZE — Blue ─────────────────── */
+.fg-size { border-color: #bfdbfe; background: #eff6ff; }
+.fg-size .filter-label { color: #2563eb; }
+.fg-size .chip:hover  { background: #dbeafe; color: #2563eb; }
+.fg-size .chip.active { background: #2563eb; color: #fff; }
 
-.filter-divider { width: 1px; height: 20px; background: var(--border); }
+/* ── ENERGY — Amber ──────────────── */
+.fg-energy { border-color: #fde68a; background: #fffbeb; }
+.fg-energy .filter-label { color: #d97706; }
+.fg-energy .chip:hover  { background: #fef3c7; color: #d97706; }
+.fg-energy .chip.active { background: #d97706; color: #fff; }
 
+/* ── TYPE — Purple ───────────────── */
+.fg-type { border-color: #ddd6fe; background: #faf5ff; }
+.fg-type .filter-label { color: #7c3aed; }
+.fg-type .chip:hover  { background: #ede9fe; color: #7c3aed; }
+.fg-type .chip.active { background: #7c3aed; color: #fff; }
+
+/* ── KIDS — Rose ─────────────────── */
+.fg-kids { border-color: #fbcfe8; background: #fdf2f8; }
+.fg-kids .filter-label { color: #db2777; }
+.fg-kids .chip:hover  { background: #fce7f3; color: #db2777; }
+.fg-kids .chip.active { background: #db2777; color: #fff; }
+
+/* ── SORT — Teal (brand) ─────────── */
+.fg-sort { border-color: #99f6e4; background: #f0fdfa; }
+.fg-sort .filter-label { color: var(--teal); }
+.fg-sort .chip:hover  { background: #ccfbf1; color: var(--teal); }
+.fg-sort .chip.active { background: var(--teal); color: #fff; }
+
+/* ── Results count badge ─────────── */
 .results-count {
   margin-left: auto;
-  font-size: .82rem;
-  color: var(--soft);
-  font-weight: 500;
+  font-size: .8rem;
+  font-weight: 700;
+  color: var(--teal);
+  background: #f0fdfa;
+  border: 1.5px solid #99f6e4;
+  border-radius: 999px;
+  padding: 4px 14px;
   flex-shrink: 0;
+  white-space: nowrap;
 }
 
 /* ---- Breeds grid ---- */
@@ -797,7 +844,10 @@
   .compat-grid { grid-template-columns: repeat(2, 1fr); }
   .related-breeds { grid-template-columns: repeat(2, 1fr); }
   .breed-sidebar { display: flex; }
-  .filter-row { gap: 8px; }
+  .filter-row { gap: 6px; }
+  .filter-group { padding: 4px 8px 4px 10px; border-radius: 10px; }
+  .filter-label { font-size: .65rem; }
+  .chip { font-size: .74rem; padding: 3px 10px; }
   .results-count { display: none; }
 }
 
