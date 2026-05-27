@@ -85,3 +85,12 @@ document.querySelectorAll('.service-card, .step, .review-card, .feature-item').f
   el.style.transition = 'opacity .5s ease, transform .5s ease';
   observer.observe(el);
 });
+
+// ── Breed count — auto-updated by fix_sidebar.js ─────────────────────────────
+(function () {
+  const BREED_COUNT = 232;
+  document.querySelectorAll('.breed-count-live').forEach(function (el) {
+    el.textContent = BREED_COUNT + '+';
+  });
+})();
+// end breed count
