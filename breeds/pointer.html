@@ -81,6 +81,20 @@
               <p>The Pointer was refined in England during the 18th and 19th centuries by aristocratic sporting estates into the sleek, powerful, high-strung dog recognized today. Its smooth, hard coat, muscular build, and exceptional nose made it the consummate upland bird dog for open country. The AKC recognized the Pointer in 1884 as one of its founding breeds. Despite being a serious working dog with extraordinary field ability, the Pointer is gentle, loyal, and affectionate with its family — though its high energy and need for vigorous daily exercise make it unsuitable for sedentary households. In the field, no dog covers ground more elegantly or with greater purpose than a Pointer in full stride.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Pointers — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Pointer photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Pointer photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Pointer photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Pointer photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Pointer photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Pointer photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Pointers are known for being friendly, active, and eager to please. They form deep bonds with their families and thrive on consistent human connection. As a high-energy breed, they are best matched with active owners who enjoy outdoor activities and can commit to regular exercise.</p>
@@ -167,18 +181,6 @@
               <a href="golden-retriever.html" class="related-card"><span class="rel-emoji">🦮</span><span>Golden Retriever</span></a>
               <a href="labrador-retriever.html" class="related-card"><span class="rel-emoji">🐕</span><span>Labrador Retriever</span></a>
               <a href="cocker-spaniel.html" class="related-card"><span class="rel-emoji">🐕</span><span>Cocker Spaniel</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Pointers — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Pointer photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Pointer photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Pointer photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Pointer photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Pointer photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Pointer photo 6" />
             </div>
           </div>
 
@@ -318,6 +320,7 @@
     fetch('https://dog.ceo/api/breed/pointer/german/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

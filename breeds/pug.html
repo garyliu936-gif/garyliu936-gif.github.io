@@ -81,6 +81,20 @@
               <p>Pugs are quintessential companion dogs — they live for human attention and are remarkably adaptable to apartment living, older owners, and families with children. They are playful, affectionate, and comedically expressive, using their large, soulful eyes and elaborate facial wrinkles to communicate with disarming effectiveness. Their low exercise needs make them ideal for less active owners, though their brachycephalic (flat-faced) anatomy requires special care in heat and humidity.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Pugs — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Pug photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Pug photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Pug photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Pug photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Pug photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Pug photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Pugs are known for being devoted companions who love being close to their people. They form deep bonds with their families and thrive on consistent human connection. As a calmer breed, they suit owners who prefer a relaxed lifestyle and appreciate a dog content to lounge alongside them.</p>
@@ -167,18 +181,6 @@
               <a href="chihuahua.html" class="related-card"><span class="rel-emoji">🐕</span><span>Chihuahua</span></a>
               <a href="pomeranian.html" class="related-card"><span class="rel-emoji">🐕</span><span>Pomeranian</span></a>
               <a href="maltese.html" class="related-card"><span class="rel-emoji">🐕</span><span>Maltese</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Pugs — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Pug photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Pug photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Pug photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Pug photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Pug photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Pug photo 6" />
             </div>
           </div>
 
@@ -319,6 +321,7 @@
     fetch('https://dog.ceo/api/breed/pug/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

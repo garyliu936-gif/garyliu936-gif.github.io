@@ -81,6 +81,20 @@
               <p>The Standard Schnauzer was the all-purpose German farm dog — ratcatcher, yard guardian, stable hand, cattle driver, and family watchdog, all in one compact, weather-resistant package. The breed's distinctive harsh wire coat (pepper-and-salt or solid black), prominent beard and eyebrows, and alert, intelligent expression are as functional as they are striking: the wiry coat resists water and dirt, the eyebrows shield the eyes, and the beard protected the face while working. In both World Wars, Standard Schnauzers served as Red Cross dispatch carriers and guard dogs. AKC recognized in 1904, the Standard occupies the middle ground between its two derivative breeds — more independent and spirited than the Miniature, more tractable and family-friendly than the Giant.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Standard Schnauzers — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Standard Schnauzer photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Standard Schnauzer photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Standard Schnauzer photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Standard Schnauzer photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Standard Schnauzer photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Standard Schnauzer photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Standard Schnauzers are known for being loyal, powerful, and alert. They form deep bonds with their families and thrive on consistent human connection. As a high-energy breed, they are best matched with active owners who enjoy outdoor activities and can commit to regular exercise.</p>
@@ -167,18 +181,6 @@
               <a href="rottweiler.html" class="related-card"><span class="rel-emoji">🛡️</span><span>Rottweiler</span></a>
               <a href="doberman-pinscher.html" class="related-card"><span class="rel-emoji">🐕</span><span>Doberman Pinscher</span></a>
               <a href="boxer.html" class="related-card"><span class="rel-emoji">🥊</span><span>Boxer</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Standard Schnauzers — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Standard Schnauzer photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Standard Schnauzer photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Standard Schnauzer photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Standard Schnauzer photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Standard Schnauzer photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Standard Schnauzer photo 6" />
             </div>
           </div>
 
@@ -318,6 +320,7 @@
     fetch('https://dog.ceo/api/breed/schnauzer/giant/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

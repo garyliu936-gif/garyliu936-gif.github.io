@@ -81,6 +81,20 @@
               <p>The Schipperke is one of the few breeds that is traditionally shown tailless — either born without a tail (a natural bobtail trait present in some lines) or with the tail docked close to the body by tradition. Their distinctive silhouette — the mane-like ruff around the neck, sloping topline, and fox-like pointed face — is immediately recognizable and unlike any other small breed. Queen Marie Henriette of Belgium acquired a Schipperke in the 1880s, dramatically elevating the breed's status from working-class barge dog to fashionable companion. The AKC recognized the Schipperke in 1904. Today the breed's reputation for mischief, intelligence, and near-inexhaustible energy is legendary among its devoted fans.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Schipperkes — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Schipperke photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Schipperke photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Schipperke photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Schipperke photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Schipperke photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Schipperke photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Schipperkes are known for being energetic and loyal. They form deep bonds with their families and thrive on consistent human connection. As a high-energy breed, they are best matched with active owners who enjoy outdoor activities and can commit to regular exercise.</p>
@@ -167,18 +181,6 @@
               <a href="golden-retriever.html" class="related-card"><span class="rel-emoji">🦮</span><span>Golden Retriever</span></a>
               <a href="labrador-retriever.html" class="related-card"><span class="rel-emoji">🐕</span><span>Labrador Retriever</span></a>
               <a href="cocker-spaniel.html" class="related-card"><span class="rel-emoji">🐕</span><span>Cocker Spaniel</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Schipperkes — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Schipperke photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Schipperke photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Schipperke photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Schipperke photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Schipperke photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Schipperke photo 6" />
             </div>
           </div>
 
@@ -318,6 +320,7 @@
     fetch('https://dog.ceo/api/breed/schipperke/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

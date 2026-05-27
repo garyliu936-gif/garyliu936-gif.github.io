@@ -81,6 +81,20 @@
               <p>Giant Schnauzers are serious, highly intelligent working dogs that demand an equally serious commitment from their owners. They bond intensely with their families and are naturally suspicious of strangers — traits that make them outstanding guard dogs but require thorough socialization from puppyhood. They excel in police and military K-9 roles, AKC working events, and as loyal family protectors, but they are emphatically not suitable for passive or inexperienced dog owners.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Giant Schnauzers — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Giant Schnauzer photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Giant Schnauzer photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Giant Schnauzer photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Giant Schnauzer photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Giant Schnauzer photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Giant Schnauzer photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Giant Schnauzers are known for being devoted and strong-willed. They form deep bonds with their families and thrive on consistent human connection. As a high-energy breed, they are best matched with active owners who enjoy outdoor activities and can commit to regular exercise.</p>
@@ -167,18 +181,6 @@
               <a href="rottweiler.html" class="related-card"><span class="rel-emoji">🛡️</span><span>Rottweiler</span></a>
               <a href="doberman-pinscher.html" class="related-card"><span class="rel-emoji">🐕</span><span>Doberman Pinscher</span></a>
               <a href="boxer.html" class="related-card"><span class="rel-emoji">🥊</span><span>Boxer</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Giant Schnauzers — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Giant Schnauzer photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Giant Schnauzer photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Giant Schnauzer photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Giant Schnauzer photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Giant Schnauzer photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Giant Schnauzer photo 6" />
             </div>
           </div>
 
@@ -319,6 +321,7 @@
     fetch('https://dog.ceo/api/breed/schnauzer/giant/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

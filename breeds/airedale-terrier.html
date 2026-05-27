@@ -81,6 +81,20 @@
               <p>Airedales are bold, energetic, and highly intelligent — they have a terrier's independent thinking and playful mischief combined with a working dog's stamina and drive. They are devoted to their families and typically good with children, but their size, strength, and stubbornness require confident, experienced handling. Airedales excel at obedience, agility, search and rescue, and as police dogs in Europe, where they served extensively in both World Wars as message carriers and search-and-rescue dogs.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Airedale Terriers — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Airedale Terrier photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Airedale Terrier photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Airedale Terrier photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Airedale Terrier photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Airedale Terrier photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Airedale Terrier photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Airedale Terriers are known for being bold, energetic, and alert. They form deep bonds with their families and thrive on consistent human connection. As a high-energy breed, they are best matched with active owners who enjoy outdoor activities and can commit to regular exercise.</p>
@@ -167,18 +181,6 @@
               <a href="cairn-terrier.html" class="related-card"><span class="rel-emoji">🐾</span><span>Cairn Terrier</span></a>
               <a href="west-highland-white-terrier.html" class="related-card"><span class="rel-emoji">🐾</span><span>West Highland White Terrier</span></a>
               <a href="airedale-terrier.html" class="related-card"><span class="rel-emoji">🐾</span><span>Airedale Terrier</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Airedale Terriers — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Airedale Terrier photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Airedale Terrier photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Airedale Terrier photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Airedale Terrier photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Airedale Terrier photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Airedale Terrier photo 6" />
             </div>
           </div>
 
@@ -319,6 +321,7 @@
     fetch('https://dog.ceo/api/breed/terrier/airedale/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

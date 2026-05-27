@@ -81,6 +81,20 @@
               <p>Irish Wolfhounds are famous for their 'gentle when stroked, fierce when provoked' temperament — they are remarkably calm, friendly, and patient indoors, spending most of their time as gentle companions who require only moderate daily exercise despite their massive size. Their short lifespan (6–8 years on average) means that every year with an Irish Wolfhound is precious, and owners often describe an intense, brief relationship of extraordinary depth and love. Few breeds generate the emotional attachment that the Irish Wolfhound reliably inspires.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Irish Wolfhounds — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Irish Wolfhound photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Irish Wolfhound photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Irish Wolfhound photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Irish Wolfhound photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Irish Wolfhound photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Irish Wolfhound photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Irish Wolfhounds are known for being driven by instinct — scent or sight. They form deep bonds with their families and thrive on consistent human connection. They strike a good balance — lively enough to enjoy playtime and adventures, but calm enough to settle indoors when the day is done.</p>
@@ -167,18 +181,6 @@
               <a href="basset-hound.html" class="related-card"><span class="rel-emoji">🐕</span><span>Basset Hound</span></a>
               <a href="beagle.html" class="related-card"><span class="rel-emoji">🐕</span><span>Beagle</span></a>
               <a href="bloodhound.html" class="related-card"><span class="rel-emoji">🐕</span><span>Bloodhound</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Irish Wolfhounds — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Irish Wolfhound photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Irish Wolfhound photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Irish Wolfhound photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Irish Wolfhound photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Irish Wolfhound photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Irish Wolfhound photo 6" />
             </div>
           </div>
 
@@ -319,6 +321,7 @@
     fetch('https://dog.ceo/api/breed/wolfhound/irish/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

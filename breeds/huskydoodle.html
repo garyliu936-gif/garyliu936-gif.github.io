@@ -81,6 +81,20 @@
               <p>Huskydoodles are for experienced, active dog owners. They can be independent and strong-willed (the Husky influence) but respond well to positive reinforcement when motivated. Their Poodle side makes them more trainable than a purebred Husky, and their coat — often wavy rather than double-coated — sheds far less than either parent alone. They often have striking blue or parti-colored eyes.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Huskydoodles — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Huskydoodle photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Huskydoodle photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Huskydoodle photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Huskydoodle photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Huskydoodle photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Huskydoodle photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Huskydoodles are known for being personality can vary — early socialization shapes their adult character. They form deep bonds with their families and thrive on consistent human connection. As a high-energy hybrid, they are best matched with active owners who enjoy outdoor activities and can commit to regular exercise.</p>
@@ -167,18 +181,6 @@
               <a href="goldendoodle.html" class="related-card"><span class="rel-emoji">🐩</span><span>Goldendoodle</span></a>
               <a href="labradoodle.html" class="related-card"><span class="rel-emoji">🐕</span><span>Labradoodle</span></a>
               <a href="cavapoo.html" class="related-card"><span class="rel-emoji">🐕</span><span>Cavapoo</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Huskydoodles — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Huskydoodle photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Huskydoodle photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Huskydoodle photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Huskydoodle photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Huskydoodle photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Huskydoodle photo 6" />
             </div>
           </div>
 
@@ -315,6 +317,7 @@
     fetch('https://dog.ceo/api/breed/husky/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

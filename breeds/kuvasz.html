@@ -81,6 +81,20 @@
               <p>The Kuvasz was developed to guard large flocks of sheep on the open Hungarian plains and mountain pastures, operating independently of handlers across vast territories, making life-or-death decisions without human direction. This heritage created a dog of exceptional intelligence, strong independence, and deep territorial instinct — qualities that make the Kuvasz an outstanding working guardian but a challenging family companion requiring experienced ownership. AKC recognized in 1931, the Kuvasz nearly vanished during World War II when their reputation as formidable protection dogs made them prime targets for soldiers — post-war surveys found as few as 30 Kuvasz remaining in all of Hungary. Their recovery is considered one of the great breed reconstruction achievements of the 20th century.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Kuvaszs — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Kuvasz photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Kuvasz photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Kuvasz photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Kuvasz photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Kuvasz photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Kuvasz photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Kuvaszs are known for being loyal, powerful, and alert. They form deep bonds with their families and thrive on consistent human connection. They strike a good balance — lively enough to enjoy playtime and adventures, but calm enough to settle indoors when the day is done.</p>
@@ -167,18 +181,6 @@
               <a href="rottweiler.html" class="related-card"><span class="rel-emoji">🛡️</span><span>Rottweiler</span></a>
               <a href="doberman-pinscher.html" class="related-card"><span class="rel-emoji">🐕</span><span>Doberman Pinscher</span></a>
               <a href="boxer.html" class="related-card"><span class="rel-emoji">🥊</span><span>Boxer</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Kuvaszs — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Kuvasz photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Kuvasz photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Kuvasz photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Kuvasz photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Kuvasz photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Kuvasz photo 6" />
             </div>
           </div>
 
@@ -318,6 +320,7 @@
     fetch('https://dog.ceo/api/breed/samoyed/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

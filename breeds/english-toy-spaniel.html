@@ -81,6 +81,20 @@
               <p>The English Toy Spaniel comes in four color varieties that are registered as a single breed in the United States but recognized separately in England: King Charles (black and tan), Ruby (rich mahogany red), Blenheim (red and white), and Prince Charles (tricolor — white, black, and tan). The Blenheim variety takes its name from Blenheim Palace, where the Duke of Marlborough famously bred red-and-white spaniels. AKC-recognized since 1886, the English Toy Spaniel is now one of the rarest toy breeds in America, beloved by a small but deeply devoted community of fanciers who prize their quiet dignity, gentle temperament, and extraordinary historical pedigree.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real English Toy Spaniels — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="English Toy Spaniel photo 1" />
+              <img class="gallery-photo" id="gp2" alt="English Toy Spaniel photo 2" />
+              <img class="gallery-photo" id="gp3" alt="English Toy Spaniel photo 3" />
+              <img class="gallery-photo" id="gp4" alt="English Toy Spaniel photo 4" />
+              <img class="gallery-photo" id="gp5" alt="English Toy Spaniel photo 5" />
+              <img class="gallery-photo" id="gp6" alt="English Toy Spaniel photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>English Toy Spaniels are known for being affectionate, alert, and adaptable. They form deep bonds with their families and thrive on consistent human connection. As a calmer breed, they suit owners who prefer a relaxed lifestyle and appreciate a dog content to lounge alongside them.</p>
@@ -167,18 +181,6 @@
               <a href="chihuahua.html" class="related-card"><span class="rel-emoji">🐕</span><span>Chihuahua</span></a>
               <a href="pomeranian.html" class="related-card"><span class="rel-emoji">🐕</span><span>Pomeranian</span></a>
               <a href="maltese.html" class="related-card"><span class="rel-emoji">🐕</span><span>Maltese</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real English Toy Spaniels — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="English Toy Spaniel photo 1" />
-              <img class="gallery-photo" id="gp2" alt="English Toy Spaniel photo 2" />
-              <img class="gallery-photo" id="gp3" alt="English Toy Spaniel photo 3" />
-              <img class="gallery-photo" id="gp4" alt="English Toy Spaniel photo 4" />
-              <img class="gallery-photo" id="gp5" alt="English Toy Spaniel photo 5" />
-              <img class="gallery-photo" id="gp6" alt="English Toy Spaniel photo 6" />
             </div>
           </div>
 
@@ -318,6 +320,7 @@
     fetch('https://dog.ceo/api/breed/spaniel/cocker/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

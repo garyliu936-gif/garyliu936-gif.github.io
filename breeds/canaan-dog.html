@@ -81,6 +81,20 @@
               <p>The modern Canaan Dog breed was formally reconstructed in the 1930s by Dr. Rudolphina Menzel, an Austrian-born animal behaviorist who emigrated to British Mandatory Palestine and was commissioned to develop a working dog for the Jewish defense forces. Rather than import European breeds, Menzel took the radical approach of capturing, domesticating, and selectively breeding the semi-feral pariah dogs already living in the desert — recognizing that their survival for thousands of years without human support had produced a supremely robust, hardy, and intelligent animal. The Canaan Dog became Israel's national breed and an official symbol of the country. AKC recognition came in 1997. Today they are rare — fewer than 3,000 are estimated to exist worldwide — but deeply prized by owners who value their unique combination of ancient intelligence, intense loyalty, and self-reliant character.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Canaan Dogs — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Canaan Dog photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Canaan Dog photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Canaan Dog photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Canaan Dog photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Canaan Dog photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Canaan Dog photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Canaan Dogs are known for being energetic, focused, and trainable. They form deep bonds with their families and thrive on consistent human connection. They strike a good balance — lively enough to enjoy playtime and adventures, but calm enough to settle indoors when the day is done.</p>
@@ -167,18 +181,6 @@
               <a href="border-collie.html" class="related-card"><span class="rel-emoji">🐕</span><span>Border Collie</span></a>
               <a href="german-shepherd.html" class="related-card"><span class="rel-emoji">🐕‍🦺</span><span>German Shepherd</span></a>
               <a href="australian-shepherd.html" class="related-card"><span class="rel-emoji">🐕</span><span>Australian Shepherd</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Canaan Dogs — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Canaan Dog photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Canaan Dog photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Canaan Dog photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Canaan Dog photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Canaan Dog photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Canaan Dog photo 6" />
             </div>
           </div>
 
@@ -318,6 +320,7 @@
     fetch('https://dog.ceo/api/breed/canaan/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

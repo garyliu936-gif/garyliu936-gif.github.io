@@ -81,6 +81,20 @@
               <p>Springerdoodles are wonderful family dogs — gentle enough for children, active enough for outdoor adventures, and smart enough to learn quickly. They love water, have excellent noses, and can be channeled into hiking, hunting, agility, or simply playing fetch all day. Their curly or wavy coat is easy to manage and low-shedding.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Springerdoodles — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Springerdoodle photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Springerdoodle photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Springerdoodle photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Springerdoodle photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Springerdoodle photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Springerdoodle photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Springerdoodles are known for being often inheriting the best traits of both parent breeds. They form deep bonds with their families and thrive on consistent human connection. As a high-energy hybrid, they are best matched with active owners who enjoy outdoor activities and can commit to regular exercise.</p>
@@ -167,18 +181,6 @@
               <a href="goldendoodle.html" class="related-card"><span class="rel-emoji">🐩</span><span>Goldendoodle</span></a>
               <a href="labradoodle.html" class="related-card"><span class="rel-emoji">🐕</span><span>Labradoodle</span></a>
               <a href="cavapoo.html" class="related-card"><span class="rel-emoji">🐕</span><span>Cavapoo</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Springerdoodles — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Springerdoodle photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Springerdoodle photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Springerdoodle photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Springerdoodle photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Springerdoodle photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Springerdoodle photo 6" />
             </div>
           </div>
 
@@ -315,6 +317,7 @@
     fetch('https://dog.ceo/api/breed/spaniel/springer/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

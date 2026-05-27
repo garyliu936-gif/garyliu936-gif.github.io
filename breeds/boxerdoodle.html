@@ -81,6 +81,20 @@
               <p>Boxerdoodles are affectionate and people-oriented — they love being the center of attention and thrive when included in family activities. They have a natural clownish streak from the Boxer side and pick up commands quickly thanks to Poodle intelligence. Daily vigorous exercise is essential; a well-exercised Boxerdoodle is a well-behaved Boxerdoodle.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Boxerdoodles — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Boxerdoodle photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Boxerdoodle photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Boxerdoodle photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Boxerdoodle photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Boxerdoodle photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Boxerdoodle photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Boxerdoodles are known for being sociable and adaptable. They form deep bonds with their families and thrive on consistent human connection. As a high-energy hybrid, they are best matched with active owners who enjoy outdoor activities and can commit to regular exercise.</p>
@@ -167,18 +181,6 @@
               <a href="goldendoodle.html" class="related-card"><span class="rel-emoji">🐩</span><span>Goldendoodle</span></a>
               <a href="labradoodle.html" class="related-card"><span class="rel-emoji">🐕</span><span>Labradoodle</span></a>
               <a href="cavapoo.html" class="related-card"><span class="rel-emoji">🐕</span><span>Cavapoo</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Boxerdoodles — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Boxerdoodle photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Boxerdoodle photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Boxerdoodle photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Boxerdoodle photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Boxerdoodle photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Boxerdoodle photo 6" />
             </div>
           </div>
 
@@ -315,6 +317,7 @@
     fetch('https://dog.ceo/api/breed/boxer/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

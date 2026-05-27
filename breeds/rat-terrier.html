@@ -81,6 +81,20 @@
               <p>Rat Terriers are compact, muscular, and extraordinarily alert. They come in two AKC-recognized sizes — Miniature (under 13 inches) and Standard (13–18 inches) — and in a dizzying variety of coat colors and patterns. They are curious, energetic, and surprisingly affectionate — far more of a snuggler than the typical terrier stereotype suggests. Despite their farm origins, they adapt well to suburban life and are excellent with active families.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Rat Terriers — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Rat Terrier photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Rat Terrier photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Rat Terrier photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Rat Terrier photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Rat Terrier photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Rat Terrier photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Rat Terriers are known for being independent and spirited. They form deep bonds with their families and thrive on consistent human connection. As a high-energy breed, they are best matched with active owners who enjoy outdoor activities and can commit to regular exercise.</p>
@@ -167,18 +181,6 @@
               <a href="cairn-terrier.html" class="related-card"><span class="rel-emoji">🐾</span><span>Cairn Terrier</span></a>
               <a href="west-highland-white-terrier.html" class="related-card"><span class="rel-emoji">🐾</span><span>West Highland White Terrier</span></a>
               <a href="airedale-terrier.html" class="related-card"><span class="rel-emoji">🐾</span><span>Airedale Terrier</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Rat Terriers — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Rat Terrier photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Rat Terrier photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Rat Terrier photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Rat Terrier photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Rat Terrier photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Rat Terrier photo 6" />
             </div>
           </div>
 
@@ -318,6 +320,7 @@
     fetch('https://dog.ceo/api/breed/terrier/fox/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

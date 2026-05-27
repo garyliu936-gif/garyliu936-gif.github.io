@@ -81,6 +81,20 @@
               <p>The GBGV is an extravagant-looking dog — a stocky, low-slung hound body is topped with a rough, tousled coat, a dramatic beard and mustache, and large, expressive dark eyes. Their expression reads "cheerfully disreputable" in the best possible way. GBGVs are boisterous, confident, and extremely sociable — they do not do well alone and thrive in multi-dog households. In the US they are very rare, gaining AKC recognition in 2018. Those who find them describe them as one of the most entertaining, personality-rich breeds in the hound group.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Grand Basset Griffon Vendéens — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Grand Basset Griffon Vendéen photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Grand Basset Griffon Vendéen photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Grand Basset Griffon Vendéen photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Grand Basset Griffon Vendéen photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Grand Basset Griffon Vendéen photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Grand Basset Griffon Vendéen photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Grand Basset Griffon Vendéens are known for being driven by instinct — scent or sight. They form deep bonds with their families and thrive on consistent human connection. As a high-energy breed, they are best matched with active owners who enjoy outdoor activities and can commit to regular exercise.</p>
@@ -167,18 +181,6 @@
               <a href="basset-hound.html" class="related-card"><span class="rel-emoji">🐕</span><span>Basset Hound</span></a>
               <a href="beagle.html" class="related-card"><span class="rel-emoji">🐕</span><span>Beagle</span></a>
               <a href="bloodhound.html" class="related-card"><span class="rel-emoji">🐕</span><span>Bloodhound</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Grand Basset Griffon Vendéens — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Grand Basset Griffon Vendéen photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Grand Basset Griffon Vendéen photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Grand Basset Griffon Vendéen photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Grand Basset Griffon Vendéen photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Grand Basset Griffon Vendéen photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Grand Basset Griffon Vendéen photo 6" />
             </div>
           </div>
 
@@ -318,6 +320,7 @@
     fetch('https://dog.ceo/api/breed/hound/basset/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

@@ -81,6 +81,20 @@
               <p>Papillons are highly trainable and thrive on mental stimulation. They bond closely with their families and can be surprisingly athletic — many compete successfully in agility at the highest levels. The drop-eared variety is called a Phalène (moth), equally charming but less common.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Papillons — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Papillon photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Papillon photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Papillon photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Papillon photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Papillon photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Papillon photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Papillons are known for being surprisingly bold for their small size. They form deep bonds with their families and thrive on consistent human connection. As a high-energy breed, they are best matched with active owners who enjoy outdoor activities and can commit to regular exercise.</p>
@@ -167,18 +181,6 @@
               <a href="chihuahua.html" class="related-card"><span class="rel-emoji">🐕</span><span>Chihuahua</span></a>
               <a href="pomeranian.html" class="related-card"><span class="rel-emoji">🐕</span><span>Pomeranian</span></a>
               <a href="maltese.html" class="related-card"><span class="rel-emoji">🐕</span><span>Maltese</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Papillons — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Papillon photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Papillon photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Papillon photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Papillon photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Papillon photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Papillon photo 6" />
             </div>
           </div>
 
@@ -319,6 +321,7 @@
     fetch('https://dog.ceo/api/breed/papillon/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

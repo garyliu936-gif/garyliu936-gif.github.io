@@ -81,6 +81,20 @@
               <p>The Smooth Fox Terrier was one of the first breeds to be shown at dog shows in England — it appeared at the first organized dog show in Newcastle in 1859 — making it one of the founding breeds of the modern dog show tradition. For much of the late 19th and early 20th century, Fox Terriers (both Smooth and Wire) were among the most popular breeds in Britain and America, beloved for their alert, lively character and elegant appearance. Today the Smooth is less common than the Wire, ranking in the lower half of AKC registrations, but maintains a devoted following among terrier fanciers who value its clean lines, loyal character, and genuine working heritage.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Smooth Fox Terriers — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Smooth Fox Terrier photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Smooth Fox Terrier photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Smooth Fox Terrier photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Smooth Fox Terrier photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Smooth Fox Terrier photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Smooth Fox Terrier photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Smooth Fox Terriers are known for being independent and spirited. They form deep bonds with their families and thrive on consistent human connection. As a high-energy breed, they are best matched with active owners who enjoy outdoor activities and can commit to regular exercise.</p>
@@ -167,18 +181,6 @@
               <a href="cairn-terrier.html" class="related-card"><span class="rel-emoji">🐾</span><span>Cairn Terrier</span></a>
               <a href="west-highland-white-terrier.html" class="related-card"><span class="rel-emoji">🐾</span><span>West Highland White Terrier</span></a>
               <a href="airedale-terrier.html" class="related-card"><span class="rel-emoji">🐾</span><span>Airedale Terrier</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Smooth Fox Terriers — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Smooth Fox Terrier photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Smooth Fox Terrier photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Smooth Fox Terrier photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Smooth Fox Terrier photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Smooth Fox Terrier photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Smooth Fox Terrier photo 6" />
             </div>
           </div>
 
@@ -318,6 +320,7 @@
     fetch('https://dog.ceo/api/breed/terrier/fox/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

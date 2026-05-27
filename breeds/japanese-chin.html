@@ -81,6 +81,20 @@
               <p>The Japanese Chin reached the Western world primarily through the gifts Japanese diplomats and nobles gave to visiting dignitaries in the 19th century. Commodore Matthew Perry received Japanese Chins during his 1853 expedition to Japan, bringing some back to America. Queen Victoria of England received a pair as a gift, helping popularize the breed in Britain. The AKC originally recognized the breed as the "Japanese Spaniel" in 1888, renaming it the "Japanese Chin" in 1977 to reflect its distinct character separate from spaniel breeds. Today the Japanese Chin is widely described as the most cat-like of all dogs — it climbs furniture, perches on high surfaces, uses its paws to wash its face, and generally comports itself with the serene dignity of a small feline.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Japanese Chins — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Japanese Chin photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Japanese Chin photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Japanese Chin photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Japanese Chin photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Japanese Chin photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Japanese Chin photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Japanese Chins are known for being surprisingly bold for their small size. They form deep bonds with their families and thrive on consistent human connection. As a calmer breed, they suit owners who prefer a relaxed lifestyle and appreciate a dog content to lounge alongside them.</p>
@@ -167,18 +181,6 @@
               <a href="chihuahua.html" class="related-card"><span class="rel-emoji">🐕</span><span>Chihuahua</span></a>
               <a href="pomeranian.html" class="related-card"><span class="rel-emoji">🐕</span><span>Pomeranian</span></a>
               <a href="maltese.html" class="related-card"><span class="rel-emoji">🐕</span><span>Maltese</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Japanese Chins — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Japanese Chin photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Japanese Chin photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Japanese Chin photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Japanese Chin photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Japanese Chin photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Japanese Chin photo 6" />
             </div>
           </div>
 
@@ -318,6 +320,7 @@
     fetch('https://dog.ceo/api/breed/pug/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

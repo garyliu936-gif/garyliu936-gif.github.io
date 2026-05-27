@@ -81,6 +81,20 @@
               <p>The Bergamasco's coat is sometimes mistaken for dreadlocks, but it is distinctly different from the corded coats of the Puli or Komondor — the flocks are flat, wide mats rather than round cords. The coat requires intensive preparation during the dog's second year (when the mats are separated and laid flat by hand) but is essentially maintenance-free thereafter. Underneath the impressive coat is a calm, intelligent, patient dog — one of the least reactive herding breeds — with a profound capacity for independent problem-solving that made them valuable partners across centuries of unsupervised mountain work.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Bergamasco Sheepdogs — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Bergamasco Sheepdog photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Bergamasco Sheepdog photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Bergamasco Sheepdog photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Bergamasco Sheepdog photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Bergamasco Sheepdog photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Bergamasco Sheepdog photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Bergamasco Sheepdogs are known for being highly intelligent and responsive. They form deep bonds with their families and thrive on consistent human connection. They strike a good balance — lively enough to enjoy playtime and adventures, but calm enough to settle indoors when the day is done.</p>
@@ -167,18 +181,6 @@
               <a href="border-collie.html" class="related-card"><span class="rel-emoji">🐕</span><span>Border Collie</span></a>
               <a href="german-shepherd.html" class="related-card"><span class="rel-emoji">🐕‍🦺</span><span>German Shepherd</span></a>
               <a href="australian-shepherd.html" class="related-card"><span class="rel-emoji">🐕</span><span>Australian Shepherd</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Bergamasco Sheepdogs — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Bergamasco Sheepdog photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Bergamasco Sheepdog photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Bergamasco Sheepdog photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Bergamasco Sheepdog photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Bergamasco Sheepdog photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Bergamasco Sheepdog photo 6" />
             </div>
           </div>
 
@@ -318,6 +320,7 @@
     fetch('https://dog.ceo/api/breed/komondor/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

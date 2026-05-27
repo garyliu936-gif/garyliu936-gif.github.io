@@ -81,6 +81,20 @@
               <p>In modern American use, Anatolian Shepherd Dogs are increasingly deployed as working livestock guardians on farms and ranches, particularly in areas where wolves, coyotes, or mountain lions threaten livestock. They are not companion dogs in the traditional sense — they are working dogs that happen to live with humans, and they require owners who understand the difference. For experienced working dog owners with land and livestock, the Anatolian is unparalleled; as a family pet without a job, it can become territorial, destructive, and difficult.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Anatolian Shepherd Dogs — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Anatolian Shepherd Dog photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Anatolian Shepherd Dog photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Anatolian Shepherd Dog photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Anatolian Shepherd Dog photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Anatolian Shepherd Dog photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Anatolian Shepherd Dog photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Anatolian Shepherd Dogs are known for being loyal, powerful, and alert. They form deep bonds with their families and thrive on consistent human connection. They strike a good balance — lively enough to enjoy playtime and adventures, but calm enough to settle indoors when the day is done.</p>
@@ -167,18 +181,6 @@
               <a href="rottweiler.html" class="related-card"><span class="rel-emoji">🛡️</span><span>Rottweiler</span></a>
               <a href="doberman-pinscher.html" class="related-card"><span class="rel-emoji">🐕</span><span>Doberman Pinscher</span></a>
               <a href="boxer.html" class="related-card"><span class="rel-emoji">🥊</span><span>Boxer</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Anatolian Shepherd Dogs — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Anatolian Shepherd Dog photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Anatolian Shepherd Dog photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Anatolian Shepherd Dog photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Anatolian Shepherd Dog photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Anatolian Shepherd Dog photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Anatolian Shepherd Dog photo 6" />
             </div>
           </div>
 
@@ -319,6 +321,7 @@
     fetch('https://dog.ceo/api/breed/anatolian/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

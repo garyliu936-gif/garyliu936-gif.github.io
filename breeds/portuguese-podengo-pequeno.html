@@ -81,6 +81,20 @@
               <p>The Portuguese Podengo Pequeno is a foxlike, fine-boned primitive hound available in two coat varieties: smooth (short and close) and wire (harsh and rough). Both have the same brilliant, wedge-shaped head, large upright ears, and alert, intelligent expression. They are extraordinarily energetic and athletic for their small size — capable of jumping fences several times their height — and are among the healthiest small dog breeds with one of the longest lifespans documented. AKC recognized in 2013, they are gaining fans for their combination of ancient character, manageable size, and extraordinary vitality.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Portuguese Podengo Pequenos — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Portuguese Podengo Pequeno photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Portuguese Podengo Pequeno photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Portuguese Podengo Pequeno photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Portuguese Podengo Pequeno photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Portuguese Podengo Pequeno photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Portuguese Podengo Pequeno photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Portuguese Podengo Pequenos are known for being driven by instinct — scent or sight. They form deep bonds with their families and thrive on consistent human connection. As a high-energy breed, they are best matched with active owners who enjoy outdoor activities and can commit to regular exercise.</p>
@@ -167,18 +181,6 @@
               <a href="basset-hound.html" class="related-card"><span class="rel-emoji">🐕</span><span>Basset Hound</span></a>
               <a href="beagle.html" class="related-card"><span class="rel-emoji">🐕</span><span>Beagle</span></a>
               <a href="bloodhound.html" class="related-card"><span class="rel-emoji">🐕</span><span>Bloodhound</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Portuguese Podengo Pequenos — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Portuguese Podengo Pequeno photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Portuguese Podengo Pequeno photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Portuguese Podengo Pequeno photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Portuguese Podengo Pequeno photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Portuguese Podengo Pequeno photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Portuguese Podengo Pequeno photo 6" />
             </div>
           </div>
 
@@ -318,6 +320,7 @@
     fetch('https://dog.ceo/api/breed/basenji/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

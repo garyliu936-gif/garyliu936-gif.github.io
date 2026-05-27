@@ -81,6 +81,20 @@
               <p>Cavachons are equally at home in a city apartment or a suburban house. They bond deeply with their owners and get along beautifully with children, the elderly, and other pets. Their low exercise needs and quiet nature make them ideal companions for first-time dog owners and seniors alike.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Cavachons — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Cavachon photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Cavachon photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Cavachon photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Cavachon photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Cavachon photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Cavachon photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Cavachons are known for being personality can vary — early socialization shapes their adult character. They form deep bonds with their families and thrive on consistent human connection. As a calmer hybrid, they suit owners who prefer a relaxed lifestyle and appreciate a dog content to lounge alongside them.</p>
@@ -167,18 +181,6 @@
               <a href="goldendoodle.html" class="related-card"><span class="rel-emoji">🐩</span><span>Goldendoodle</span></a>
               <a href="labradoodle.html" class="related-card"><span class="rel-emoji">🐕</span><span>Labradoodle</span></a>
               <a href="cavapoo.html" class="related-card"><span class="rel-emoji">🐕</span><span>Cavapoo</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Cavachons — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Cavachon photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Cavachon photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Cavachon photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Cavachon photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Cavachon photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Cavachon photo 6" />
             </div>
           </div>
 
@@ -315,6 +317,7 @@
     fetch('https://dog.ceo/api/breed/cavalier/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

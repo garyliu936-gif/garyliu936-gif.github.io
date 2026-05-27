@@ -81,6 +81,20 @@
               <p>The breed is defined by its traditional "lion clip" — the hindquarters, flanks, and legs are clipped close to the skin while the forequarters, mane, and tail plume are left long and full, creating the unmistakable silhouette of a miniature lion. Beyond the striking appearance, Löwchens are genuinely wonderful companions: outgoing, playful, affectionate, and surprisingly bold for their size. They nearly vanished in the 20th century — by 1973, fewer than 70 registered individuals existed worldwide — but dedicated breeders brought them back from the brink.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Löwchens — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Löwchen photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Löwchen photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Löwchen photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Löwchen photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Löwchen photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Löwchen photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Löwchens are known for being outgoing and sociable. They form deep bonds with their families and thrive on consistent human connection. They strike a good balance — lively enough to enjoy playtime and adventures, but calm enough to settle indoors when the day is done.</p>
@@ -167,18 +181,6 @@
               <a href="golden-retriever.html" class="related-card"><span class="rel-emoji">🦮</span><span>Golden Retriever</span></a>
               <a href="labrador-retriever.html" class="related-card"><span class="rel-emoji">🐕</span><span>Labrador Retriever</span></a>
               <a href="cocker-spaniel.html" class="related-card"><span class="rel-emoji">🐕</span><span>Cocker Spaniel</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Löwchens — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Löwchen photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Löwchen photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Löwchen photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Löwchen photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Löwchen photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Löwchen photo 6" />
             </div>
           </div>
 
@@ -318,6 +320,7 @@
     fetch('https://dog.ceo/api/breed/bichon/frise/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

@@ -81,6 +81,20 @@
               <p>Unlike most other coonhounds that specialize in slow, methodical scent tracking, the American English Coonhound hunts fast and hot — covering ground with foxhound speed while still capable of trailing a cold raccoon scent. The breed comes in a variety of striking color patterns including redtick, bluetick (a separate but related type), and tricolor, with the ticking pattern (small flecks of color on white) being its most recognizable visual trait. The AKC fully recognized the American English Coonhound in 2011, making it one of the newer additions to the Hound Group despite the breed's centuries-old American heritage. As pets, American English Coonhounds are affectionate and social but require far more exercise than most families anticipate — a breed built for all-night hunts is not suited to apartment living.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real American English Coonhounds — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="American English Coonhound photo 1" />
+              <img class="gallery-photo" id="gp2" alt="American English Coonhound photo 2" />
+              <img class="gallery-photo" id="gp3" alt="American English Coonhound photo 3" />
+              <img class="gallery-photo" id="gp4" alt="American English Coonhound photo 4" />
+              <img class="gallery-photo" id="gp5" alt="American English Coonhound photo 5" />
+              <img class="gallery-photo" id="gp6" alt="American English Coonhound photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>American English Coonhounds are known for being independent, determined, and loyal. They form deep bonds with their families and thrive on consistent human connection. As a high-energy breed, they are best matched with active owners who enjoy outdoor activities and can commit to regular exercise.</p>
@@ -167,18 +181,6 @@
               <a href="basset-hound.html" class="related-card"><span class="rel-emoji">🐕</span><span>Basset Hound</span></a>
               <a href="beagle.html" class="related-card"><span class="rel-emoji">🐕</span><span>Beagle</span></a>
               <a href="bloodhound.html" class="related-card"><span class="rel-emoji">🐕</span><span>Bloodhound</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real American English Coonhounds — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="American English Coonhound photo 1" />
-              <img class="gallery-photo" id="gp2" alt="American English Coonhound photo 2" />
-              <img class="gallery-photo" id="gp3" alt="American English Coonhound photo 3" />
-              <img class="gallery-photo" id="gp4" alt="American English Coonhound photo 4" />
-              <img class="gallery-photo" id="gp5" alt="American English Coonhound photo 5" />
-              <img class="gallery-photo" id="gp6" alt="American English Coonhound photo 6" />
             </div>
           </div>
 
@@ -318,6 +320,7 @@
     fetch('https://dog.ceo/api/breed/hound/english/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

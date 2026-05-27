@@ -81,6 +81,20 @@
               <p>Rottadors are highly loyal and deeply bonded to their families. They tend to be less aggressive than purebred Rottweilers — the Lab's influence promotes friendliness — but they retain a natural protectiveness that makes them excellent watchdogs. Early socialization and training are essential to channel their strength and intelligence positively.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Rottadors — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Rottador photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Rottador photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Rottador photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Rottador photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Rottador photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Rottador photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Rottadors are known for being sociable and adaptable. They form deep bonds with their families and thrive on consistent human connection. As a high-energy hybrid, they are best matched with active owners who enjoy outdoor activities and can commit to regular exercise.</p>
@@ -167,18 +181,6 @@
               <a href="goldendoodle.html" class="related-card"><span class="rel-emoji">🐩</span><span>Goldendoodle</span></a>
               <a href="labradoodle.html" class="related-card"><span class="rel-emoji">🐕</span><span>Labradoodle</span></a>
               <a href="cavapoo.html" class="related-card"><span class="rel-emoji">🐕</span><span>Cavapoo</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Rottadors — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Rottador photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Rottador photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Rottador photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Rottador photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Rottador photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Rottador photo 6" />
             </div>
           </div>
 
@@ -315,6 +317,7 @@
     fetch('https://dog.ceo/api/breed/rottweiler/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

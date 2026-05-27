@@ -81,6 +81,20 @@
               <p>Their extraordinary nose — combined with deep intelligence, a willingness to work, and a curly, low-shedding coat — makes them the gold standard in the truffle-hunting world. A skilled Lagotto can find white Alba truffles worth $3,000 per pound buried feet underground. As companions, they are deeply affectionate, playful, and sensitive dogs that thrive on mental challenges. Their rising popularity in recent years reflects both their impressive working ability and their wonderful temperament.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Lagotto Romagnolos — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Lagotto Romagnolo photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Lagotto Romagnolo photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Lagotto Romagnolo photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Lagotto Romagnolo photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Lagotto Romagnolo photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Lagotto Romagnolo photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Lagotto Romagnolos are known for being friendly, active, and eager to please. They form deep bonds with their families and thrive on consistent human connection. As a high-energy breed, they are best matched with active owners who enjoy outdoor activities and can commit to regular exercise.</p>
@@ -167,18 +181,6 @@
               <a href="golden-retriever.html" class="related-card"><span class="rel-emoji">🦮</span><span>Golden Retriever</span></a>
               <a href="labrador-retriever.html" class="related-card"><span class="rel-emoji">🐕</span><span>Labrador Retriever</span></a>
               <a href="cocker-spaniel.html" class="related-card"><span class="rel-emoji">🐕</span><span>Cocker Spaniel</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Lagotto Romagnolos — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Lagotto Romagnolo photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Lagotto Romagnolo photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Lagotto Romagnolo photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Lagotto Romagnolo photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Lagotto Romagnolo photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Lagotto Romagnolo photo 6" />
             </div>
           </div>
 
@@ -318,6 +320,7 @@
     fetch('https://dog.ceo/api/breed/waterdog/spanish/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

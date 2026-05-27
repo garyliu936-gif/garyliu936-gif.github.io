@@ -81,6 +81,20 @@
               <p>To achieve this, Soviet scientists crossed more than 17 different breeds — including Giant Schnauzers, Rottweilers, Airedale Terriers, and Newfoundlands — over decades of selective breeding. The result was a large, heavily built dog with a thick double coat, exceptional courage, intelligence, and adaptability. Today's Black Russian Terrier is an imposing but deeply family-oriented dog — protective, calm, and surprisingly playful with children. They are not a breed for first-time owners, but in experienced hands they are magnificent.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Black Russian Terriers — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Black Russian Terrier photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Black Russian Terrier photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Black Russian Terrier photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Black Russian Terrier photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Black Russian Terrier photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Black Russian Terrier photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Black Russian Terriers are known for being loyal, powerful, and alert. They form deep bonds with their families and thrive on consistent human connection. They strike a good balance — lively enough to enjoy playtime and adventures, but calm enough to settle indoors when the day is done.</p>
@@ -167,18 +181,6 @@
               <a href="rottweiler.html" class="related-card"><span class="rel-emoji">🛡️</span><span>Rottweiler</span></a>
               <a href="doberman-pinscher.html" class="related-card"><span class="rel-emoji">🐕</span><span>Doberman Pinscher</span></a>
               <a href="boxer.html" class="related-card"><span class="rel-emoji">🥊</span><span>Boxer</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Black Russian Terriers — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Black Russian Terrier photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Black Russian Terrier photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Black Russian Terrier photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Black Russian Terrier photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Black Russian Terrier photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Black Russian Terrier photo 6" />
             </div>
           </div>
 
@@ -318,6 +320,7 @@
     fetch('https://dog.ceo/api/breed/schnauzer/giant/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

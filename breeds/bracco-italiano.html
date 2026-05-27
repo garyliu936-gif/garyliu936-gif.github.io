@@ -81,6 +81,20 @@
               <p>The Bracco Italiano appears in paintings by Renaissance masters including Andrea Mantegna, where recognizable dogs with the breed's characteristic deep-set eyes, long ears, and powerful build are depicted hunting with Italian noble families. The breed was prized by Italian aristocracy and by the 15th century was being given as diplomatic gifts to foreign royalty. It nearly went extinct in the late 19th century as foreign breeds became fashionable in Italy, but was saved by dedicated Italian breeders who formed the Società Amatori Bracco Italiano in 1949 and systematically reconstructed the breed from surviving specimens. The AKC recognized the Bracco Italiano in 2022 — making it one of the most recently admitted breeds in AKC history.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Bracco Italianos — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Bracco Italiano photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Bracco Italiano photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Bracco Italiano photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Bracco Italiano photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Bracco Italiano photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Bracco Italiano photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Bracco Italianos are known for being outgoing and sociable. They form deep bonds with their families and thrive on consistent human connection. As a high-energy breed, they are best matched with active owners who enjoy outdoor activities and can commit to regular exercise.</p>
@@ -167,18 +181,6 @@
               <a href="golden-retriever.html" class="related-card"><span class="rel-emoji">🦮</span><span>Golden Retriever</span></a>
               <a href="labrador-retriever.html" class="related-card"><span class="rel-emoji">🐕</span><span>Labrador Retriever</span></a>
               <a href="cocker-spaniel.html" class="related-card"><span class="rel-emoji">🐕</span><span>Cocker Spaniel</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Bracco Italianos — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Bracco Italiano photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Bracco Italiano photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Bracco Italiano photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Bracco Italiano photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Bracco Italiano photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Bracco Italiano photo 6" />
             </div>
           </div>
 
@@ -315,9 +317,10 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
 
-    fetch('https://dog.ceo/api/breed/bracco/images')
+    fetch('https://dog.ceo/api/breed/pointer/german/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

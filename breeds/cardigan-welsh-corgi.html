@@ -81,6 +81,20 @@
               <p>Cardigan Welsh Corgis are intelligent, loyal, and adaptable — equally suited to active farm life and urban apartments, provided they receive sufficient daily exercise and mental stimulation. They are more reserved with strangers than the Pembroke but deeply devoted to their families, often described as 'one person dogs' with a preference for their primary person. Their herding instinct remains strong, and they will attempt to herd children, other pets, and moving objects without appropriate training.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Cardigan Welsh Corgis — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Cardigan Welsh Corgi photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Cardigan Welsh Corgi photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Cardigan Welsh Corgi photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Cardigan Welsh Corgi photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Cardigan Welsh Corgi photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Cardigan Welsh Corgi photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Cardigan Welsh Corgis are known for being highly intelligent and responsive. They form deep bonds with their families and thrive on consistent human connection. As a high-energy breed, they are best matched with active owners who enjoy outdoor activities and can commit to regular exercise.</p>
@@ -167,18 +181,6 @@
               <a href="border-collie.html" class="related-card"><span class="rel-emoji">🐕</span><span>Border Collie</span></a>
               <a href="german-shepherd.html" class="related-card"><span class="rel-emoji">🐕‍🦺</span><span>German Shepherd</span></a>
               <a href="australian-shepherd.html" class="related-card"><span class="rel-emoji">🐕</span><span>Australian Shepherd</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Cardigan Welsh Corgis — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Cardigan Welsh Corgi photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Cardigan Welsh Corgi photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Cardigan Welsh Corgi photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Cardigan Welsh Corgi photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Cardigan Welsh Corgi photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Cardigan Welsh Corgi photo 6" />
             </div>
           </div>
 
@@ -319,6 +321,7 @@
     fetch('https://dog.ceo/api/breed/corgi/cardigan/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

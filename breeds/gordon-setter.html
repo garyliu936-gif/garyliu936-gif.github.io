@@ -81,6 +81,20 @@
               <p>The breed takes its name from George Gordon, the 4th Duke of Gordon (1743–1827), who maintained a famous kennel at Gordon Castle in Banffshire and spent decades developing his distinctive black and tan setting dogs through selective breeding. The Duke's dogs were not the first black and tan setters in Scotland, but his consistent breeding program and the reputation of Gordon Castle as a center of setter excellence gave the type its lasting name. Daniel Webster imported the first Gordons to America in 1842, and the breed was among the first dogs registered by the newly formed AKC in 1884. Today, the Gordon occupies a loyal niche among upland bird hunters and devoted family companion owners who value its combination of intense loyalty, working ability, and striking appearance.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Gordon Setters — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Gordon Setter photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Gordon Setter photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Gordon Setter photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Gordon Setter photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Gordon Setter photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Gordon Setter photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Gordon Setters are known for being energetic and loyal. They form deep bonds with their families and thrive on consistent human connection. As a high-energy breed, they are best matched with active owners who enjoy outdoor activities and can commit to regular exercise.</p>
@@ -167,18 +181,6 @@
               <a href="golden-retriever.html" class="related-card"><span class="rel-emoji">🦮</span><span>Golden Retriever</span></a>
               <a href="labrador-retriever.html" class="related-card"><span class="rel-emoji">🐕</span><span>Labrador Retriever</span></a>
               <a href="cocker-spaniel.html" class="related-card"><span class="rel-emoji">🐕</span><span>Cocker Spaniel</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Gordon Setters — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Gordon Setter photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Gordon Setter photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Gordon Setter photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Gordon Setter photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Gordon Setter photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Gordon Setter photo 6" />
             </div>
           </div>
 
@@ -318,6 +320,7 @@
     fetch('https://dog.ceo/api/breed/setter/gordon/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

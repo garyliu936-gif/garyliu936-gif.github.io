@@ -81,6 +81,20 @@
               <p>The Sussex Spaniel holds a unique distinction among all spaniel breeds: it is the only spaniel that "gives tongue" (barks audibly) while following a scent trail — a hound-like quality selected for by Sussex hunters who needed to hear their dog working through dense vegetation where they couldn't see it. This melodious, howling cry while on scent is unlike any other spaniel's behavior and reflects possible hound blood somewhere in the breed's ancestry. The breed came terrifyingly close to extinction during World War II, when the challenges of wartime Britain reduced registered dogs to a handful — one breeder, Joy Freer, is credited with almost single-handedly saving the breed by maintaining a small kennel through both world wars. Today, global annual registrations remain in the low hundreds, placing the Sussex consistently among the world's rarest dog breeds.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Sussex Spaniels — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Sussex Spaniel photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Sussex Spaniel photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Sussex Spaniel photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Sussex Spaniel photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Sussex Spaniel photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Sussex Spaniel photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Sussex Spaniels are known for being friendly, active, and eager to please. They form deep bonds with their families and thrive on consistent human connection. As a calmer breed, they suit owners who prefer a relaxed lifestyle and appreciate a dog content to lounge alongside them.</p>
@@ -167,18 +181,6 @@
               <a href="golden-retriever.html" class="related-card"><span class="rel-emoji">🦮</span><span>Golden Retriever</span></a>
               <a href="labrador-retriever.html" class="related-card"><span class="rel-emoji">🐕</span><span>Labrador Retriever</span></a>
               <a href="cocker-spaniel.html" class="related-card"><span class="rel-emoji">🐕</span><span>Cocker Spaniel</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Sussex Spaniels — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Sussex Spaniel photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Sussex Spaniel photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Sussex Spaniel photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Sussex Spaniel photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Sussex Spaniel photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Sussex Spaniel photo 6" />
             </div>
           </div>
 
@@ -318,6 +320,7 @@
     fetch('https://dog.ceo/api/breed/spaniel/cocker/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

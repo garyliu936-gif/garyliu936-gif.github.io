@@ -81,6 +81,20 @@
               <p>Tollers are energetic, intelligent, and highly affectionate with their families — they are sometimes called the 'middle child' of the retriever family, combining the Golden's warmth with a spark of terrier-like independence. They are vocal, using a distinctive high-pitched 'Toller scream' when extremely excited, and they need substantial daily exercise to stay balanced. Tollers excel at dog sports including agility, flyball, and dock diving, and are outstanding companions for athletic families.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Nova Scotia Duck Tolling Retrievers — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Nova Scotia Duck Tolling Retriever photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Nova Scotia Duck Tolling Retriever photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Nova Scotia Duck Tolling Retriever photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Nova Scotia Duck Tolling Retriever photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Nova Scotia Duck Tolling Retriever photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Nova Scotia Duck Tolling Retriever photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Nova Scotia Duck Tolling Retrievers are known for being friendly, active, and eager to please. They form deep bonds with their families and thrive on consistent human connection. As a high-energy breed, they are best matched with active owners who enjoy outdoor activities and can commit to regular exercise.</p>
@@ -167,18 +181,6 @@
               <a href="golden-retriever.html" class="related-card"><span class="rel-emoji">🦮</span><span>Golden Retriever</span></a>
               <a href="labrador-retriever.html" class="related-card"><span class="rel-emoji">🐕</span><span>Labrador Retriever</span></a>
               <a href="cocker-spaniel.html" class="related-card"><span class="rel-emoji">🐕</span><span>Cocker Spaniel</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Nova Scotia Duck Tolling Retrievers — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Nova Scotia Duck Tolling Retriever photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Nova Scotia Duck Tolling Retriever photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Nova Scotia Duck Tolling Retriever photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Nova Scotia Duck Tolling Retriever photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Nova Scotia Duck Tolling Retriever photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Nova Scotia Duck Tolling Retriever photo 6" />
             </div>
           </div>
 
@@ -319,6 +321,7 @@
     fetch('https://dog.ceo/api/breed/retriever/golden/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

@@ -81,6 +81,20 @@
               <p>The Pumi was used in Hungary primarily for driving and herding sheep, cattle, and pigs, as well as for controlling vermin on farms. Its terrier-like boldness made it effective at flushing rodents from farm buildings — a secondary role that reinforced the breed's independent, problem-solving character. The AKC recognized the Pumi in 2016. Today the Pumi competes impressively in agility and herding trials and has earned a devoted international following, though it remains rare outside Hungary and Scandinavia, where it has been popular for decades.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Pumis — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Pumi photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Pumi photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Pumi photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Pumi photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Pumi photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Pumi photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Pumis are known for being highly intelligent and responsive. They form deep bonds with their families and thrive on consistent human connection. As a high-energy breed, they are best matched with active owners who enjoy outdoor activities and can commit to regular exercise.</p>
@@ -167,18 +181,6 @@
               <a href="border-collie.html" class="related-card"><span class="rel-emoji">🐕</span><span>Border Collie</span></a>
               <a href="german-shepherd.html" class="related-card"><span class="rel-emoji">🐕‍🦺</span><span>German Shepherd</span></a>
               <a href="australian-shepherd.html" class="related-card"><span class="rel-emoji">🐕</span><span>Australian Shepherd</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Pumis — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Pumi photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Pumi photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Pumi photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Pumi photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Pumi photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Pumi photo 6" />
             </div>
           </div>
 
@@ -318,6 +320,7 @@
     fetch('https://dog.ceo/api/breed/poodle/medium/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

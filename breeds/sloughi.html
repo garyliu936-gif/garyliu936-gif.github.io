@@ -81,6 +81,20 @@
               <p>Unlike the Saluki (the Middle Eastern sighthound often confused with the Sloughi), the Sloughi is strictly smooth-coated — no feathering on the ears or tail — and carries a somewhat different spirit. Berber nomads considered Sloughis almost sacred, treating them as valued family members who slept inside the tent and were mourned when they died. They are coursing dogs built to run down gazelle, rabbit, fox, and jackal across flat desert terrain at tremendous speeds. As companions they are gentle, deeply loyal to their family, and characteristically reserved with strangers — a combination that has given them a reputation as the "cat of the dog world."</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Sloughis — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Sloughi photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Sloughi photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Sloughi photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Sloughi photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Sloughi photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Sloughi photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Sloughis are known for being gentle at home but single-minded on the trail. They form deep bonds with their families and thrive on consistent human connection. As a high-energy breed, they are best matched with active owners who enjoy outdoor activities and can commit to regular exercise.</p>
@@ -167,18 +181,6 @@
               <a href="basset-hound.html" class="related-card"><span class="rel-emoji">🐕</span><span>Basset Hound</span></a>
               <a href="beagle.html" class="related-card"><span class="rel-emoji">🐕</span><span>Beagle</span></a>
               <a href="bloodhound.html" class="related-card"><span class="rel-emoji">🐕</span><span>Bloodhound</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Sloughis — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Sloughi photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Sloughi photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Sloughi photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Sloughi photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Sloughi photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Sloughi photo 6" />
             </div>
           </div>
 
@@ -318,6 +320,7 @@
     fetch('https://dog.ceo/api/breed/greyhound/italian/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

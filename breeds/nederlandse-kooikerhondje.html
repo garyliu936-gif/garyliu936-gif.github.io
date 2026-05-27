@@ -81,6 +81,20 @@
               <p>The Kooiker is a beautiful, compact spaniel with a distinctive orange-red and white parti-color coat, feathered ears, and those famous black ear tips ("earrings") that were the key feature for the decoy work. They appear in 17th-century Dutch Golden Age paintings — Jan Steen's "The Merry Family" includes a dog that is unmistakably a Kooiker. Nearly extinct by the 1940s, the breed was revived by Baroness van Hardenbroek van Ammerstol. In the US, they were AKC recognized in 2018 and are rapidly gaining a devoted following for their cheerful, adaptable temperament.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Nederlandse Kooikerhondjes — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Nederlandse Kooikerhondje photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Nederlandse Kooikerhondje photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Nederlandse Kooikerhondje photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Nederlandse Kooikerhondje photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Nederlandse Kooikerhondje photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Nederlandse Kooikerhondje photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Nederlandse Kooikerhondjes are known for being friendly, active, and eager to please. They form deep bonds with their families and thrive on consistent human connection. As a high-energy breed, they are best matched with active owners who enjoy outdoor activities and can commit to regular exercise.</p>
@@ -167,18 +181,6 @@
               <a href="golden-retriever.html" class="related-card"><span class="rel-emoji">🦮</span><span>Golden Retriever</span></a>
               <a href="labrador-retriever.html" class="related-card"><span class="rel-emoji">🐕</span><span>Labrador Retriever</span></a>
               <a href="cocker-spaniel.html" class="related-card"><span class="rel-emoji">🐕</span><span>Cocker Spaniel</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Nederlandse Kooikerhondjes — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Nederlandse Kooikerhondje photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Nederlandse Kooikerhondje photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Nederlandse Kooikerhondje photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Nederlandse Kooikerhondje photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Nederlandse Kooikerhondje photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Nederlandse Kooikerhondje photo 6" />
             </div>
           </div>
 
@@ -318,6 +320,7 @@
     fetch('https://dog.ceo/api/breed/spaniel/cocker/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

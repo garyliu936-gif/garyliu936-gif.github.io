@@ -81,6 +81,20 @@
               <p>Over time, as the smaller specimens were selected for as lady's companions in German courts and households, the Affenpinscher evolved from a working ratter into a fashionable toy dog — but one that never lost its bold, self-important character. The breed is thought to be ancestral to several other wire-coated European toy breeds, including the Brussels Griffon, which was developed in Belgium using Affenpinscher blood crossed with local Belgian street dogs. The AKC recognized the Affenpinscher in 1936. Today the breed remains relatively rare but maintains a devoted following of owners who appreciate its unique appearance, enormous personality, and genuine independence. A Westminsterchampion Affenpinscher named Banana Joe famously won Best in Show at the 2013 Westminster Kennel Club show, briefly catapulting the breed into public awareness.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Affenpinschers — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Affenpinscher photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Affenpinscher photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Affenpinscher photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Affenpinscher photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Affenpinscher photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Affenpinscher photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Affenpinschers are known for being surprisingly bold for their small size. They form deep bonds with their families and thrive on consistent human connection. They strike a good balance — lively enough to enjoy playtime and adventures, but calm enough to settle indoors when the day is done.</p>
@@ -167,18 +181,6 @@
               <a href="chihuahua.html" class="related-card"><span class="rel-emoji">🐕</span><span>Chihuahua</span></a>
               <a href="pomeranian.html" class="related-card"><span class="rel-emoji">🐕</span><span>Pomeranian</span></a>
               <a href="maltese.html" class="related-card"><span class="rel-emoji">🐕</span><span>Maltese</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Affenpinschers — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Affenpinscher photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Affenpinscher photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Affenpinscher photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Affenpinscher photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Affenpinscher photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Affenpinscher photo 6" />
             </div>
           </div>
 
@@ -318,6 +320,7 @@
     fetch('https://dog.ceo/api/breed/affenpinscher/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

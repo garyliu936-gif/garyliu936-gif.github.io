@@ -81,6 +81,20 @@
               <p>The Black and Tan is a large, powerful dog with a gleaming jet-black coat marked with rich tan (mahogany) points over the eyes, muzzle, chest, and legs — a striking color pattern that gives them a noble, dignified appearance. Their most celebrated feature is their nose — considered among the finest scenting instruments in the dog world, approaching Bloodhound levels of sensitivity. Their long, pendulous ears funnel scent particles toward the nose while trailing; their loose, wrinkled skin traps odor molecules the same way a Bloodhound's does. In the home they are calm, gentle, and affectionate — among the mellowest of the coonhound types — making them surprisingly manageable companions for owners who can meet their exercise needs.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Black and Tan Coonhounds — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Black and Tan Coonhound photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Black and Tan Coonhound photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Black and Tan Coonhound photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Black and Tan Coonhound photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Black and Tan Coonhound photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Black and Tan Coonhound photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Black and Tan Coonhounds are known for being gentle at home but single-minded on the trail. They form deep bonds with their families and thrive on consistent human connection. As a high-energy breed, they are best matched with active owners who enjoy outdoor activities and can commit to regular exercise.</p>
@@ -167,18 +181,6 @@
               <a href="basset-hound.html" class="related-card"><span class="rel-emoji">🐕</span><span>Basset Hound</span></a>
               <a href="beagle.html" class="related-card"><span class="rel-emoji">🐕</span><span>Beagle</span></a>
               <a href="bloodhound.html" class="related-card"><span class="rel-emoji">🐕</span><span>Bloodhound</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Black and Tan Coonhounds — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Black and Tan Coonhound photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Black and Tan Coonhound photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Black and Tan Coonhound photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Black and Tan Coonhound photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Black and Tan Coonhound photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Black and Tan Coonhound photo 6" />
             </div>
           </div>
 
@@ -315,9 +317,10 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
 
-    fetch('https://dog.ceo/api/breed/bloodhound/images')
+    fetch('https://dog.ceo/api/breed/hound/blood/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

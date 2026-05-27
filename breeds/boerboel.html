@@ -81,6 +81,20 @@
               <p>The Boerboel is extremely devoted to its family — it bonds deeply with its people and is often called the most affectionate of the mastiff breeds at home. However, it is naturally territorial and suspicious of strangers, and its enormous size and strength demand experienced, confident ownership and thorough early socialization. In South Africa, the Boerboel is a cultural institution representing Afrikaner rural heritage, and the breed is now recognized internationally as one of the most capable and loyal guardian breeds available.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Boerboels — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Boerboel photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Boerboel photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Boerboel photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Boerboel photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Boerboel photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Boerboel photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Boerboels are known for being devoted and strong-willed. They form deep bonds with their families and thrive on consistent human connection. They strike a good balance — lively enough to enjoy playtime and adventures, but calm enough to settle indoors when the day is done.</p>
@@ -167,18 +181,6 @@
               <a href="rottweiler.html" class="related-card"><span class="rel-emoji">🛡️</span><span>Rottweiler</span></a>
               <a href="doberman-pinscher.html" class="related-card"><span class="rel-emoji">🐕</span><span>Doberman Pinscher</span></a>
               <a href="boxer.html" class="related-card"><span class="rel-emoji">🥊</span><span>Boxer</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Boerboels — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Boerboel photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Boerboel photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Boerboel photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Boerboel photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Boerboel photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Boerboel photo 6" />
             </div>
           </div>
 
@@ -319,6 +321,7 @@
     fetch('https://dog.ceo/api/breed/mastiff/english/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

@@ -81,6 +81,20 @@
               <p>The result of Horák's decades of selective work is a distinctive, drop-eared, wavy-coated terrier that looks unlike any other: the Cesky's silky, bluish-grey or light brown coat is clipped rather than hand-stripped (unusual among terriers), its ears fold forward like a Scottish Terrier rather than standing erect or folding like most terriers, and its overall temperament is notably calmer and more tractable than most terrier breeds — qualities Horák deliberately selected because he wanted a dog that could hunt cooperatively in packs rather than fighting with its companions. The Cesky was recognized by the FCI in 1963 and by the AKC in 2011. Today it is estimated that fewer than 1,500–2,000 Cesky Terriers exist worldwide, making it a genuinely rare breed even in its home country of Czech Republic.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Cesky Terriers — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Cesky Terrier photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Cesky Terrier photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Cesky Terrier photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Cesky Terrier photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Cesky Terrier photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Cesky Terrier photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Cesky Terriers are known for being independent and spirited. They form deep bonds with their families and thrive on consistent human connection. They strike a good balance — lively enough to enjoy playtime and adventures, but calm enough to settle indoors when the day is done.</p>
@@ -167,18 +181,6 @@
               <a href="cairn-terrier.html" class="related-card"><span class="rel-emoji">🐾</span><span>Cairn Terrier</span></a>
               <a href="west-highland-white-terrier.html" class="related-card"><span class="rel-emoji">🐾</span><span>West Highland White Terrier</span></a>
               <a href="airedale-terrier.html" class="related-card"><span class="rel-emoji">🐾</span><span>Airedale Terrier</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Cesky Terriers — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Cesky Terrier photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Cesky Terrier photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Cesky Terrier photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Cesky Terrier photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Cesky Terrier photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Cesky Terrier photo 6" />
             </div>
           </div>
 
@@ -318,6 +320,7 @@
     fetch('https://dog.ceo/api/breed/terrier/cairn/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

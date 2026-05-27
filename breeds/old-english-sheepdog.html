@@ -79,6 +79,20 @@
             
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Old English Sheepdogs — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Old English Sheepdog photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Old English Sheepdog photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Old English Sheepdog photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Old English Sheepdog photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Old English Sheepdog photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Old English Sheepdog photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Old English Sheepdogs are known for being highly intelligent and responsive. They form deep bonds with their families and thrive on consistent human connection. They strike a good balance — lively enough to enjoy playtime and adventures, but calm enough to settle indoors when the day is done.</p>
@@ -165,18 +179,6 @@
               <a href="border-collie.html" class="related-card"><span class="rel-emoji">🐕</span><span>Border Collie</span></a>
               <a href="german-shepherd.html" class="related-card"><span class="rel-emoji">🐕‍🦺</span><span>German Shepherd</span></a>
               <a href="australian-shepherd.html" class="related-card"><span class="rel-emoji">🐕</span><span>Australian Shepherd</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Old English Sheepdogs — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Old English Sheepdog photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Old English Sheepdog photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Old English Sheepdog photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Old English Sheepdog photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Old English Sheepdog photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Old English Sheepdog photo 6" />
             </div>
           </div>
 
@@ -284,6 +286,7 @@
     fetch('https://dog.ceo/api/breed/sheepdog/english/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

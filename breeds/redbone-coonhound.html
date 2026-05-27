@@ -81,6 +81,20 @@
               <p>The Redbone's "warm nose" distinguishes their hunting style: between the extreme cold-nose of the Black and Tan and the extreme hot-nose of the Treeing Walker, the Redbone works comfortably on both moderately aged and fresh trails — a versatility that makes them adaptable to varied hunting conditions. They are known for an extraordinarily musical baying voice that Southern hunters describe as "the most beautiful sound in the night woods." AKC recognized in 2009, the Redbone is occasionally featured in popular culture — most memorably as the dog breed in the classic novel "Where the Red Fern Grows," cementing their place in American literary tradition.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Redbone Coonhounds — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Redbone Coonhound photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Redbone Coonhound photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Redbone Coonhound photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Redbone Coonhound photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Redbone Coonhound photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Redbone Coonhound photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Redbone Coonhounds are known for being driven by instinct — scent or sight. They form deep bonds with their families and thrive on consistent human connection. As a high-energy breed, they are best matched with active owners who enjoy outdoor activities and can commit to regular exercise.</p>
@@ -167,18 +181,6 @@
               <a href="basset-hound.html" class="related-card"><span class="rel-emoji">🐕</span><span>Basset Hound</span></a>
               <a href="beagle.html" class="related-card"><span class="rel-emoji">🐕</span><span>Beagle</span></a>
               <a href="bloodhound.html" class="related-card"><span class="rel-emoji">🐕</span><span>Bloodhound</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Redbone Coonhounds — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Redbone Coonhound photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Redbone Coonhound photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Redbone Coonhound photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Redbone Coonhound photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Redbone Coonhound photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Redbone Coonhound photo 6" />
             </div>
           </div>
 
@@ -318,6 +320,7 @@
     fetch('https://dog.ceo/api/breed/hound/redbone/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

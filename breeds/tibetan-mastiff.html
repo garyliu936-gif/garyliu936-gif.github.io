@@ -81,6 +81,20 @@
               <p>The Tibetan Mastiff is a study in contrasts: enormous and powerful, yet surprisingly agile; fierce with strangers, yet deeply devoted to family; aloof and independent, yet capable of forming profound bonds. Their most distinctive feature is their spectacular double coat — especially the enormous lion-like mane around the neck and shoulders — which provided protection against Himalayan winters that could reach -40°F. They are nocturnal by nature, traditionally sleeping during the day and patrolling at night, and they remain active and alert after dark.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Tibetan Mastiffs — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Tibetan Mastiff photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Tibetan Mastiff photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Tibetan Mastiff photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Tibetan Mastiff photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Tibetan Mastiff photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Tibetan Mastiff photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Tibetan Mastiffs are known for being devoted and strong-willed. They form deep bonds with their families and thrive on consistent human connection. They strike a good balance — lively enough to enjoy playtime and adventures, but calm enough to settle indoors when the day is done.</p>
@@ -167,18 +181,6 @@
               <a href="rottweiler.html" class="related-card"><span class="rel-emoji">🛡️</span><span>Rottweiler</span></a>
               <a href="doberman-pinscher.html" class="related-card"><span class="rel-emoji">🐕</span><span>Doberman Pinscher</span></a>
               <a href="boxer.html" class="related-card"><span class="rel-emoji">🥊</span><span>Boxer</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Tibetan Mastiffs — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Tibetan Mastiff photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Tibetan Mastiff photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Tibetan Mastiff photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Tibetan Mastiff photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Tibetan Mastiff photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Tibetan Mastiff photo 6" />
             </div>
           </div>
 
@@ -318,6 +320,7 @@
     fetch('https://dog.ceo/api/breed/mastiff/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

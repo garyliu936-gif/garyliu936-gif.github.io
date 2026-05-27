@@ -81,6 +81,20 @@
               <p>IGs are deeply devoted to their families and crave physical contact — they are notorious "velcro dogs" who love to burrow under blankets and curl up against their owners. Despite their delicate appearance, they are fast, agile runners who need regular bursts of exercise. Their short coat offers little insulation, making them cold-sensitive and big fans of sweaters.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Italian Greyhounds — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Italian Greyhound photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Italian Greyhound photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Italian Greyhound photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Italian Greyhound photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Italian Greyhound photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Italian Greyhound photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Italian Greyhounds are known for being surprisingly bold for their small size. They form deep bonds with their families and thrive on consistent human connection. As a high-energy breed, they are best matched with active owners who enjoy outdoor activities and can commit to regular exercise.</p>
@@ -167,18 +181,6 @@
               <a href="chihuahua.html" class="related-card"><span class="rel-emoji">🐕</span><span>Chihuahua</span></a>
               <a href="pomeranian.html" class="related-card"><span class="rel-emoji">🐕</span><span>Pomeranian</span></a>
               <a href="maltese.html" class="related-card"><span class="rel-emoji">🐕</span><span>Maltese</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Italian Greyhounds — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Italian Greyhound photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Italian Greyhound photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Italian Greyhound photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Italian Greyhound photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Italian Greyhound photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Italian Greyhound photo 6" />
             </div>
           </div>
 
@@ -318,6 +320,7 @@
     fetch('https://dog.ceo/api/breed/whippet/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

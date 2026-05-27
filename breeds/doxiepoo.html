@@ -81,6 +81,20 @@
               <p>Doxiepoos are spirited and independent — they investigate everything and form strong bonds with their people. They can be stubborn at times (the Dachshund influence) but respond well to positive reinforcement training. Their curly or wavy coat is much lower-shedding than a purebred Dachshund, making them appealing to allergy-conscious owners.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Doxiepoos — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Doxiepoo photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Doxiepoo photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Doxiepoo photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Doxiepoo photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Doxiepoo photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Doxiepoo photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Doxiepoos are known for being sociable and adaptable. They form deep bonds with their families and thrive on consistent human connection. They strike a good balance — lively enough to enjoy playtime and adventures, but calm enough to settle indoors when the day is done.</p>
@@ -167,18 +181,6 @@
               <a href="goldendoodle.html" class="related-card"><span class="rel-emoji">🐩</span><span>Goldendoodle</span></a>
               <a href="labradoodle.html" class="related-card"><span class="rel-emoji">🐕</span><span>Labradoodle</span></a>
               <a href="cavapoo.html" class="related-card"><span class="rel-emoji">🐕</span><span>Cavapoo</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Doxiepoos — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Doxiepoo photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Doxiepoo photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Doxiepoo photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Doxiepoo photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Doxiepoo photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Doxiepoo photo 6" />
             </div>
           </div>
 
@@ -315,6 +317,7 @@
     fetch('https://dog.ceo/api/breed/dachshund/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

@@ -81,6 +81,20 @@
               <p>Originally bred to hunt moose (called "elk" in Scandinavia) and other large game like bear and lynx, the Elkhound would track prey through vast mountain wilderness, then hold it at bay — circling, barking, and dodging until the hunter arrived. This required extraordinary endurance, courage, and independence. Today's Elkhound carries all of those traits in a compact, wedge-shaped body with a distinctive silver-grey double coat, tightly curled tail, and bold, confident expression. They make loyal, alert family dogs with a strong independent streak.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Norwegian Elkhounds — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Norwegian Elkhound photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Norwegian Elkhound photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Norwegian Elkhound photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Norwegian Elkhound photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Norwegian Elkhound photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Norwegian Elkhound photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Norwegian Elkhounds are known for being independent, determined, and loyal. They form deep bonds with their families and thrive on consistent human connection. As a high-energy breed, they are best matched with active owners who enjoy outdoor activities and can commit to regular exercise.</p>
@@ -167,18 +181,6 @@
               <a href="basset-hound.html" class="related-card"><span class="rel-emoji">🐕</span><span>Basset Hound</span></a>
               <a href="beagle.html" class="related-card"><span class="rel-emoji">🐕</span><span>Beagle</span></a>
               <a href="bloodhound.html" class="related-card"><span class="rel-emoji">🐕</span><span>Bloodhound</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Norwegian Elkhounds — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Norwegian Elkhound photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Norwegian Elkhound photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Norwegian Elkhound photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Norwegian Elkhound photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Norwegian Elkhound photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Norwegian Elkhound photo 6" />
             </div>
           </div>
 
@@ -318,6 +320,7 @@
     fetch('https://dog.ceo/api/breed/elkhound/norwegian/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

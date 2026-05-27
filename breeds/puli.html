@@ -81,6 +81,20 @@
               <p>Pulik were so valued by Hungarian shepherds that a good herding Puli was said to be worth the price of an entire flock. They are known for an unusual herding technique — rather than circling the flock from the outside, they run directly on top of the sheep's backs to direct the flock. Off the field, the Puli is an energetic, loyal, somewhat stubborn companion with a clownish sense of humor. They are devoted to their family and wary of strangers, but full of personality for those they trust.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Pulis — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Puli photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Puli photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Puli photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Puli photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Puli photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Puli photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Pulis are known for being loyal with strong instincts. They form deep bonds with their families and thrive on consistent human connection. As a high-energy breed, they are best matched with active owners who enjoy outdoor activities and can commit to regular exercise.</p>
@@ -167,18 +181,6 @@
               <a href="border-collie.html" class="related-card"><span class="rel-emoji">🐕</span><span>Border Collie</span></a>
               <a href="german-shepherd.html" class="related-card"><span class="rel-emoji">🐕‍🦺</span><span>German Shepherd</span></a>
               <a href="australian-shepherd.html" class="related-card"><span class="rel-emoji">🐕</span><span>Australian Shepherd</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Pulis — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Puli photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Puli photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Puli photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Puli photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Puli photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Puli photo 6" />
             </div>
           </div>
 
@@ -318,6 +320,7 @@
     fetch('https://dog.ceo/api/breed/komondor/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

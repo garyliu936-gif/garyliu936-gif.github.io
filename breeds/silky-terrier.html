@@ -81,6 +81,20 @@
               <p>Don't let the elegant coat fool you — the Silky is a genuine terrier through and through. They were used to kill snakes and rodents in Sydney yards, and that hunting instinct remains strong. They are alert, energetic, curious, and brave far beyond their size. They bond closely with their families and are significantly more spirited than the typical toy breed. They need more exercise than most toys and will happily accompany their owner on long walks.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Silky Terriers — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Silky Terrier photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Silky Terrier photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Silky Terrier photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Silky Terrier photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Silky Terrier photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Silky Terrier photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Silky Terriers are known for being affectionate, alert, and adaptable. They form deep bonds with their families and thrive on consistent human connection. As a high-energy breed, they are best matched with active owners who enjoy outdoor activities and can commit to regular exercise.</p>
@@ -167,18 +181,6 @@
               <a href="chihuahua.html" class="related-card"><span class="rel-emoji">🐕</span><span>Chihuahua</span></a>
               <a href="pomeranian.html" class="related-card"><span class="rel-emoji">🐕</span><span>Pomeranian</span></a>
               <a href="maltese.html" class="related-card"><span class="rel-emoji">🐕</span><span>Maltese</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Silky Terriers — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Silky Terrier photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Silky Terrier photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Silky Terrier photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Silky Terrier photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Silky Terrier photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Silky Terrier photo 6" />
             </div>
           </div>
 
@@ -318,6 +320,7 @@
     fetch('https://dog.ceo/api/breed/terrier/silky/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

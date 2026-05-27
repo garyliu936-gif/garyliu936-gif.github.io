@@ -81,6 +81,20 @@
               <p>That name came from Sir Walter Scott's 1814 novel "Guy Mannering," in which a fictional Borders farmer named "Dandie Dinmont" kept a pack of terriers named Mustard and Pepper — names that happened to match perfectly the breed's two color varieties (mustard, a fawn to reddish gold, and pepper, a dark blue-gray). The real-world dog enthusiasts who kept these terriers adopted "Dandie Dinmont's breed" as the common name, and when the Dandie Dinmont Terrier Club was formed in 1875 — one of the oldest single-breed clubs in the world — the literary name was made official. The Dandie is the only AKC-recognized breed named after a fictional character. AKC recognized in 1886, the breed is now on both the UK Kennel Club's and AKC's rare breed watch lists, with fewer than 100 puppies registered annually in the UK.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Dandie Dinmont Terriers — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Dandie Dinmont Terrier photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Dandie Dinmont Terrier photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Dandie Dinmont Terrier photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Dandie Dinmont Terrier photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Dandie Dinmont Terrier photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Dandie Dinmont Terrier photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Dandie Dinmont Terriers are known for being bold, energetic, and alert. They form deep bonds with their families and thrive on consistent human connection. They strike a good balance — lively enough to enjoy playtime and adventures, but calm enough to settle indoors when the day is done.</p>
@@ -167,18 +181,6 @@
               <a href="cairn-terrier.html" class="related-card"><span class="rel-emoji">🐾</span><span>Cairn Terrier</span></a>
               <a href="west-highland-white-terrier.html" class="related-card"><span class="rel-emoji">🐾</span><span>West Highland White Terrier</span></a>
               <a href="airedale-terrier.html" class="related-card"><span class="rel-emoji">🐾</span><span>Airedale Terrier</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Dandie Dinmont Terriers — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Dandie Dinmont Terrier photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Dandie Dinmont Terrier photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Dandie Dinmont Terrier photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Dandie Dinmont Terrier photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Dandie Dinmont Terrier photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Dandie Dinmont Terrier photo 6" />
             </div>
           </div>
 
@@ -318,6 +320,7 @@
     fetch('https://dog.ceo/api/breed/terrier/silky/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

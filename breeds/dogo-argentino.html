@@ -81,6 +81,20 @@
               <p>The result of this extraordinary breeding program was a dog with the speed and nose of a hunting breed, the power and courage of a mastiff, and the cooperative temperament necessary for pack work. The all-white coat was deliberately selected — it makes pack members visible to hunters in dense vegetation and helps distinguish dogs from quarry. The Dogo Argentino was recognized by the Argentine Kennel Club in 1964 and by the FCI in 1973. The AKC recognized the breed in 2020. Despite its fearsome working credentials, a well-bred and properly socialized Dogo Argentino is known for being gentle, loving, and deeply devoted to its family — combining impressive power with surprising affection for those it trusts.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Dogo Argentinos — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Dogo Argentino photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Dogo Argentino photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Dogo Argentino photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Dogo Argentino photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Dogo Argentino photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Dogo Argentino photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Dogo Argentinos are known for being devoted and strong-willed. They form deep bonds with their families and thrive on consistent human connection. As a high-energy breed, they are best matched with active owners who enjoy outdoor activities and can commit to regular exercise.</p>
@@ -167,18 +181,6 @@
               <a href="rottweiler.html" class="related-card"><span class="rel-emoji">🛡️</span><span>Rottweiler</span></a>
               <a href="doberman-pinscher.html" class="related-card"><span class="rel-emoji">🐕</span><span>Doberman Pinscher</span></a>
               <a href="boxer.html" class="related-card"><span class="rel-emoji">🥊</span><span>Boxer</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Dogo Argentinos — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Dogo Argentino photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Dogo Argentino photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Dogo Argentino photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Dogo Argentino photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Dogo Argentino photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Dogo Argentino photo 6" />
             </div>
           </div>
 
@@ -315,9 +317,10 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
 
-    fetch('https://dog.ceo/api/breed/dogo-argentino/images')
+    fetch('https://dog.ceo/api/breed/boxer/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

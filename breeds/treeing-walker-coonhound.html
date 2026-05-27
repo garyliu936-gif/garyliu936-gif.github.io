@@ -81,6 +81,20 @@
               <p>The Treeing Walker Coonhound's name describes its specialty perfectly: it trees game — chases quarry (primarily raccoon, but also squirrel, bear, bobcat, and mountain lion) until the animal climbs a tree, then bays loudly below to alert the hunter. Their tricolor black, white, and tan coat, sleek build, and long soft ears give them a clean, athletic appearance. Their voice is legendary — a bugling chop or roar that carries for great distances through night woods. AKC recognized in 2012, they are common in the South and Midwest as working dogs but rare as registered household pets.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Treeing Walker Coonhounds — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Treeing Walker Coonhound photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Treeing Walker Coonhound photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Treeing Walker Coonhound photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Treeing Walker Coonhound photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Treeing Walker Coonhound photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Treeing Walker Coonhound photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Treeing Walker Coonhounds are known for being gentle at home but single-minded on the trail. They form deep bonds with their families and thrive on consistent human connection. As a high-energy breed, they are best matched with active owners who enjoy outdoor activities and can commit to regular exercise.</p>
@@ -167,18 +181,6 @@
               <a href="basset-hound.html" class="related-card"><span class="rel-emoji">🐕</span><span>Basset Hound</span></a>
               <a href="beagle.html" class="related-card"><span class="rel-emoji">🐕</span><span>Beagle</span></a>
               <a href="bloodhound.html" class="related-card"><span class="rel-emoji">🐕</span><span>Bloodhound</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Treeing Walker Coonhounds — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Treeing Walker Coonhound photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Treeing Walker Coonhound photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Treeing Walker Coonhound photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Treeing Walker Coonhound photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Treeing Walker Coonhound photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Treeing Walker Coonhound photo 6" />
             </div>
           </div>
 
@@ -318,6 +320,7 @@
     fetch('https://dog.ceo/api/breed/hound/walker/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

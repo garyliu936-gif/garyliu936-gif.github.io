@@ -81,6 +81,20 @@
               <p>Boykins were specifically designed to hunt wild turkey and retrieve waterfowl from small boats without tipping them — their medium size was a deliberate engineering choice. Off the water, they are enthusiastic, cheerful, and deeply affectionate family dogs. They are known for their non-stop energy and eagerness to please. South Carolina declared the Boykin Spaniel its official state dog in 1985, more than two decades before the AKC recognized the breed.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Boykin Spaniels — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Boykin Spaniel photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Boykin Spaniel photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Boykin Spaniel photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Boykin Spaniel photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Boykin Spaniel photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Boykin Spaniel photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Boykin Spaniels are known for being energetic and loyal. They form deep bonds with their families and thrive on consistent human connection. As a high-energy breed, they are best matched with active owners who enjoy outdoor activities and can commit to regular exercise.</p>
@@ -167,18 +181,6 @@
               <a href="golden-retriever.html" class="related-card"><span class="rel-emoji">🦮</span><span>Golden Retriever</span></a>
               <a href="labrador-retriever.html" class="related-card"><span class="rel-emoji">🐕</span><span>Labrador Retriever</span></a>
               <a href="cocker-spaniel.html" class="related-card"><span class="rel-emoji">🐕</span><span>Cocker Spaniel</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Boykin Spaniels — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Boykin Spaniel photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Boykin Spaniel photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Boykin Spaniel photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Boykin Spaniel photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Boykin Spaniel photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Boykin Spaniel photo 6" />
             </div>
           </div>
 
@@ -318,6 +320,7 @@
     fetch('https://dog.ceo/api/breed/spaniel/cocker/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

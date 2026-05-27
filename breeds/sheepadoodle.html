@@ -81,6 +81,20 @@
               <p>Sheepadoodles are known for being calm yet playful, incredibly gentle with children, and deeply affectionate. They love to be part of family activities and are social enough to get along with other pets. Their intelligence makes training enjoyable, and their size makes them substantial enough for outdoor adventures. They've become popular as therapy dogs due to their patient, empathetic nature.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Sheepadoodles — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Sheepadoodle photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Sheepadoodle photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Sheepadoodle photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Sheepadoodle photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Sheepadoodle photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Sheepadoodle photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Sheepadoodles are known for being often inheriting the best traits of both parent breeds. They form deep bonds with their families and thrive on consistent human connection. They strike a good balance — lively enough to enjoy playtime and adventures, but calm enough to settle indoors when the day is done.</p>
@@ -167,18 +181,6 @@
               <a href="goldendoodle.html" class="related-card"><span class="rel-emoji">🐩</span><span>Goldendoodle</span></a>
               <a href="labradoodle.html" class="related-card"><span class="rel-emoji">🐕</span><span>Labradoodle</span></a>
               <a href="cavapoo.html" class="related-card"><span class="rel-emoji">🐕</span><span>Cavapoo</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Sheepadoodles — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Sheepadoodle photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Sheepadoodle photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Sheepadoodle photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Sheepadoodle photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Sheepadoodle photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Sheepadoodle photo 6" />
             </div>
           </div>
 
@@ -317,6 +319,7 @@
     fetch('https://dog.ceo/api/breed/sheepdog/english/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

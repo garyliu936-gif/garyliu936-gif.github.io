@@ -81,6 +81,20 @@
               <p>The Neapolitan Mastiff is among the most visually dramatic dog breeds in the world — its extraordinarily wrinkled face, pendulous jowls, and massive size create an appearance unlike any other breed. Despite this imposing appearance, Neos are deeply devoted to their families and typically gentle with their own people, though they are naturally suspicious of strangers and can be territorial. Their care requirements are significant: the skin folds must be cleaned daily, the slobbering is constant, and the short lifespan of 7–9 years compresses the relationship into an intense but relatively brief period.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Neapolitan Mastiffs — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Neapolitan Mastiff photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Neapolitan Mastiff photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Neapolitan Mastiff photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Neapolitan Mastiff photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Neapolitan Mastiff photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Neapolitan Mastiff photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Neapolitan Mastiffs are known for being confident and protective. They form deep bonds with their families and thrive on consistent human connection. As a calmer breed, they suit owners who prefer a relaxed lifestyle and appreciate a dog content to lounge alongside them.</p>
@@ -167,18 +181,6 @@
               <a href="rottweiler.html" class="related-card"><span class="rel-emoji">🛡️</span><span>Rottweiler</span></a>
               <a href="doberman-pinscher.html" class="related-card"><span class="rel-emoji">🐕</span><span>Doberman Pinscher</span></a>
               <a href="boxer.html" class="related-card"><span class="rel-emoji">🥊</span><span>Boxer</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Neapolitan Mastiffs — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Neapolitan Mastiff photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Neapolitan Mastiff photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Neapolitan Mastiff photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Neapolitan Mastiff photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Neapolitan Mastiff photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Neapolitan Mastiff photo 6" />
             </div>
           </div>
 
@@ -319,6 +321,7 @@
     fetch('https://dog.ceo/api/breed/mastiff/neapolitan/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

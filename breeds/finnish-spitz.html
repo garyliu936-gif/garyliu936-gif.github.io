@@ -81,6 +81,20 @@
               <p>By the late 1800s, the pure Finnish Spitz was nearly extinct due to cross-breeding with other dog types. Finnish hunters Hugo Roos and Hugo Sandberg are credited with saving the breed by locating remaining pure specimens in remote regions of Finland and Karelia in the 1880s, and establishing a breeding program that revived the population. The breed was recognized as Finland's national dog in 1979. In England and America, the Finnish Spitz remains relatively rare but has an enthusiastic following of owners who adore its fox-like beauty, lively personality, and comical vocalizations — the breed is one of the most vocal in the dog world, and owners need to appreciate (or at least accept) a dog that communicates with elaborate barking, yodeling, and whining sounds throughout the day.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Finnish Spitzs — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Finnish Spitz photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Finnish Spitz photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Finnish Spitz photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Finnish Spitz photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Finnish Spitz photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Finnish Spitz photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Finnish Spitzs are known for being energetic and loyal. They form deep bonds with their families and thrive on consistent human connection. As a high-energy breed, they are best matched with active owners who enjoy outdoor activities and can commit to regular exercise.</p>
@@ -167,18 +181,6 @@
               <a href="golden-retriever.html" class="related-card"><span class="rel-emoji">🦮</span><span>Golden Retriever</span></a>
               <a href="labrador-retriever.html" class="related-card"><span class="rel-emoji">🐕</span><span>Labrador Retriever</span></a>
               <a href="cocker-spaniel.html" class="related-card"><span class="rel-emoji">🐕</span><span>Cocker Spaniel</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Finnish Spitzs — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Finnish Spitz photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Finnish Spitz photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Finnish Spitz photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Finnish Spitz photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Finnish Spitz photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Finnish Spitz photo 6" />
             </div>
           </div>
 
@@ -307,6 +309,7 @@
     fetch('https://dog.ceo/api/breed/spitz/japanese/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

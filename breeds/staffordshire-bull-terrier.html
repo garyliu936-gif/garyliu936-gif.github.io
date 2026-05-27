@@ -81,6 +81,20 @@
               <p>Despite its tough history, the Staffordshire Bull Terrier is one of the most affectionate and people-oriented breeds in existence. It is often called the 'nanny dog' in England due to its legendary patience and gentleness with children — a reputation earned over generations in working-class English households where Staffies were trusted family members in cramped homes. They need regular exercise, consistent training, and early socialization, but give back extraordinary loyalty and companionship.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Staffordshire Bull Terriers — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Staffordshire Bull Terrier photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Staffordshire Bull Terrier photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Staffordshire Bull Terrier photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Staffordshire Bull Terrier photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Staffordshire Bull Terrier photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Staffordshire Bull Terrier photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Staffordshire Bull Terriers are known for being independent and spirited. They form deep bonds with their families and thrive on consistent human connection. As a high-energy breed, they are best matched with active owners who enjoy outdoor activities and can commit to regular exercise.</p>
@@ -167,18 +181,6 @@
               <a href="cairn-terrier.html" class="related-card"><span class="rel-emoji">🐾</span><span>Cairn Terrier</span></a>
               <a href="west-highland-white-terrier.html" class="related-card"><span class="rel-emoji">🐾</span><span>West Highland White Terrier</span></a>
               <a href="airedale-terrier.html" class="related-card"><span class="rel-emoji">🐾</span><span>Airedale Terrier</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Staffordshire Bull Terriers — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Staffordshire Bull Terrier photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Staffordshire Bull Terrier photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Staffordshire Bull Terrier photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Staffordshire Bull Terrier photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Staffordshire Bull Terrier photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Staffordshire Bull Terrier photo 6" />
             </div>
           </div>
 
@@ -319,6 +321,7 @@
     fetch('https://dog.ceo/api/breed/terrier/staffordshire/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

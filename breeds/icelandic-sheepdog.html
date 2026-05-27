@@ -81,6 +81,20 @@
               <p>The Icelandic Sheepdog comes in short- and long-coated varieties, in a range of warm colors — cream, golden, red, chocolate, grey, and black — almost always with white markings. Their most defining features are the foxy, wedge-shaped face, the curling tail carried over the back, and their irrepressible cheerfulness. Icelandic Sheepdogs are famously happy, inquisitive, and vocal — they bark to communicate, alert, and simply because life is good. In Iceland today they are a cherished national symbol; outside Iceland they remain rare and are considered one of the best-kept secrets in the dog world.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Icelandic Sheepdogs — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Icelandic Sheepdog photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Icelandic Sheepdog photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Icelandic Sheepdog photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Icelandic Sheepdog photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Icelandic Sheepdog photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Icelandic Sheepdog photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Icelandic Sheepdogs are known for being energetic, focused, and trainable. They form deep bonds with their families and thrive on consistent human connection. As a high-energy breed, they are best matched with active owners who enjoy outdoor activities and can commit to regular exercise.</p>
@@ -167,18 +181,6 @@
               <a href="border-collie.html" class="related-card"><span class="rel-emoji">🐕</span><span>Border Collie</span></a>
               <a href="german-shepherd.html" class="related-card"><span class="rel-emoji">🐕‍🦺</span><span>German Shepherd</span></a>
               <a href="australian-shepherd.html" class="related-card"><span class="rel-emoji">🐕</span><span>Australian Shepherd</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Icelandic Sheepdogs — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Icelandic Sheepdog photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Icelandic Sheepdog photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Icelandic Sheepdog photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Icelandic Sheepdog photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Icelandic Sheepdog photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Icelandic Sheepdog photo 6" />
             </div>
           </div>
 
@@ -318,6 +320,7 @@
     fetch('https://dog.ceo/api/breed/sheepdog/shetland/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

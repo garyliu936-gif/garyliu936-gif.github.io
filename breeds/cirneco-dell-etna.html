@@ -81,6 +81,20 @@
               <p>The Cirneco is a primitive sighthound type — lean, fine-boned, and remarkably fast over rough ground. Their short, close coat is most commonly a warm chestnut or tan, with or without white markings, and their large, erect ears give them an alert, fox-like expression. Unlike many Mediterranean sighthounds that are aloof or cat-like, the Cirneco is surprisingly affectionate and playful with their family — though they maintain the independence and instinct-driven character that comes with 2,500 years of hunting without human direction. They are among the smallest of the ancient sighthound types.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Cirneco dell'Etnas — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Cirneco dell'Etna photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Cirneco dell'Etna photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Cirneco dell'Etna photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Cirneco dell'Etna photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Cirneco dell'Etna photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Cirneco dell'Etna photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Cirneco dell'Etnas are known for being independent, determined, and loyal. They form deep bonds with their families and thrive on consistent human connection. As a high-energy breed, they are best matched with active owners who enjoy outdoor activities and can commit to regular exercise.</p>
@@ -167,18 +181,6 @@
               <a href="basset-hound.html" class="related-card"><span class="rel-emoji">🐕</span><span>Basset Hound</span></a>
               <a href="beagle.html" class="related-card"><span class="rel-emoji">🐕</span><span>Beagle</span></a>
               <a href="bloodhound.html" class="related-card"><span class="rel-emoji">🐕</span><span>Bloodhound</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Cirneco dell'Etnas — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Cirneco dell'Etna photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Cirneco dell'Etna photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Cirneco dell'Etna photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Cirneco dell'Etna photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Cirneco dell'Etna photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Cirneco dell'Etna photo 6" />
             </div>
           </div>
 
@@ -318,6 +320,7 @@
     fetch('https://dog.ceo/api/breed/hound/ibizan/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

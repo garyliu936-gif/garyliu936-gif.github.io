@@ -81,6 +81,20 @@
               <p>Otter hunting was practiced in England for centuries, partly because otters were considered a pest that depleted fish stocks from rivers and streams important to the food supply. Packs of Otterhounds were maintained by dedicated masters of otterhound packs, hunting the riverbanks in summer when foxhunting was out of season. When otter hunting was banned in England in 1977 (the European otter having become endangered), the primary purpose for the Otterhound's existence disappeared almost overnight — and the breed fell into drastic decline. Today the Otterhound is one of the rarest breeds in the world, with some years seeing fewer than 50 puppies registered in the UK and fewer than 400 total estimated worldwide. The breed's large size, need for space, and shaggy coat that requires significant maintenance have limited its appeal as a companion breed, and dedicated breed enthusiasts are working urgently to ensure its survival.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Otterhounds — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Otterhound photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Otterhound photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Otterhound photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Otterhound photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Otterhound photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Otterhound photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Otterhounds are known for being driven by instinct — scent or sight. They form deep bonds with their families and thrive on consistent human connection. They strike a good balance — lively enough to enjoy playtime and adventures, but calm enough to settle indoors when the day is done.</p>
@@ -167,18 +181,6 @@
               <a href="basset-hound.html" class="related-card"><span class="rel-emoji">🐕</span><span>Basset Hound</span></a>
               <a href="beagle.html" class="related-card"><span class="rel-emoji">🐕</span><span>Beagle</span></a>
               <a href="bloodhound.html" class="related-card"><span class="rel-emoji">🐕</span><span>Bloodhound</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Otterhounds — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Otterhound photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Otterhound photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Otterhound photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Otterhound photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Otterhound photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Otterhound photo 6" />
             </div>
           </div>
 
@@ -318,6 +320,7 @@
     fetch('https://dog.ceo/api/breed/otterhound/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

@@ -81,6 +81,20 @@
               <p>Puggles are sociable, playful, and affectionate — wonderful family dogs who are adaptable to apartment or house living. They love people and children and rarely meet a stranger. They can inherit the Beagle's strong scent drive and stubborn streak, so training with food rewards works best. They also tend to howl — a very vocal breed.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Puggles — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Puggle photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Puggle photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Puggle photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Puggle photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Puggle photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Puggle photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Puggles are known for being often inheriting the best traits of both parent breeds. They form deep bonds with their families and thrive on consistent human connection. They strike a good balance — lively enough to enjoy playtime and adventures, but calm enough to settle indoors when the day is done.</p>
@@ -167,18 +181,6 @@
               <a href="goldendoodle.html" class="related-card"><span class="rel-emoji">🐩</span><span>Goldendoodle</span></a>
               <a href="labradoodle.html" class="related-card"><span class="rel-emoji">🐕</span><span>Labradoodle</span></a>
               <a href="cavapoo.html" class="related-card"><span class="rel-emoji">🐕</span><span>Cavapoo</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Puggles — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Puggle photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Puggle photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Puggle photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Puggle photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Puggle photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Puggle photo 6" />
             </div>
           </div>
 
@@ -318,6 +320,7 @@
     fetch('https://dog.ceo/api/breed/beagle/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

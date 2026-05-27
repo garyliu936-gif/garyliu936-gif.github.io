@@ -81,6 +81,20 @@
               <p>The GWP is a dog built for serious hunters and active outdoor enthusiasts — its energy, drive, and working intelligence demand an owner who can provide a purpose. They are devoted to their families and often excellent with children, but they are independent thinkers in the field and need consistent training from puppyhood. Their weather-resistant coat makes them ideal for cold-climate hunting, and their stamina allows them to work all day without fatigue.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real German Wirehaired Pointers — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="German Wirehaired Pointer photo 1" />
+              <img class="gallery-photo" id="gp2" alt="German Wirehaired Pointer photo 2" />
+              <img class="gallery-photo" id="gp3" alt="German Wirehaired Pointer photo 3" />
+              <img class="gallery-photo" id="gp4" alt="German Wirehaired Pointer photo 4" />
+              <img class="gallery-photo" id="gp5" alt="German Wirehaired Pointer photo 5" />
+              <img class="gallery-photo" id="gp6" alt="German Wirehaired Pointer photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>German Wirehaired Pointers are known for being friendly, active, and eager to please. They form deep bonds with their families and thrive on consistent human connection. As a high-energy breed, they are best matched with active owners who enjoy outdoor activities and can commit to regular exercise.</p>
@@ -167,18 +181,6 @@
               <a href="golden-retriever.html" class="related-card"><span class="rel-emoji">🦮</span><span>Golden Retriever</span></a>
               <a href="labrador-retriever.html" class="related-card"><span class="rel-emoji">🐕</span><span>Labrador Retriever</span></a>
               <a href="cocker-spaniel.html" class="related-card"><span class="rel-emoji">🐕</span><span>Cocker Spaniel</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real German Wirehaired Pointers — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="German Wirehaired Pointer photo 1" />
-              <img class="gallery-photo" id="gp2" alt="German Wirehaired Pointer photo 2" />
-              <img class="gallery-photo" id="gp3" alt="German Wirehaired Pointer photo 3" />
-              <img class="gallery-photo" id="gp4" alt="German Wirehaired Pointer photo 4" />
-              <img class="gallery-photo" id="gp5" alt="German Wirehaired Pointer photo 5" />
-              <img class="gallery-photo" id="gp6" alt="German Wirehaired Pointer photo 6" />
             </div>
           </div>
 
@@ -319,6 +321,7 @@
     fetch('https://dog.ceo/api/breed/pointer/germanwirehaired/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

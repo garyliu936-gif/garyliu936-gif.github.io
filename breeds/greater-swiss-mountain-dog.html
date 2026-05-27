@@ -81,6 +81,20 @@
               <p>Swissies are known for their calm, confident demeanor and deep loyalty to family. They are gentle with children but their sheer size requires supervision with small kids. They are alert watchdogs — not barkers by nature, but their presence alone deters intruders. They tolerate cold beautifully but overheat easily in summer. Despite their size, they are surprisingly graceful and agile.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Greater Swiss Mountain Dogs — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Greater Swiss Mountain Dog photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Greater Swiss Mountain Dog photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Greater Swiss Mountain Dog photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Greater Swiss Mountain Dog photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Greater Swiss Mountain Dog photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Greater Swiss Mountain Dog photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Greater Swiss Mountain Dogs are known for being devoted and strong-willed. They form deep bonds with their families and thrive on consistent human connection. They strike a good balance — lively enough to enjoy playtime and adventures, but calm enough to settle indoors when the day is done.</p>
@@ -167,18 +181,6 @@
               <a href="rottweiler.html" class="related-card"><span class="rel-emoji">🛡️</span><span>Rottweiler</span></a>
               <a href="doberman-pinscher.html" class="related-card"><span class="rel-emoji">🐕</span><span>Doberman Pinscher</span></a>
               <a href="boxer.html" class="related-card"><span class="rel-emoji">🥊</span><span>Boxer</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Greater Swiss Mountain Dogs — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Greater Swiss Mountain Dog photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Greater Swiss Mountain Dog photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Greater Swiss Mountain Dog photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Greater Swiss Mountain Dog photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Greater Swiss Mountain Dog photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Greater Swiss Mountain Dog photo 6" />
             </div>
           </div>
 
@@ -318,6 +320,7 @@
     fetch('https://dog.ceo/api/breed/mountain/swiss/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

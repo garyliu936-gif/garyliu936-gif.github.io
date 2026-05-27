@@ -81,6 +81,20 @@
               <p>The Chow Chow is famously aloof and cat-like in temperament — deeply loyal to its immediate family but reserved to the point of disinterest with strangers and often intolerant of other dogs. It does not perform for attention, seek approval, or respond well to heavy-handed training. Chows require early socialization and consistent, respectful handling to develop into well-mannered adults, but they reward patient owners with an unwavering, quiet loyalty that makes them deeply bonded companions.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Chow Chows — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Chow Chow photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Chow Chow photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Chow Chow photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Chow Chow photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Chow Chow photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Chow Chow photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Chow Chows are known for being outgoing and sociable. They form deep bonds with their families and thrive on consistent human connection. As a calmer breed, they suit owners who prefer a relaxed lifestyle and appreciate a dog content to lounge alongside them.</p>
@@ -167,18 +181,6 @@
               <a href="golden-retriever.html" class="related-card"><span class="rel-emoji">🦮</span><span>Golden Retriever</span></a>
               <a href="labrador-retriever.html" class="related-card"><span class="rel-emoji">🐕</span><span>Labrador Retriever</span></a>
               <a href="cocker-spaniel.html" class="related-card"><span class="rel-emoji">🐕</span><span>Cocker Spaniel</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Chow Chows — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Chow Chow photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Chow Chow photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Chow Chow photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Chow Chow photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Chow Chow photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Chow Chow photo 6" />
             </div>
           </div>
 
@@ -319,6 +321,7 @@
     fetch('https://dog.ceo/api/breed/chow/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

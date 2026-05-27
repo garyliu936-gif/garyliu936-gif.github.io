@@ -81,6 +81,20 @@
               <p>Afghan Hounds are famously independent and cat-like in personality. They are intelligent but selective about following commands — they learn quickly but may simply choose not to obey. They form strong bonds with their families but are typically reserved with strangers. Their dramatic appearance and graceful movement make them one of the most visually stunning dogs in the world.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Afghan Hounds — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Afghan Hound photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Afghan Hound photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Afghan Hound photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Afghan Hound photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Afghan Hound photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Afghan Hound photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Afghan Hounds are known for being gentle at home but single-minded on the trail. They form deep bonds with their families and thrive on consistent human connection. They strike a good balance — lively enough to enjoy playtime and adventures, but calm enough to settle indoors when the day is done.</p>
@@ -167,18 +181,6 @@
               <a href="basset-hound.html" class="related-card"><span class="rel-emoji">🐕</span><span>Basset Hound</span></a>
               <a href="beagle.html" class="related-card"><span class="rel-emoji">🐕</span><span>Beagle</span></a>
               <a href="bloodhound.html" class="related-card"><span class="rel-emoji">🐕</span><span>Bloodhound</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Afghan Hounds — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Afghan Hound photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Afghan Hound photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Afghan Hound photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Afghan Hound photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Afghan Hound photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Afghan Hound photo 6" />
             </div>
           </div>
 
@@ -318,6 +320,7 @@
     fetch('https://dog.ceo/api/breed/hound/afghan/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

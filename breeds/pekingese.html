@@ -81,6 +81,20 @@
               <p>The Pekingese is a dog of enormous personal dignity — it will not be hurried, bullied, or forced into anything it doesn't agree to. It is affectionate and devoted with its chosen people, but it reserves its warmth and tends to be wary of strangers. Their independent nature and occasional stubbornness reflect centuries of being the center of an imperial universe, and modern Peke owners report that successful ownership requires understanding that the dog may occasionally decide it is in charge.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Pekingeses — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Pekingese photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Pekingese photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Pekingese photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Pekingese photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Pekingese photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Pekingese photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Pekingeses are known for being affectionate, alert, and adaptable. They form deep bonds with their families and thrive on consistent human connection. As a calmer breed, they suit owners who prefer a relaxed lifestyle and appreciate a dog content to lounge alongside them.</p>
@@ -167,18 +181,6 @@
               <a href="chihuahua.html" class="related-card"><span class="rel-emoji">🐕</span><span>Chihuahua</span></a>
               <a href="pomeranian.html" class="related-card"><span class="rel-emoji">🐕</span><span>Pomeranian</span></a>
               <a href="maltese.html" class="related-card"><span class="rel-emoji">🐕</span><span>Maltese</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Pekingeses — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Pekingese photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Pekingese photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Pekingese photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Pekingese photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Pekingese photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Pekingese photo 6" />
             </div>
           </div>
 
@@ -319,6 +321,7 @@
     fetch('https://dog.ceo/api/breed/pekinese/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

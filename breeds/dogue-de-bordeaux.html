@@ -81,6 +81,20 @@
               <p>The Dogue de Bordeaux is a calm, devoted companion that belies its imposing appearance with extraordinary gentleness toward its family. It is typically low-energy, satisfied with moderate daily exercise, and deeply affectionate — especially with children. However, its very short lifespan of 5–8 years means that time with a DDB must be treasured, and owners must prepare for early health challenges and heartbreak. The breed requires vigilant attention to breathing, joint health, and cardiac function throughout its life.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Dogue de Bordeauxs — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Dogue de Bordeaux photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Dogue de Bordeaux photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Dogue de Bordeaux photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Dogue de Bordeaux photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Dogue de Bordeaux photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Dogue de Bordeaux photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Dogue de Bordeauxs are known for being confident and protective. They form deep bonds with their families and thrive on consistent human connection. As a calmer breed, they suit owners who prefer a relaxed lifestyle and appreciate a dog content to lounge alongside them.</p>
@@ -167,18 +181,6 @@
               <a href="rottweiler.html" class="related-card"><span class="rel-emoji">🛡️</span><span>Rottweiler</span></a>
               <a href="doberman-pinscher.html" class="related-card"><span class="rel-emoji">🐕</span><span>Doberman Pinscher</span></a>
               <a href="boxer.html" class="related-card"><span class="rel-emoji">🥊</span><span>Boxer</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Dogue de Bordeauxs — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Dogue de Bordeaux photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Dogue de Bordeaux photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Dogue de Bordeaux photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Dogue de Bordeaux photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Dogue de Bordeaux photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Dogue de Bordeaux photo 6" />
             </div>
           </div>
 
@@ -319,6 +321,7 @@
     fetch('https://dog.ceo/api/breed/mastiff/english/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

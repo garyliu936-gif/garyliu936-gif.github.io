@@ -81,6 +81,20 @@
               <p>After Walden's death, the breed nearly vanished — by 1981, the Guinness Book of World Records listed the Chinook as the world's rarest dog breed, with only 28 individuals known worldwide. A small group of dedicated breeders mounted a recovery effort, and the Chinook has since grown to a stable (if still small) global population. AKC recognized in 2013. The modern Chinook is a tawny, large-to-medium dog with a deep chest, floppy ears, and a calm, affectionate temperament — combining working sled dog endurance with the gentle giant personality of a mastiff-influenced breed. They are exceptional family dogs for active households who can meet their exercise needs.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Chinooks — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Chinook photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Chinook photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Chinook photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Chinook photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Chinook photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Chinook photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Chinooks are known for being confident and protective. They form deep bonds with their families and thrive on consistent human connection. As a high-energy breed, they are best matched with active owners who enjoy outdoor activities and can commit to regular exercise.</p>
@@ -167,18 +181,6 @@
               <a href="rottweiler.html" class="related-card"><span class="rel-emoji">🛡️</span><span>Rottweiler</span></a>
               <a href="doberman-pinscher.html" class="related-card"><span class="rel-emoji">🐕</span><span>Doberman Pinscher</span></a>
               <a href="boxer.html" class="related-card"><span class="rel-emoji">🥊</span><span>Boxer</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Chinooks — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Chinook photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Chinook photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Chinook photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Chinook photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Chinook photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Chinook photo 6" />
             </div>
           </div>
 
@@ -318,6 +320,7 @@
     fetch('https://dog.ceo/api/breed/ridgeback/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

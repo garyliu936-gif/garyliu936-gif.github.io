@@ -81,6 +81,20 @@
               <p>The Beauceron is a highly intelligent, high-drive working dog that was used extensively by the French military in both World Wars as a messenger dog, mine detector, and search-and-rescue dog. It is not a beginner's breed — it requires experienced, confident handling and substantial daily exercise to remain balanced. For working dog enthusiasts, farmers, or active families willing to invest in proper training and socialization, the Beauceron is a deeply loyal, impressively capable, and endlessly fascinating companion.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Beaucerons — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Beauceron photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Beauceron photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Beauceron photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Beauceron photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Beauceron photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Beauceron photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Beaucerons are known for being loyal with strong instincts. They form deep bonds with their families and thrive on consistent human connection. As a high-energy breed, they are best matched with active owners who enjoy outdoor activities and can commit to regular exercise.</p>
@@ -167,18 +181,6 @@
               <a href="border-collie.html" class="related-card"><span class="rel-emoji">🐕</span><span>Border Collie</span></a>
               <a href="german-shepherd.html" class="related-card"><span class="rel-emoji">🐕‍🦺</span><span>German Shepherd</span></a>
               <a href="australian-shepherd.html" class="related-card"><span class="rel-emoji">🐕</span><span>Australian Shepherd</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Beaucerons — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Beauceron photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Beauceron photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Beauceron photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Beauceron photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Beauceron photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Beauceron photo 6" />
             </div>
           </div>
 
@@ -319,6 +321,7 @@
     fetch('https://dog.ceo/api/breed/malinois/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

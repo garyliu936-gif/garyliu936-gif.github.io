@@ -81,6 +81,20 @@
               <p>The Pyrenean Shepherd comes in two coat varieties: rough-faced (the more common type, with a longer, rough coat and bearded face) and smooth-faced (with a shorter, finer coat and an unbearded face). Both are small, lean, and built for extraordinary endurance at altitude — Pyrenean Shepherds are reported to cover 25 miles a day over mountain terrain while working. Their eyes are one of their most striking features: dark, almond-shaped, and intensely intelligent — giving them an almost eerie focus that reflects a working mind that never stops. The AKC recognized the breed in 2009. They are exceptional at agility, flyball, herding trials, and any dog sport demanding speed and precision — but are far too intense and driven for low-energy households.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Pyrenean Shepherds — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Pyrenean Shepherd photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Pyrenean Shepherd photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Pyrenean Shepherd photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Pyrenean Shepherd photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Pyrenean Shepherd photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Pyrenean Shepherd photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Pyrenean Shepherds are known for being loyal with strong instincts. They form deep bonds with their families and thrive on consistent human connection. As a high-energy breed, they are best matched with active owners who enjoy outdoor activities and can commit to regular exercise.</p>
@@ -167,18 +181,6 @@
               <a href="border-collie.html" class="related-card"><span class="rel-emoji">🐕</span><span>Border Collie</span></a>
               <a href="german-shepherd.html" class="related-card"><span class="rel-emoji">🐕‍🦺</span><span>German Shepherd</span></a>
               <a href="australian-shepherd.html" class="related-card"><span class="rel-emoji">🐕</span><span>Australian Shepherd</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Pyrenean Shepherds — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Pyrenean Shepherd photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Pyrenean Shepherd photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Pyrenean Shepherd photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Pyrenean Shepherd photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Pyrenean Shepherd photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Pyrenean Shepherd photo 6" />
             </div>
           </div>
 
@@ -319,6 +321,7 @@
     fetch('https://dog.ceo/api/breed/bouvier/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

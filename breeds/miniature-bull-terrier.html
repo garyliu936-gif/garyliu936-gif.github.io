@@ -81,6 +81,20 @@
               <p>The Miniature Bull Terrier is a powerhouse of personality — clownish, affectionate, stubborn, mischievous, and utterly devoted to its family. They play hard, rest hard, and approach everything with the same unstoppable enthusiasm. The breed's distinctive head profile — flat on top, curving evenly downward from skull to nose tip in an unbroken convex arc — is unique in the dog world and immediately recognizable. AKC recognized as a separate variety in 1991 (after years of competing alongside standard Bull Terriers), the Miniature Bull Terrier is less common than its larger relative but equally beloved by those who know the breed well.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Miniature Bull Terriers — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Miniature Bull Terrier photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Miniature Bull Terrier photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Miniature Bull Terrier photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Miniature Bull Terrier photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Miniature Bull Terrier photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Miniature Bull Terrier photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Miniature Bull Terriers are known for being tenacious and fearless. They form deep bonds with their families and thrive on consistent human connection. As a high-energy breed, they are best matched with active owners who enjoy outdoor activities and can commit to regular exercise.</p>
@@ -167,18 +181,6 @@
               <a href="cairn-terrier.html" class="related-card"><span class="rel-emoji">🐾</span><span>Cairn Terrier</span></a>
               <a href="west-highland-white-terrier.html" class="related-card"><span class="rel-emoji">🐾</span><span>West Highland White Terrier</span></a>
               <a href="airedale-terrier.html" class="related-card"><span class="rel-emoji">🐾</span><span>Airedale Terrier</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Miniature Bull Terriers — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Miniature Bull Terrier photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Miniature Bull Terrier photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Miniature Bull Terrier photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Miniature Bull Terrier photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Miniature Bull Terrier photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Miniature Bull Terrier photo 6" />
             </div>
           </div>
 
@@ -318,6 +320,7 @@
     fetch('https://dog.ceo/api/breed/terrier/bull/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

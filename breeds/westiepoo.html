@@ -81,6 +81,20 @@
               <p>Westiepoos tend to have the terrier's confidence and curiosity balanced by the Poodle's eagerness to please. They are energetic but not exhausting — a good daily walk and play session keeps them satisfied. Their long lifespan (often 13–16 years) and low-shedding coat make them a popular choice for families seeking a long-term companion.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Westiepoos — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Westiepoo photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Westiepoo photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Westiepoo photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Westiepoo photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Westiepoo photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Westiepoo photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Westiepoos are known for being sociable and adaptable. They form deep bonds with their families and thrive on consistent human connection. As a high-energy hybrid, they are best matched with active owners who enjoy outdoor activities and can commit to regular exercise.</p>
@@ -167,18 +181,6 @@
               <a href="goldendoodle.html" class="related-card"><span class="rel-emoji">🐩</span><span>Goldendoodle</span></a>
               <a href="labradoodle.html" class="related-card"><span class="rel-emoji">🐕</span><span>Labradoodle</span></a>
               <a href="cavapoo.html" class="related-card"><span class="rel-emoji">🐕</span><span>Cavapoo</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Westiepoos — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Westiepoo photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Westiepoo photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Westiepoo photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Westiepoo photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Westiepoo photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Westiepoo photo 6" />
             </div>
           </div>
 
@@ -315,6 +317,7 @@
     fetch('https://dog.ceo/api/breed/poodle/miniature/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

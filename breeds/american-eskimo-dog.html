@@ -81,6 +81,20 @@
               <p>Eskies are highly intelligent, curious, and eager to please — making them among the most trainable dogs in their size range. They were circus favorites in the early 20th century, performing tricks that amazed audiences across America. Today they excel in obedience, agility, and trick training. They are alert watchdogs and deeply loyal family dogs.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real American Eskimo Dogs — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="American Eskimo Dog photo 1" />
+              <img class="gallery-photo" id="gp2" alt="American Eskimo Dog photo 2" />
+              <img class="gallery-photo" id="gp3" alt="American Eskimo Dog photo 3" />
+              <img class="gallery-photo" id="gp4" alt="American Eskimo Dog photo 4" />
+              <img class="gallery-photo" id="gp5" alt="American Eskimo Dog photo 5" />
+              <img class="gallery-photo" id="gp6" alt="American Eskimo Dog photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>American Eskimo Dogs are known for being outgoing and sociable. They form deep bonds with their families and thrive on consistent human connection. As a high-energy breed, they are best matched with active owners who enjoy outdoor activities and can commit to regular exercise.</p>
@@ -167,18 +181,6 @@
               <a href="golden-retriever.html" class="related-card"><span class="rel-emoji">🦮</span><span>Golden Retriever</span></a>
               <a href="labrador-retriever.html" class="related-card"><span class="rel-emoji">🐕</span><span>Labrador Retriever</span></a>
               <a href="cocker-spaniel.html" class="related-card"><span class="rel-emoji">🐕</span><span>Cocker Spaniel</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real American Eskimo Dogs — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="American Eskimo Dog photo 1" />
-              <img class="gallery-photo" id="gp2" alt="American Eskimo Dog photo 2" />
-              <img class="gallery-photo" id="gp3" alt="American Eskimo Dog photo 3" />
-              <img class="gallery-photo" id="gp4" alt="American Eskimo Dog photo 4" />
-              <img class="gallery-photo" id="gp5" alt="American Eskimo Dog photo 5" />
-              <img class="gallery-photo" id="gp6" alt="American Eskimo Dog photo 6" />
             </div>
           </div>
 
@@ -317,6 +319,7 @@
     fetch('https://dog.ceo/api/breed/eskimo/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

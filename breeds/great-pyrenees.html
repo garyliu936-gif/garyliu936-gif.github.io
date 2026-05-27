@@ -81,6 +81,20 @@
               <p>Great Pyrenees are calm, patient, and remarkably gentle with children and small animals — a temperament shaped by millennia of coexisting peacefully with the flocks they guard. However, they are also instinctively independent and nocturnal (livestock guardian dogs typically work at night) which can make them challenging to train for obedience. They bark at night, roam if not contained, and make decisions independently — characteristics that served them well in the mountains but require management in suburban homes.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Great Pyreneess — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Great Pyrenees photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Great Pyrenees photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Great Pyrenees photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Great Pyrenees photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Great Pyrenees photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Great Pyrenees photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Great Pyreneess are known for being loyal, powerful, and alert. They form deep bonds with their families and thrive on consistent human connection. They strike a good balance — lively enough to enjoy playtime and adventures, but calm enough to settle indoors when the day is done.</p>
@@ -167,18 +181,6 @@
               <a href="rottweiler.html" class="related-card"><span class="rel-emoji">🛡️</span><span>Rottweiler</span></a>
               <a href="doberman-pinscher.html" class="related-card"><span class="rel-emoji">🐕</span><span>Doberman Pinscher</span></a>
               <a href="boxer.html" class="related-card"><span class="rel-emoji">🥊</span><span>Boxer</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Great Pyreneess — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Great Pyrenees photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Great Pyrenees photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Great Pyrenees photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Great Pyrenees photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Great Pyrenees photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Great Pyrenees photo 6" />
             </div>
           </div>
 
@@ -319,6 +321,7 @@
     fetch('https://dog.ceo/api/breed/pyrenees/great/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

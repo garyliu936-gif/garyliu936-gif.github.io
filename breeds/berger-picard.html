@@ -81,6 +81,20 @@
               <p>Picards have a deliberately rustic appearance — a rough, shaggy coat, large upright ears, and an alert, soulful expression that seems to reflect their deep intelligence. They bond intensely with their families and are sensitive to mood and emotion. Training requires patience and consistency; the Picard is an independent thinker who responds poorly to harsh methods but excels for a handler who earns their respect.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Berger Picards — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Berger Picard photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Berger Picard photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Berger Picard photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Berger Picard photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Berger Picard photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Berger Picard photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Berger Picards are known for being highly intelligent and responsive. They form deep bonds with their families and thrive on consistent human connection. As a high-energy breed, they are best matched with active owners who enjoy outdoor activities and can commit to regular exercise.</p>
@@ -167,18 +181,6 @@
               <a href="border-collie.html" class="related-card"><span class="rel-emoji">🐕</span><span>Border Collie</span></a>
               <a href="german-shepherd.html" class="related-card"><span class="rel-emoji">🐕‍🦺</span><span>German Shepherd</span></a>
               <a href="australian-shepherd.html" class="related-card"><span class="rel-emoji">🐕</span><span>Australian Shepherd</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Berger Picards — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Berger Picard photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Berger Picard photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Berger Picard photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Berger Picard photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Berger Picard photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Berger Picard photo 6" />
             </div>
           </div>
 
@@ -318,6 +320,7 @@
     fetch('https://dog.ceo/api/breed/groenendael/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

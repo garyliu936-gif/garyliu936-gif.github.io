@@ -81,6 +81,20 @@
               <p>George Washington is the most celebrated American Foxhound breeder in history. Washington kept a pack of over 30 hounds at Mount Vernon, maintained detailed breeding records, and corresponded extensively with French and English contacts about importing superior blood to improve his Virginia packs. The Marquis de Lafayette sent Washington a gift of French Grand Bleu de Gascogne hounds in 1785, and their infusion into Washington's English lines contributed to the development of what would become the distinctly American type. The American Foxhound was designated the official state dog of Virginia in 1966, and remains one of the most historically significant of all American breeds — yet paradoxically one of the least common as a household companion, consistently ranking among the AKC's least-registered breeds despite its deep American roots.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real American Foxhounds — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="American Foxhound photo 1" />
+              <img class="gallery-photo" id="gp2" alt="American Foxhound photo 2" />
+              <img class="gallery-photo" id="gp3" alt="American Foxhound photo 3" />
+              <img class="gallery-photo" id="gp4" alt="American Foxhound photo 4" />
+              <img class="gallery-photo" id="gp5" alt="American Foxhound photo 5" />
+              <img class="gallery-photo" id="gp6" alt="American Foxhound photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>American Foxhounds are known for being gentle at home but single-minded on the trail. They form deep bonds with their families and thrive on consistent human connection. As a high-energy breed, they are best matched with active owners who enjoy outdoor activities and can commit to regular exercise.</p>
@@ -167,18 +181,6 @@
               <a href="basset-hound.html" class="related-card"><span class="rel-emoji">🐕</span><span>Basset Hound</span></a>
               <a href="beagle.html" class="related-card"><span class="rel-emoji">🐕</span><span>Beagle</span></a>
               <a href="bloodhound.html" class="related-card"><span class="rel-emoji">🐕</span><span>Bloodhound</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real American Foxhounds — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="American Foxhound photo 1" />
-              <img class="gallery-photo" id="gp2" alt="American Foxhound photo 2" />
-              <img class="gallery-photo" id="gp3" alt="American Foxhound photo 3" />
-              <img class="gallery-photo" id="gp4" alt="American Foxhound photo 4" />
-              <img class="gallery-photo" id="gp5" alt="American Foxhound photo 5" />
-              <img class="gallery-photo" id="gp6" alt="American Foxhound photo 6" />
             </div>
           </div>
 
@@ -318,6 +320,7 @@
     fetch('https://dog.ceo/api/breed/hound/english/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

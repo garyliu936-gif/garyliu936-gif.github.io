@@ -81,6 +81,20 @@
               <p>These extraordinary features were not accidental — each solved a specific problem of cliff hunting. The extra toes gave traction on wet, steep rock faces. The splaying legs allowed the dog to brace in narrow crevices. The folding neck allowed them to squeeze backward out of the rock tunnels where puffins nest. The ears can even fold completely shut (folding forward or backward) to keep out water and debris when crawling. The breed nearly became extinct twice in the 20th century — once during a distemper epidemic in the 1940s that reduced the entire world population to six dogs — and was saved only by extraordinary breeding efforts. AKC recognized in 2011, the Norwegian Lundehund remains one of the rarest breeds registered.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Norwegian Lundehunds — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Norwegian Lundehund photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Norwegian Lundehund photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Norwegian Lundehund photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Norwegian Lundehund photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Norwegian Lundehund photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Norwegian Lundehund photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Norwegian Lundehunds are known for being friendly, active, and eager to please. They form deep bonds with their families and thrive on consistent human connection. As a high-energy breed, they are best matched with active owners who enjoy outdoor activities and can commit to regular exercise.</p>
@@ -167,18 +181,6 @@
               <a href="golden-retriever.html" class="related-card"><span class="rel-emoji">🦮</span><span>Golden Retriever</span></a>
               <a href="labrador-retriever.html" class="related-card"><span class="rel-emoji">🐕</span><span>Labrador Retriever</span></a>
               <a href="cocker-spaniel.html" class="related-card"><span class="rel-emoji">🐕</span><span>Cocker Spaniel</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Norwegian Lundehunds — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Norwegian Lundehund photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Norwegian Lundehund photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Norwegian Lundehund photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Norwegian Lundehund photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Norwegian Lundehund photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Norwegian Lundehund photo 6" />
             </div>
           </div>
 
@@ -318,6 +320,7 @@
     fetch('https://dog.ceo/api/breed/pomeranian/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

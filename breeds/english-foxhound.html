@@ -81,6 +81,20 @@
               <p>The English Foxhound is a study in athletic perfection — hard muscle, strong bone, excellent feet for covering ground at speed, and a coat of hard, close fur that sheds mud and water efficiently. They are sociable, pack-oriented dogs that thrive in the company of other dogs and are generally friendly with people, including children. However, they were bred to run 20–30 miles a day and are extraordinarily difficult to satisfy as house pets without serious daily exercise and stimulation. They remain one of the rarest AKC breeds in the United States.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real English Foxhounds — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="English Foxhound photo 1" />
+              <img class="gallery-photo" id="gp2" alt="English Foxhound photo 2" />
+              <img class="gallery-photo" id="gp3" alt="English Foxhound photo 3" />
+              <img class="gallery-photo" id="gp4" alt="English Foxhound photo 4" />
+              <img class="gallery-photo" id="gp5" alt="English Foxhound photo 5" />
+              <img class="gallery-photo" id="gp6" alt="English Foxhound photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>English Foxhounds are known for being gentle at home but single-minded on the trail. They form deep bonds with their families and thrive on consistent human connection. As a high-energy breed, they are best matched with active owners who enjoy outdoor activities and can commit to regular exercise.</p>
@@ -167,18 +181,6 @@
               <a href="basset-hound.html" class="related-card"><span class="rel-emoji">🐕</span><span>Basset Hound</span></a>
               <a href="beagle.html" class="related-card"><span class="rel-emoji">🐕</span><span>Beagle</span></a>
               <a href="bloodhound.html" class="related-card"><span class="rel-emoji">🐕</span><span>Bloodhound</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real English Foxhounds — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="English Foxhound photo 1" />
-              <img class="gallery-photo" id="gp2" alt="English Foxhound photo 2" />
-              <img class="gallery-photo" id="gp3" alt="English Foxhound photo 3" />
-              <img class="gallery-photo" id="gp4" alt="English Foxhound photo 4" />
-              <img class="gallery-photo" id="gp5" alt="English Foxhound photo 5" />
-              <img class="gallery-photo" id="gp6" alt="English Foxhound photo 6" />
             </div>
           </div>
 
@@ -318,6 +320,7 @@
     fetch('https://dog.ceo/api/breed/hound/walker/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

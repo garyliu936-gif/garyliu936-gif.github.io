@@ -81,6 +81,20 @@
               <p>Havapoos are gentle, playful, and deeply social. They thrive on human interaction and don't do well left alone for long periods. Their soft, wavy-to-curly coat is nearly non-shedding, and they adapt beautifully to apartment life. They are especially popular with first-time dog owners for their trainability and affectionate nature.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Havapoos — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Havapoo photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Havapoo photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Havapoo photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Havapoo photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Havapoo photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Havapoo photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Havapoos are known for being often inheriting the best traits of both parent breeds. They form deep bonds with their families and thrive on consistent human connection. They strike a good balance — lively enough to enjoy playtime and adventures, but calm enough to settle indoors when the day is done.</p>
@@ -167,18 +181,6 @@
               <a href="goldendoodle.html" class="related-card"><span class="rel-emoji">🐩</span><span>Goldendoodle</span></a>
               <a href="labradoodle.html" class="related-card"><span class="rel-emoji">🐕</span><span>Labradoodle</span></a>
               <a href="cavapoo.html" class="related-card"><span class="rel-emoji">🐕</span><span>Cavapoo</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Havapoos — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Havapoo photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Havapoo photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Havapoo photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Havapoo photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Havapoo photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Havapoo photo 6" />
             </div>
           </div>
 
@@ -315,6 +317,7 @@
     fetch('https://dog.ceo/api/breed/havanese/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

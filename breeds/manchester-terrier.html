@@ -81,6 +81,20 @@
               <p>Two size varieties exist: the Standard Manchester Terrier (over 12 lbs, up to 22 lbs) in the Terrier Group, and the Toy Manchester Terrier (under 12 lbs) in the Toy Group. Both share the same jet-black-and-tan coat in a precise, breed-standard pattern — tan markings appear at specific points on the face, chest, legs, and under the tail in a pattern as specific as any breed standard. Manchester Terriers are athletic, alert, loyal, and intensely devoted to their owners. They tend to be one-person or one-family dogs, reserved with strangers, and exceptionally quick and agile. The AKC recognized the Manchester Terrier in 1886.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Manchester Terriers — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Manchester Terrier photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Manchester Terrier photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Manchester Terrier photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Manchester Terrier photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Manchester Terrier photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Manchester Terrier photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Manchester Terriers are known for being bold, energetic, and alert. They form deep bonds with their families and thrive on consistent human connection. As a high-energy breed, they are best matched with active owners who enjoy outdoor activities and can commit to regular exercise.</p>
@@ -167,18 +181,6 @@
               <a href="cairn-terrier.html" class="related-card"><span class="rel-emoji">🐾</span><span>Cairn Terrier</span></a>
               <a href="west-highland-white-terrier.html" class="related-card"><span class="rel-emoji">🐾</span><span>West Highland White Terrier</span></a>
               <a href="airedale-terrier.html" class="related-card"><span class="rel-emoji">🐾</span><span>Airedale Terrier</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Manchester Terriers — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Manchester Terrier photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Manchester Terrier photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Manchester Terrier photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Manchester Terrier photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Manchester Terrier photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Manchester Terrier photo 6" />
             </div>
           </div>
 
@@ -318,6 +320,7 @@
     fetch('https://dog.ceo/api/breed/terrier/manchester/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

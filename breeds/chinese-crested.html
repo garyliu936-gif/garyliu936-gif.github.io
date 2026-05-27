@@ -81,6 +81,20 @@
               <p>Every Chinese Crested litter contains both hairless and fully coated ('Powderpuff') individuals — both are the same breed with different coat genetics, and both varieties can appear in the same litter. The hairless variety requires sunscreen in summer, moisturizer in winter, and protection from cold temperatures; the Powderpuff is fully coated and needs regular grooming. Both varieties are affectionate, playful, and deeply devoted to their owners, with an exceptional lifespan that often reaches 15–18 years.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Chinese Cresteds — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Chinese Crested photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Chinese Crested photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Chinese Crested photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Chinese Crested photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Chinese Crested photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Chinese Crested photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Chinese Cresteds are known for being surprisingly bold for their small size. They form deep bonds with their families and thrive on consistent human connection. They strike a good balance — lively enough to enjoy playtime and adventures, but calm enough to settle indoors when the day is done.</p>
@@ -167,18 +181,6 @@
               <a href="chihuahua.html" class="related-card"><span class="rel-emoji">🐕</span><span>Chihuahua</span></a>
               <a href="pomeranian.html" class="related-card"><span class="rel-emoji">🐕</span><span>Pomeranian</span></a>
               <a href="maltese.html" class="related-card"><span class="rel-emoji">🐕</span><span>Maltese</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Chinese Cresteds — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Chinese Crested photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Chinese Crested photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Chinese Crested photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Chinese Crested photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Chinese Crested photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Chinese Crested photo 6" />
             </div>
           </div>
 
@@ -319,6 +321,7 @@
     fetch('https://dog.ceo/api/breed/maltese/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

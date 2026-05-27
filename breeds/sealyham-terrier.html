@@ -81,6 +81,20 @@
               <p>The Sealyham was recognized by the Kennel Club in 1911 and the AKC in 1911, and quickly rose to extraordinary fashion status in the 1920s-1940s. The breed became associated with celebrity, sophistication, and glamour in a way that no terrier before or since has matched. Cary Grant, Alfred Hitchcock, Princess Margaret, the Duke of Windsor, Humphrey Bogart, Bette Davis, Gary Cooper, and Elizabeth Taylor all owned Sealyhams. In 1936, the breed was so fashionable that a Sealyham won Best in Show at Westminster. Today, the Sealyham is on the UK Kennel Club's Vulnerable Native Breeds list, with fewer than 100 puppies registered annually in Britain — a stunning reversal from the breed's celebrity peak.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Sealyham Terriers — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Sealyham Terrier photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Sealyham Terrier photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Sealyham Terrier photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Sealyham Terrier photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Sealyham Terrier photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Sealyham Terrier photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Sealyham Terriers are known for being independent and spirited. They form deep bonds with their families and thrive on consistent human connection. They strike a good balance — lively enough to enjoy playtime and adventures, but calm enough to settle indoors when the day is done.</p>
@@ -167,18 +181,6 @@
               <a href="cairn-terrier.html" class="related-card"><span class="rel-emoji">🐾</span><span>Cairn Terrier</span></a>
               <a href="west-highland-white-terrier.html" class="related-card"><span class="rel-emoji">🐾</span><span>West Highland White Terrier</span></a>
               <a href="airedale-terrier.html" class="related-card"><span class="rel-emoji">🐾</span><span>Airedale Terrier</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Sealyham Terriers — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Sealyham Terrier photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Sealyham Terrier photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Sealyham Terrier photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Sealyham Terrier photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Sealyham Terrier photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Sealyham Terrier photo 6" />
             </div>
           </div>
 
@@ -318,6 +320,7 @@
     fetch('https://dog.ceo/api/breed/terrier/westhighland/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

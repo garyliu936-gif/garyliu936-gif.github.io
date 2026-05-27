@@ -81,6 +81,20 @@
               <p>The Pharaoh Hound's most famous and extraordinary trait is their "blush" — when excited, happy, or playful, their nose and the insides of their large, elegant ears turn a vivid rosy pink-red, glowing visibly through their short chestnut coat. No other breed does this so dramatically. Their amber-colored eyes, long arched neck, and chiseled features give them an almost sculptural beauty. On Malta's rocky islands, they still hunt wild rabbit with remarkable athleticism — hunting by sight, scent, and sound, even detecting quarry underground. In the home they are affectionate, playful, and deeply bonded to family, while remaining reserved with strangers.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Pharaoh Hounds — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Pharaoh Hound photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Pharaoh Hound photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Pharaoh Hound photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Pharaoh Hound photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Pharaoh Hound photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Pharaoh Hound photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Pharaoh Hounds are known for being gentle at home but single-minded on the trail. They form deep bonds with their families and thrive on consistent human connection. As a high-energy breed, they are best matched with active owners who enjoy outdoor activities and can commit to regular exercise.</p>
@@ -167,18 +181,6 @@
               <a href="basset-hound.html" class="related-card"><span class="rel-emoji">🐕</span><span>Basset Hound</span></a>
               <a href="beagle.html" class="related-card"><span class="rel-emoji">🐕</span><span>Beagle</span></a>
               <a href="bloodhound.html" class="related-card"><span class="rel-emoji">🐕</span><span>Bloodhound</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Pharaoh Hounds — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Pharaoh Hound photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Pharaoh Hound photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Pharaoh Hound photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Pharaoh Hound photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Pharaoh Hound photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Pharaoh Hound photo 6" />
             </div>
           </div>
 
@@ -318,6 +320,7 @@
     fetch('https://dog.ceo/api/breed/hound/ibizan/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

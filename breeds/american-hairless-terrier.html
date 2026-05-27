@@ -81,6 +81,20 @@
               <p>The American Hairless Terrier comes in two varieties: the fully hairless (born with a soft fuzz that disappears within a few weeks) and the coated variety (which carries the hairless gene but retains a short, dense coat). Both share the same alert, wedge-shaped head, muscular compact body, and high-spirited terrier personality. Hairless individuals have smooth, soft skin that can range from solid pink to spotted with a remarkable range of pigment patterns. AKC fully recognized in 2016, they are an ideal choice for allergy sufferers who want a full-sized terrier experience without the coat — though their bare skin requires sunscreen and cold-weather clothing.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real American Hairless Terriers — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="American Hairless Terrier photo 1" />
+              <img class="gallery-photo" id="gp2" alt="American Hairless Terrier photo 2" />
+              <img class="gallery-photo" id="gp3" alt="American Hairless Terrier photo 3" />
+              <img class="gallery-photo" id="gp4" alt="American Hairless Terrier photo 4" />
+              <img class="gallery-photo" id="gp5" alt="American Hairless Terrier photo 5" />
+              <img class="gallery-photo" id="gp6" alt="American Hairless Terrier photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>American Hairless Terriers are known for being bold, energetic, and alert. They form deep bonds with their families and thrive on consistent human connection. As a high-energy breed, they are best matched with active owners who enjoy outdoor activities and can commit to regular exercise.</p>
@@ -167,18 +181,6 @@
               <a href="cairn-terrier.html" class="related-card"><span class="rel-emoji">🐾</span><span>Cairn Terrier</span></a>
               <a href="west-highland-white-terrier.html" class="related-card"><span class="rel-emoji">🐾</span><span>West Highland White Terrier</span></a>
               <a href="airedale-terrier.html" class="related-card"><span class="rel-emoji">🐾</span><span>Airedale Terrier</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real American Hairless Terriers — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="American Hairless Terrier photo 1" />
-              <img class="gallery-photo" id="gp2" alt="American Hairless Terrier photo 2" />
-              <img class="gallery-photo" id="gp3" alt="American Hairless Terrier photo 3" />
-              <img class="gallery-photo" id="gp4" alt="American Hairless Terrier photo 4" />
-              <img class="gallery-photo" id="gp5" alt="American Hairless Terrier photo 5" />
-              <img class="gallery-photo" id="gp6" alt="American Hairless Terrier photo 6" />
             </div>
           </div>
 
@@ -316,9 +318,10 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
 
-    fetch('https://dog.ceo/api/breed/terrier/rat/images')
+    fetch('https://dog.ceo/api/breed/terrier/fox/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

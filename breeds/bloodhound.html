@@ -79,6 +79,20 @@
             
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Bloodhounds — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Bloodhound photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Bloodhound photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Bloodhound photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Bloodhound photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Bloodhound photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Bloodhound photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Bloodhounds are known for being independent, determined, and loyal. They form deep bonds with their families and thrive on consistent human connection. They strike a good balance — lively enough to enjoy playtime and adventures, but calm enough to settle indoors when the day is done.</p>
@@ -165,18 +179,6 @@
               <a href="basset-hound.html" class="related-card"><span class="rel-emoji">🐕</span><span>Basset Hound</span></a>
               <a href="beagle.html" class="related-card"><span class="rel-emoji">🐕</span><span>Beagle</span></a>
               <a href="bloodhound.html" class="related-card"><span class="rel-emoji">🐕</span><span>Bloodhound</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Bloodhounds — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Bloodhound photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Bloodhound photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Bloodhound photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Bloodhound photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Bloodhound photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Bloodhound photo 6" />
             </div>
           </div>
 
@@ -331,6 +333,7 @@
     fetch('https://dog.ceo/api/breed/hound/blood/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

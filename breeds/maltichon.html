@@ -81,6 +81,20 @@
               <p>Maltichons are gentle, cheerful, and deeply affectionate. They are ideal for seniors, apartment dwellers, and families with gentle children. Their low-energy needs mean they are satisfied with short daily walks and indoor playtime. Their white, non-shedding coat is one of their most appealing traits, though it does require regular brushing to prevent matting.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Maltichons — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Maltichon photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Maltichon photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Maltichon photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Maltichon photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Maltichon photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Maltichon photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Maltichons are known for being personality can vary — early socialization shapes their adult character. They form deep bonds with their families and thrive on consistent human connection. As a calmer hybrid, they suit owners who prefer a relaxed lifestyle and appreciate a dog content to lounge alongside them.</p>
@@ -167,18 +181,6 @@
               <a href="goldendoodle.html" class="related-card"><span class="rel-emoji">🐩</span><span>Goldendoodle</span></a>
               <a href="labradoodle.html" class="related-card"><span class="rel-emoji">🐕</span><span>Labradoodle</span></a>
               <a href="cavapoo.html" class="related-card"><span class="rel-emoji">🐕</span><span>Cavapoo</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Maltichons — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Maltichon photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Maltichon photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Maltichon photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Maltichon photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Maltichon photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Maltichon photo 6" />
             </div>
           </div>
 
@@ -315,6 +317,7 @@
     fetch('https://dog.ceo/api/breed/maltese/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

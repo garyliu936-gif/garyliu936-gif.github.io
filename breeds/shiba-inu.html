@@ -81,6 +81,20 @@
               <p>The Shiba Inu is known for its cat-like independence, meticulous self-grooming habits, and what owners describe as a 'spirited boldness' — a polite term for a dog that knows its own mind and rarely changes it. Shibas bond deeply with their primary person but can be aloof with strangers and challenging with other dogs. They require patient, experienced owners who understand that a Shiba's cooperation must be earned, not commanded.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Shiba Inus — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Shiba Inu photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Shiba Inu photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Shiba Inu photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Shiba Inu photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Shiba Inu photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Shiba Inu photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Shiba Inus are known for being friendly, active, and eager to please. They form deep bonds with their families and thrive on consistent human connection. As a high-energy breed, they are best matched with active owners who enjoy outdoor activities and can commit to regular exercise.</p>
@@ -167,18 +181,6 @@
               <a href="golden-retriever.html" class="related-card"><span class="rel-emoji">🦮</span><span>Golden Retriever</span></a>
               <a href="labrador-retriever.html" class="related-card"><span class="rel-emoji">🐕</span><span>Labrador Retriever</span></a>
               <a href="cocker-spaniel.html" class="related-card"><span class="rel-emoji">🐕</span><span>Cocker Spaniel</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Shiba Inus — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Shiba Inu photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Shiba Inu photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Shiba Inu photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Shiba Inu photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Shiba Inu photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Shiba Inu photo 6" />
             </div>
           </div>
 
@@ -319,6 +321,7 @@
     fetch('https://dog.ceo/api/breed/shiba/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

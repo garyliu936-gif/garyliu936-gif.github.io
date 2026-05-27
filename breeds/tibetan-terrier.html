@@ -81,6 +81,20 @@
               <p>Tibetan Terriers are affectionate, adaptable, and lively — gentle enough for families with children and spirited enough for active owners. They are notably long-lived, regularly reaching 15–16 years, and maintain their vitality well into old age. Their dense, flowing double coat requires regular grooming but sheds minimally, making them a better choice for allergy-sensitive households than many breeds. They are sensitive dogs that respond best to positive, gentle training and can become anxious with harsh handling.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Tibetan Terriers — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Tibetan Terrier photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Tibetan Terrier photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Tibetan Terrier photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Tibetan Terrier photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Tibetan Terrier photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Tibetan Terrier photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Tibetan Terriers are known for being friendly, active, and eager to please. They form deep bonds with their families and thrive on consistent human connection. They strike a good balance — lively enough to enjoy playtime and adventures, but calm enough to settle indoors when the day is done.</p>
@@ -167,18 +181,6 @@
               <a href="golden-retriever.html" class="related-card"><span class="rel-emoji">🦮</span><span>Golden Retriever</span></a>
               <a href="labrador-retriever.html" class="related-card"><span class="rel-emoji">🐕</span><span>Labrador Retriever</span></a>
               <a href="cocker-spaniel.html" class="related-card"><span class="rel-emoji">🐕</span><span>Cocker Spaniel</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Tibetan Terriers — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Tibetan Terrier photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Tibetan Terrier photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Tibetan Terrier photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Tibetan Terrier photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Tibetan Terrier photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Tibetan Terrier photo 6" />
             </div>
           </div>
 
@@ -319,6 +321,7 @@
     fetch('https://dog.ceo/api/breed/terrier/tibetan/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

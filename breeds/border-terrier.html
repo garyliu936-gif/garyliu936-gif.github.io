@@ -81,6 +81,20 @@
               <p>Border Terriers are among the most versatile of all small dogs — equally content working as an earth dog, competing in agility, serving as a therapy dog, or simply being a devoted family companion. They are affectionate, good-natured, and have a lower intensity of the 'terrier attitude' than many of their relatives, making them excellent family dogs that also satisfy serious working dog enthusiasts. Their distinctive otter-shaped head, grizzled coat, and expressive eyes give them a uniquely rugged handsomeness.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Border Terriers — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Border Terrier photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Border Terrier photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Border Terrier photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Border Terrier photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Border Terrier photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Border Terrier photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Border Terriers are known for being bold, energetic, and alert. They form deep bonds with their families and thrive on consistent human connection. As a high-energy breed, they are best matched with active owners who enjoy outdoor activities and can commit to regular exercise.</p>
@@ -167,18 +181,6 @@
               <a href="cairn-terrier.html" class="related-card"><span class="rel-emoji">🐾</span><span>Cairn Terrier</span></a>
               <a href="west-highland-white-terrier.html" class="related-card"><span class="rel-emoji">🐾</span><span>West Highland White Terrier</span></a>
               <a href="airedale-terrier.html" class="related-card"><span class="rel-emoji">🐾</span><span>Airedale Terrier</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Border Terriers — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Border Terrier photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Border Terrier photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Border Terrier photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Border Terrier photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Border Terrier photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Border Terrier photo 6" />
             </div>
           </div>
 
@@ -319,6 +321,7 @@
     fetch('https://dog.ceo/api/breed/terrier/border/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

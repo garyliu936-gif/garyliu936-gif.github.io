@@ -81,6 +81,20 @@
               <p>Unlike most flushing spaniels, the Clumber works at a deliberate, methodical pace — systematically quartering dense cover with a powerful nose rather than the frantic speed of a Springer. Its white coat (with lemon or orange markings) is practical in the field, allowing hunters to track the dog through heavy brush. The Clumber's expression — heavy brow, deep-set eyes, haw showing slightly — gives it a thoughtful, almost mournful look that belies its cheerful, gentle temperament. The AKC recognized the Clumber Spaniel in 1878, making it one of the first nine breeds registered. Today it remains rare, cherished by those who appreciate substance, quiet dignity, and a dog that thinks before it acts.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Clumber Spaniels — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Clumber Spaniel photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Clumber Spaniel photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Clumber Spaniel photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Clumber Spaniel photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Clumber Spaniel photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Clumber Spaniel photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Clumber Spaniels are known for being friendly, active, and eager to please. They form deep bonds with their families and thrive on consistent human connection. They strike a good balance — lively enough to enjoy playtime and adventures, but calm enough to settle indoors when the day is done.</p>
@@ -167,18 +181,6 @@
               <a href="golden-retriever.html" class="related-card"><span class="rel-emoji">🦮</span><span>Golden Retriever</span></a>
               <a href="labrador-retriever.html" class="related-card"><span class="rel-emoji">🐕</span><span>Labrador Retriever</span></a>
               <a href="cocker-spaniel.html" class="related-card"><span class="rel-emoji">🐕</span><span>Cocker Spaniel</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Clumber Spaniels — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Clumber Spaniel photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Clumber Spaniel photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Clumber Spaniel photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Clumber Spaniel photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Clumber Spaniel photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Clumber Spaniel photo 6" />
             </div>
           </div>
 
@@ -315,9 +317,10 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
 
-    fetch('https://dog.ceo/api/breed/spaniel/clumber/images')
+    fetch('https://dog.ceo/api/breed/clumber/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

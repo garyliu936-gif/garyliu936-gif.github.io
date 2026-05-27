@@ -81,6 +81,20 @@
               <p>Briards are intensely loyal, intelligent, and have remarkable memories — they are said to remember both kindness and mistreatment for years. They bond deeply with their family and can be protective and reserved with strangers, but warm up to trusted friends. Their herding instinct may cause them to circle and nudge family members. They require experienced owners who appreciate their independent spirit and invest in proper training.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Briards — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Briard photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Briard photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Briard photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Briard photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Briard photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Briard photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Briards are known for being highly intelligent and responsive. They form deep bonds with their families and thrive on consistent human connection. As a high-energy breed, they are best matched with active owners who enjoy outdoor activities and can commit to regular exercise.</p>
@@ -167,18 +181,6 @@
               <a href="border-collie.html" class="related-card"><span class="rel-emoji">🐕</span><span>Border Collie</span></a>
               <a href="german-shepherd.html" class="related-card"><span class="rel-emoji">🐕‍🦺</span><span>German Shepherd</span></a>
               <a href="australian-shepherd.html" class="related-card"><span class="rel-emoji">🐕</span><span>Australian Shepherd</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Briards — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Briard photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Briard photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Briard photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Briard photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Briard photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Briard photo 6" />
             </div>
           </div>
 
@@ -318,6 +320,7 @@
     fetch('https://dog.ceo/api/breed/briard/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

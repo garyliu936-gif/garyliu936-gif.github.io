@@ -79,6 +79,20 @@
             
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Miniature Pinschers — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Miniature Pinscher photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Miniature Pinscher photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Miniature Pinscher photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Miniature Pinscher photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Miniature Pinscher photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Miniature Pinscher photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Miniature Pinschers are known for being devoted companions who love being close to their people. They form deep bonds with their families and thrive on consistent human connection. They strike a good balance — lively enough to enjoy playtime and adventures, but calm enough to settle indoors when the day is done.</p>
@@ -165,18 +179,6 @@
               <a href="chihuahua.html" class="related-card"><span class="rel-emoji">🐕</span><span>Chihuahua</span></a>
               <a href="pomeranian.html" class="related-card"><span class="rel-emoji">🐕</span><span>Pomeranian</span></a>
               <a href="maltese.html" class="related-card"><span class="rel-emoji">🐕</span><span>Maltese</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Miniature Pinschers — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Miniature Pinscher photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Miniature Pinscher photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Miniature Pinscher photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Miniature Pinscher photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Miniature Pinscher photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Miniature Pinscher photo 6" />
             </div>
           </div>
 
@@ -284,6 +286,7 @@
     fetch('https://dog.ceo/api/breed/pinscher/miniature/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

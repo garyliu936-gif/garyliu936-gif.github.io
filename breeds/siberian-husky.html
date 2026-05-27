@@ -462,6 +462,7 @@
     fetch('https://dog.ceo/api/breed/husky/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2];

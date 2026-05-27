@@ -81,6 +81,20 @@
               <p>The Mudi is a true multi-purpose farm dog — it herds cattle, sheep, and pigs; hunts wild boar with courage that belies its modest size; and serves as a watchdog and companion. It is also one of the most naturally talented dog sport dogs, excelling in agility, flyball, frisbee, and obedience at a level that surprises those unfamiliar with the breed. The AKC recognized the Mudi in 2022. Outside Hungary, the breed remains very rare — finding a reputable breeder typically requires significant searching and patience, but those who find one discover an exceptionally capable, loyal, and entertaining companion.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Mudis — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Mudi photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Mudi photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Mudi photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Mudi photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Mudi photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Mudi photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Mudis are known for being highly intelligent and responsive. They form deep bonds with their families and thrive on consistent human connection. As a high-energy breed, they are best matched with active owners who enjoy outdoor activities and can commit to regular exercise.</p>
@@ -167,18 +181,6 @@
               <a href="border-collie.html" class="related-card"><span class="rel-emoji">🐕</span><span>Border Collie</span></a>
               <a href="german-shepherd.html" class="related-card"><span class="rel-emoji">🐕‍🦺</span><span>German Shepherd</span></a>
               <a href="australian-shepherd.html" class="related-card"><span class="rel-emoji">🐕</span><span>Australian Shepherd</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Mudis — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Mudi photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Mudi photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Mudi photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Mudi photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Mudi photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Mudi photo 6" />
             </div>
           </div>
 
@@ -318,6 +320,7 @@
     fetch('https://dog.ceo/api/breed/poodle/standard/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

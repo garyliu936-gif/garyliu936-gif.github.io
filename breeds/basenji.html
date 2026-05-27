@@ -81,6 +81,20 @@
               <p>The Basenji is famous for not barking — it produces a unique yodel or chortle instead, created by an unusually shaped larynx that produces sound differently than in most dogs. It is also fastidiously clean, grooming itself like a cat, and it is known for its cat-like independence, intelligence, and tendency to think rather than simply obey. Basenji owners describe training as an ongoing negotiation rather than a simple command-and-response relationship. They are deeply bonded to their owners but famously challenging to reliably recall off-leash.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Basenjis — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Basenji photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Basenji photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Basenji photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Basenji photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Basenji photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Basenji photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Basenjis are known for being independent, determined, and loyal. They form deep bonds with their families and thrive on consistent human connection. As a high-energy breed, they are best matched with active owners who enjoy outdoor activities and can commit to regular exercise.</p>
@@ -167,18 +181,6 @@
               <a href="basset-hound.html" class="related-card"><span class="rel-emoji">🐕</span><span>Basset Hound</span></a>
               <a href="beagle.html" class="related-card"><span class="rel-emoji">🐕</span><span>Beagle</span></a>
               <a href="bloodhound.html" class="related-card"><span class="rel-emoji">🐕</span><span>Bloodhound</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Basenjis — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Basenji photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Basenji photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Basenji photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Basenji photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Basenji photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Basenji photo 6" />
             </div>
           </div>
 
@@ -319,6 +321,7 @@
     fetch('https://dog.ceo/api/breed/basenji/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

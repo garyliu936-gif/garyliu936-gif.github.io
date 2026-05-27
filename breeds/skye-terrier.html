@@ -81,6 +81,20 @@
               <p>The breed is perhaps best known today through the legend of Greyfriars Bobby — a Skye Terrier (or Skye-type dog) who reputedly remained beside the grave of his Edinburgh master, John Gray, in Greyfriars Kirkyard for 14 years from 1858 until his own death in 1872. The story of Bobby's fidelity captured the Victorian public's imagination, spawned a statue that still stands in Edinburgh today, and several films — cementing the Skye Terrier's reputation as the ultimate symbol of canine loyalty. Despite this fame, the Skye Terrier is today critically rare, listed on the Kennel Club's vulnerable native breeds list in the UK with only a few hundred registrations annually worldwide.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Skye Terriers — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Skye Terrier photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Skye Terrier photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Skye Terrier photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Skye Terrier photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Skye Terrier photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Skye Terrier photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Skye Terriers are known for being bold, energetic, and alert. They form deep bonds with their families and thrive on consistent human connection. They strike a good balance — lively enough to enjoy playtime and adventures, but calm enough to settle indoors when the day is done.</p>
@@ -167,18 +181,6 @@
               <a href="cairn-terrier.html" class="related-card"><span class="rel-emoji">🐾</span><span>Cairn Terrier</span></a>
               <a href="west-highland-white-terrier.html" class="related-card"><span class="rel-emoji">🐾</span><span>West Highland White Terrier</span></a>
               <a href="airedale-terrier.html" class="related-card"><span class="rel-emoji">🐾</span><span>Airedale Terrier</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Skye Terriers — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Skye Terrier photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Skye Terrier photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Skye Terrier photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Skye Terrier photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Skye Terrier photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Skye Terrier photo 6" />
             </div>
           </div>
 
@@ -318,6 +320,7 @@
     fetch('https://dog.ceo/api/breed/terrier/skye/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];

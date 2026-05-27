@@ -81,6 +81,20 @@
               <p>The Irish Water Spaniel is a true dual-purpose hunting dog — equally capable of flushing and retrieving upland birds and working as a waterfowl retriever from boats, marshes, and cold Irish waterways. The dense, oily curled coat provides exceptional water resistance and insulation in cold conditions. The breed is noted for a playful, clownish personality that earned it the nickname "Clown of the Spaniel Family" — an intelligence that sometimes manifests as selective compliance with commands, and a fondness for inventing games and creating entertainment for themselves. AKC recognized in 1884, the Irish Water Spaniel is among the rarer sporting breeds in North America today.</p>
           </div>
 
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Irish Water Spaniels — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Irish Water Spaniel photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Irish Water Spaniel photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Irish Water Spaniel photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Irish Water Spaniel photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Irish Water Spaniel photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Irish Water Spaniel photo 6" />
+            </div>
+          </div>
+
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Irish Water Spaniels are known for being friendly, active, and eager to please. They form deep bonds with their families and thrive on consistent human connection. As a high-energy breed, they are best matched with active owners who enjoy outdoor activities and can commit to regular exercise.</p>
@@ -167,18 +181,6 @@
               <a href="golden-retriever.html" class="related-card"><span class="rel-emoji">🦮</span><span>Golden Retriever</span></a>
               <a href="labrador-retriever.html" class="related-card"><span class="rel-emoji">🐕</span><span>Labrador Retriever</span></a>
               <a href="cocker-spaniel.html" class="related-card"><span class="rel-emoji">🐕</span><span>Cocker Spaniel</span></a>
-            </div>
-          </div>
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Irish Water Spaniels — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Irish Water Spaniel photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Irish Water Spaniel photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Irish Water Spaniel photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Irish Water Spaniel photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Irish Water Spaniel photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Irish Water Spaniel photo 6" />
             </div>
           </div>
 
@@ -318,6 +320,7 @@
     fetch('https://dog.ceo/api/breed/spaniel/irish/images')
       .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];
