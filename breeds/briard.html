@@ -1,121 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Briard – Breed Profile | BestPetSite</title>
-<meta name="description" content="Briard breed profile: the heart wrapped in fur — France's noble shepherd with a flowing coat, fierce loyalty, and an extraordinary memory.">
-<link rel="stylesheet" href="../css/styles.css">
-<link rel="stylesheet" href="../css/breeds.css">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-C8QDN9HH5F"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-C8QDN9HH5F');</script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-C8QDN9HH5F"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-C8QDN9HH5F');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Briard — Breed Profile, Temperament, Care & Health | AllDogFacts</title>
+  <meta name="description" content="Briard breed profile: the heart wrapped in fur — France's noble shepherd with a flowing coat, fierce loyalty, and an extraordinary memory." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/breeds.css" />
 </head>
 <body>
-<header class="site-header">
-  <div class="container">
-    <a href="../index.html" class="logo">🐾 BestPetSite</a>
-    <nav class="main-nav">
-      <a href="../index.html">Home</a>
-      <a href="../breeds/index.html">Breeds</a>
-      <a href="../services/boarding.html">Boarding</a>
-      <a href="../services/shipping.html">Pet Shipping</a>
-    </nav>
-  </div>
-</header>
 
-<main>
-  <section class="breed-hero">
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="nav-logo"><span class="logo-paw">🐾</span><span class="logo-text">AllDog<span class="logo-accent">Facts</span></span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="/breeds/index.html" style="color:var(--teal)">Dog Breeds</a></li>
+        <li><a href="/getting-a-dog/index.html">Getting a Dog</a></li>
+        <li><a href="/training/index.html">Training</a></li>
+        <li><a href="/health/index.html">Health</a></li>
+        <li><a href="/nutrition/index.html">Nutrition</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <section class="breed-page-hero">
     <div class="container">
-      <div class="breed-hero-content">
-        <div class="breed-hero-text">
-          <div class="breed-badges">
-            <span class="badge badge-group">Herding Group</span>
-            <span class="badge badge-type" style="background:#0d9488">Purebred</span>
-          </div>
-          <h1>Briard</h1>
-          <p class="breed-tagline">France's "heart wrapped in fur" — loyal, intelligent, unforgettable</p>
-          <div class="breed-quick-stats">
-            <div class="stat"><span class="stat-icon">⚖️</span><span class="stat-label">Weight</span><span class="stat-value">55–100 lbs</span></div>
-            <div class="stat"><span class="stat-icon">📏</span><span class="stat-label">Height</span><span class="stat-value">22–27 in</span></div>
-            <div class="stat"><span class="stat-icon">📅</span><span class="stat-label">Lifespan</span><span class="stat-value">12 yrs</span></div>
-            <div class="stat"><span class="stat-icon">🌡️</span><span class="stat-label">Energy</span><span class="stat-value">High</span></div>
-          </div>
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a><span>›</span>
+        <a href="index.html">Dog Breeds</a><span>›</span>
+        <span style="color:rgba(255,255,255,.8)">Briard</span>
+      </div>
+      <div class="breed-hero-layout">
+        <div class="breed-hero-emoji" id="breedPhotoWrap">
+          <img class="breed-hero-real-photo" id="breedPhoto" alt="Briard" />
+          <span class="breed-emoji-fallback" id="breedEmoji">🐕</span>
         </div>
-        <div class="breed-hero-image">
-          <span id="breedEmoji" style="font-size:120px">🐕</span>
-          <img id="breedPhoto" src="" alt="Briard" style="display:none;width:100%;border-radius:16px;max-height:350px;object-fit:cover">
+        <div class="breed-hero-text">
+          <h1>Briard</h1>
+          <p class="breed-subtitle">Herding Group · Purebred · France's "heart wrapped in fur" — loyal, intelligent, unforgettable</p>
+          <div class="breed-quick-stats">
+            <div class="quick-stat"><span class="quick-stat-value">55–100 lbs</span><span class="quick-stat-label">Weight</span></div>
+            <div class="quick-stat"><span class="quick-stat-value">22–27 in</span><span class="quick-stat-label">Height</span></div>
+            <div class="quick-stat"><span class="quick-stat-value">12 yrs</span><span class="quick-stat-label">Lifespan</span></div>
+            <div class="quick-stat"><span class="quick-stat-value">High</span><span class="quick-stat-label">Energy</span></div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="breed-tabs-section">
-    <div class="container">
-      <div class="tabs-wrapper">
-        <div class="tab-buttons">
-          <button class="tab-btn active" data-tab="profile">Profile</button>
-          <button class="tab-btn" data-tab="diet">Diet</button>
-          <button class="tab-btn" data-tab="cost">Cost</button>
-          <button class="tab-btn" data-tab="mixes">Mixes</button>
-          <button class="tab-btn" data-tab="facts">Fun Facts</button>
-        </div>
+  <div class="container">
+    <div class="breed-content-wrap">
+      <div class="breed-main">
 
-        <div class="tab-content active" id="tab-profile">
-          <div class="profile-grid">
-            <div class="profile-main">
-              <h2>Breed Overview</h2>
+        <nav class="breed-tabs-nav">
+          <button class="breed-tab active" data-tab="profile">🐾 Profile</button>
+          <button class="breed-tab" data-tab="diet">🍽️ Diet &amp; Feeding</button>
+          <button class="breed-tab" data-tab="cost">💰 Cost &amp; Price</button>
+          <button class="breed-tab" data-tab="mixes">🧬 Mix Breeds</button>
+          <button class="breed-tab" data-tab="facts">🎉 Fun Facts</button>
+        </nav>
+
+        <div class="breed-tab-panel active" id="tab-profile">
+
+          <div class="breed-section">
+            <h2>Breed Overview</h2>
               <p>The Briard is one of the oldest French herding breeds, with a history that stretches back to medieval times. Often described as "a heart wrapped in fur," this large, shaggy dog was beloved by French royalty — Napoleon and Charlemagne both reportedly kept Briards. With their distinctive long, wavy coat and unique double dewclaws on the hind legs, they are instantly recognizable.</p>
               <p>Briards are intensely loyal, intelligent, and have remarkable memories — they are said to remember both kindness and mistreatment for years. They bond deeply with their family and can be protective and reserved with strangers, but warm up to trusted friends. Their herding instinct may cause them to circle and nudge family members. They require experienced owners who appreciate their independent spirit and invest in proper training.</p>
+          </div>
 
-              <h3>Personality Traits</h3>
-              <div class="trait-bars">
-                <div class="trait"><span class="trait-name">Loyalty</span><div class="bar"><div class="bar-fill" style="width:98%"></div></div></div>
-                <div class="trait"><span class="trait-name">Intelligence</span><div class="bar"><div class="bar-fill" style="width:92%"></div></div></div>
-                <div class="trait"><span class="trait-name">Energy Level</span><div class="bar"><div class="bar-fill" style="width:85%"></div></div></div>
-                <div class="trait"><span class="trait-name">Trainability</span><div class="bar"><div class="bar-fill" style="width:80%"></div></div></div>
-                <div class="trait"><span class="trait-name">Good with Strangers</span><div class="bar"><div class="bar-fill" style="width:42%"></div></div></div>
-              </div>
-
-              <h3>Photo Gallery</h3>
-              <div class="gallery-grid">
-                <img id="gp1" src="" alt="Briard 1" class="gallery-img" style="cursor:pointer">
-                <img id="gp2" src="" alt="Briard 2" class="gallery-img" style="cursor:pointer">
-                <img id="gp3" src="" alt="Briard 3" class="gallery-img" style="cursor:pointer">
-                <img id="gp4" src="" alt="Briard 4" class="gallery-img" style="cursor:pointer">
-                <img id="gp5" src="" alt="Briard 5" class="gallery-img" style="cursor:pointer">
-                <img id="gp6" src="" alt="Briard 6" class="gallery-img" style="cursor:pointer">
-              </div>
-            </div>
-            <div class="profile-sidebar">
-              <div class="quick-facts-card">
-                <h3>Quick Facts</h3>
-                <ul>
-                  <li><strong>AKC Rank:</strong> #77 most popular</li>
-                  <li><strong>Group:</strong> Herding</li>
-                  <li><strong>Origin:</strong> France</li>
-                  <li><strong>Size:</strong> Large</li>
-                  <li><strong>Coat:</strong> Long, wavy, slightly coarse</li>
-                  <li><strong>Colors:</strong> Black, tawny, gray, blue</li>
-                  <li><strong>Unique trait:</strong> Double rear dewclaws (required by standard)</li>
-                  <li><strong>Good for Apartments:</strong> No</li>
-                </ul>
-              </div>
-              <div class="health-card">
-                <h3>Health Notes</h3>
-                <ul>
-                  <li>Hip dysplasia</li>
-                  <li>Progressive retinal atrophy (PRA)</li>
-                  <li>Bloat (GDV) — deep-chested risk</li>
-                  <li>Congenital stationary night blindness in some lines</li>
-                </ul>
-              </div>
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Briards — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Briard photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Briard photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Briard photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Briard photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Briard photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Briard photo 6" />
             </div>
           </div>
-        </div>
 
-        <div class="tab-content" id="tab-diet">
-          <h2>Feeding Your Briard</h2>
+        </div><!-- end tab-profile -->
+
+        <div class="breed-tab-panel" id="tab-diet">
+          <div class="breed-section">
+            <h2>Feeding Your Briard</h2>
           <p>Active and large, Briards need a quality large-breed diet. Their long coat can hide weight changes, so weigh regularly and adjust portions accordingly.</p>
           <table class="diet-table">
             <thead><tr><th>Life Stage</th><th>Daily Amount</th><th>Calories/Day</th></tr></thead>
@@ -132,10 +115,12 @@
             <li>High-quality protein supports their athletic, working-dog muscle mass</li>
             <li>Biotin supplements can support the long, wavy coat condition</li>
           </ul>
-        </div>
+          </div>
+        </div><!-- end tab-diet -->
 
-        <div class="tab-content" id="tab-cost">
-          <h2>Cost of Owning a Briard</h2>
+        <div class="breed-tab-panel" id="tab-cost">
+          <div class="breed-section">
+            <h2>Cost of Owning a Briard</h2>
           <table class="cost-table">
             <thead><tr><th>Expense</th><th>One-Time / Annual</th><th>Estimated Cost</th></tr></thead>
             <tbody>
@@ -147,20 +132,24 @@
             </tbody>
           </table>
           <p style="margin-top:1rem;font-size:.95rem;color:#555;">The long coat requires significant grooming investment — daily brushing is necessary to prevent matting, and professional grooming 4–6 times per year is recommended.</p>
-        </div>
+          </div>
+        </div><!-- end tab-cost -->
 
-        <div class="tab-content" id="tab-mixes">
-          <h2>Popular Briard Mixes</h2>
+        <div class="breed-tab-panel" id="tab-mixes">
+          <div class="breed-section">
+            <h2>Popular Briard Mixes</h2>
           <div class="mixes-grid">
             <div class="mix-card"><h3>Briard Shepherd Mix</h3><p>Briard × German Shepherd. Highly intelligent, protective, devoted working dog.</p></div>
             <div class="mix-card"><h3>Briard Lab Mix</h3><p>Briard × Labrador. Friendly, trainable, wavy-coated family companion.</p></div>
             <div class="mix-card"><h3>Briard Poodle</h3><p>Briard × Poodle. Lower-shedding, clever, impressive coat.</p></div>
             <div class="mix-card"><h3>Briard Border Collie Mix</h3><p>Briard × Border Collie. Exceptional intelligence, tireless herding ability.</p></div>
           </div>
-        </div>
+          </div>
+        </div><!-- end tab-mixes -->
 
-        <div class="tab-content" id="tab-facts">
-          <h2>Fun Facts About Briards</h2>
+        <div class="breed-tab-panel" id="tab-facts">
+          <div class="breed-section">
+            <h2>Fun Facts About Briards</h2>
           <ul class="fun-facts-list">
             <li>👑 According to legend, both Charlemagne and Napoleon Bonaparte kept Briards — the breed has been associated with French nobility for over a thousand years.</li>
             <li>🐾 Briards have a unique anatomical quirk required by the breed standard: double dewclaws on each rear leg, described as "a thumb" that aids traction on mountainous terrain.</li>
@@ -168,53 +157,103 @@
             <li>🧠 Briard owners say the breed has an extraordinary memory — they never forget a face, a route, or someone who treated them poorly. Kindness earns lifelong devotion.</li>
             <li>🎬 The Briard gained American fame when one starred in the 1990s TV series "Empty Nest" — helping introduce the rarely-seen breed to millions of American households.</li>
           </ul>
-        </div>
+          </div>
+        </div><!-- end tab-facts -->
+
       </div>
-    </div>
-  </section>
 
-  <div id="lightbox" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9999;align-items:center;justify-content:center;">
-    <button onclick="closeLightbox()" style="position:absolute;top:20px;right:30px;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer">✕</button>
-    <button onclick="changePhoto(-1)" style="position:absolute;left:20px;background:none;border:none;color:#fff;font-size:2.5rem;cursor:pointer">‹</button>
-    <img id="lightboxImg" src="" alt="" style="max-width:90vw;max-height:85vh;border-radius:8px">
-    <button onclick="changePhoto(1)" style="position:absolute;right:20px;background:none;border:none;color:#fff;font-size:2.5rem;cursor:pointer">›</button>
+      <aside class="breed-sidebar">
+        <div class="sidebar-card">
+          <h4>Breed Traits</h4>
+          <div class="trait-row">
+            <div class="trait-item"><div class="trait-header"><span>Loyalty</span><span>5/5</span></div><div class="trait-bar-bg"><div class="trait-bar-fill" style="width:98%"></div></div></div>
+            <div class="trait-item"><div class="trait-header"><span>Intelligence</span><span>5/5</span></div><div class="trait-bar-bg"><div class="trait-bar-fill" style="width:92%"></div></div></div>
+            <div class="trait-item"><div class="trait-header"><span>Energy Level</span><span>4/5</span></div><div class="trait-bar-bg"><div class="trait-bar-fill" style="width:85%"></div></div></div>
+            <div class="trait-item"><div class="trait-header"><span>Trainability</span><span>4/5</span></div><div class="trait-bar-bg"><div class="trait-bar-fill" style="width:80%"></div></div></div>
+            <div class="trait-item"><div class="trait-header"><span>Good with Strangers</span><span>2/5</span></div><div class="trait-bar-bg"><div class="trait-bar-fill" style="width:42%"></div></div></div>
+          </div>
+        </div>
+        <div class="sidebar-card" style="background:var(--teal-light); border-color:var(--teal)">
+          <h4 style="color:var(--teal-dark)">Explore More Breeds</h4>
+          <p style="color:var(--teal-dark); font-size:.88rem; margin-bottom:14px">Browse our full directory of dog breeds with detailed profiles.</p>
+          <a href="/breeds/index.html" style="display:block; text-align:center; background:var(--teal); color:white; padding:11px 16px; border-radius:10px; font-weight:700; font-size:.88rem;">Browse All Breeds →</a>
+        </div>
+        <div class="sidebar-card">
+          <h4>Quick Facts</h4>
+          <div class="info-box"><div class="info-box-label">AKC Rank</div><div class="info-box-value">#77 most popular</div></div>
+          <div class="info-box" style="margin-top:8px"><div class="info-box-label">Group</div><div class="info-box-value">Herding</div></div>
+          <div class="info-box" style="margin-top:8px"><div class="info-box-label">Origin</div><div class="info-box-value">France</div></div>
+          <div class="info-box" style="margin-top:8px"><div class="info-box-label">Size</div><div class="info-box-value">Large</div></div>
+          <div class="info-box" style="margin-top:8px"><div class="info-box-label">Coat</div><div class="info-box-value">Long, wavy, slightly coarse</div></div>
+          <div class="info-box" style="margin-top:8px"><div class="info-box-label">Colors</div><div class="info-box-value">Black, tawny, gray, blue</div></div>
+          <div class="info-box" style="margin-top:8px"><div class="info-box-label">Unique trait</div><div class="info-box-value">Double rear dewclaws (required by standard)</div></div>
+          <div class="info-box" style="margin-top:8px"><div class="info-box-label">Good for Apartments</div><div class="info-box-value">No</div></div>
+        </div>
+      </aside>
+    </div>
   </div>
 
-  <div class="cta-section">
+  <footer class="footer">
     <div class="container">
-      <h2>Traveling with Your Briard?</h2>
-      <p>Large, long-coated breeds deserve thoughtful travel arrangements — we can help.</p>
-      <a href="../services/shipping.html" class="btn btn-primary">Pet Travel Services</a>
-      <a href="../services/boarding.html" class="btn btn-secondary">Find Boarding</a>
+      <div class="footer-grid">
+        <div class="footer-brand"><div class="nav-logo"><span class="logo-paw">🐾</span><span class="logo-text">AllDog<span class="logo-accent">Facts</span></span></div><p>Your complete guide to dog breeds, pet boarding in Seattle, and nationwide pet transportation.</p></div>
+        <div class="footer-col"><h4>More Breeds</h4><ul><li><a href="golden-retriever.html">Golden Retriever</a></li><li><a href="labrador-retriever.html">Labrador Retriever</a></li><li><a href="german-shepherd.html">German Shepherd</a></li><li><a href="index.html">All Breeds →</a></li></ul></div>
+        <div class="footer-col"><h4>Our Services</h4><ul><li><a href="https://www.pawsvip.com" target="_blank">Pet Hotel Seattle</a></li><li><a href="../index.html#transport">Nationwide Transport</a></li><li><a href="../index.html#contact">Get a Quote</a></li></ul></div>
+      </div>
+      <div class="footer-bottom"><p>© 2025 AllDogFacts. All rights reserved.</p></div>
     </div>
-  </div>
-</main>
+  </footer>
 
-<footer class="site-footer">
-  <div class="container">
-    <p>© 2026 BestPetSite. All rights reserved.</p>
-    <nav><a href="../index.html">Home</a> · <a href="../breeds/index.html">Breeds</a> · <a href="../services/boarding.html">Boarding</a> · <a href="../services/shipping.html">Pet Shipping</a></nav>
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose">✕</button>
+    <button class="lightbox-prev" id="lightboxPrev">&#9664;</button>
+    <img id="lightboxImg" src="" alt="Enlarged Briard photo" />
+    <button class="lightbox-next" id="lightboxNext">&#9654;</button>
   </div>
-</footer>
 
-<script>
-let galleryPhotos=[],currentPhoto=0;
-function openLightbox(i){currentPhoto=i;document.getElementById('lightboxImg').src=galleryPhotos[i];const lb=document.getElementById('lightbox');lb.style.display='flex';}
-function closeLightbox(){document.getElementById('lightbox').style.display='none';}
-function changePhoto(d){currentPhoto=(currentPhoto+d+galleryPhotos.length)%galleryPhotos.length;document.getElementById('lightboxImg').src=galleryPhotos[currentPhoto];}
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox();if(e.key==='ArrowLeft')changePhoto(-1);if(e.key==='ArrowRight')changePhoto(1);});
-document.querySelectorAll('.tab-btn').forEach(btn=>{btn.addEventListener('click',()=>{document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));btn.classList.add('active');document.getElementById('tab-'+btn.dataset.tab).classList.add('active');});});
-fetch('https://dog.ceo/api/breed/briard/images').then(r=>r.json()).then(data=>{
-  const photos=data.message;
-  const hero=document.getElementById('breedPhoto');
-  hero.src=photos[2];
-  hero.onload=()=>{hero.style.display='block';document.getElementById('breedEmoji').style.display='none';};
-  [5,10,18,25,33,40].forEach((idx,i)=>{
-    const src=photos[idx]||photos[i];
-    const el=document.getElementById('gp'+(i+1));
-    if(el&&src){galleryPhotos.push(src);el.src=src;el.addEventListener('click',()=>openLightbox(i));}
-  });
-}).catch(()=>{});
-</script>
+  <script src="../js/main.js"></script>
+  <script>
+    document.querySelectorAll('.breed-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.breed-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.breed-tab-panel').forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
+        document.querySelector('.breed-tabs-nav').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      });
+    });
+  </script>
+  <script>
+    let galleryPhotos = [];
+    let currentPhotoIndex = 0;
+
+    fetch('https://dog.ceo/api/breed/briard/images')
+      .then(r => r.json())
+      .then(data => {
+        const photos = data.message;
+        const hero = document.getElementById('breedPhoto');
+        hero.src = photos[2] || photos[0];
+        hero.onload = () => { hero.style.display = 'block'; document.getElementById('breedEmoji').style.display = 'none'; };
+        const picks = [5, 15, 25, 35, 45, 55];
+        picks.forEach((index, i) => {
+          const el = document.getElementById('gp' + (i + 1));
+          const src = photos[index] || photos[i] || photos[0];
+          if (el && src) { galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i)); }
+        });
+      }).catch(() => {});
+
+    function openLightbox(index) { currentPhotoIndex = index; document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex]; document.getElementById('lightbox').classList.add('open'); }
+    function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); }
+    document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+    document.getElementById('lightboxPrev').addEventListener('click', (e) => { e.stopPropagation(); currentPhotoIndex = (currentPhotoIndex - 1 + galleryPhotos.length) % galleryPhotos.length; document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex]; });
+    document.getElementById('lightboxNext').addEventListener('click', (e) => { e.stopPropagation(); currentPhotoIndex = (currentPhotoIndex + 1) % galleryPhotos.length; document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex]; });
+    document.getElementById('lightbox').addEventListener('click', (e) => { if (e.target === e.currentTarget) closeLightbox(); });
+    document.addEventListener('keydown', (e) => {
+      if (!document.getElementById('lightbox').classList.contains('open')) return;
+      if (e.key === 'ArrowLeft') { currentPhotoIndex = (currentPhotoIndex - 1 + galleryPhotos.length) % galleryPhotos.length; document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex]; }
+      else if (e.key === 'ArrowRight') { currentPhotoIndex = (currentPhotoIndex + 1) % galleryPhotos.length; document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex]; }
+      else if (e.key === 'Escape') { closeLightbox(); }
+    });
+  </script>
 </body>
 </html>

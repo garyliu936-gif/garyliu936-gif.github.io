@@ -1,115 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mudi – Breed Profile | BestPetSite</title>
-<meta name="description" content="Mudi breed profile: Hungary's versatile farm dog — a curly-coated, wedge-headed herder that drives cattle, hunts boar, and excels in agility, one of the rarest Hungarian breeds outside its homeland.">
-<link rel="stylesheet" href="../css/styles.css">
-<link rel="stylesheet" href="../css/breeds.css">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-C8QDN9HH5F"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-C8QDN9HH5F');</script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-C8QDN9HH5F"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-C8QDN9HH5F');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mudi — Breed Profile, Temperament, Care & Health | AllDogFacts</title>
+  <meta name="description" content="Mudi breed profile: Hungary's versatile farm dog — a curly-coated, wedge-headed herder that drives cattle, hunts boar, and excels in agility, one of the rarest Hungarian breeds outside its homeland." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/breeds.css" />
 </head>
 <body>
-<header class="site-header">
-  <div class="container">
-    <a href="../index.html" class="logo">🐾 BestPetSite</a>
-    <nav class="main-nav">
-      <a href="../index.html">Home</a>
-      <a href="../breeds/index.html">Breeds</a>
-      <a href="../services/boarding.html">Boarding</a>
-      <a href="../services/shipping.html">Pet Shipping</a>
-    </nav>
-  </div>
-</header>
-<main>
-  <section class="breed-hero">
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="nav-logo"><span class="logo-paw">🐾</span><span class="logo-text">AllDog<span class="logo-accent">Facts</span></span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="/breeds/index.html" style="color:var(--teal)">Dog Breeds</a></li>
+        <li><a href="/getting-a-dog/index.html">Getting a Dog</a></li>
+        <li><a href="/training/index.html">Training</a></li>
+        <li><a href="/health/index.html">Health</a></li>
+        <li><a href="/nutrition/index.html">Nutrition</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <section class="breed-page-hero">
     <div class="container">
-      <div class="breed-hero-content">
-        <div class="breed-hero-text">
-          <div class="breed-badges">
-            <span class="badge badge-group">Herding Group</span>
-            <span class="badge badge-type" style="background:#0d9488">Purebred</span>
-          </div>
-          <h1>Mudi</h1>
-          <p class="breed-tagline">Hungary's versatile curly-coated farm dog — herder, wild boar hunter, and agility star wrapped in a uniquely wavy coat found nowhere else</p>
-          <div class="breed-quick-stats">
-            <div class="stat"><span class="stat-icon">⚖️</span><span class="stat-label">Weight</span><span class="stat-value">18–29 lbs</span></div>
-            <div class="stat"><span class="stat-icon">📏</span><span class="stat-label">Height</span><span class="stat-value">14–18.5 in</span></div>
-            <div class="stat"><span class="stat-icon">📅</span><span class="stat-label">Lifespan</span><span class="stat-value">12–14 yrs</span></div>
-            <div class="stat"><span class="stat-icon">🌡️</span><span class="stat-label">Energy</span><span class="stat-value">High</span></div>
-          </div>
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a><span>›</span>
+        <a href="index.html">Dog Breeds</a><span>›</span>
+        <span style="color:rgba(255,255,255,.8)">Mudi</span>
+      </div>
+      <div class="breed-hero-layout">
+        <div class="breed-hero-emoji" id="breedPhotoWrap">
+          <img class="breed-hero-real-photo" id="breedPhoto" alt="Mudi" />
+          <span class="breed-emoji-fallback" id="breedEmoji">🇭🇺</span>
         </div>
-        <div class="breed-hero-image">
-          <span id="breedEmoji" style="font-size:120px">🇭🇺</span>
-          <img id="breedPhoto" src="" alt="Mudi" style="display:none;width:100%;border-radius:16px;max-height:350px;object-fit:cover">
+        <div class="breed-hero-text">
+          <h1>Mudi</h1>
+          <p class="breed-subtitle">Herding Group · Purebred · Hungary's versatile curly-coated farm dog — herder, wild boar hunter, and agility star wrapped in a uniquely wavy coat found nowhere else</p>
+          <div class="breed-quick-stats">
+            <div class="quick-stat"><span class="quick-stat-value">18–29 lbs</span><span class="quick-stat-label">Weight</span></div>
+            <div class="quick-stat"><span class="quick-stat-value">14–18.5 in</span><span class="quick-stat-label">Height</span></div>
+            <div class="quick-stat"><span class="quick-stat-value">12–14 yrs</span><span class="quick-stat-label">Lifespan</span></div>
+            <div class="quick-stat"><span class="quick-stat-value">High</span><span class="quick-stat-label">Energy</span></div>
+          </div>
         </div>
       </div>
     </div>
   </section>
-  <section class="breed-tabs-section">
-    <div class="container">
-      <div class="tabs-wrapper">
-        <div class="tab-buttons">
-          <button class="tab-btn active" data-tab="profile">Profile</button>
-          <button class="tab-btn" data-tab="diet">Diet</button>
-          <button class="tab-btn" data-tab="cost">Cost</button>
-          <button class="tab-btn" data-tab="mixes">Mixes</button>
-          <button class="tab-btn" data-tab="facts">Fun Facts</button>
-        </div>
-        <div class="tab-content active" id="tab-profile">
-          <div class="profile-grid">
-            <div class="profile-main">
-              <h2>Breed Overview</h2>
+
+  <div class="container">
+    <div class="breed-content-wrap">
+      <div class="breed-main">
+
+        <nav class="breed-tabs-nav">
+          <button class="breed-tab active" data-tab="profile">🐾 Profile</button>
+          <button class="breed-tab" data-tab="diet">🍽️ Diet &amp; Feeding</button>
+          <button class="breed-tab" data-tab="cost">💰 Cost &amp; Price</button>
+          <button class="breed-tab" data-tab="mixes">🧬 Mix Breeds</button>
+          <button class="breed-tab" data-tab="facts">🎉 Fun Facts</button>
+        </nav>
+
+        <div class="breed-tab-panel active" id="tab-profile">
+
+          <div class="breed-section">
+            <h2>Breed Overview</h2>
               <p>The Mudi (pronounced "MOO-dee") is the rarest of Hungary's three herding breeds — the other two being the Puli and the Pumi — and the least known outside its homeland. A medium-sized, agile, curly-coated herding dog, the Mudi developed naturally on Hungarian farms in the 19th century, likely from crosses between spitz-type dogs and various herding and hunting dogs brought to Hungary by traders and settlers. It was formally recognized as a distinct breed by Hungarian cynologists in the 1930s. Unlike the Puli with its corded coat or the Pumi with its wavy terrier-like coat, the Mudi has a unique coat of tight, dense waves that is unlike any other breed in the world.</p>
               <p>The Mudi is a true multi-purpose farm dog — it herds cattle, sheep, and pigs; hunts wild boar with courage that belies its modest size; and serves as a watchdog and companion. It is also one of the most naturally talented dog sport dogs, excelling in agility, flyball, frisbee, and obedience at a level that surprises those unfamiliar with the breed. The AKC recognized the Mudi in 2022. Outside Hungary, the breed remains very rare — finding a reputable breeder typically requires significant searching and patience, but those who find one discover an exceptionally capable, loyal, and entertaining companion.</p>
-              <h3>Personality Traits</h3>
-              <div class="trait-bars">
-                <div class="trait"><span class="trait-name">Energy Level</span><div class="bar"><div class="bar-fill" style="width:88%"></div></div></div>
-                <div class="trait"><span class="trait-name">Affection</span><div class="bar"><div class="bar-fill" style="width:82%"></div></div></div>
-                <div class="trait"><span class="trait-name">Good with Kids</span><div class="bar"><div class="bar-fill" style="width:72%"></div></div></div>
-                <div class="trait"><span class="trait-name">Good with Dogs</span><div class="bar"><div class="bar-fill" style="width:70%"></div></div></div>
-                <div class="trait"><span class="trait-name">Trainability</span><div class="bar"><div class="bar-fill" style="width:88%"></div></div></div>
-              </div>
-              <h3>Photo Gallery</h3>
-              <div class="gallery-grid">
-                <img id="gp1" src="" alt="Mudi 1" class="gallery-img" style="cursor:pointer">
-                <img id="gp2" src="" alt="Mudi 2" class="gallery-img" style="cursor:pointer">
-                <img id="gp3" src="" alt="Mudi 3" class="gallery-img" style="cursor:pointer">
-                <img id="gp4" src="" alt="Mudi 4" class="gallery-img" style="cursor:pointer">
-                <img id="gp5" src="" alt="Mudi 5" class="gallery-img" style="cursor:pointer">
-                <img id="gp6" src="" alt="Mudi 6" class="gallery-img" style="cursor:pointer">
-              </div>
-            </div>
-            <div class="profile-sidebar">
-              <div class="quick-facts-card">
-                <h3>Quick Facts</h3>
-                <ul>
-                  <li><strong>AKC Rank:</strong> Newly recognized (2022)</li>
-                  <li><strong>Group:</strong> Herding</li>
-                  <li><strong>Origin:</strong> Hungary</li>
-                  <li><strong>Also Known As:</strong> Hungarian Mudi, Canis Ovilis Fenyesi</li>
-                  <li><strong>Size:</strong> Small–Medium</li>
-                  <li><strong>Coat:</strong> Short on face/forelegs, medium wavy-curly elsewhere — unique texture unlike any other breed</li>
-                  <li><strong>Colors:</strong> Black, white, brown, yellow, grey, merle — wide color variety</li>
-                  <li><strong>Good for Apartments:</strong> No — a high-energy working breed needing substantial daily exercise</li>
-                </ul>
-              </div>
-              <div class="health-card">
-                <h3>Health Notes</h3>
-                <ul>
-                  <li>Hip dysplasia — OFA testing recommended for breeding stock</li>
-                  <li>Epilepsy — seizures reported in the breed</li>
-                  <li>Generally healthy with a small but dedicated breeding community maintaining health standards</li>
-                  <li>Merle coloring — double-merle breeding must be avoided to prevent blindness and deafness</li>
-                </ul>
-              </div>
+          </div>
+
+          <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Mudis — browse photos showcasing their look, size, and personality.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Mudi photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Mudi photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Mudi photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Mudi photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Mudi photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Mudi photo 6" />
             </div>
           </div>
-        </div>
-        <div class="tab-content" id="tab-diet">
-          <h2>Feeding Your Mudi</h2>
+
+        </div><!-- end tab-profile -->
+
+        <div class="breed-tab-panel" id="tab-diet">
+          <div class="breed-section">
+            <h2>Feeding Your Mudi</h2>
           <p>A small-medium, highly active herding breed, the Mudi needs quality nutrition to fuel its exceptional athletic output and maintain its unique coat.</p>
           <table class="diet-table">
             <thead><tr><th>Life Stage</th><th>Daily Amount</th><th>Calories/Day</th></tr></thead>
@@ -126,9 +115,12 @@
             <li>Active Mudis competing in dog sports may need 20–30% more calories during intensive training</li>
             <li>Monitor weight — a lean body condition is essential for this breed's agility performance</li>
           </ul>
-        </div>
-        <div class="tab-content" id="tab-cost">
-          <h2>Cost of Owning a Mudi</h2>
+          </div>
+        </div><!-- end tab-diet -->
+
+        <div class="breed-tab-panel" id="tab-cost">
+          <div class="breed-section">
+            <h2>Cost of Owning a Mudi</h2>
           <table class="cost-table">
             <thead><tr><th>Expense</th><th>One-Time / Annual</th><th>Estimated Cost</th></tr></thead>
             <tbody>
@@ -140,18 +132,24 @@
             </tbody>
           </table>
           <p style="margin-top:1rem;font-size:.95rem;color:#555;">The Mudi is extremely rare outside Hungary; most US breeders have waiting lists and import puppies from European lines. The wavy coat requires regular brushing to prevent matting and occasional bathing, but is not as demanding as the corded Hungarian breeds. The breed's intelligence and drive make dog sports equipment and training classes a worthwhile ongoing investment.</p>
-        </div>
-        <div class="tab-content" id="tab-mixes">
-          <h2>Popular Mudi Mixes</h2>
+          </div>
+        </div><!-- end tab-cost -->
+
+        <div class="breed-tab-panel" id="tab-mixes">
+          <div class="breed-section">
+            <h2>Popular Mudi Mixes</h2>
           <div class="mixes-grid">
             <div class="mix-card"><h3>Mudi Pumi Mix</h3><p>Two rare Hungarian herding breeds — the Mudi's wavy coat and boar-hunting boldness with the Pumi's terrier-like spirit and expressive semi-erect ears.</p></div>
             <div class="mix-card"><h3>Mudi Border Collie Mix</h3><p>Two of the herding world's most athletically gifted breeds — combining Mudi versatility with Border Collie legendary intelligence and responsiveness.</p></div>
             <div class="mix-card"><h3>Mudi Australian Shepherd Mix</h3><p>Mudi × Australian Shepherd. Two energetic, colorful herding breeds — combining the Mudi's unique coat with the Aussie's merle patterning and intense drive.</p></div>
             <div class="mix-card"><h3>Mudi Poodle Mix</h3><p>The Mudi's athletic versatility with Poodle intelligence and low-shed curls — a clever, energetic, and exceptionally capable working companion.</p></div>
           </div>
-        </div>
-        <div class="tab-content" id="tab-facts">
-          <h2>Fun Facts About Mudis</h2>
+          </div>
+        </div><!-- end tab-mixes -->
+
+        <div class="breed-tab-panel" id="tab-facts">
+          <div class="breed-section">
+            <h2>Fun Facts About Mudis</h2>
           <ul class="fun-facts-list">
             <li>🐗 The Mudi is one of very few herding breeds that also hunts — specifically wild boar, an animal capable of inflicting serious injury on a dog. Hungarian farmers prized the Mudi's fearlessness and agility for both herding livestock and assisting in boar hunts, making it one of the most genuinely versatile farm dogs in European history. This hunting courage is still evident in modern Mudis, which tend to be bold, self-confident, and undeterred by animals much larger than themselves.</li>
             <li>🌈 The Mudi comes in a wider range of colors than almost any other herding breed — black, white, brown, yellow, grey, blue merle, brown merle, and various combinations. This color diversity is unusual and reflects the breed's natural development without rigid early selection for color. In the show ring, all colors are equally acceptable, making the Mudi a visually diverse breed where no two dogs look identical.</li>
@@ -159,49 +157,103 @@
             <li>🔬 The Mudi's distinctive coat — with short, smooth hair on the face and fronts of the legs, transitioning to medium-length, tight waves elsewhere — is unique in the dog world. No other breed has exactly this coat pattern and texture. It is self-maintaining to a greater degree than many coated breeds and does not cord like the Puli or require stripping like many terriers, making it one of the more practical of Hungary's herding breed coats.</li>
             <li>📉 The Mudi was nearly wiped out during World War II when Hungarian dog breeding was severely disrupted. Post-war reconstruction of the breed began with very few surviving specimens, and the modern Mudi carries the genetic legacy of that narrow bottleneck. Dedicated Hungarian breeders spent decades rebuilding the population, and today international interest — particularly following AKC recognition — offers hope for expanded genetic diversity through carefully managed breeding across borders.</li>
           </ul>
-        </div>
+          </div>
+        </div><!-- end tab-facts -->
+
       </div>
+
+      <aside class="breed-sidebar">
+        <div class="sidebar-card">
+          <h4>Breed Traits</h4>
+          <div class="trait-row">
+            <div class="trait-item"><div class="trait-header"><span>Energy Level</span><span>4/5</span></div><div class="trait-bar-bg"><div class="trait-bar-fill" style="width:88%"></div></div></div>
+            <div class="trait-item"><div class="trait-header"><span>Affection</span><span>4/5</span></div><div class="trait-bar-bg"><div class="trait-bar-fill" style="width:82%"></div></div></div>
+            <div class="trait-item"><div class="trait-header"><span>Good with Kids</span><span>4/5</span></div><div class="trait-bar-bg"><div class="trait-bar-fill" style="width:72%"></div></div></div>
+            <div class="trait-item"><div class="trait-header"><span>Good with Dogs</span><span>4/5</span></div><div class="trait-bar-bg"><div class="trait-bar-fill" style="width:70%"></div></div></div>
+            <div class="trait-item"><div class="trait-header"><span>Trainability</span><span>4/5</span></div><div class="trait-bar-bg"><div class="trait-bar-fill" style="width:88%"></div></div></div>
+          </div>
+        </div>
+        <div class="sidebar-card" style="background:var(--teal-light); border-color:var(--teal)">
+          <h4 style="color:var(--teal-dark)">Explore More Breeds</h4>
+          <p style="color:var(--teal-dark); font-size:.88rem; margin-bottom:14px">Browse our full directory of dog breeds with detailed profiles.</p>
+          <a href="/breeds/index.html" style="display:block; text-align:center; background:var(--teal); color:white; padding:11px 16px; border-radius:10px; font-weight:700; font-size:.88rem;">Browse All Breeds →</a>
+        </div>
+        <div class="sidebar-card">
+          <h4>Quick Facts</h4>
+          <div class="info-box"><div class="info-box-label">AKC Rank</div><div class="info-box-value">Newly recognized (2022)</div></div>
+          <div class="info-box" style="margin-top:8px"><div class="info-box-label">Group</div><div class="info-box-value">Herding</div></div>
+          <div class="info-box" style="margin-top:8px"><div class="info-box-label">Origin</div><div class="info-box-value">Hungary</div></div>
+          <div class="info-box" style="margin-top:8px"><div class="info-box-label">Also Known As</div><div class="info-box-value">Hungarian Mudi, Canis Ovilis Fenyesi</div></div>
+          <div class="info-box" style="margin-top:8px"><div class="info-box-label">Size</div><div class="info-box-value">Small–Medium</div></div>
+          <div class="info-box" style="margin-top:8px"><div class="info-box-label">Coat</div><div class="info-box-value">Short on face/forelegs, medium wavy-curly elsewhere — unique texture unlike any other breed</div></div>
+          <div class="info-box" style="margin-top:8px"><div class="info-box-label">Colors</div><div class="info-box-value">Black, white, brown, yellow, grey, merle — wide color variety</div></div>
+          <div class="info-box" style="margin-top:8px"><div class="info-box-label">Good for Apartments</div><div class="info-box-value">No — a high-energy working breed needing substantial daily exercise</div></div>
+        </div>
+      </aside>
     </div>
-  </section>
-  <div id="lightbox" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9999;align-items:center;justify-content:center;">
-    <button onclick="closeLightbox()" style="position:absolute;top:20px;right:30px;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer">✕</button>
-    <button onclick="changePhoto(-1)" style="position:absolute;left:20px;background:none;border:none;color:#fff;font-size:2.5rem;cursor:pointer">‹</button>
-    <img id="lightboxImg" src="" alt="" style="max-width:90vw;max-height:85vh;border-radius:8px">
-    <button onclick="changePhoto(1)" style="position:absolute;right:20px;background:none;border:none;color:#fff;font-size:2.5rem;cursor:pointer">›</button>
   </div>
-  <div class="cta-section">
+
+  <footer class="footer">
     <div class="container">
-      <h2>Traveling with Your Mudi?</h2>
-      <p>Hungary's rarest herding breed gets expert, attentive care on every journey.</p>
-      <a href="../services/shipping.html" class="btn btn-primary">Pet Travel Services</a>
-      <a href="../services/boarding.html" class="btn btn-secondary">Find Boarding</a>
+      <div class="footer-grid">
+        <div class="footer-brand"><div class="nav-logo"><span class="logo-paw">🐾</span><span class="logo-text">AllDog<span class="logo-accent">Facts</span></span></div><p>Your complete guide to dog breeds, pet boarding in Seattle, and nationwide pet transportation.</p></div>
+        <div class="footer-col"><h4>More Breeds</h4><ul><li><a href="golden-retriever.html">Golden Retriever</a></li><li><a href="labrador-retriever.html">Labrador Retriever</a></li><li><a href="german-shepherd.html">German Shepherd</a></li><li><a href="index.html">All Breeds →</a></li></ul></div>
+        <div class="footer-col"><h4>Our Services</h4><ul><li><a href="https://www.pawsvip.com" target="_blank">Pet Hotel Seattle</a></li><li><a href="../index.html#transport">Nationwide Transport</a></li><li><a href="../index.html#contact">Get a Quote</a></li></ul></div>
+      </div>
+      <div class="footer-bottom"><p>© 2025 AllDogFacts. All rights reserved.</p></div>
     </div>
+  </footer>
+
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose">✕</button>
+    <button class="lightbox-prev" id="lightboxPrev">&#9664;</button>
+    <img id="lightboxImg" src="" alt="Enlarged Mudi photo" />
+    <button class="lightbox-next" id="lightboxNext">&#9654;</button>
   </div>
-</main>
-<footer class="site-footer">
-  <div class="container">
-    <p>© 2026 BestPetSite. All rights reserved.</p>
-    <nav><a href="../index.html">Home</a> · <a href="../breeds/index.html">Breeds</a> · <a href="../services/boarding.html">Boarding</a> · <a href="../services/shipping.html">Pet Shipping</a></nav>
-  </div>
-</footer>
-<script>
-let galleryPhotos=[],currentPhoto=0;
-function openLightbox(i){currentPhoto=i;document.getElementById('lightboxImg').src=galleryPhotos[i];const lb=document.getElementById('lightbox');lb.style.display='flex';}
-function closeLightbox(){document.getElementById('lightbox').style.display='none';}
-function changePhoto(d){currentPhoto=(currentPhoto+d+galleryPhotos.length)%galleryPhotos.length;document.getElementById('lightboxImg').src=galleryPhotos[currentPhoto];}
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox();if(e.key==='ArrowLeft')changePhoto(-1);if(e.key==='ArrowRight')changePhoto(1);});
-document.querySelectorAll('.tab-btn').forEach(btn=>{btn.addEventListener('click',()=>{document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));btn.classList.add('active');document.getElementById('tab-'+btn.dataset.tab).classList.add('active');});});
-fetch('https://dog.ceo/api/breed/poodle/standard/images').then(r=>r.json()).then(data=>{
-  const photos=data.message;
-  const hero=document.getElementById('breedPhoto');
-  hero.src=photos[5];
-  hero.onload=()=>{hero.style.display='block';document.getElementById('breedEmoji').style.display='none';};
-  [10,18,26,34,42,50].forEach((idx,i)=>{
-    const src=photos[idx]||photos[i];
-    const el=document.getElementById('gp'+(i+1));
-    if(el&&src){galleryPhotos.push(src);el.src=src;el.addEventListener('click',()=>openLightbox(i));}
-  });
-}).catch(()=>{});
-</script>
+
+  <script src="../js/main.js"></script>
+  <script>
+    document.querySelectorAll('.breed-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.breed-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.breed-tab-panel').forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
+        document.querySelector('.breed-tabs-nav').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      });
+    });
+  </script>
+  <script>
+    let galleryPhotos = [];
+    let currentPhotoIndex = 0;
+
+    fetch('https://dog.ceo/api/breed/poodle/standard/images')
+      .then(r => r.json())
+      .then(data => {
+        const photos = data.message;
+        const hero = document.getElementById('breedPhoto');
+        hero.src = photos[2] || photos[0];
+        hero.onload = () => { hero.style.display = 'block'; document.getElementById('breedEmoji').style.display = 'none'; };
+        const picks = [5, 15, 25, 35, 45, 55];
+        picks.forEach((index, i) => {
+          const el = document.getElementById('gp' + (i + 1));
+          const src = photos[index] || photos[i] || photos[0];
+          if (el && src) { galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i)); }
+        });
+      }).catch(() => {});
+
+    function openLightbox(index) { currentPhotoIndex = index; document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex]; document.getElementById('lightbox').classList.add('open'); }
+    function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); }
+    document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+    document.getElementById('lightboxPrev').addEventListener('click', (e) => { e.stopPropagation(); currentPhotoIndex = (currentPhotoIndex - 1 + galleryPhotos.length) % galleryPhotos.length; document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex]; });
+    document.getElementById('lightboxNext').addEventListener('click', (e) => { e.stopPropagation(); currentPhotoIndex = (currentPhotoIndex + 1) % galleryPhotos.length; document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex]; });
+    document.getElementById('lightbox').addEventListener('click', (e) => { if (e.target === e.currentTarget) closeLightbox(); });
+    document.addEventListener('keydown', (e) => {
+      if (!document.getElementById('lightbox').classList.contains('open')) return;
+      if (e.key === 'ArrowLeft') { currentPhotoIndex = (currentPhotoIndex - 1 + galleryPhotos.length) % galleryPhotos.length; document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex]; }
+      else if (e.key === 'ArrowRight') { currentPhotoIndex = (currentPhotoIndex + 1) % galleryPhotos.length; document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex]; }
+      else if (e.key === 'Escape') { closeLightbox(); }
+    });
+  </script>
 </body>
 </html>
