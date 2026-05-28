@@ -453,7 +453,7 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
 
-    fetch('https://dog.ceo/api/breed/bichon/frise/images')
+    fetch('https://dog.ceo/api/breed/cotondetulear/images')
       .then(r => r.json())
       .then(data => {
         if (!Array.isArray(data.message) || !data.message.length) return;
