@@ -88,7 +88,7 @@ document.querySelectorAll('.service-card, .step, .review-card, .feature-item').f
 
 // ── Breed count — auto-updated by fix_sidebar.js ─────────────────────────────
 (function () {
-  const BREED_COUNT = 232;
+  const BREED_COUNT = 302;
   document.querySelectorAll('.breed-count-live').forEach(function (el) {
     el.textContent = BREED_COUNT + '+';
   });
