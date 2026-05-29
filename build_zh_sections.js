@@ -88,8 +88,10 @@ const TITLES = {
 
 /* ── Topic chip translations ─────────────────────────────────────────────── */
 const TOPICS = {
-  // Training
+  // All sections
   'All Guides': '全部指南',
+  'All': '全部',
+  // Training
   'Basic Commands': '基础口令',
   'Puppy Training': '幼犬训练',
   'Leash &amp; Walking': '牵绳与散步',
@@ -97,31 +99,36 @@ const TOPICS = {
   'Behavior Problems': '行为问题',
   'Advanced': '高级',
   'Professional': '专业',
+  'Beginner': '入门',
+  'Intermediate': '进阶',
   // Health
   'Symptoms': '症状',
   'Preventive Care': '预防保健',
   'Common Illnesses': '常见疾病',
   'Dental Health': '牙齿健康',
   'Senior Dogs': '老年犬',
-  // Nutrition
-  'Feeding Basics': '喂食基础',
-  'Food Choices': '食物选择',
-  'Special Diets': '特殊饮食',
-  // Grooming
-  'Coat Care': '毛发护理',
+  // Nutrition (exact chip text from HTML)
+  'Feeding Guide': '喂食指南',
+  'Food Types': '食物类型',
+  'Toxic &amp; Safe Foods': '有毒与安全食物',
+  'Toxic & Safe Foods': '有毒与安全食物',
+  'Treats &amp; Chews': '零食与咬胶',
+  'Treats & Chews': '零食与咬胶',
+  'Supplements': '营养补充剂',
+  // Grooming (exact chip text from HTML)
   'Bathing': '洗浴',
-  'Nail & Ear Care': '指甲与耳朵护理',
-  'Finding a Groomer': '寻找美容师',
-  // Getting a Dog
-  'Choosing a Breed': '选择犬种',
+  'Brushing &amp; Coat': '梳毛与毛发',
+  'Brushing & Coat': '梳毛与毛发',
+  'Nail Care': '指甲护理',
+  'Ear &amp; Eye Care': '耳眼护理',
+  'Ear & Eye Care': '耳眼护理',
+  // Getting a Dog (exact chip text from HTML)
+  'Find Your Breed': '寻找适合的犬种',
+  'Costs &amp; Budget': '费用与预算',
+  'Costs & Budget': '费用与预算',
   'Adoption &amp; Breeders': '领养与繁育者',
   'Adoption & Breeders': '领养与繁育者',
-  'Costs': '费用',
-  'Preparing': '准备工作',
-  // Level chips (used in training)
-  'All': '全部',
-  'Beginner': '入门',
-  'Intermediate': '进阶',
+  'Prepare Your Home': '家庭准备',
 };
 
 /* ── Level badge text ────────────────────────────────────────────────────── */
@@ -133,30 +140,48 @@ const LEVELS = {
   'Start Here': '从这里开始',
   'Read First': '先阅读此文',
   'Week 1': '第一周',
+  'Essential': '必读',
+  'Important': '重要',
+  'Overlooked': '常被忽视',
+  'Must Know': '必须了解',
 };
 
-/* ── Topic badge color labels ────────────────────────────────────────────── */
+/* ── Topic badge color labels (exact text inside gi-topic spans) ─────────── */
 const TOPIC_BADGES = {
+  // Training
   'Basic Commands': '基础口令',
   'Puppy Training': '幼犬训练',
   'Leash & Walking': '牵绳与散步',
   'Behavior Problems': '行为问题',
+  // Health
   'Symptoms': '症状',
   'Preventive Care': '预防保健',
   'Common Illnesses': '常见疾病',
   'Dental Health': '牙齿健康',
   'Senior Dogs': '老年犬',
-  'Feeding Basics': '喂食基础',
-  'Food Choices': '食物选择',
-  'Special Diets': '特殊饮食',
-  'Coat Care': '毛发护理',
+  // Nutrition (exact badge text — HTML uses literal &)
+  'Food Types': '食物类型',
+  'Toxic & Safe': '有毒与安全',
+  'Toxic &amp; Safe': '有毒与安全',
+  'Feeding Guide': '喂食指南',
+  'Treats & Chews': '零食与咬胶',
+  'Treats &amp; Chews': '零食与咬胶',
+  'Supplements': '营养补充剂',
+  // Grooming (exact badge text)
   'Bathing': '洗浴',
-  'Nail &amp; Ear Care': '指甲与耳朵护理',
-  'Finding a Groomer': '寻找美容师',
-  'Choosing a Breed': '选择犬种',
+  'Brushing & Coat': '梳毛与毛发',
+  'Brushing &amp; Coat': '梳毛与毛发',
+  'Nail Care': '指甲护理',
+  'Ear & Eye Care': '耳眼护理',
+  'Ear &amp; Eye Care': '耳眼护理',
+  'Professional': '专业美容',
+  // Getting a Dog (exact badge text)
+  'Find Your Breed': '寻找适合的犬种',
+  'Costs & Budget': '费用与预算',
+  'Costs &amp; Budget': '费用与预算',
+  'Adoption & Breeders': '领养与繁育者',
   'Adoption &amp; Breeders': '领养与繁育者',
-  'Costs': '费用',
-  'Preparing': '准备工作',
+  'Prepare Your Home': '家庭准备',
 };
 
 /* ── Section config ──────────────────────────────────────────────────────── */
@@ -206,7 +231,7 @@ const SECTIONS = [
     title: '狗狗营养——喂食指南、狗粮选择与饮食建议 | AllDogFacts',
     desc: '完整的狗狗营养指南——按犬种和年龄的喂食指南、优质狗粮选择、有毒食物及零食推荐。',
     hero: {
-      tag: '权威营养资讯',
+      tag: '循证喂食建议',
       h1: '狗狗<br /><span class="hero-highlight">营养</span>',
       p: '从幼犬喂食到老年犬特殊饮食——了解您的狗狗真正需要什么营养，避开常见饮食误区。',
       placeholder: '搜索指南...（如 狗粮、喂食、零食）',
@@ -285,12 +310,27 @@ function transform(src, cfg) {
     return `href="/${section}/${file}" class="gi-card"`;
   });
 
-  // 5. Hero section
-  html = html
-    .replace(/<div class="si-hero-tag">.*?<\/div>/, `<div class="si-hero-tag">${cfg.hero.tag}</div>`)
-    .replace(/<h1>.*?<\/h1>/s, `<h1>${cfg.hero.h1}</h1>`)
-    .replace(/<p>.*?<\/p>(?=\s*<div class="si-search-wrap">)/, `<p>${cfg.hero.p}</p>`)
-    .replace(/placeholder="Search guides\.[^"]*"/, `placeholder="${cfg.hero.placeholder}"`);
+  // 5. Hero section — use indexOf for reliable multi-line replacement
+  const heroTagOpen = '<div class="si-hero-tag">';
+  const heroTagClose = '</div>';
+  const tagStart = html.indexOf(heroTagOpen);
+  if (tagStart !== -1) {
+    const tagEnd = html.indexOf(heroTagClose, tagStart) + heroTagClose.length;
+    html = html.slice(0, tagStart) + heroTagOpen + cfg.hero.tag + heroTagClose + html.slice(tagEnd);
+  }
+  const h1Start = html.indexOf('<h1>');
+  if (h1Start !== -1) {
+    const h1End = html.indexOf('</h1>', h1Start) + '</h1>'.length;
+    html = html.slice(0, h1Start) + `<h1>${cfg.hero.h1}</h1>` + html.slice(h1End);
+  }
+  // Hero paragraph (before search wrap)
+  const searchWrapIdx = html.indexOf('<div class="si-search-wrap">');
+  if (searchWrapIdx !== -1) {
+    const pEnd = html.lastIndexOf('</p>', searchWrapIdx) + '</p>'.length;
+    const pStart = html.lastIndexOf('<p>', pEnd);
+    if (pStart !== -1) html = html.slice(0, pStart) + `<p>${cfg.hero.p}</p>` + html.slice(pEnd);
+  }
+  html = html.replace(/placeholder="Search guides[^"]*"/, `placeholder="${cfg.hero.placeholder}"`);
 
   // 6. Filter bar labels
   html = html
