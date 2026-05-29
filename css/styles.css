@@ -204,6 +204,27 @@ img { max-width: 100%; display: block; }
 }
 .nav-cta:hover { background: var(--teal-dark) !important; transform: translateY(-1px); }
 
+/* Language toggle button */
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: none;
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  padding: 5px 12px;
+  font-size: .8rem;
+  font-weight: 600;
+  color: var(--mid);
+  cursor: pointer;
+  transition: border-color .2s, color .2s, background .2s;
+  white-space: nowrap;
+  font-family: var(--font-body);
+}
+.lang-toggle:hover { border-color: var(--teal); color: var(--teal); background: var(--teal-light); }
+.lang-icon { font-size: .9rem; }
+@media (max-width: 768px) { .lang-toggle { padding: 4px 10px; font-size: .75rem; } }
+
 .hamburger {
   display: none;
   flex-direction: column;

@@ -1,3 +1,31 @@
+// ── Language switcher — inject toggle + load i18n.js ─────────────────────────
+(function () {
+  const navContainer = document.querySelector('.nav-container');
+  if (navContainer) {
+    const savedLang = localStorage.getItem('adf-lang') || 'en';
+    const btn = document.createElement('button');
+    btn.id = 'langToggle';
+    btn.className = 'lang-toggle';
+    btn.title = savedLang === 'zh' ? 'Switch to English' : '切换为简体中文';
+    btn.innerHTML = savedLang === 'zh'
+      ? '<span class="lang-icon">🌐</span> EN'
+      : '<span class="lang-icon">🌐</span> 中文';
+    btn.setAttribute('aria-label', 'Toggle language');
+    const hamburgerBtn = navContainer.querySelector('.hamburger');
+    if (hamburgerBtn) navContainer.insertBefore(btn, hamburgerBtn);
+    else navContainer.appendChild(btn);
+    btn.addEventListener('click', () => {
+      if (window.i18n) window.i18n.apply(window.i18n.currentLang === 'zh' ? 'en' : 'zh');
+    });
+  }
+  const mainSrc = (document.currentScript || document.querySelector('script[src*="main.js"]') || {}).src || '';
+  const basePath = mainSrc.replace(/js\/main\.js.*/, '') || '/';
+  const script = document.createElement('script');
+  script.src = basePath + 'js/i18n.js';
+  script.onload = () => { if (window.i18n) window.i18n.init(); };
+  document.head.appendChild(script);
+})();
+
 // Sticky navbar shadow on scroll
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
