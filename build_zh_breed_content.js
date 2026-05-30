@@ -518,7 +518,9 @@ function genProfileTab(data, zhName, enName) {
 
 // ── Diet tab Chinese content ───────────────────────────────────────────────
 function genDietTab(html, zhName, data) {
-  const dietSection = (html.match(/id="tab-diet">([\s\S]*?)<!--\s*end tab-diet/) || [])[1] || '';
+  // Strip the trailing </div> that sits on same line as <!-- end tab-diet --> in the source
+  const dietSection = ((html.match(/id="tab-diet">([\s\S]*?)<!--\s*end tab-diet/) || [])[1] || '')
+    .replace(/\s*<\/div>\s*$/, '');
 
   let out = dietSection
     .replace(/<h2>🍽️ How Much to Feed a [^<]+<\/h2>/g, `<h2>🍽️ ${zhName}每日喂食量</h2>`)
@@ -686,7 +688,8 @@ function genDietTab(html, zhName, data) {
 
 // ── Cost tab Chinese content ───────────────────────────────────────────────
 function genCostTab(html, zhName) {
-  let out = (html.match(/id="tab-cost">([\s\S]*?)<!--\s*end tab-cost/) || [])[1] || '';
+  let out = ((html.match(/id="tab-cost">([\s\S]*?)<!--\s*end tab-cost/) || [])[1] || '')
+    .replace(/\s*<\/div>\s*$/, '');
 
   out = out
     .replace(/<h2>💰 How Much Does a [^<]+ Cost\?<\/h2>/g,
@@ -823,7 +826,8 @@ function genCostTab(html, zhName) {
 
 // ── Mix breeds tab Chinese content ────────────────────────────────────────
 function genMixesTab(html, zhName) {
-  let out = (html.match(/id="tab-mixes">([\s\S]*?)<!--\s*end tab-mixes/) || [])[1] || '';
+  let out = ((html.match(/id="tab-mixes">([\s\S]*?)<!--\s*end tab-mixes/) || [])[1] || '')
+    .replace(/\s*<\/div>\s*$/, '');
 
   out = out.replace(
     /<h2>🧬 Popular [^<]+ Mix Breeds<\/h2>/g,
@@ -1130,15 +1134,11 @@ ${profileZh}
         </div><!-- end tab-profile -->
 
         <div class="breed-tab-panel" id="tab-diet">
-          <div class="breed-section">
 ${dietZh}
-          </div>
         </div><!-- end tab-diet -->
 
         <div class="breed-tab-panel" id="tab-cost">
-          <div class="breed-section">
 ${costZh}
-          </div>
         </div><!-- end tab-cost -->
 
         <div class="breed-tab-panel" id="tab-mixes">
