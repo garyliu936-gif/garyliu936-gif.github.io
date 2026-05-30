@@ -224,22 +224,50 @@ html = html
   .replace(/View Profile <span>/g, '查看完整资料 <span>');
 
 // ── 9. Breed h3 names + descriptions in one pass ──────────────────────────
+// Handles both purebred h3s and hybrid h3s (which contain <span>Hybrid</span>)
 // lang="en" on small prevents i18n.js re-translating the English subtitle
 const BREED_DESC = require('./breed_desc_zh.js');
-Object.entries(BREED_NAMES).forEach(([en, zh]) => {
-  const descZh = BREED_DESC[en];
+
+// Aliases for name mismatches between HTML and dict keys
+const EXTRA_NAMES = {
+  'Cavalier King Charles':     '查理士王骑士猎犬',
+  'Löwchen':                   '罗钦犬',
+  'Petit Basset Griffon Vendéen': '小型旺代格里芬犬',
+  'Bichon Frisé':              '比熊犬',
+  'Chi-Poo':                   '吉娃娃贵宾混血犬',
+  'Grand Basset Griffon Vendéen': '大型旺代格里芬犬',
+};
+const ALL_NAMES = Object.assign({}, BREED_NAMES, EXTRA_NAMES);
+
+// Hybrid badge span style (constant)
+const HYBRID_SPAN_RE = / <span style="font-size:\.75em;color:var\(--teal\);font-weight:600">Hybrid<\/span>/;
+const HYBRID_BADGE_ZH = ' <span style="font-size:.75em;color:var(--teal);font-weight:600">混血犬</span>';
+
+Object.entries(ALL_NAMES).forEach(([en, zh]) => {
+  const descZh = BREED_DESC[en] || BREED_DESC[en.replace('Frisé','Frise').replace('Vendéen','Vendeen').replace('Löwchen','Lowchen').replace('Chi-Poo','Chipoo').replace(' Spaniel','')];
   const h3Pat  = en.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   const subtitle = `<small lang="en" style="font-size:.6em;font-weight:400;color:#94a3b8">${en}</small>`;
 
   if (descZh) {
-    // Replace h3 AND the immediately following <p> together
-    const re = new RegExp(`<h3>${h3Pat}<\\/h3>(\\s*<p>)[\\s\\S]*?(<\\/p>)`, 'g');
-    html = html.replace(re, `<h3>${zh} ${subtitle}</h3>$1${descZh}$2`);
-  } else {
-    html = html.replace(
-      new RegExp(`<h3>${h3Pat}<\\/h3>`, 'g'),
-      `<h3>${zh} ${subtitle}</h3>`
+    // Match h3 (with optional Hybrid badge) + immediately following <p>
+    const re = new RegExp(
+      `<h3>${h3Pat}( <span[^>]*>Hybrid<\\/span>)?<\\/h3>(\\s*<p>)[\\s\\S]*?(<\\/p>)`,
+      'g'
     );
+    html = html.replace(re, (m, hybridSpan, pOpen, pClose) => {
+      const badge = hybridSpan ? HYBRID_BADGE_ZH : '';
+      return `<h3>${zh} ${subtitle}${badge}</h3>${pOpen}${descZh}${pClose}`;
+    });
+  } else {
+    // h3 only, no description available
+    const re = new RegExp(
+      `<h3>${h3Pat}( <span[^>]*>Hybrid<\\/span>)?<\\/h3>`,
+      'g'
+    );
+    html = html.replace(re, (m, hybridSpan) => {
+      const badge = hybridSpan ? HYBRID_BADGE_ZH : '';
+      return `<h3>${zh} ${subtitle}${badge}</h3>`;
+    });
   }
 });
 
