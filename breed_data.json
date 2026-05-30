@@ -1,0 +1,1210 @@
+[
+  {
+    "n": "French Bulldog",
+    "d": "Playful, adaptable, and full of personality. The #1 city dog — thrives in apartments."
+  },
+  {
+    "n": "Labrador Retriever",
+    "d": "America's most popular dog — friendly, outgoing, and eager to please. Perfect family companion."
+  },
+  {
+    "n": "Golden Retriever",
+    "d": "Gentle, loyal, and endlessly loving. One of the world's most beloved family dogs."
+  },
+  {
+    "n": "German Shepherd",
+    "d": "Intelligent, courageous, loyal. The top working dog in the world and a devoted family protector."
+  },
+  {
+    "n": "Dachshund",
+    "d": "Clever, lively, and courageous. These little hounds were born to hunt and love to dig and explore."
+  },
+  {
+    "n": "Poodle",
+    "d": "Exceptionally intelligent and athletic. Poodles are hypoallergenic, highly trainable, and come in three sizes."
+  },
+  {
+    "n": "Beagle",
+    "d": "Merry, curious, and always following their nose. Beagles are pack dogs who love company and adventure."
+  },
+  {
+    "n": "Rottweiler",
+    "d": "Powerful, loyal, and calm. With proper training, Rottweilers are devoted family guardians."
+  },
+  {
+    "n": "German Shorthaired Pointer",
+    "d": "The ultimate versatile sporting dog — athletic, loyal, and built for adventure both on land and water."
+  },
+  {
+    "n": "Bulldog",
+    "d": "Calm, courageous, and friendly. Bulldogs are low-energy companions who love lounging with their family."
+  },
+  {
+    "n": "Cane Corso",
+    "d": "Italy's ancient guardian — powerful, loyal, and deeply devoted to its family. A serious dog for experienced owners."
+  },
+  {
+    "n": "Cavalier King Charles",
+    "d": "Gentle, affectionate, and adaptable. One of the best lap dogs — content in any home."
+  },
+  {
+    "n": "Yorkshire Terrier",
+    "d": "Bold, confident, and fiercely loyal. Yorkies have big personalities packed into tiny bodies."
+  },
+  {
+    "n": "Australian Shepherd",
+    "d": "Brilliant, active, and tireless. Aussies need a job to do and thrive with active families."
+  },
+  {
+    "n": "Doberman Pinscher",
+    "d": "Fearless, loyal, and highly intelligent. Dobermans are natural protectors and devoted family dogs."
+  },
+  {
+    "n": "Corgi",
+    "d": "Big personality, short legs. Corgis are smart, athletic herding dogs who are surprisingly fast."
+  },
+  {
+    "n": "Miniature Schnauzer",
+    "d": "Bold, low-shedding, and long-lived — a terrier with a big personality in a compact, apartment-friendly body."
+  },
+  {
+    "n": "Boxer",
+    "d": "Playful, energetic, and endlessly entertaining. Boxers are the clowns of the dog world and love kids."
+  },
+  {
+    "n": "Pomeranian",
+    "d": "Fluffy, bold, and bursting with personality — a tiny dog descended from sled dogs with zero awareness of its own size."
+  },
+  {
+    "n": "Bernese Mountain Dog",
+    "d": "Calm, good-natured, and strikingly beautiful. Berners are devoted family dogs built for the outdoors."
+  },
+  {
+    "n": "Shih Tzu",
+    "d": "Affectionate, outgoing, and adaptable. Shih Tzus were bred to be royal lap dogs and they know it."
+  },
+  {
+    "n": "Great Dane",
+    "d": "Friendly giants — patient, dependable, and surprisingly gentle. The \"Apollo of dogs.\""
+  },
+  {
+    "n": "Boston Terrier",
+    "d": "The American Gentleman — tuxedo-clad, friendly, and perfectly suited to city and apartment living."
+  },
+  {
+    "n": "Chihuahua",
+    "d": "The world's smallest breed packs an enormous personality. Loyal, charming, and surprisingly brave."
+  },
+  {
+    "n": "Havanese",
+    "d": "Cuba's national dog — cheerful, silky, and one of the most universally friendly small breeds in the world."
+  },
+  {
+    "n": "Border Collie",
+    "d": "The world's most intelligent dog breed. Border Collies need mental challenges as much as physical exercise."
+  },
+  {
+    "n": "English Springer Spaniel",
+    "d": "An athletic, tail-wagging bundle of enthusiasm — one of the most versatile sporting dogs and devoted family companions."
+  },
+  {
+    "n": "Miniature American Shepherd",
+    "d": "Full Australian Shepherd intelligence packed into a compact frame — colourful, agile, and endlessly trainable."
+  },
+  {
+    "n": "Shetland Sheepdog",
+    "d": "Miniature Lassie with world-class intelligence — the Sheltie is a devoted, agile herding dog that thrives on family life."
+  },
+  {
+    "n": "Siberian Husky",
+    "d": "Athletic, mischievous, and strikingly beautiful. Huskies need lots of exercise and love cold climates."
+  },
+  {
+    "n": "Brittany",
+    "d": "Compact French bird dog with a big nose, boundless energy, and a gentle, biddable personality — more AKC Dual Champions than any other breed."
+  },
+  {
+    "n": "Belgian Malinois",
+    "d": "The elite working dog trusted by military and police worldwide — intense, athletic, and fiercely loyal."
+  },
+  {
+    "n": "Cocker Spaniel",
+    "d": "Silky-eared and soulful-eyed — America's sweetheart sporting dog, beloved for its gentle and affectionate nature."
+  },
+  {
+    "n": "Basset Hound",
+    "d": "Long ears, soulful eyes, and a nose second only to the Bloodhound — the gentle, laid-back Basset is a family favorite."
+  },
+  {
+    "n": "English Cocker Spaniel",
+    "d": "England's original cocker spaniel — a compact, merry, silky-eared bird dog with a wagging tail that never seems to stop and a gentle, devoted personality."
+  },
+  {
+    "n": "Vizsla",
+    "d": "Hungary's golden-rust national dog — a Velcro sporting breed that's equal parts athlete and devoted family companion."
+  },
+  {
+    "n": "Maltese",
+    "d": "Elegant, gentle, and playful. Maltese are loving companions who thrive on human attention."
+  },
+  {
+    "n": "Pug",
+    "d": "Ancient Chinese companion dog with a wrinkled face, curled tail, and huge personality — the original 'multum in parvo' (a lot of dog in a small package)."
+  },
+  {
+    "n": "Collie",
+    "d": "Lassie's breed — elegant, devoted, and deeply intuitive. The Rough Collie is one of the most family-friendly herders."
+  },
+  {
+    "n": "Mastiff",
+    "d": "One of the heaviest dogs on earth — the English Mastiff is a dignified, deeply loyal gentle giant who loves family."
+  },
+  {
+    "n": "Rhodesian Ridgeback",
+    "d": "Africa's lion-tracking dog — athletic, loyal, and instantly identifiable by the signature ridge of reversed fur on its back."
+  },
+  {
+    "n": "Papillon",
+    "d": "The butterfly-eared genius of the toy world — one of the most intelligent small breeds with an elegant, athletic build."
+  },
+  {
+    "n": "Portuguese Water Dog",
+    "d": "The spirited sea-dog of Portugal — made famous by the Obamas, hypoallergenic-friendly with webbed feet and a love of water."
+  },
+  {
+    "n": "Shiba Inu",
+    "d": "Japan's iconic fox-like hunting dog — fiercely independent, immaculately clean, intensely loyal to its owner, and prone to dramatic vocalizations when displeased."
+  },
+  {
+    "n": "West Highland White Terrier",
+    "d": "Bright white, boldly confident, and irresistibly charming — the Westie packs huge personality into a tidy 20-pound package."
+  },
+  {
+    "n": "Newfoundland",
+    "d": "A 150-lb gentle giant bred for water rescue — patient, sweet-natured, and an incredible nanny dog for families."
+  },
+  {
+    "n": "Australian Cattle Dog",
+    "d": "Australia's blue or red speckled herding dog — relentlessly energetic, fiercely intelligent, and the breed that produced Bluey, the world's oldest dog ever recorded."
+  },
+  {
+    "n": "Whippet",
+    "d": "35 mph rocket on four legs indoors it's a couch potato — the Whippet is a gentle, quiet, and surprisingly easy companion."
+  },
+  {
+    "n": "Bichon Frisé",
+    "d": "A cheerful, poofy white cloud of a dog — hypoallergenic, gentle, and irresistibly charming in any household."
+  },
+  {
+    "n": "Dalmatian",
+    "d": "Energetic, dignified, and outgoing. Dalmatians need lots of exercise and are fiercely loyal to their family."
+  },
+  {
+    "n": "Wirehaired Pointing Griffon",
+    "d": "The \"supreme gundog\" — a scruffy, versatile bird dog that can point, retrieve, and track through any terrain."
+  },
+  {
+    "n": "Giant Schnauzer",
+    "d": "Germany's largest Schnauzer — a powerful, bold, and deeply loyal working dog used by police and military worldwide, requiring experienced owners and serious daily exercise."
+  },
+  {
+    "n": "Italian Greyhound",
+    "d": "2,000 years of elegance — the ancient royal miniature sighthound who loves nothing more than burrowing under blankets with you."
+  },
+  {
+    "n": "Weimaraner",
+    "d": "The striking silver ghost of the sporting world — fast, elegant, and deeply bonded to its person."
+  },
+  {
+    "n": "Samoyed",
+    "d": "The \"Sammie smile\" — a cloud-white, perpetually grinning arctic spitz who melts hearts everywhere they go."
+  },
+  {
+    "n": "Chesapeake Bay Retriever",
+    "d": "Maryland's official state dog — a rugged, oily-coated waterfowl hunter with amber eyes and unstoppable retrieving drive."
+  },
+  {
+    "n": "Scottish Terrier",
+    "d": "FDR's beloved \"Fala\" and the iconic Monopoly token — a dignified, bearded terrier with a bold character and loyal heart."
+  },
+  {
+    "n": "German Wirehaired Pointer",
+    "d": "Germany's all-purpose hunting machine — wire-coated, weather-proof, and capable of tracking, pointing, and retrieving any game on any terrain."
+  },
+  {
+    "n": "Bloodhound",
+    "d": "300 million scent receptors and the world's best nose — the wrinkly, soulful Bloodhound is a tracking legend."
+  },
+  {
+    "n": "Russell Terrier",
+    "d": "The compact, short-legged Jack Russell — an explosive package of terrier tenacity, hunting instinct, and comedic mischief that never accepts being underestimated."
+  },
+  {
+    "n": "Staffordshire Bull Terrier",
+    "d": "England's 'nanny dog' — a compact, muscular bull-and-terrier with an enormous heart, legendary patience with children, and a smile that could melt any skeptic."
+  },
+  {
+    "n": "Akita",
+    "d": "Japan's national monument — a powerful, dignified guardian who bonds with deep loyalty to one family above all else."
+  },
+  {
+    "n": "Saint Bernard",
+    "d": "The legendary Swiss Alps rescue dog — a massive, gentle giant with a heart as big as its 180-lb frame."
+  },
+  {
+    "n": "Boykin Spaniel",
+    "d": "South Carolina's state dog — a chocolate-brown swamp hunter bred to fit in a canoe, tireless and devoted to family."
+  },
+  {
+    "n": "Cardigan Welsh Corgi",
+    "d": "The older, long-tailed Welsh Corgi — a loyal, athletic herding dog with a fox-like face, remarkable intelligence, and a versatile personality suited to farm and family alike."
+  },
+  {
+    "n": "Great Pyrenees",
+    "d": "The noble white livestock guardian from the Pyrenees — a massive, calm, and devoted protector that bonds to its flock (or family) with unshakeable loyalty."
+  },
+  {
+    "n": "Miniature Pinscher",
+    "d": "The \"King of Toys\" — a bold, high-stepping tiny dog who believes they are ten times their size. Big attitude, tiny package."
+  },
+  {
+    "n": "Cairn Terrier",
+    "d": "The real Toto from Wizard of Oz — a plucky, weatherproof Scottish terrier with a spirited heart and a shaggy coat."
+  },
+  {
+    "n": "Nova Scotia Duck Tolling Retriever",
+    "d": "Canada's fox-colored retrieving trickster — uses playful shore antics to lure curious ducks within range, then retrieves them with explosive athleticism and joyful energy."
+  },
+  {
+    "n": "Airedale Terrier",
+    "d": "The King of Terriers — the largest terrier breed, a bold Yorkshire working dog with extraordinary versatility as hunter, guard, police dog, and beloved family companion."
+  },
+  {
+    "n": "Greater Swiss Mountain Dog",
+    "d": "Switzerland's largest and oldest mountain breed — a powerful tricolor gentle giant once called \"the poor man's horse.\""
+  },
+  {
+    "n": "Chinese Crested",
+    "d": "The breed that turns heads everywhere — available hairless (with silky crest and socks) or fully coated (Powderpuff), with an ancient history and remarkable 13–18 year lifespan."
+  },
+  {
+    "n": "Irish Setter",
+    "d": "Flowing mahogany coat, boundless energy, and a personality as vibrant as its color — the Irish Setter is pure joy in dog form."
+  },
+  {
+    "n": "Biewer Terrier",
+    "d": "Germany's whimsical tri-colored toy terrier — born from a single Yorkshire Terrier genetic mutation in 1984, now proven a distinct breed by DNA science and adored for its cheerful devotion."
+  },
+  {
+    "n": "Irish Wolfhound",
+    "d": "The world's tallest dog breed — Ireland's ancient wolf hunter, a gentle giant of immense stature, quiet dignity, and heartbreaking devotion despite a tragically brief 6–8 year lifespan."
+  },
+  {
+    "n": "Soft Coated Wheaten Terrier",
+    "d": "An exuberant, silky-coated terrier from Ireland known for its joyful \"Wheaten greeting\" and hypoallergenic coat."
+  },
+  {
+    "n": "Lagotto Romagnolo",
+    "d": "Italy's curly-coated truffle hunter — the only breed purpose-built to sniff out truffles worth thousands of dollars per pound."
+  },
+  {
+    "n": "Bullmastiff",
+    "d": "England's silent guardian — bred to silently track and pin poachers in darkness, combining the Mastiff's size with the Bulldog's tenacity in a loyal, devoted family protector."
+  },
+  {
+    "n": "Coton de Tuléar",
+    "d": "Madagascar's cotton-soft royal companion — a rare, endlessly cheerful small dog once exclusive to island royalty, with one of the longest lifespans of any breed."
+  },
+  {
+    "n": "Chinese Shar-Pei",
+    "d": "The ancient wrinkled guardian of China — once the rarest dog on earth, with a blue-black tongue and a devoted, independent nature."
+  },
+  {
+    "n": "Alaskan Malamute",
+    "d": "One of the world's oldest Arctic sled dogs — powerful, loyal, and a howling, affectionate pack animal at heart."
+  },
+  {
+    "n": "Brussels Griffon",
+    "d": "Belgium's tiny monkey-faced toy dog — enormous dark eyes, a bearded muzzle, and a personality far bigger than 10 lbs."
+  },
+  {
+    "n": "Lhasa Apso",
+    "d": "Ancient Tibetan palace sentinel — a small, long-coated dog with the soul of a lion and the dignity of a king."
+  },
+  {
+    "n": "Rat Terrier",
+    "d": "America's scrappy farm dog named by President Roosevelt — a surprisingly cuddly, long-lived terrier with a nose for trouble."
+  },
+  {
+    "n": "Keeshond",
+    "d": "The smiling Dutch barge dog with distinctive \"spectacle\" eye markings — a fluffy, friendly spitz adored as a therapy dog."
+  },
+  {
+    "n": "Bull Terrier",
+    "d": "The egg-headed clown of the terrier world — mischievous, fearless, loyal, and completely unlike any other dog on earth."
+  },
+  {
+    "n": "Old English Sheepdog",
+    "d": "The shaggy, bear-like Bobtail — a gentle giant herder famous as the Dulux paint mascot with a lovable clown personality."
+  },
+  {
+    "n": "Anatolian Shepherd Dog",
+    "d": "Turkey's ancient livestock guardian — a massive, independent, and remarkably fast working dog that bonds fiercely to its flock and treats any threat as a mortal challenge."
+  },
+  {
+    "n": "English Setter",
+    "d": "The aristocrat of gun dogs — a silky-coated belton beauty with one of the oldest sporting dog histories in Britain, combining an outstanding nose with a gentle, affectionate soul."
+  },
+  {
+    "n": "Pekingese",
+    "d": "China's imperial Lion Dog — a dignified, regal toy breed with a flowing lion-like mane, a flat face, and centuries of palace history that gave it an attitude to match."
+  },
+  {
+    "n": "Border Terrier",
+    "d": "The rugged, otter-faced working terrier of the Anglo-Scottish border — built to run with hounds, bolt foxes from earths, and be your most enthusiastic and affectionate little companion."
+  },
+  {
+    "n": "Basenji",
+    "d": "Africa's ancient barkless dog — a cat-like, wrinkle-browed hound from the Congo that yodels instead of barks, grooms itself obsessively, and thinks independently enough to humble experienced trainers."
+  },
+  {
+    "n": "Standard Schnauzer",
+    "d": "The original Schnauzer — Germany's versatile farm dog and WWI military messenger, ancestor of both the Miniature and Giant, with a 530-year art history record."
+  },
+  {
+    "n": "Chow Chow",
+    "d": "China's ancient lion-dog with an unmistakable blue-black tongue, lion's mane, and dignified aloofness — one of the oldest breeds on earth, loyal to few and feared by none."
+  },
+  {
+    "n": "Dogue de Bordeaux",
+    "d": "France's wrinkled giant — the French Mastiff has the largest head relative to body size of any breed, a devoted heart, and a lifespan tragically short at 5–8 years."
+  },
+  {
+    "n": "Leonberger",
+    "d": "Germany's lion-dog — bred to mirror Leonberg's heraldic lion, a majestic 170-lb gentle giant beloved by European royalty."
+  },
+  {
+    "n": "American Staffordshire Terrier",
+    "d": "Strong, loyal, and deeply loving — the AmStaff's heart is as big as their muscles. One of America's most misunderstood great family dogs."
+  },
+  {
+    "n": "Flat-Coated Retriever",
+    "d": "The \"Peter Pan\" of dogs — forever youthful and exuberant, a brilliant sporting dog with a sleek black or liver coat."
+  },
+  {
+    "n": "Borzoi",
+    "d": "Russia's elegant wolfhound — graceful as a living painting, with an impossibly long snout and a silky wavy coat."
+  },
+  {
+    "n": "Bouvier des Flandres",
+    "d": "Belgium's rugged all-purpose herder — a powerful, bearded working dog that served heroically in both World Wars and is now one of Europe's premier police and family guardian breeds."
+  },
+  {
+    "n": "Dogo Argentino",
+    "d": "Argentina's powerful all-white pack hunter — bred for puma and wild boar in the Pampas, combining fearless athleticism with a surprising depth of loyalty and family devotion."
+  },
+  {
+    "n": "Beauceron",
+    "d": "France's all-purpose farm shepherd with distinctive red-tan 'stockings' and double rear dewclaws — an ancient working breed that shaped the Doberman Pinscher and served in both World Wars."
+  },
+  {
+    "n": "Japanese Chin",
+    "d": "Japan's Imperial cat-dog — the most feline of all breeds, perching on furniture, washing its face with its paws, and charming royalty for 1,000 years."
+  },
+  {
+    "n": "Gordon Setter",
+    "d": "Scotland's only black and tan setter — the 4th Duke of Gordon's powerful Highland bird dog, the heaviest and most devoted of the three setter breeds."
+  },
+  {
+    "n": "Miniature Bull Terrier",
+    "d": "The compact gladiator — all the Bull Terrier's distinctive egg-shaped head, muscular build, and unstoppable humor in an 18–28 pound package."
+  },
+  {
+    "n": "Toy Fox Terrier",
+    "d": "Big terrier spirit in a 3–7 lb body — an American original who performed circus tricks and now serves as a hearing assistance dog."
+  },
+  {
+    "n": "Wire Fox Terrier",
+    "d": "The most decorated dog in Westminster history with 15 Best in Show wins — bold, clever, and always ready for action."
+  },
+  {
+    "n": "American Hairless Terrier",
+    "d": "America's only native hairless breed — a feisty Louisiana terrier descended from a single 1972 mutant puppy, ideal for allergy sufferers who love terrier spirit."
+  },
+  {
+    "n": "Norwich Terrier",
+    "d": "Tiny, fearless, and bursting with terrier spirit — the sociable little Cambridge terrier who loves adventure and company alike."
+  },
+  {
+    "n": "Schipperke",
+    "d": "Belgium's \"Little Black Devil\" — a tailless, fox-faced barge dog with irresistible mischief, boundless curiosity, and a bold spirit that belongs entirely in a dog twice its size."
+  },
+  {
+    "n": "Pointer",
+    "d": "England's aristocratic bird dog — a sleek, powerful hunter that has frozen in its iconic point stance since the 17th century, bred to range wide and find game with an extraordinary nose."
+  },
+  {
+    "n": "Boerboel",
+    "d": "South Africa's massive farm guardian — bred by Boer settlers to protect homesteads from lions and leopards, the Boerboel is one of the most powerful guardian breeds on earth."
+  },
+  {
+    "n": "Spinone Italiano",
+    "d": "Italy's shaggy, gentle gun dog with a bushy beard and kind, almost human eyes — a methodical hunter and endearing companion beloved for its sweet, laid-back temperament."
+  },
+  {
+    "n": "Welsh Terrier",
+    "d": "Wales's compact black-and-tan working terrier — spirited, intelligent, and energetic, the Welsh Terrier looks like a tiny Airedale and has the personality to match its appearance."
+  },
+  {
+    "n": "Belgian Tervuren",
+    "d": "The most elegant Belgian shepherd — a stunning mahogany athlete with extraordinary intelligence and fierce loyalty."
+  },
+  {
+    "n": "Silky Terrier",
+    "d": "Australia's elegant snake hunter — a floor-length blue and tan toy terrier with true terrier grit packed into 8–10 lbs."
+  },
+  {
+    "n": "Afghan Hound",
+    "d": "The aristocratic ancient sighthound with a flowing silky coat — one of the most visually stunning dogs in the world."
+  },
+  {
+    "n": "Tibetan Terrier",
+    "d": "Tibet's sacred 'holy dog' — never sold, only gifted by Tibetan monks, with unique flat snow-shoe feet, an extraordinary 15–16 year lifespan, and a loving, spirited personality."
+  },
+  {
+    "n": "Neapolitan Mastiff",
+    "d": "Italy's ancient, magnificently wrinkled mastiff — descended from Roman war dogs, with pendulous jowls, loose folds of skin, and extraordinary devotion to its family."
+  },
+  {
+    "n": "Belgian Sheepdog",
+    "d": "Belgium's all-black herder — the elegant Groenendael variety, with a flowing black coat, high working intelligence, and a record of distinguished police and military service worldwide."
+  },
+  {
+    "n": "Parson Russell Terrier",
+    "d": "Fearless little terrier built for the hunt."
+  },
+  {
+    "n": "Tibetan Spaniel",
+    "d": "Independent yet devoted lapdog from the Himalayas."
+  },
+  {
+    "n": "Xoloitzcuintli",
+    "d": "Mexico's ancient Aztec hairless dog — one of the world's oldest breeds, spiritual guide of the underworld, Frida Kahlo's companion, and star of Pixar's \"Coco.\""
+  },
+  {
+    "n": "American Eskimo Dog",
+    "d": "The snow-white \"dog beautiful\" — a brilliant, agile spitz breed and one of America's most beloved circus performers."
+  },
+  {
+    "n": "Mudi",
+    "d": "Hungary's rarest and most versatile herding dog — an athletic, intelligent all-rounder that can herd cattle, hunt, search, and excel in virtually any dog sport."
+  },
+  {
+    "n": "Norfolk Terrier",
+    "d": "Spirited little terrier with drop ears and a big heart."
+  },
+  {
+    "n": "Finnish Lapphund",
+    "d": "Fluffy Nordic herder known for calm temperament and trainability."
+  },
+  {
+    "n": "Norwegian Elkhound",
+    "d": "The Viking's ancient companion — a bold, silver-grey Spitz that has hunted elk and bear across Norwegian wilderness for over 6,000 years."
+  },
+  {
+    "n": "Barbet",
+    "d": "Rare, curly-coated French sporting dog — gentle and low-shedding."
+  },
+  {
+    "n": "Wirehaired Vizsla",
+    "d": "Athletic Hungarian pointer with wiry coat and velcro loyalty."
+  },
+  {
+    "n": "Manchester Terrier",
+    "d": "The original gentleman's terrier — a sleek black-and-tan ratter with Whippet speed and terrier fire, one of England's oldest identifiable breeds with 500 years of documented history."
+  },
+  {
+    "n": "Bluetick Coonhound",
+    "d": "America's deep-voiced night hunter — a cold-nosed Southern hound that will follow a trail for miles through darkness with relentless determination."
+  },
+  {
+    "n": "Clumber Spaniel",
+    "d": "England's heaviest spaniel and a royal favorite — a low-slung, white-and-lemon aristocrat with an extraordinary nose and the gentle dignity of a retired gentleman."
+  },
+  {
+    "n": "English Toy Spaniel",
+    "d": "King Charles II's devoted companion — a rare, ancient royal lap dog with four named color varieties and centuries of palace history."
+  },
+  {
+    "n": "Saluki",
+    "d": "Ancient sighthound prized for speed and elegance across millennia."
+  },
+  {
+    "n": "Bracco Italiano",
+    "d": "Italy's Renaissance bird dog — a noble, ancient pointer with a hound's soulful head depicted in paintings for 600 years, combining aristocratic elegance with exceptional field ability."
+  },
+  {
+    "n": "Black and Tan Coonhound",
+    "d": "America's original tree dog — a powerful night hunter whose melodious bay can carry a mile through dense forest."
+  },
+  {
+    "n": "Icelandic Sheepdog",
+    "d": "Iceland's only native breed — a cheerful, foxy Viking Spitz that has herded sheep across volcanic landscapes for 1,100 years and is among the world's most joyful dogs."
+  },
+  {
+    "n": "German Pinscher",
+    "d": "Alert, fearless, and loyal German watchdog with sleek good looks."
+  },
+  {
+    "n": "Bearded Collie",
+    "d": "Exuberant, shaggy herder loved for its happy-go-lucky personality."
+  },
+  {
+    "n": "Welsh Springer Spaniel",
+    "d": "Wales's ancient red-and-white flushing spaniel — one of Britain's oldest gun dogs, fiercely loyal to its family and tireless across rugged Welsh terrain."
+  },
+  {
+    "n": "Tibetan Mastiff",
+    "d": "The ancient Himalayan guardian — a massive, lion-maned giant that has protected Tibetan villages from wolves, leopards, and bears for thousands of years."
+  },
+  {
+    "n": "Treeing Walker Coonhound",
+    "d": "The fastest of all coonhound breeds — a passionate American scent hound with a booming voice and endless stamina."
+  },
+  {
+    "n": "Smooth Fox Terrier",
+    "d": "The original fox terrier — Britain's sleek, white bolt-dog with one of the longest show histories in the dog world and genuine fox-bolting terrier spirit."
+  },
+  {
+    "n": "Russian Toy",
+    "d": "Petite, elegant Russian companion with enormous personality."
+  },
+  {
+    "n": "Redbone Coonhound",
+    "d": "America's crimson hound immortalized in \"Where the Red Fern Grows\" — a passionate, cold-nosed tracker of bear, 'coon, and mountain lion."
+  },
+  {
+    "n": "Bedlington Terrier",
+    "d": "Fluffy, lamb-like terrier with surprising athletic ability."
+  },
+  {
+    "n": "Field Spaniel",
+    "d": "England's forgotten sporting gem — a rare, silky-coated flushing spaniel with a gentle soul that nearly vanished from history and richly rewards those who find it."
+  },
+  {
+    "n": "Irish Terrier",
+    "d": "Fiery, loyal Irish terrier dubbed \"the Daredevil\" for good reason."
+  },
+  {
+    "n": "Australian Terrier",
+    "d": "Spirited Aussie terrier — small, tough, and full of personality."
+  },
+  {
+    "n": "Greyhound",
+    "d": "World's fastest dog breed, paradoxically the ultimate couch potato."
+  },
+  {
+    "n": "Swedish Vallhund",
+    "d": "The Viking cattle dog — a small, sturdy Spitz herder bred by the Norse 1,000 years ago, brimming with energy, personality, and surprising agility for its size."
+  },
+  {
+    "n": "Affenpinscher",
+    "d": "The Monkey Terrier — Germany's ancient rat-catching toy dog with a primate face, fearless attitude, and irresistible comic charm."
+  },
+  {
+    "n": "Black Russian Terrier",
+    "d": "The Soviet Army's engineered guardian — 17+ breeds crossed to create Russia's ultimate working dog, now a devoted family protector."
+  },
+  {
+    "n": "Kerry Blue Terrier",
+    "d": "Ireland's national dog with a distinctive blue-gray coat and big personality."
+  },
+  {
+    "n": "Scottish Deerhound",
+    "d": "Majestic, shaggy giant with a gentle soul and noble Highland heritage."
+  },
+  {
+    "n": "Lakeland Terrier",
+    "d": "Confident, compact terrier bred for the rugged English fells."
+  },
+  {
+    "n": "Nederlandse Kooikerhondje",
+    "d": "The Dutch duck decoy dog — a cheerful orange-and-white spaniel from 17th-century Dutch Golden Age paintings, whose wagging tail lured ducks into traps for 400 years."
+  },
+  {
+    "n": "Löwchen",
+    "d": "The Little Lion Dog — one of the rarest breeds on Earth, a Renaissance noble's companion that nearly vanished and wears its lion-cut coat like a crown."
+  },
+  {
+    "n": "Pumi",
+    "d": "Hungary's lively sheep-herding terrier — a curly-coated, semi-erect-eared bundle of energy that's equal parts clever, vocal, and irresistibly quirky in appearance."
+  },
+  {
+    "n": "Petit Basset Griffon Vendéen",
+    "d": "The happiest hound in France — a joyful rabbit hunter whose official standard requires being \"gay, friendly, and lively.\""
+  },
+  {
+    "n": "Irish Red and White Setter",
+    "d": "The older of the two Irish setters — athletic, friendly, and parti-colored."
+  },
+  {
+    "n": "Sealyham Terrier",
+    "d": "Hollywood's most glamorous terrier — once beloved by Alfred Hitchcock, Cary Grant, and Elizabeth Taylor, now one of Britain's most endangered native breeds."
+  },
+  {
+    "n": "Portuguese Podengo Pequeno",
+    "d": "Portugal's ancient rabbit dog — a tiny, fox-eared primitive hound that accompanied Vasco da Gama's ships and has hunted Portuguese countryside for over 2,000 years."
+  },
+  {
+    "n": "Glen of Imaal Terrier",
+    "d": "Ireland's strong silent terrier — descended from Elizabethan soldiers' dogs in County Wicklow, once used as a turnspit dog, quieter and calmer than any other terrier."
+  },
+  {
+    "n": "Berger Picard",
+    "d": "France's rarest shepherd — a 2,000-year-old Celtic herding breed with upright ears, a shaggy coat, and fierce loyalty."
+  },
+  {
+    "n": "Spanish Water Dog",
+    "d": "Curly-coated Spanish all-rounder — herder, hunter, and water dog."
+  },
+  {
+    "n": "Curly-Coated Retriever",
+    "d": "The oldest of all retrievers — a self-confident, independent English gun dog covered head-to-tail in tight waterproof curls, more reserved than a Lab but deeply devoted to its family."
+  },
+  {
+    "n": "Irish Water Spaniel",
+    "d": "The Clown of the Spaniel Family — largest of all spaniels, with tight liver-colored curls, a distinctive topknot, and a rat tail unique in the spaniel world."
+  },
+  {
+    "n": "Danish-Swedish Farmdog",
+    "d": "Lively Scandinavian farm dog — agile, trainable, and family-friendly."
+  },
+  {
+    "n": "Plott Hound",
+    "d": "North Carolina's state dog and the only AKC hound with purely German roots — a fearless mountain hunter bred since 1750 to bay bear and boar through the Appalachians."
+  },
+  {
+    "n": "Briard",
+    "d": "France's \"heart wrapped in fur\" — a shaggy, fiercely loyal herding dog favored by Napoleon with an extraordinary memory."
+  },
+  {
+    "n": "Norwegian Buhund",
+    "d": "Norway's ancient Viking farm dog — a cheerful, quick-witted spitz that accompanied Norsemen on ships, herded cattle on mountain farms, and thrives in modern dog sports."
+  },
+  {
+    "n": "Ibizan Hound",
+    "d": "The deer-like leaping hound of Ibiza — an ancient Mediterranean rabbit dog with amber eyes, a rose-colored nose, and the ability to clear 5-foot fences from a standing start."
+  },
+  {
+    "n": "Sussex Spaniel",
+    "d": "England's golden-liver singer — the only spaniel that gives tongue on scent, winner of Westminster at age 10, and nearly lost to two world wars."
+  },
+  {
+    "n": "American Water Spaniel",
+    "d": "Wisconsin's state dog — a curly-coated all-American retriever designed for icy Great Lakes waters and small hunting boats."
+  },
+  {
+    "n": "Puli",
+    "d": "Hungary's dreadlocked acrobat — a centuries-old herding dog wrapped in naturally corded cords that herd by running on top of sheep."
+  },
+  {
+    "n": "Entlebucher Mountain Dog",
+    "d": "Switzerland's smallest Sennenhund — a sturdy, agile tri-colored cattle drover with a natural bobtail, intense family loyalty, and the tireless energy of a true Alpine working dog."
+  },
+  {
+    "n": "Kuvasz",
+    "d": "Hungary's ancient royal guardian — a pure-white livestock protector once reserved for nobility, trusted by King Matthias Corvinus above his own bodyguards."
+  },
+  {
+    "n": "Pharaoh Hound",
+    "d": "Malta's national dog — the only breed that blushes rosy-pink when happy. An ancient Mediterranean rabbit hound unchanged for over 5,000 years."
+  },
+  {
+    "n": "Skye Terrier",
+    "d": "Scotland's long, low Highland terrier immortalized by Greyfriars Bobby — one of the rarest and most devoted breeds in the world."
+  },
+  {
+    "n": "American English Coonhound",
+    "d": "The fastest of all coonhound breeds — a colonial foxhound descendant with blazing speed, a booming voice, and centuries of American hunting heritage."
+  },
+  {
+    "n": "Bergamasco Sheepdog",
+    "d": "Italy's ancient flocked Alpine herder — a patient, thoughtful breed whose unique felt-like mat coat is unlike any other dog in the world, developed over centuries in the Bergamo highlands."
+  },
+  {
+    "n": "Cirneco dell'Etna",
+    "d": "Sicily's ancient volcano hound — a sleek, erect-eared sighthound that has hunted rabbits on Mount Etna's lava fields for over 2,500 years, virtually unchanged."
+  },
+  {
+    "n": "Komondor",
+    "d": "Iconic corded Hungarian livestock guardian that blends in with sheep."
+  },
+  {
+    "n": "Dandie Dinmont Terrier",
+    "d": "The only breed named after a fictional character — a long-bodied Scottish border terrier from Sir Walter Scott's 1814 novel with a signature silky topknot."
+  },
+  {
+    "n": "English Foxhound",
+    "d": "The aristocrat's hound — centuries of meticulous English breeding produced this perfectly balanced pack hunter with the oldest formal stud book of any breed."
+  },
+  {
+    "n": "American Foxhound",
+    "d": "America's founding hound — Virginia's state dog, George Washington's personal breed, and the fastest foxhound on the continent."
+  },
+  {
+    "n": "Otterhound",
+    "d": "Britain's shaggy river hound with webbed feet — one of the world's rarest breeds, fewer than 400 left, kept by English kings since the 12th century."
+  },
+  {
+    "n": "Lancashire Heeler",
+    "d": "England's smallest herding dog — a sturdy black-and-tan cattle driver from Lancashire that heels livestock, catches rats, and greets its family with an unmistakable grinning smile."
+  },
+  {
+    "n": "Pyrenean Shepherd",
+    "d": "France's most electric herding dog — a small, lightning-fast mountain shepherd that covers 25 miles daily in the Pyrenees, partnering the Great Pyrenees for centuries."
+  },
+  {
+    "n": "Polish Lowland Sheepdog",
+    "d": "Shaggy Polish herder with photographic memory and boundless drive."
+  },
+  {
+    "n": "Canaan Dog",
+    "d": "Israel's ancient desert pariah — one of the world's oldest breeds, surviving 4,000 years in the Negev wilderness and now Israel's national dog."
+  },
+  {
+    "n": "Finnish Spitz",
+    "d": "Finland's flame-red national dog — a fox-like bark pointer who bays up to 160 times per minute to tree game for hunters."
+  },
+  {
+    "n": "Azawakh",
+    "d": "West Africa's ancient desert coursing hound — so lean the skeleton is visible, bred by Tuareg nomads of Mali to run gazelle across the Sahel at 40 mph in extreme heat."
+  },
+  {
+    "n": "Belgian Laekenois",
+    "d": "Rarest Belgian Shepherd variety — rough-coated, intelligent, and intense."
+  },
+  {
+    "n": "Cesky Terrier",
+    "d": "The world's rarest terrier — Czech Republic's silky, drop-eared national dog, purpose-designed in 1948 for Bohemian forest hunting."
+  },
+  {
+    "n": "Chinook",
+    "d": "New Hampshire's gentle giant sled dog — once the world's rarest breed with only 28 left, descended from a single 1917 tawny sire and rebuilt by dedicated breeders from near extinction."
+  },
+  {
+    "n": "Harrier",
+    "d": "Britain's ancient hare hound — a cheerful, pack-loving scent hound that's been hunting the English countryside since the 13th century."
+  },
+  {
+    "n": "Grand Basset Griffon Vendéen",
+    "d": "France's rough-coated Vendéen rabbit hound — the larger, boisterous cousin of the PBGV with the same shaggy charm, relentless nose, and joyful pack-dog personality."
+  },
+  {
+    "n": "Sloughi",
+    "d": "The noble North African sighthound — a lean, sensitive, ancient coursing dog of the Berber and Bedouin peoples, deeply bonded to one person and built for blazing desert speed."
+  },
+  {
+    "n": "Norwegian Lundehund",
+    "d": "The six-toed puffin dog of Norway — the most anatomically unique breed alive, with legs that splay sideways and a neck that bends backward to touch its spine."
+  },
+  {
+    "n": "Goldendoodle",
+    "d": "The perfect hybrid — the Golden's heart with the Poodle's brains. Low-shedding and highly trainable."
+  },
+  {
+    "n": "Labradoodle <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "The hybrid that started it all — friendly, low-shedding, and highly trainable. Lab + Poodle perfection."
+  },
+  {
+    "n": "Cockapoo <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "The original designer dog — gentle, low-shedding, and one of the most loving small companions you can find."
+  },
+  {
+    "n": "Cavapoo <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Britain's most popular crossbreed — gentle, loving, and low-shedding. Cavalier heart meets Poodle brains."
+  },
+  {
+    "n": "Maltipoo <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Tiny, loving, and nearly shed-free — the perfect apartment companion for seniors and allergy sufferers."
+  },
+  {
+    "n": "Bernedoodle <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "The gentle giant Doodle — loyal, playful, tricolor, and low-shedding. Lives twice as long as a purebred Bernese."
+  },
+  {
+    "n": "Aussiedoodle <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Two of the world's smartest breeds combined — a high-energy, low-shedding athlete built for dog sports and adventure."
+  },
+  {
+    "n": "Pomsky <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "The internet's most famous dog — a stunning miniature Husky with a Pomeranian's personality. Spirited and social media iconic."
+  },
+  {
+    "n": "Schnoodle <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "The forever puppy — spunky, smart, and virtually shed-free. Two genius breeds combine for one irresistible scruffy companion."
+  },
+  {
+    "n": "Yorkipoo <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Terrier boldness meets Poodle smarts in a 3–14 lb nearly shed-free package. The ultimate tiny city companion."
+  },
+  {
+    "n": "Shorkie <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Royal ancestry from East and West — silky, sweet, and devoted. The perfect gentle companion for apartment living."
+  },
+  {
+    "n": "Sheepadoodle <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "The gentle giant doodle — Old English Sheepdog meets Poodle for a fluffy black-and-white family dog who loves children and therapy work."
+  },
+  {
+    "n": "Puggle <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "The charming Beagle-Pug combo — playful, wrinkly, and endlessly entertaining. The most popular designer dog of the 2000s."
+  },
+  {
+    "n": "Cavachon <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Sweet, silky Cavalier × Bichon mix — gentle, low-shedding, and endlessly cuddly."
+  },
+  {
+    "n": "Morkie <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Silky micro-pup with Maltese sweetness and Yorkie spunk — huge personality, tiny body."
+  },
+  {
+    "n": "Chi-Poo <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Tiny Chihuahua × Poodle mix — smart, sassy, and surprisingly low-shedding."
+  },
+  {
+    "n": "Havapoo <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Joyful Havanese × Poodle blend — fluffy, friendly, and nearly non-shedding."
+  },
+  {
+    "n": "Shih-Poo <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Shih Tzu × Poodle — long-lived, low-shedding, and absolutely adorable."
+  },
+  {
+    "n": "Goberian <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Golden Retriever × Husky — stunning, athletic, and endlessly enthusiastic."
+  },
+  {
+    "n": "Westiepoo <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Westie × Poodle — bold, bright, low-shedding, and long-lived."
+  },
+  {
+    "n": "Boxerdoodle <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Boxer × Poodle — playful, loyal, and surprisingly low-shedding."
+  },
+  {
+    "n": "Goldador <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Golden Retriever × Labrador — the friendliest possible dog in one package."
+  },
+  {
+    "n": "Labsky <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Labrador × Husky — adventurous, loyal, and built for the great outdoors."
+  },
+  {
+    "n": "Bordoodle <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Border Collie × Poodle — the ultimate brainy, athletic, low-shedding companion."
+  },
+  {
+    "n": "Springerdoodle <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "English Springer Spaniel × Poodle — enthusiastic, kind, and low-shedding."
+  },
+  {
+    "n": "Saint Berdoodle <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Saint Bernard × Poodle — a massive, gentle, low-shedding giant."
+  },
+  {
+    "n": "Huskydoodle <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Siberian Husky × Poodle — dramatic, chatty, stunning, and low-shedding."
+  },
+  {
+    "n": "Doxiepoo <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Dachshund × Poodle — curious, clever, low-shedding, and uniquely adorable."
+  },
+  {
+    "n": "Maltichon <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Maltese × Bichon Frisé — a cloud-like white companion that almost never sheds."
+  },
+  {
+    "n": "Rottador <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Rottweiler × Labrador — a powerful, loyal protector with a Lab's gentle heart."
+  },
+  {
+    "n": "Poochon <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Bichon Frise × Poodle — fluffy, hypoallergenic, and endlessly cheerful. The perfect lap companion."
+  },
+  {
+    "n": "Whoodle <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Soft Coated Wheaten Terrier × Poodle — silky wavy coat, playful temperament, low-shedding and family-friendly."
+  },
+  {
+    "n": "Shepadoodle <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "German Shepherd × Poodle — brilliant, loyal, and protective with a low-shedding Poodle coat."
+  },
+  {
+    "n": "Borador <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Border Collie × Labrador — blazing smart, energetic, and eager to please. Ideal for active families."
+  },
+  {
+    "n": "Pugapoo <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Pug × Poodle — the Pug's clownish charm meets the Poodle's brains for a low-shedding, funny companion."
+  },
+  {
+    "n": "Jackadoodle <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Jack Russell Terrier × Poodle — big energy in a small body. Feisty, clever, and surprisingly low-shedding."
+  },
+  {
+    "n": "Boxador <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Boxer × Labrador — athletic, goofy, and fiercely loyal. A high-energy family dog with a big heart."
+  },
+  {
+    "n": "Corgipoo <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Corgi × Poodle — the Corgi's big personality and herding smarts with a low-shedding Poodle coat."
+  },
+  {
+    "n": "Frenchton <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "French Bulldog × Boston Terrier — compact, social, and apartment-perfect with fewer breathing issues than a Frenchie."
+  },
+  {
+    "n": "Chug <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Chihuahua × Pug — huge personality in a tiny package. Sassy, loving, and always the center of attention."
+  },
+  {
+    "n": "Beaglier <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Beagle × Cavalier King Charles Spaniel — gentle, curious, and social. Less scent-obsessed than a pure Beagle."
+  },
+  {
+    "n": "Mal-Shi <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Maltese × Shih Tzu — silky, gentle, and royally adorable. A low-shedding lap dog that loves everyone."
+  },
+  {
+    "n": "Dorgi <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Dachshund × Corgi — famously adored by Queen Elizabeth II. Long-bodied, short-legged, and full of character."
+  },
+  {
+    "n": "Cheagle <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Chihuahua × Beagle — a tiny hound with a big nose and an even bigger attitude. Spirited and curious."
+  },
+  {
+    "n": "Bullador <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "English Bulldog × Labrador — sturdy, calm, and devoted. Gets the Lab's friendliness with the Bulldog's laid-back vibe."
+  },
+  {
+    "n": "Bugg <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Boston Terrier × Pug — compact, comical, and social. The \"tuxedo dog\" meets the clown for pure apartment joy."
+  },
+  {
+    "n": "Gerberian Shepsky <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "German Shepherd × Siberian Husky — wolf-like beauty, striking eyes, fierce loyalty, and boundless energy."
+  },
+  {
+    "n": "Sheprador <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "German Shepherd × Labrador — intelligent, loyal, and endlessly versatile. Popular as police, service, and family dogs."
+  },
+  {
+    "n": "Pomapoo <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Pomeranian × Poodle — a living teddy bear. Fluffy, charming, and low-shedding with a feisty Pom personality."
+  },
+  {
+    "n": "Jug <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Jack Russell × Pug — the Pug's snorty charm meets the Jack Russell's spirited energy for a hilarious small companion."
+  },
+  {
+    "n": "Corgidor <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Corgi × Labrador — the Lab's friendliness with Corgi's herding wit. An athletic medium dog perfect for active homes."
+  },
+  {
+    "n": "Irish Doodle <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Irish Setter × Poodle — stunning auburn waves, elegant gait, and an outgoing personality that lights up every room."
+  },
+  {
+    "n": "Woodle <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Welsh Terrier × Poodle — alert, spirited, and low-shedding. An underrated gem for active families."
+  },
+  {
+    "n": "Pitsky <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Pitbull × Siberian Husky — powerful, striking blue eyes, and deeply loyal. Needs an experienced active owner."
+  },
+  {
+    "n": "Dalmadoodle <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Dalmatian × Poodle — spots meet curls for a striking, athletic dog that's low-shedding and endlessly energetic."
+  },
+  {
+    "n": "Chiweenie <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Chihuahua × Dachshund — spunky, bold, and long-bodied. The \"Mexican Hotdog\" is endearingly fearless."
+  },
+  {
+    "n": "Pomchi <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Pomeranian × Chihuahua — tiny, fluffy, and fiercely devoted. A big-dog personality crammed into a purse-dog body."
+  },
+  {
+    "n": "Peekapoo <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Pekingese × Poodle — one of the original designer dogs. Regal, cuddly, and low-shedding with ancient Chinese roots."
+  },
+  {
+    "n": "Cavapoochon <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Cavalier × Bichon Frise × Poodle — the \"forever puppy.\" Triple-hybrid that rarely sheds and ages with puppy-like looks."
+  },
+  {
+    "n": "Beabull <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Beagle × English Bulldog — sturdy and curious with a wrinkled nose and a gentle, easy-going personality."
+  },
+  {
+    "n": "Scoodle <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Scottish Terrier × Poodle — bold, dignified, and low-shedding. The Scottie's feisty independence meets Poodle smarts."
+  },
+  {
+    "n": "Airedoodle <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Airedale Terrier × Poodle — brave, smart, and athletic. The \"King of Terriers\" meets the world's most intelligent dog."
+  },
+  {
+    "n": "Sammypoo <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Samoyed × Poodle — a fluffy white cloud of a dog with the Samoyed's eternal smile and a low-shedding Poodle coat."
+  },
+  {
+    "n": "Doberdoodle <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Doberman × Poodle — sleek, powerful, and razor-sharp. A low-shedding guardian with elite intelligence."
+  },
+  {
+    "n": "Horgi <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Corgi × Siberian Husky — fluffy, wolf-like, and comically low-slung. Viral-famous for its adorable proportions."
+  },
+  {
+    "n": "Aussiedor <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Australian Shepherd × Labrador — merle beauty meets Lab friendliness for a versatile, athletic family companion."
+  },
+  {
+    "n": "Pyredoodle <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Great Pyrenees × Poodle — a majestic white giant that's calm, protective, and surprisingly low-shedding."
+  },
+  {
+    "n": "Newfiedoodle <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Newfoundland × Poodle — a massive, gentle water-lover with a low-shedding coat. Born to be a therapy dog."
+  },
+  {
+    "n": "Goldmaraner <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Golden Retriever × Weimaraner — sleek, athletic, and strikingly beautiful. Made for outdoor adventures and loyal companionship."
+  },
+  {
+    "n": "Rottsky <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Rottweiler × Siberian Husky — powerful, wolf-like, and intensely loyal. A striking mix for experienced dog owners."
+  },
+  {
+    "n": "Lhasapoo <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Lhasa Apso × Poodle — an ancient Tibetan watchdog meets Poodle brains. Calm, loyal, and surprisingly assertive."
+  },
+  {
+    "n": "Pooton <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Poodle × Coton de Tulear — rare, cotton-soft, and hypoallergenic. A gentle companion with an angelic white coat."
+  },
+  {
+    "n": "Rottle <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Rottweiler × Poodle — a powerful guardian with a low-shedding curly coat. Intelligent, brave, and deeply loyal."
+  },
+  {
+    "n": "Mastidoodle <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Mastiff × Poodle — a gentle giant with a low-shedding coat. Calm, courageous, and utterly devoted to family."
+  },
+  {
+    "n": "Great Danoodle <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Great Dane × Poodle — towering, graceful, and low-shedding. The \"Apollo of Dogs\" reimagined with Poodle intelligence."
+  },
+  {
+    "n": "Weimardoodle <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Weimaraner × Poodle — the \"Gray Ghost\" meets curly intelligence. A sleek, athletic dog with minimal shedding."
+  },
+  {
+    "n": "Beagador <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Beagle × Labrador — two of America's most-loved breeds in one. Friendly, curious, and a nose that never quits."
+  },
+  {
+    "n": "Chusky <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Chow Chow × Siberian Husky — a lion-maned, wolf-like dog with a proud, independent spirit and striking looks."
+  },
+  {
+    "n": "Froodle <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "French Bulldog × Poodle — bat ears meet curly charm. Low-shedding, apartment-ideal, and hilariously entertaining."
+  },
+  {
+    "n": "Corman Shepherd <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Corgi × German Shepherd — a foxlike herder with the GSD's loyalty and protective instincts in a compact frame."
+  },
+  {
+    "n": "Akita Shepherd <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Akita × German Shepherd — dignified, powerful, and fiercely loyal. A formidable working dog with ancient Japanese roots."
+  },
+  {
+    "n": "Gollie <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Golden Retriever × Collie — two of the most beloved breeds combined. Beautiful, intelligent, and endlessly gentle."
+  },
+  {
+    "n": "Husky Inu <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Siberian Husky × Shiba Inu — two spitz breeds combine for a fox-like, independent, and strikingly beautiful dog."
+  },
+  {
+    "n": "Pom-A-Pug <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Pomeranian × Pug — fluffy meets snorty for a comical, spirited little dog that loves being the life of the party."
+  },
+  {
+    "n": "Bagel Hound <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Basset Hound × Beagle — droopy ears, a world-class nose, and a perpetually sleepy expression. Endearingly slow-paced."
+  },
+  {
+    "n": "Bassador <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Basset Hound × Labrador — the Lab's friendly energy tempered by the Basset's laid-back, nose-first approach to life."
+  },
+  {
+    "n": "Huskimo <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "American Eskimo × Siberian Husky — two Arctic breeds united. Fluffy, bright-eyed, and built for cold-weather adventure."
+  },
+  {
+    "n": "Affenpoo <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Affenpinscher × Poodle — the \"Monkey Terrier\" meets curly intelligence. Scruffy, funny, and surprisingly low-shedding."
+  },
+  {
+    "n": "Bossipoo <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Boston Terrier × Poodle — a tuxedoed charmer with a low-shedding curl. Smart, alert, and perfectly apartment-sized."
+  },
+  {
+    "n": "Foodle <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Fox Terrier × Poodle — a wiry, quick-witted terrier with low-shedding Poodle curls. Alert, energetic, and endlessly curious."
+  },
+  {
+    "n": "Cairnoodle <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Cairn Terrier × Poodle — Toto's scrappy cousin with low-shedding curls. Plucky, smart, and always up for an adventure."
+  },
+  {
+    "n": "Spoodle <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "English Cocker Spaniel × Poodle — wavy, gentle, and keen. Australia's favourite family dog with a sporting heritage."
+  },
+  {
+    "n": "Labmaraner <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Labrador × Weimaraner — a sleek, high-energy athlete that bonds fiercely with family. A hunter's dog with a loving soul."
+  },
+  {
+    "n": "Flandoodle <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Bouvier des Flandres × Poodle — a powerful working dog with a low-shedding coat. Rare, intelligent, and deeply loyal."
+  },
+  {
+    "n": "Portidoodle <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Portuguese Water Dog × Poodle — double the water-loving, double the curl, and nearly zero shedding. Built for the coast."
+  },
+  {
+    "n": "Ratoodle <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Rat Terrier × Poodle — lightning-fast reflexes, low-shedding curls, and a farm-dog work ethic in a compact package."
+  },
+  {
+    "n": "Irish Wolfadoodle <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Irish Wolfhound × Poodle — among the tallest of all hybrids. A gentle, shaggy giant with a calm, sensitive soul."
+  },
+  {
+    "n": "Chow Shepherd <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Chow Chow × German Shepherd — a lion-maned, deeply loyal guardian that bonds intensely with its family."
+  },
+  {
+    "n": "Golden Mountain Dog <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Golden Retriever × Bernese Mountain Dog — a stunning tricolor teddy bear with the Golden's warmth and the Berner's calm strength."
+  },
+  {
+    "n": "Double Doodle <span style=\"font-size:.75em;color:var(--teal);font-weight:600\">Hybrid</span>",
+    "d": "Goldendoodle × Labradoodle — a triple-heritage doodle with Golden, Lab, and Poodle DNA. Gentle, low-shedding, and endlessly lovable."
+  }
+]

@@ -23,7 +23,9 @@ const HEALTH_TAG_ZH = {
   'BOAS (Breathing Issues)':'短头犬综合症（呼吸问题）',
   'Heat Sensitivity (serious)':'耐热性差（较严重）',
   'Spinal Issues (IVDD)':'脊椎问题（椎间盘疾病）',
-  'Patellar Luxation':'髌骨脱位','Dental Issues':'牙科问题',
+  'Patellar Luxation':'髌骨脱位','Patellar luxation':'髌骨脱位',
+  'Dental Issues':'牙科问题','Dental disease':'牙科疾病',
+  'Dental disease (crowded teeth in small mouths)':'牙科疾病（小嘴拥挤）',
   'Hypothyroidism':'甲状腺功能减退','Epilepsy':'癫痫',
   'von Willebrand\'s Disease':'血友病（冯·维勒布兰德病）',
   'Progressive Retinal Atrophy':'进行性视网膜萎缩',
@@ -41,35 +43,249 @@ const HEALTH_TAG_ZH = {
   'Brachycephalic Syndrome':'短头综合症',
   'Syringomyelia':'脊髓空洞症','Chiari Malformation':'小脑扁桃体下疝畸形',
   'Breathing Problems':'呼吸问题','Respiratory Issues':'呼吸道问题',
-  'Tracheal Collapse':'气管塌陷','Luxating Patella':'髌骨滑脱',
+  'Tracheal Collapse':'气管塌陷','Tracheal collapse':'气管塌陷',
+  'Luxating Patella':'髌骨滑脱',
   'Autoimmune Disease':'自身免疫性疾病','Thyroid Issues':'甲状腺问题',
   'Hemangiosarcoma':'血管肉瘤','Osteosarcoma':'骨肉瘤',
   'Von Willebrand Disease':'血管性血友病',
+  'Hypoglycemia':'低血糖症',
+  'Hypoglycemia in very small individuals':'超小体型个体低血糖',
+  'Obesity (if under-exercised)':'运动不足导致的肥胖',
+  'Portosystemic Shunt':'门体分流（肝脏血管异常）',
+  'Legg-Perthes Disease':'莱格-佩尔特斯病',
+  'Corneal Dystrophy':'角膜营养不良',
+  'Retinal Dysplasia':'视网膜发育不良',
+  'Sebaceous Adenitis':'皮脂腺炎',
+  'Subaortic Stenosis':'主动脉瓣下狭窄',
+  'Mitral Valve Disease':'二尖瓣疾病',
+  'Patent Ductus Arteriosus':'动脉导管未闭',
+  'Wobbler Syndrome':'摇摆综合症',
+  'Laryngeal Paralysis':'喉麻痹',
+  'Anal Gland Issues':'肛腺问题',
+  'Foot-and-Mouth Sensitivity':'足部及口腔敏感',
+  'Exercise-Induced Collapse':'运动诱发性虚脱',
+  'Juvenile Cataracts':'幼年白内障',
+  'Diabetes':'糖尿病',
+  'Kidney Disease':'肾脏疾病',
+  'Liver Shunt':'肝脏分流',
+  'Megaesophagus':'食道扩张',
+  'Muscular Dystrophy':'肌肉萎缩症',
+  'Cerebellar Ataxia':'小脑共济失调',
+  'Nasal Solar Dermatitis':'鼻部日光性皮炎',
+  'Inflammatory Bowel Disease':'炎症性肠病',
+  'Hemophilia':'血友病',
+  // dangerous foods (also in health-tags)
+  'Chocolate':'巧克力',
+  'Grapes &amp; Raisins':'葡萄与葡萄干',
+  'Onions &amp; Garlic':'洋葱与大蒜',
+  'Xylitol (artificial sweetener)':'木糖醇（人工甜味剂）',
+  'Macadamia Nuts':'夏威夷果',
+  'Alcohol':'酒精',
+  'Avocado':'牛油果',
+  'Raw yeast dough':'生酵母面团',
+  'Coffee &amp; Caffeine':'咖啡与咖啡因',
+  'Cooked bones':'熟骨头',
+  'Raisins':'葡萄干',
 };
+
+// ── Trait name translations ───────────────────────────────────────────────
+const TRAIT_ZH = {
+  'Energy Level':'活力水平',
+  'Affection':'亲和力',
+  'Affection Level':'亲和力',
+  'Good with Kids':'适合儿童',
+  'Good with Dogs':'与其他犬相处',
+  'Trainability':'训练性',
+  'Grooming Needs':'美容需求',
+  'Shedding':'掉毛量',
+  'Friendliness':'友善度',
+  'Barking':'吠叫倾向',
+  'Adaptability':'适应性',
+  'Intelligence':'智力',
+  'Playfulness':'活泼程度',
+  'Protectiveness':'保护欲',
+};
+
+// ── Value translations (info-box values, quick stats, sidebar) ────────────
+function translateVal(v) {
+  if (!v) return v;
+  // Multi-word phrases FIRST (before single-word replacements that could partially match)
+  v = v.replace(/\bMonkey Terrier\b/g,'猴子梗').replace(/\bBull Terrier\b/g,'斗牛梗')
+       .replace(/\bRat Terrier\b/g,'猎鼠梗').replace(/\bFox Terrier\b/g,'猎狐梗')
+       .replace(/\bToy Terrier\b/g,'玩具梗').replace(/\bWire Terrier\b/g,'刚毛梗')
+       .replace(/\bBoston Terrier\b/g,'波士顿梗').replace(/\bYorkshire Terrier\b/g,'约克夏梗')
+       .replace(/\bSkye Terrier\b/g,'史凯梗').replace(/\bCairn Terrier\b/g,'凯恩梗')
+       .replace(/\bBorder Terrier\b/g,'边境梗').replace(/\bWelsh Terrier\b/g,'威尔士梗')
+       .replace(/\bScottish Terrier\b/g,'苏格兰梗').replace(/\bWest Highland Terrier\b/g,'西高地白梗')
+       .replace(/\bAiredale Terrier\b/g,'万能梗').replace(/\bBedlington Terrier\b/g,'贝德灵顿梗')
+       .replace(/\bSoft Coated Wheaten Terrier\b/g,'软毛麦色梗')
+       .replace(/\bStaffordshire Bull Terrier\b/g,'斯坦福斗牛梗');
+  // AKC Groups
+  v = v.replace(/\bNon-Sporting Group\b/g,'非运动犬组').replace(/\bHerding Group\b/g,'牧羊犬组')
+       .replace(/\bWorking Group\b/g,'工作犬组').replace(/\bSporting Group\b/g,'运动犬组')
+       .replace(/\bHound Group\b/g,'猎犬组').replace(/\bTerrier Group\b/g,'梗犬组')
+       .replace(/\bToy Group\b/g,'玩具犬组').replace(/\bNon-Sporting\b/g,'非运动犬组')
+       .replace(/\bHerding\b/g,'牧羊犬组').replace(/\bWorking\b/g,'工作犬组')
+       .replace(/\bSporting\b/g,'运动犬组').replace(/\bHound\b/g,'猎犬组')
+       .replace(/\bTerrier\b/g,'梗犬组').replace(/\bToy\b/g,'玩具犬组')
+       .replace(/\bFoundation Stock\b/g,'基础种群').replace(/\bMiscellaneous\b/g,'杂项犬组');
+  // Bred For / purpose
+  v = v.replace(/\bCompanionship\b/g,'伴侣犬').replace(/\bHunting\b/g,'狩猎')
+       .replace(/\bRetrieving\b/g,'寻回').replace(/\bPointing\b/g,'指示')
+       .replace(/\bGuarding\b/g,'守卫').replace(/\bGuard\b/g,'守卫')
+       .replace(/\bTrailing\b/g,'追踪').replace(/\bTracking\b/g,'追踪')
+       .replace(/\bSledding\b/g,'拉雪橇').replace(/\bRatting\b/g,'捕鼠')
+       .replace(/\bEarth work\b/g,'地穴工作').replace(/\bDraft work\b/g,'拉车')
+       .replace(/\bWater Retrieving\b/g,'水中寻回').replace(/\bFarm work\b/g,'农场工作')
+       .replace(/\bHerding livestock\b/g,'牧畜').replace(/\bApartment companion\b/g,'公寓伴侣')
+       .replace(/\bTruffle hunting\b/g,'松露探寻').replace(/\bAssistance\b/g,'辅助工作')
+       .replace(/\bPolice work\b/g,'警察工作').replace(/\bMilitary\b/g,'军事工作')
+       .replace(/\bSearch and rescue\b/g,'搜救').replace(/\bAgilty\b/g,'敏捷运动')
+       .replace(/\bCompanion\b/g,'伴侣犬').replace(/\bRatting\b/g,'捕鼠');
+  // Coat types
+  v = v.replace(/Short, smooth, easy-care/g,'短毛，光滑，易打理')
+       .replace(/Short, smooth, fine-textured/g,'短毛，光滑，质地细腻')
+       .replace(/Short, smooth/g,'短毛，光滑').replace(/Short and smooth/g,'短毛光滑')
+       .replace(/Long, silky/g,'长毛，丝滑').replace(/Long and silky/g,'长毛丝滑')
+       .replace(/\bDouble coat\b/g,'双层毛').replace(/\bDouble-coated\b/g,'双层毛')
+       .replace(/\bWirecoat\b/g,'刚毛').replace(/\bWiry\b/g,'刚毛')
+       .replace(/\bCurly\b/g,'卷毛').replace(/\bWavy\b/g,'波浪毛')
+       .replace(/\bSilky\b/g,'丝滑').replace(/\bSilky coat\b/g,'丝质毛发')
+       .replace(/\beasy-care\b/g,'易打理').replace(/\bfine-textured\b/g,'质地细腻')
+       .replace(/\bHypoallergenic\b/g,'低过敏').replace(/\bWaterproof\b/g,'防水')
+       .replace(/\bDense\b/g,'浓密').replace(/\bThick\b/g,'厚实')
+       .replace(/\bShaggy\b/g,'蓬乱').replace(/\bFluffy\b/g,'毛茸茸')
+       .replace(/\bCorded\b/g,'绳状毛').replace(/\bFeathering\b/g,'饰毛')
+       .replace(/short$/i,'短毛').replace(/long$/i,'长毛')
+       .replace(/\bSmooth coat\b/g,'光滑短毛').replace(/\bSmooth\b/g,'光滑短毛')
+       .replace(/harsh texture/g,'粗硬质地').replace(/\bwiry\b/g,'刚毛')
+       .replace(/\bshaggy\b/g,'蓬乱').replace(/predominantly/g,'主要为')
+       .replace(/\bbelge\b/g,'杂色');
+  // Units
+  v = v.replace(/(\d+)\s*–\s*(\d+)\s*(?:lbs?|pounds?)/g,'$1–$2磅')
+       .replace(/(\d+)\+\s*(?:lbs?|pounds?)/g,'$1磅以上')
+       .replace(/[Uu]nder\s*(\d+)\s*(?:lbs?|pounds?)/g,'$1磅以下')
+       .replace(/(\d+)\s*(?:lbs?|pounds?)/g,'$1磅')
+       .replace(/(\d[\d.–-]+)\s*years?/g,'$1年')
+       .replace(/(\d[\d.–-]+)\s*yrs?/g,'$1年')
+       .replace(/(\d+)\s*–\s*(\d+)[""]/g,'$1–$2英寸')
+       .replace(/(\d+)[""]/g,'$1英寸')
+       .replace(/(\d+)\s*–\s*(\d+)\s*inches?/g,'$1–$2英寸')
+       .replace(/(\d+)\s*inches?/g,'$1英寸');
+  // Size categories
+  v = v.replace(/\bSmall\s*\(/g,'小型犬（').replace(/\bMedium\s*\(/g,'中型犬（')
+       .replace(/\bLarge\s*\(/g,'大型犬（').replace(/\bGiant\s*\(/g,'超大型犬（')
+       .replace(/\bSmall\b/g,'小型犬').replace(/\bMedium\b/g,'中型犬')
+       .replace(/\bLarge\b/g,'大型犬').replace(/\bGiant\b/g,'超大型犬')
+       .replace(/\bVaries\b/g,'多种尺寸');
+  // Risk/tolerance descriptions
+  v = v.replace(/High — pet insurance strongly recommended/g,'高——强烈建议购买宠物保险')
+       .replace(/High \(brachycephalic\)/g,'高（短头犬综合症）')
+       .replace(/Low — keep in A\/C/g,'低——需要空调降温')
+       .replace(/Low — keep cool/g,'低——需保持凉爽')
+       .replace(/High — manage carefully/g,'高——需特别注意')
+       .replace(/Moderate — monitor in summer/g,'适中——夏季需注意')
+       .replace(/\bVery High\b/g,'非常高').replace(/\bVery Low\b/g,'非常低')
+       .replace(/\bHigh\b/g,'高').replace(/\bLow\b/g,'低')
+       .replace(/\bModerate\b/g,'适中').replace(/\bExcellent\b/g,'优秀')
+       .replace(/\bGood\b/g,'良好').replace(/\bFair\b/g,'一般');
+  // Yes/No
+  v = v.replace(/Yes — perfect city dog/g,'是——完美的城市犬')
+       .replace(/Yes — excellent apartment dog/g,'是——优秀的公寓犬')
+       .replace(/Yes — moderate exercise; adapts well to small spaces/g,'是——运动量适中，适应小空间')
+       .replace(/moderate exercise; adapts well to small spaces/g,'运动量适中，适应小空间')
+       .replace(/\bYes\b/g,'是').replace(/\bNo\b/g,'否');
+  // Colors
+  v = v.replace(/\bMany colors\b/g,'多种颜色').replace(/\bVarious\b/g,'多种')
+       .replace(/\bMultiple\b/g,'多种').replace(/\bAll colors\b/g,'所有颜色')
+       .replace(/\bBrindle\b/g,'虎斑').replace(/\bFawn\b/g,'黄褐')
+       .replace(/\bBlack\b/g,'黑色').replace(/\bWhite\b/g,'白色')
+       .replace(/\bCream\b/g,'奶油色').replace(/\bPied\b/g,'花斑')
+       .replace(/\bBlue\/grey\b/g,'蓝/灰').replace(/\bBlue\b/g,'蓝色')
+       .replace(/\bRed\b/g,'红色').replace(/\bGolden\b/g,'金色')
+       .replace(/\bSilver\b/g,'银色').replace(/\bChocolate\b/g,'巧克力色')
+       .replace(/\bLiver\b/g,'肝色').replace(/\bSable\b/g,'黑貂色')
+       .replace(/\bMerle\b/g,'花斑').replace(/\bTricolor\b/g,'三色')
+       .replace(/\bBicolor\b/g,'双色').replace(/\bTan\b/g,'黄褐')
+       .replace(/\bgrey\b/g,'灰色').replace(/\bGrey\b/g,'灰色')
+       .replace(/most common/g,'最常见').replace(/mix of/g,'混合');
+  // AKC Rank common phrases
+  v = v.replace(/ Most Popular/g,' 最受欢迎').replace(/\bRare\b/g,'稀有犬种')
+       .replace(/#(\d+) most popular/g,'第$1名最受欢迎');
+  // Meal frequency
+  v = v.replace(/(\d+)[–-](\d+) small meals\/day/g,'每天$1–$2次小餐')
+       .replace(/(\d+) meals\/day/g,'每天$1餐')
+       .replace(/(\d+) smaller meals\/day/g,'每天$1次小餐')
+       .replace(/3–4 small meals per day/g,'每天3–4次小餐')
+       .replace(/3 meals per day/g,'每天3餐')
+       .replace(/2 meals per day/g,'每天2餐')
+       .replace(/2 smaller meals per day/g,'每天2次小餐');
+  // Also Known As / nicknames
+  v = v.replace(/\bFrenchie\b/g,'法斗').replace(/\bLab\b/g,'拉布拉多')
+       .replace(/\bGoldie\b/g,'金毛')
+       .replace(/\bDachsie\b/g,'腊肠').replace(/\bWeimaraner\b/g,'威玛猎犬');
+  // Country names (origin field)
+  v = v.replace(/\bGermany\b/g,'德国').replace(/\bFrance\b/g,'法国')
+       .replace(/\bEngland\b/g,'英国').replace(/\bGreat Britain\b/g,'英国')
+       .replace(/\bScotland\b/g,'苏格兰').replace(/\bIreland\b/g,'爱尔兰')
+       .replace(/\bBelgium\b/g,'比利时').replace(/\bNetherlands\b/g,'荷兰')
+       .replace(/\bSpain\b/g,'西班牙').replace(/\bPortugal\b/g,'葡萄牙')
+       .replace(/\bItaly\b/g,'意大利').replace(/\bSwitzerland\b/g,'瑞士')
+       .replace(/\bAustria\b/g,'奥地利').replace(/\bCzechoslovakia\b/g,'捷克斯洛伐克')
+       .replace(/\bPoland\b/g,'波兰').replace(/\bRussia\b/g,'俄罗斯')
+       .replace(/\bHungary\b/g,'匈牙利').replace(/\bCroatia\b/g,'克罗地亚')
+       .replace(/\bDalmatia\b/g,'达尔马提亚').replace(/\bAustralia\b/g,'澳大利亚')
+       .replace(/\bNew Zealand\b/g,'新西兰').replace(/\bCanada\b/g,'加拿大')
+       .replace(/\bUnited States\b/g,'美国').replace(/\bUSA\b/g,'美国')
+       .replace(/\bCuba\b/g,'古巴').replace(/\bMexico\b/g,'墨西哥')
+       .replace(/\bChina\b/g,'中国').replace(/\bJapan\b/g,'日本')
+       .replace(/\bKorea\b/g,'韩国').replace(/\bTibet\b/g,'西藏')
+       .replace(/\bAfghanistan\b/g,'阿富汗').replace(/\bArabia\b/g,'阿拉伯')
+       .replace(/\bEgypt\b/g,'埃及').replace(/\bAfrica\b/g,'非洲')
+       .replace(/\bEthiopia\b/g,'埃塞俄比亚').replace(/\bMali\b/g,'马里')
+       .replace(/\bMorocco\b/g,'摩洛哥').replace(/\bNorway\b/g,'挪威')
+       .replace(/\bSweden\b/g,'瑞典').replace(/\bDenmark\b/g,'丹麦')
+       .replace(/\bFinland\b/g,'芬兰').replace(/\bIceland\b/g,'冰岛')
+       .replace(/\bSiberia\b/g,'西伯利亚').replace(/\bGreece\b/g,'希腊')
+       .replace(/\bTurkey\b/g,'土耳其').replace(/\bIndia\b/g,'印度')
+       .replace(/\bSamoyed Peninsula\b/g,'萨摩耶半岛')
+       .replace(/\bUnited Kingdom\b/g,'英国');
+  // Food/portion amounts keep as-is (numbers with cups)
+  return v;
+}
+
+function translateQuickStat(val, label) {
+  if (!val || val.startsWith('★')) return val;
+  let v = val;
+  if (label === 'Weight' || label === '体重') {
+    v = v.replace(/Under (\d+) lbs?/g,'$1磅以下')
+         .replace(/(\d+)[–-](\d+) lbs?/g,'$1–$2磅')
+         .replace(/(\d+)\+ lbs?/g,'$1磅以上')
+         .replace(/\bVaries\b/g,'因体型而异');
+  } else if (label === 'Height' || label === '身高') {
+    v = v.replace(/(\d+)[–-](\d+)"/g,'$1–$2英寸').replace(/(\d+)"/g,'$1英寸');
+  } else if (label === 'Lifespan' || label === '寿命') {
+    v = v.replace(/(\d+)[–-](\d+) (?:years?|yrs?)/g,'$1–$2年')
+         .replace(/(\d+)\+ (?:years?|yrs?)/g,'$1年以上');
+  } else if (label === 'Energy' || label === '活力') {
+    v = translateVal(v);
+  } else if (label === 'Colors' || label === '颜色') {
+    v = translateVal(v);
+  }
+  return v;
+}
 
 // ── Common phrase translations ─────────────────────────────────────────────
 const PHRASES = {
-  // Diet tab section headings
-  'Best Foods for':'最佳食品',
-  'Foods Dangerous for Dogs':'狗狗危险食物',
   'Healthy Treats':'健康零食',
-  // Cost tab headings
-  'How Much Does a':'购买',
-  'Cost?':'需要多少钱？',
-  'Monthly Cost of Owning a':'养',
   'Lifetime Cost Estimate':'终生费用估算',
-  'How to Save Money as a':'省钱建议',
-  // Common section h2 patterns
-  'Amazing Facts About':'关于',
-  'Facts':'的趣味知识',
   'Popular':'热门',
   'Mix Breeds':'混血犬种',
-  // Dangerous foods
   'Chocolate':'巧克力','Grapes &amp; Raisins':'葡萄与葡萄干',
   'Onions &amp; Garlic':'洋葱与大蒜','Xylitol (artificial sweetener)':'木糖醇（人工甜味剂）',
   'Macadamia Nuts':'夏威夷果','Alcohol':'酒精','Avocado':'牛油果',
   'Raw yeast dough':'生酵母面团','Coffee &amp; Caffeine':'咖啡与咖啡因',
-  'Grapes &amp; Raisins':'葡萄与葡萄干','Raisins':'葡萄干',
+  'Raisins':'葡萄干',
 };
 
 // ── Data extraction ────────────────────────────────────────────────────────
@@ -165,13 +381,13 @@ function groupContext(group) {
 // ── Generate full Chinese HTML for profile tab ─────────────────────────────
 function genProfileTab(data, zhName, enName) {
   const { traits:T, infoBoxes:I, healthTags, quickStats:Q, compat:C } = data;
-  const origin = I['Origin'] || '未知地区';
-  const group  = I['AKC Group'] || I['Group'] || '';
-  const bredFor = I['Bred For'] || '陪伴';
-  const coatType = I['Coat Type'] || '';
-  const groupZh = GROUP_ZH[group] || group || '犬';
-  const lifespan = Q['Lifespan'] || I['Average Lifespan'] || '10–13年';
-  const weight   = Q['Weight'] || '';
+  const origin   = translateVal(I['Origin'] || '未知地区');
+  const group    = I['AKC Group'] || I['Group'] || '';
+  const bredFor  = translateVal(I['Bred For'] || '陪伴');
+  const coatType = translateVal(I['Coat Type'] || '');
+  const groupZh  = GROUP_ZH[group] || translateVal(group) || '犬';
+  const lifespan = translateVal(Q['Lifespan'] || I['Average Lifespan'] || '10–13年');
+  const weight   = translateQuickStat(Q['Weight'] || '', 'Weight');
   const energy   = T['Energy Level'] || 3;
   const trainability = T['Trainability'] || 3;
   const grooming = T['Grooming Needs'] || 2;
@@ -180,21 +396,23 @@ function genProfileTab(data, zhName, enName) {
   const barking  = T['Barking'] || 2;
   const shedding = T['Shedding'] || 2;
 
-  // Apartment suitability text
   const aptStars = C['Apartment'] || 3;
   const aptText  = aptStars>=4 ? '非常适合公寓生活' : aptStars>=3 ? '较适合公寓生活' : '更适合有院子的家庭';
   const firstText = C['First-Time Owner']>=4 ? '非常适合新手主人' : C['First-Time Owner']>=3 ? '较适合有一定经验的主人' : '建议有经验的主人饲养';
 
   // Health tags translated
-  const healthTagsZh = healthTags.map(t => HEALTH_TAG_ZH[t] || t);
+  const healthTagsZh = healthTags
+    .filter(t => !['Chocolate','Grapes & Raisins','Grapes &amp; Raisins','Onions & Garlic','Onions &amp; Garlic',
+                    'Xylitol (artificial sweetener)','Macadamia Nuts','Alcohol','Avocado','Raw yeast dough',
+                    'Coffee & Caffeine','Coffee &amp; Caffeine','Raisins','Cooked bones'].includes(t))
+    .map(t => HEALTH_TAG_ZH[t] || t);
+  const dangerFoodsZh = ['巧克力','葡萄与葡萄干','洋葱与大蒜','木糖醇（人工甜味剂）','夏威夷果','酒精','牛油果','生酵母面团'];
 
-  // Info box labels for health section
-  const vetCost = I['Vet Cost Risk'] || '';
-  const breathRisk = I['Breathing Risk'] || '';
-  const heatTol = I['Heat Tolerance'] || '';
-  const avgLifespan = I['Average Lifespan'] || lifespan;
+  const vetCost    = translateVal(I['Vet Cost Risk'] || '');
+  const breathRisk = translateVal(I['Breathing Risk'] || '');
+  const heatTol    = translateVal(I['Heat Tolerance'] || '');
+  const avgLifespan = translateVal(I['Average Lifespan'] || lifespan);
 
-  const compat_kids_zh = kidsDesc(C['With Kids'] || kids);
   const compat_apt_zh = C['Apartment']>=4 ? '极适合公寓和城市生活' : C['Apartment']>=3 ? '适合公寓生活' : '适合有院子的郊区住宅';
 
   return `
@@ -278,6 +496,10 @@ function genProfileTab(data, zhName, enName) {
             ${breathRisk?`<div class="info-box"><div class="info-box-label">呼吸风险</div><div class="info-box-value">${breathRisk}</div></div>`:''}
             ${heatTol?`<div class="info-box"><div class="info-box-label">耐热能力</div><div class="info-box-value">${heatTol}</div></div>`:''}
           </div>
+          <h3 style="margin-top:20px;font-size:1rem;color:var(--text-dark)">🚫 对${zhName}有危险的食物</h3>
+          <div class="health-tags">
+            ${dangerFoodsZh.map(t=>`<span class="health-tag">${t}</span>`).join('\n            ')}
+          </div>
         </div>
 
         <div class="breed-section">
@@ -296,15 +518,16 @@ function genProfileTab(data, zhName, enName) {
 
 // ── Diet tab Chinese content ───────────────────────────────────────────────
 function genDietTab(html, zhName, data) {
-  // Extract diet feeding data from original HTML
   const dietSection = (html.match(/id="tab-diet">([\s\S]*?)<!--\s*end tab-diet/) || [])[1] || '';
 
-  // Translate ALL section headings (many patterns)
   let out = dietSection
     .replace(/<h2>🍽️ How Much to Feed a [^<]+<\/h2>/g, `<h2>🍽️ ${zhName}每日喂食量</h2>`)
+    .replace(/<h2>📏 Daily Portion Guide by Weight<\/h2>/g, '<h2>📏 按体重划分的每日喂食量参考</h2>')
     .replace(/<h2>📏 Daily Portion Guide<\/h2>/g, '<h2>📏 每日喂食量参考</h2>')
     .replace(/<h2>✅ Best Foods for [^<]+<\/h2>/g, `<h2>✅ ${zhName}最佳食品推荐</h2>`)
+    .replace(/<h2>🚫 Foods(?: That Are)? Dangerous for [^<]+<\/h2>/g, '<h2>🚫 对狗狗有危险的食物</h2>')
     .replace(/<h2>🚫 Foods Dangerous for Dogs<\/h2>/g, '<h2>🚫 狗狗危险食物</h2>')
+    .replace(/<h2>🦴 Healthy Treats for [^<]+<\/h2>/g, '<h2>🦴 健康零食推荐</h2>')
     .replace(/<h2>🦴 Healthy Treats<\/h2>/g, '<h2>🦴 健康零食</h2>')
     .replace(/<h2>💡 Feeding Tips?<\/h2>/g, '<h2>💡 喂食建议</h2>')
     .replace(/<h2>📊 [^<]+ Feeding Schedule<\/h2>/g, '<h2>📊 喂食时间表</h2>')
@@ -316,7 +539,7 @@ function genDietTab(html, zhName, data) {
     .replace(/<h2>🥩 Recommended Diet<\/h2>/g, '<h2>🥩 推荐饮食</h2>')
     .replace(/<h2>⚠️ Foods to Avoid<\/h2>/g, '<h2>⚠️ 应避免的食物</h2>');
 
-  // Translate table headers
+  // Table headers
   out = out
     .replace(/<th>Life Stage<\/th>/g, '<th>生长阶段</th>')
     .replace(/<th>Daily Amount<\/th>/g, '<th>每日用量</th>')
@@ -327,7 +550,7 @@ function genDietTab(html, zhName, data) {
     .replace(/<th>Meals\/Day<\/th>/g, '<th>每日餐数</th>')
     .replace(/<th>Portion<\/th>/g, '<th>每份用量</th>');
 
-  // Translate table cells - life stages
+  // Table cells - life stages
   out = out
     .replace(/Mini Puppy \(2[–-]12 mo\)/g, '迷你幼犬（2-12个月）')
     .replace(/Standard Puppy \(2[–-]12 mo\)/g, '标准幼犬（2-12个月）')
@@ -348,51 +571,45 @@ function genDietTab(html, zhName, data) {
     .replace(/adjust for activity level/g, '根据活动量调整')
     .replace(/watch for weight gain/g, '注意体重增长');
 
-  // Translate cost table cells
+  // Info-box labels in diet
   out = out
-    .replace(/Puppy from Breeder/g, '从繁育者购买幼犬')
-    .replace(/Monthly Food/g, '每月食物费用')
-    .replace(/Annual Vet Care/g, '每年兽医费用')
-    .replace(/Grooming \(annual\)/g, '美容费用（每年）')
-    .replace(/Pet Insurance/g, '宠物保险')
-    .replace(/Training Classes/g, '训练课程')
-    .replace(/Toys &amp; Supplies/g, '玩具和用品');
-
-  // Translate info-box h3 inside diet
-  out = out
-    .replace(/<h3>💧 Hydration &amp; Treats<\/h3>/g, '<h3>💧 补水与零食</h3>')
-    .replace(/Always provide fresh water\. Keep treats to ≤10% of daily calories\. Avoid chocolate, grapes, onions, and xylitol — all toxic to dogs\./g,
-      '始终提供新鲜饮用水。零食应控制在每日卡路里的10%以内。避免喂食巧克力、葡萄、洋葱和木糖醇——这些对狗狗均有毒性。');
-
-  // Translate info-box labels in diet tab
-  out = out
-    .replace(/<div class="info-box-label">Puppy \(8[–-]12 weeks\)<\/div>/g,
+    .replace(/<div class="info-box-label">Puppy \(8[–-]12 weeks?\)<\/div>/g,
       '<div class="info-box-label">幼犬（8-12周）</div>')
-    .replace(/<div class="info-box-label">Puppy \(3[–-]6 months\)<\/div>/g,
+    .replace(/<div class="info-box-label">Puppy \(3[–-]6 months?\)<\/div>/g,
       '<div class="info-box-label">幼犬（3-6个月）</div>')
-    .replace(/<div class="info-box-label">Adult \(1\+ year\)<\/div>/g,
+    .replace(/<div class="info-box-label">Adult \(1\+ years?\)<\/div>/g,
       '<div class="info-box-label">成犬（1岁以上）</div>')
-    .replace(/<div class="info-box-label">Senior \(7\+ years\)<\/div>/g,
+    .replace(/<div class="info-box-label">Senior \(7\+ years?\)<\/div>/g,
       '<div class="info-box-label">老年犬（7岁以上）</div>')
-    .replace(/<div class="info-box-label">Puppy \(2[–-]3 months\)<\/div>/g,
+    .replace(/<div class="info-box-label">Puppy \(2[–-]3 months?\)<\/div>/g,
       '<div class="info-box-label">幼犬（2-3个月）</div>');
 
-  // Translate intro paragraphs
+  // Weight-based portion labels like "5 lbs (inactive)"
   out = out
-    .replace(/Portion control is one of the most important things you can do for your [^<']+ long-term health\. Use these as starting guidelines and adjust based on your individual dog's body condition score\./g,
-      `控制食量是维护${zhName}长期健康最重要的事情之一。以下为参考标准，请根据您的狗狗实际体况评分进行调整。`)
-    .replace(/These amounts are based on a standard quality dry kibble[^<.]+\. Always check the feeding chart on your specific brand and adjust for your dog's activity level\./g,
-      '以上用量基于标准优质干粮（约350千卡/杯）。请务必参考您所选品牌的喂食指南，并根据狗狗的活动量进行调整。')
-    .replace(/Look for foods where the first ingredient is a named animal protein[^<.]+\. The best diets for this breed also address their specific health tendencies:/g,
-      `选择以具名动物蛋白质（如鸡肉、牛肉、三文鱼）为第一成分的狗粮。最适合该犬种的饮食方案还应考虑其特定的健康倾向：`)
-    .replace(/These common human foods can be toxic[^<.]+\. Keep them well out of reach\./g,
-      `以下常见人类食物对您的${zhName}可能有毒，甚至危及生命。请务必将其放在狗狗无法触及的地方。`);
+    .replace(/<div class="info-box-label">(\d+) lbs? \(inactive\)<\/div>/g,
+      (m,w) => `<div class="info-box-label">${w}磅（低活动量）</div>`)
+    .replace(/<div class="info-box-label">(\d+) lbs? \(average\)<\/div>/g,
+      (m,w) => `<div class="info-box-label">${w}磅（平均活动量）</div>`)
+    .replace(/<div class="info-box-label">(\d+) lbs? \(active\)<\/div>/g,
+      (m,w) => `<div class="info-box-label">${w}磅（较高活动量）</div>`)
+    .replace(/<div class="info-box-label">(\d+) lbs? \(very active\)<\/div>/g,
+      (m,w) => `<div class="info-box-label">${w}磅（高活动量）</div>`)
+    .replace(/<div class="info-box-label">(\d+)[–-](\d+) lbs? \(inactive\)<\/div>/g,
+      (m,a,b) => `<div class="info-box-label">${a}–${b}磅（低活动量）</div>`)
+    .replace(/<div class="info-box-label">(\d+)[–-](\d+) lbs? \(average\)<\/div>/g,
+      (m,a,b) => `<div class="info-box-label">${a}–${b}磅（平均活动量）</div>`)
+    .replace(/<div class="info-box-label">(\d+)[–-](\d+) lbs? \(active\)<\/div>/g,
+      (m,a,b) => `<div class="info-box-label">${a}–${b}磅（较高活动量）</div>`)
+    .replace(/<div class="info-box-label">(\d+)[–-](\d+) lbs? \(very active\)<\/div>/g,
+      (m,a,b) => `<div class="info-box-label">${a}–${b}磅（高活动量）</div>`);
 
-  // Translate food list items (dangerous foods)
+  // Translate dangerous food tags
   out = out
     .replace(/>Chocolate</g, '>巧克力<')
     .replace(/>Grapes &amp; Raisins</g, '>葡萄与葡萄干<')
+    .replace(/>Grapes & Raisins</g, '>葡萄与葡萄干<')
     .replace(/>Onions &amp; Garlic</g, '>洋葱与大蒜<')
+    .replace(/>Onions & Garlic</g, '>洋葱与大蒜<')
     .replace(/>Xylitol \(artificial sweetener\)</g, '>木糖醇（人工甜味剂）<')
     .replace(/>Macadamia Nuts</g, '>夏威夷果<')
     .replace(/>Alcohol</g, '>酒精<')
@@ -401,27 +618,65 @@ function genDietTab(html, zhName, data) {
     .replace(/>Coffee &amp; Caffeine</g, '>咖啡与咖啡因<')
     .replace(/>Cooked bones</g, '>熟骨头<');
 
-  // Translate healthy treats
+  // Healthy treats
   out = out
+    .replace(/Carrots — low calorie[^<]*/g, '胡萝卜——低卡路里，对牙齿有益')
     .replace(/Carrots — low calorie and great for teeth/g, '胡萝卜——低卡路里，对牙齿有益')
-    .replace(/Blueberries — antioxidants, dogs love them/g, '蓝莓——富含抗氧化剂，狗狗很喜欢')
-    .replace(/Plain cooked chicken or turkey \(no seasoning\)/g, '白煮鸡肉或火鸡肉（不加调料）')
-    .replace(/Apple slices \(remove seeds and core\)/g, '苹果片（去除种子和果核）')
-    .replace(/Green beans — filling and very low calorie/g, '四季豆——饱腹感强，卡路里极低')
-    .replace(/Commercial treats sized for your dog's weight class/g, '按狗狗体重选择适合尺寸的商业零食');
+    .replace(/Blueberries — antioxidants[^<]*/g, '蓝莓——富含抗氧化剂，狗狗很喜欢')
+    .replace(/Plain cooked chicken or turkey[^<]*/g, '白煮鸡肉或火鸡肉（不加调料）')
+    .replace(/Apple slices[^<]*/g, '苹果片（去除种子和果核）')
+    .replace(/Green beans[^<]*/g, '四季豆——饱腹感强，卡路里极低')
+    .replace(/Commercial treats sized[^<]*/g, '按狗狗体重选择适合尺寸的商业零食')
+    .replace(/Plain rice cakes[^<]*/g, '原味米饼——低卡路里的训练奖励')
+    .replace(/Carrots[^<—]*/g, '胡萝卜');
 
-  // Translate feeding tip boxes
+  // Boarding tip box
+  out = out.replace(
+    /<h4>💡 Tip: Boarding your [^<]+\?<\/h4>/g,
+    `<h4>💡 小提示：寄养${zhName}时</h4>`
+  );
+
+  // Translate tip boxes
   out = out
     .replace(/<h4>💡 Feeding tip for[^<]*<\/h4>/g,
       `<h4>💡 ${zhName}喂食建议</h4>`);
 
+  out = out.replace(
+    /<h3>💧 Hydration &amp; Treats<\/h3>/g, '<h3>💧 补水与零食</h3>'
+  );
+  out = out.replace(
+    /Always provide fresh water\. Keep treats to ≤10% of daily calories\. Avoid chocolate, grapes, onions, and xylitol — all toxic to dogs\./g,
+    '始终提供新鲜饮用水。零食应控制在每日卡路里的10%以内。避免喂食巧克力、葡萄、洋葱和木糖醇——这些对狗狗均有毒性。'
+  );
+
+  // Small-breed formula bullet items
+  out = out
+    .replace(/[Ss]mall[- ]breed[^<]*formula[^<]*sized kibble[^<]*/g,
+      '小型犬专用配方，颗粒大小适合小嘴型，便于咀嚼')
+    .replace(/[Ss]low feeders? prevent[^<]*/g,
+      '使用慢食碗可防止狗狗吞食过快，避免消化不适')
+    .replace(/[Oo]mega fatty acids? support[^<]*/g,
+      '富含Omega脂肪酸，有助于维护健康的毛发和皮肤')
+    .replace(/[Aa]void overfeeding[^<]*/g,
+      '避免过度喂食——多余的体重会给关节带来压力')
+    .replace(/[Ll]ook for[^<]*named animal protein[^<]*/g,
+      '选择以具名动物蛋白质（如鸡肉、牛肉、三文鱼）为首位成分的狗粮');
+
   // Catch-all: replace any remaining English intro paragraphs in diet tab
-  // (paragraphs with mostly ASCII content that weren't matched above)
   out = out.replace(/<p>([A-Z][^<]{60,})<\/p>/g, (m, text) => {
-    // Only replace if mostly ASCII (English text)
     const ascii = (text.match(/[\x20-\x7E]/g)||[]).length;
     if (ascii / text.length > 0.85) {
       return `<p>请根据您的${zhName}的体型、年龄和活动量调整每日喂食量。以下为参考标准，具体用量请参考所选品牌的喂食指南。</p>`;
+    }
+    return m;
+  });
+
+  // Catch-all: remaining English li items
+  out = out.replace(/<li>([A-Z][^<]{30,})<\/li>/g, (m, text) => {
+    const ascii = (text.match(/[\x20-\x7E]/g)||[]).length;
+    if (ascii / text.length > 0.85) {
+      const t = translateVal(text);
+      if (t !== text) return `<li>${t}</li>`;
     }
     return m;
   });
@@ -433,7 +688,6 @@ function genDietTab(html, zhName, data) {
 function genCostTab(html, zhName) {
   let out = (html.match(/id="tab-cost">([\s\S]*?)<!--\s*end tab-cost/) || [])[1] || '';
 
-  // Section headings (all patterns)
   out = out
     .replace(/<h2>💰 How Much Does a [^<]+ Cost\?<\/h2>/g,
       `<h2>💰 购买${zhName}需要多少钱？</h2>`)
@@ -448,13 +702,11 @@ function genCostTab(html, zhName) {
     .replace(/<h2>📊 Annual Cost Breakdown<\/h2>/g, '<h2>📊 年度费用明细</h2>')
     .replace(/<h2>📊 [^<]+ Annual Costs?<\/h2>/g, '<h2>📊 年度费用估算</h2>');
 
-  // Table headers for cost tables
   out = out
     .replace(/<th>Expense<\/th>/g, '<th>费用项目</th>')
     .replace(/<th>Estimated Cost<\/th>/g, '<th>估计费用</th>')
     .replace(/<th>Cost<\/th>/g, '<th>费用</th>');
 
-  // Table rows
   out = out
     .replace(/>Puppy from Breeder</g, '>从繁育者购买幼犬<')
     .replace(/>Monthly Food</g, '>每月食物费用<')
@@ -464,12 +716,6 @@ function genCostTab(html, zhName) {
     .replace(/>Training Classes</g, '>训练课程<')
     .replace(/>Toys &amp; Supplies</g, '>玩具和用品<');
 
-  // Intro texts
-  out = out
-    .replace(/The purchase price is just the beginning\. Here's a realistic breakdown of what it costs to buy and own a [^<.]+ over their lifetime\./g,
-      `购买价格只是开始。以下是购买和养育${zhName}的全面费用分析。`);
-
-  // Info-box labels
   out = out
     .replace(/<div class="info-box-label">Reputable Breeder<\/div>/g,
       '<div class="info-box-label">信誉繁育者</div>')
@@ -492,29 +738,85 @@ function genCostTab(html, zhName) {
     .replace(/<div class="info-box-label">Training classes<\/div>/g,
       '<div class="info-box-label">训练课程</div>');
 
-  // Translate tip boxes
   out = out
-    .replace(/<h4>💡 Money-saving tip<\/h4>/g, '<h4>💡 省钱建议</h4>')
-    .replace(/Pet insurance for a [^<.]+ costs[^<.]+\. This is not optional — it's essential\./g,
-      '宠物保险每月需花费一定费用，但当您的爱犬需要手术或治疗时，它可以为您节省大量开支。对于医疗费用风险较高的犬种，宠物保险不是可选项，而是必需品。');
+    .replace(/<h4>💡 Money-saving tip<\/h4>/g, '<h4>💡 省钱建议</h4>');
 
   // Translate cost list items
   out = out
-    .replace(/Boarding costs: plan[^<]+when you travel/g,
+    .replace(/Boarding costs: plan[^<]+when you travel[^<]*/g,
       '寄养费用：旅行时在优质设施处寄养通常需每晚一定费用')
     .replace(/Pet insurance is essentially mandatory/g, '宠物保险对于高风险犬种几乎是必须的')
-    .replace(/Pet insurance is worth it — it pays for itself if your dog needs surgery/g,
+    .replace(/Pet insurance is worth it[^<]*/g,
       '宠物保险物有所值——一旦需要手术，其价值将远超保费')
-    .replace(/Get pet insurance before your dog turns 1/g,
+    .replace(/Get pet insurance before your dog turns 1[^<]*/g,
       '在狗狗1岁前购买宠物保险——保费更低，排除条款更少')
-    .replace(/Buy food in bulk \(large bags\)/g,
+    .replace(/Buy food in bulk[^<]*/g,
       '批量购买狗粮（大包装）——每磅价格更划算')
-    .replace(/Learn basic grooming at home/g,
+    .replace(/Learn basic grooming at home[^<]*/g,
       '学习居家基础美容——在美容师处梳理和剪指甲费用可观')
-    .replace(/Ask your vet about annual wellness plans/g,
+    .replace(/Ask your vet about annual wellness plans[^<]*/g,
       '向兽医咨询年度健康计划——许多诊所提供套餐服务')
-    .replace(/Adopt instead of buying/g,
-      '选择领养而非购买——领养犬同样充满爱，费用仅为购买的一小部分');
+    .replace(/Adopt instead of buying[^<]*/g,
+      '选择领养而非购买——领养犬同样充满爱，费用仅为购买的一小部分')
+    .replace(/Use a rewards credit card[^<]*/g,
+      '使用积分信用卡支付较大笔兽医账单，获得返现或积分')
+    .replace(/First year is the most expensive[^<]*/g,
+      '第一年费用最高：购买/领养费用、疫苗、绝育/去势、初始用品')
+    .replace(/Budget extra for unexpected vet bills[^<]*/g,
+      '为意外兽医费用预留额外预算——任何犬种都可能发生意外')
+    .replace(/Pet insurance pays for itself[^<]*/g,
+      '宠物保险若您的狗狗需要手术或重大治疗，物有所值')
+    .replace(/The upfront cost of[^<]+beginning[^<]+\./g,
+      `购买${zhName}只是开始。以下是详细的费用分析，帮助您做好财务规划。`)
+    .replace(/Beyond the purchase price[^<]+month[^<]+\. Here's where the money goes:/g,
+      `除购买费用外，每月养育${zhName}平均花费在以下几个方面：`)
+    .replace(/Over a \d+[–-]\d+ year lifespan[^<]+total[^<]+—[^<]+\./g,
+      `在${zhName}的整个生命周期内，总花费因健康状况、生活方式和所选服务而有所不同。`);
+
+  // Translate paragraphs with <strong> price tags (monthly/lifetime cost)
+  out = out.replace(
+    /<p>Beyond the purchase price, owning a [^<]+(?:costs?|typically costs?) (?:between )?<strong>([^<]+)<\/strong>[^<]*\. Here's where the money goes:<\/p>/g,
+    (m, price) => `<p>除购买费用外，养育${zhName}每月平均花费约 <strong>${price}</strong>。以下是主要费用构成：</p>`
+  );
+  out = out.replace(
+    /<p>The upfront cost of (?:a|an) [^<]+ is just the beginning\.[^<]+<\/p>/g,
+    `<p>购买${zhName}只是开始。以下是购买和养育${zhName}的全面费用分析。</p>`
+  );
+  out = out.replace(
+    /<p>Over a ([\d–\-]+)[- ](?:to[- ])?([\d]+)?[- ]?year lifespan, (?:a|an) [^<]+ typically costs? (?:between )?<strong>([^<]+)<\/strong>[^<]*\.<\/p>/g,
+    (m, y1, y2, cost) => `<p>在${y1}${y2?'–'+y2:''}年的生命周期内，养育${zhName}的总花费约为 <strong>${cost}</strong>，具体取决于健康状况、生活方式及所选服务。</p>`
+  );
+
+  // Translate travel-tip-box paragraphs (insurance/saving tips)
+  out = out.replace(
+    /<p>Pet insurance is worth considering for any breed\. Buying before your dog turns 1[^<]+\. Compare 2[^<]+\.<\/p>/g,
+    '<p>任何犬种都值得考虑宠物保险。在狗狗满1岁前购买可获得最低保费和最少的既往症排除条款。建议对比2-3家保险商后再决定。</p>'
+  );
+
+  // Translate monthly/year suffixes in info-box values
+  out = out.replace(/(\$[\d,\s–-]+)\/month/g, '$1/月');
+  out = out.replace(/(\$[\d,\s–-]+)\/year/g, '$1/年');
+  out = out.replace(/\(one-time\)/g, '（一次性费用）');
+
+  // Catch-all for remaining English paragraphs (no HTML tags)
+  out = out.replace(/<p>([A-Z][^<]{60,})<\/p>/g, (m, text) => {
+    const ascii = (text.match(/[\x20-\x7E]/g)||[]).length;
+    if (ascii / text.length > 0.85) {
+      const t = translateVal(text);
+      return t !== text ? `<p>${t}</p>` : m;
+    }
+    return m;
+  });
+
+  // Catch-all for remaining English li items
+  out = out.replace(/<li>([A-Z][^<]{30,})<\/li>/g, (m, text) => {
+    const ascii = (text.match(/[\x20-\x7E]/g)||[]).length;
+    if (ascii / text.length > 0.85) {
+      const t = translateVal(text);
+      if (t !== text) return `<li>${t}</li>`;
+    }
+    return m;
+  });
 
   return out;
 }
@@ -523,19 +825,19 @@ function genCostTab(html, zhName) {
 function genMixesTab(html, zhName) {
   let out = (html.match(/id="tab-mixes">([\s\S]*?)<!--\s*end tab-mixes/) || [])[1] || '';
 
-  // Main heading
   out = out.replace(
     /<h2>🧬 Popular [^<]+ Mix Breeds<\/h2>/g,
     `<h2>🧬 热门${zhName}混血犬种</h2>`
   );
-  out = out.replace(
-    /<p>Frenchies are mixed with[^<.]+\. Here are the most popular French Bulldog crosses\.<\/p>/,
-    `<p>以下是最受欢迎的${zhName}混血犬种，每种混血都结合了亲本犬种的优秀特质。</p>`
-  );
-  out = out.replace(
-    /<p>[^<]*mixed with other breeds[^<.]*\. Here are the most popular[^<.]+\.<\/p>/g,
-    `<p>以下是最受欢迎的${zhName}混血犬种，每种混血都结合了亲本犬种的优秀特质。</p>`
-  );
+
+  // Translate mix breed h2 headings (e.g. "Affenpinscher Brussels Griffon Mix")
+  out = out.replace(/<h2>([🐾🐩🐕🐈🦮🐶])\s+([^<]+) Mix<\/h2>/g, (m, emoji, breedName) => {
+    return `<h2>${emoji} ${breedName} 混血犬</h2>`;
+  });
+  out = out.replace(/<h2>([^<]+) Mix<\/h2>/g, (m, breedName) => {
+    if (!breedName.includes('混血')) return `<h2>${breedName} 混血犬</h2>`;
+    return m;
+  });
 
   // Translate info-box labels in mixes
   out = out
@@ -552,7 +854,29 @@ function genMixesTab(html, zhName) {
     .replace(/<div class="info-box-label">Lifespan<\/div>/g, '<div class="info-box-label">寿命</div>')
     .replace(/<div class="info-box-label">Exercise<\/div>/g, '<div class="info-box-label">运动需求</div>');
 
-  // Translate mix breed intro paragraphs (catch-all for any English paragraphs)
+  // Translate info-box values
+  out = out
+    .replace(/>Moderate – High<\/div>/g, '>中等偏高</div>')
+    .replace(/>Moderate–High<\/div>/g, '>中等偏高</div>')
+    .replace(/>Low – Moderate<\/div>/g, '>低至适中</div>')
+    .replace(/>Low–Moderate<\/div>/g, '>低至适中</div>')
+    .replace(/>Moderate<\/div>/g, '>适中</div>')
+    .replace(/>Low<\/div>/g, '>低</div>')
+    .replace(/>High<\/div>/g, '>高</div>')
+    .replace(/>Very High<\/div>/g, '>非常高</div>')
+    .replace(/>Good<\/div>/g, '>良好</div>')
+    .replace(/>Excellent<\/div>/g, '>优秀</div>')
+    .replace(/>Relaxed households?<\/div>/g, '>悠闲家庭</div>')
+    .replace(/>Active families<\/div>/g, '>活跃家庭</div>')
+    .replace(/>Families with children<\/div>/g, '>有孩子的家庭</div>');
+
+  // Apply translateVal to all info-box-value content
+  out = out.replace(
+    /<div class="info-box-value">([^<]+)<\/div>/g,
+    (m, val) => `<div class="info-box-value">${translateVal(val)}</div>`
+  );
+
+  // Translate mix intro paragraphs (catch-all for any English paragraphs)
   out = out.replace(/<p>([A-Z][^<]{40,})<\/p>/g, (m, text) => {
     const ascii = (text.match(/[\x20-\x7E]/g)||[]).length;
     if (ascii / text.length > 0.80 && !text.includes('混血') && !text.includes('犬种') && !text.includes('结合')) {
@@ -561,157 +885,178 @@ function genMixesTab(html, zhName) {
     return m;
   });
 
-  // Translate common info-box values
-  out = out
-    .replace(/>Moderate<\/div>/g, '>适中</div>')
-    .replace(/>Moderate – High<\/div>/g, '>中等偏高</div>')
-    .replace(/>Low – Moderate<\/div>/g, '>低至适中</div>')
-    .replace(/>Low<\/div>/g, '>低</div>')
-    .replace(/>High<\/div>/g, '>高</div>')
-    .replace(/>Very High<\/div>/g, '>非常高</div>')
-    .replace(/>Good<\/div>/g, '>良好</div>')
-    .replace(/>Excellent<\/div>/g, '>优秀</div>')
-    .replace(/>Relaxed households<\/div>/g, '>悠闲家庭</div>')
-    .replace(/>Active families<\/div>/g, '>活跃家庭</div>')
-    .replace(/>Families with children<\/div>/g, '>有孩子的家庭</div>');
-
   return out;
 }
 
 // ── Fun facts tab Chinese content ─────────────────────────────────────────
-function genFactsTab(html, zhName) {
-  let out = (html.match(/id="tab-facts">([\s\S]*?)<!--\s*end tab-facts/) || [])[1] || '';
+function genFactsTab(srcHtml, zhName, data) {
+  const { traits:T, infoBoxes:I, quickStats:Q, compat:C } = data;
+  const origin  = translateVal(I['Origin'] || '');
+  const group   = I['AKC Group'] || I['Group'] || '';
+  const groupZh = GROUP_ZH[group.replace(' Group','')] || group;
+  const akc     = I['AKC Rank'] || Q['AKC Rank'] || '';
+  const akcZh   = akc ? translateVal(akc) : '';
+  const alsoKnownAs = translateVal(I['Also Known As'] || '');
+  const size    = translateVal(I['Size'] || '');
+  const coat    = translateVal(I['Coat'] || I['Coat Type'] || '');
+  const colors  = translateVal(I['Colors'] || '');
+  const aptVal  = translateVal(I['Good for Apartments'] || '');
 
-  out = out.replace(
-    /<h2>🎉 Amazing Facts About [^<]+<\/h2>/g,
-    `<h2>🎉 关于${zhName}的趣味知识</h2>`
+  const energy = T['Energy Level'] || 3;
+  const trainability = T['Trainability'] || 3;
+
+  // Generate fun facts from breed data
+  const facts = [
+    `${zhName}原产于${origin || '历史悠久的地区'}，是一个具有深厚历史底蕴的犬种。经过数百年的选育，这一犬种逐渐形成了其独特的外形特征和性格特质，并在世界各地赢得了众多爱好者的喜爱。`,
+    `在AKC认可的犬种中，${zhName}属于${groupZh}。${energy>=4?`作为一个精力充沛的犬种，${zhName}在各种犬类运动和工作中表现出色，包括敏捷性训练和服从性比赛。`:`${zhName}以其${energy<=2?'温顺悠闲':'平衡的活力'}著称，是${C['Apartment']>=4?'城市公寓':'各种家庭环境'}中备受欢迎的伴侣犬。`}`,
+    `${trainability>=4?`${zhName}以其出色的学习能力和渴望取悦主人的性格著称。这一犬种在服从性训练和各种技能学习中表现卓越，是初次养狗者的理想选择。`:trainability>=3?`${zhName}聪明而善于学习，只要训练方法得当，通常能快速掌握各种指令。使用正向强化方法（零食奖励和表扬）效果最佳。`:`${zhName}有其独特的个性，训练需要主人保持耐心和一致性。该犬种对有经验的主人反应最好，建议从幼犬时期开始系统训练。`}`,
+    `${zhName}${C['With Kids']>=4?'以对儿童极为友善和耐心著称，是优秀的家庭犬。许多家庭选择这一犬种正是因为它与孩子的绝佳相处能力。':C['With Kids']>=3?'通常与孩子相处融洽，但与所有犬种一样，建议在互动时保持监督，确保孩子和狗狗都能安全愉快地相处。':'更适合与年龄较大的儿童一起生活，建议主人在犬只与幼童互动时保持全程监督。'}`,
+    `无论您是寻找活跃的运动伙伴还是温柔的家庭伴侣，${zhName}都有其独特的魅力。这一犬种以其${energy>=4?'充沛的活力和对冒险的热爱':energy<=2?'安静温顺的性格和低维护需求':'均衡的个性和适应力'}吸引了全球无数爱犬人士。随着对该犬种了解的加深，您将发现更多关于${zhName}令人着迷的特质。`,
+  ];
+
+  // Build "Why People Love" list items
+  const whyLove = [
+    `忠诚而深情，与家人建立深厚的情感纽带`,
+    energy<=2 ? `维护需求${trainability>=4?'低且':'相对'}易于管理，适合各种生活方式的主人` : `活力充沛，是热爱户外活动的主人的完美伙伴`,
+    `适应能力强，能够融入${C['Apartment']>=4?'城市公寓生活和':''}各种家庭环境`,
+    `独特的外形和个性，在所有犬种中独树一帜`,
+    `${trainability>=4?'极易训练，适合初次养狗的主人':'对有一定经验的主人来说，是非常有价值的犬类伴侣'}`,
+  ];
+
+  return `<div class="breed-tab-panel" id="tab-facts">
+          <div class="breed-section">
+            <h2>🎉 关于${zhName}的趣味知识</h2>
+            <p>以下是关于${zhName}最令人着迷的趣味知识，让您对这一犬种有更深入的了解。</p>
+            <ul>
+              ${facts.map((f,i)=>{
+                const emojis = ['🌍','🏆','🎓','👶','❤️'];
+                return `<li>${emojis[i]||'🐾'} ${f}</li>`;
+              }).join('\n              ')}
+            </ul>
+          </div>
+          <div class="breed-section">
+            <h2>📋 ${zhName}基本信息</h2>
+            <div class="info-grid">
+              ${akcZh?`<div class="info-box"><div class="info-box-label">AKC排名</div><div class="info-box-value">${akcZh}</div></div>`:''}
+              <div class="info-box"><div class="info-box-label">犬种组</div><div class="info-box-value">${groupZh}</div></div>
+              ${origin?`<div class="info-box"><div class="info-box-label">起源</div><div class="info-box-value">${origin}</div></div>`:''}
+              ${alsoKnownAs?`<div class="info-box"><div class="info-box-label">别名</div><div class="info-box-value">${alsoKnownAs}</div></div>`:''}
+            </div>
+          </div>
+          <div class="breed-section">
+            <h2>❤️ 为什么人们喜爱${zhName}</h2>
+            <ul>
+              ${whyLove.map(w=>`<li>${w}</li>`).join('\n              ')}
+            </ul>
+          </div>
+        </div><!-- end tab-facts -->`;
+}
+
+// ── Sidebar translation ────────────────────────────────────────────────────
+function translateSidebar(html, zhName, data) {
+  const { traits:T, infoBoxes:I, quickStats:Q } = data;
+  const origin  = translateVal(I['Origin'] || '');
+  const group   = I['AKC Group'] || I['Group'] || '';
+  const groupZh = GROUP_ZH[group.replace(' Group','')] || translateVal(group) || '';
+  const akc     = I['AKC Rank'] || '';
+  const akcZh   = akc ? translateVal(akc) : akc;
+  const alsoKnownAs = translateVal(I['Also Known As'] || '');
+  const size    = translateVal(I['Size'] || '');
+  const coat    = translateVal(I['Coat'] || '');
+  const colors  = translateVal(I['Colors'] || '');
+  const apt     = translateVal(I['Good for Apartments'] || 'Yes');
+
+  // Translate trait labels in sidebar
+  for (const [en, zh] of Object.entries(TRAIT_ZH)) {
+    html = html.replace(
+      new RegExp(`(<span>)${en.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')}(<\/span>)`, 'g'),
+      `$1${zh}$2`
+    );
+  }
+
+  // Sidebar card headings
+  html = html
+    .replace(/<h4>Breed Traits<\/h4>/g, '<h4>品种特征</h4>')
+    .replace(/<h4>Quick Facts<\/h4>/g, '<h4>快速概览</h4>')
+    .replace(/<h4[^>]*>Explore More Breeds<\/h4>/g,
+      '<h4 style="color:var(--teal-dark)">探索更多犬种</h4>')
+    .replace(/Browse our full directory of[^<]+with detailed profiles\./g,
+      '浏览我们完整的犬种目录，每个犬种都有详细资料。')
+    .replace(/>Browse All Breeds →</g, '>浏览全部犬种 →<');
+
+  // Rebuild the Quick Facts sidebar card entirely from English data (avoids stale mangled values)
+  const quickFactsCard = `<div class="sidebar-card">
+          <h4>快速概览</h4>
+          ${akcZh?`<div class="info-box"><div class="info-box-label">AKC排名</div><div class="info-box-value">${akcZh}</div></div>`:''}
+          ${groupZh?`<div class="info-box" style="margin-top:8px"><div class="info-box-label">犬种组</div><div class="info-box-value">${groupZh}</div></div>`:''}
+          ${origin?`<div class="info-box" style="margin-top:8px"><div class="info-box-label">起源</div><div class="info-box-value">${origin}</div></div>`:''}
+          ${alsoKnownAs?`<div class="info-box" style="margin-top:8px"><div class="info-box-label">别名</div><div class="info-box-value">${alsoKnownAs}</div></div>`:''}
+          ${size?`<div class="info-box" style="margin-top:8px"><div class="info-box-label">体型</div><div class="info-box-value">${size}</div></div>`:''}
+          ${coat?`<div class="info-box" style="margin-top:8px"><div class="info-box-label">毛发</div><div class="info-box-value">${coat}</div></div>`:''}
+          ${colors?`<div class="info-box" style="margin-top:8px"><div class="info-box-label">颜色</div><div class="info-box-value">${colors}</div></div>`:''}
+          <div class="info-box" style="margin-top:8px"><div class="info-box-label">适合公寓</div><div class="info-box-value">${translateVal(apt)}</div></div>
+        </div>`;
+
+  // Replace the existing Quick Facts sidebar card
+  html = html.replace(
+    /<div class="sidebar-card">\s*<h4>快速概览<\/h4>[\s\S]*?<\/div>\s*<\/aside>/,
+    quickFactsCard + '\n      </aside>'
   );
-  out = out.replace(
-    /America's #1 most popular breed is full of surprising history[^<.]+\. Here are the most fascinating facts about the French Bulldog\./,
-    `以下是关于${zhName}最令人惊叹的趣味知识，让您更全面地了解这一迷人的犬种。`
-  );
-  out = out.replace(
-    /<p>[^<]*full of surprising[^<.]*\. Here are the most fascinating[^<.]+\.<\/p>/g,
-    `<p>以下是关于${zhName}最令人着迷的趣味知识，让您对这一犬种有更深入的了解。</p>`
+  // Also handle English version label
+  html = html.replace(
+    /<div class="sidebar-card">\s*<h4>Quick Facts<\/h4>[\s\S]*?<\/div>\s*<\/aside>/,
+    quickFactsCard + '\n      </aside>'
   );
 
-  return out;
+  return html;
 }
 
 // ── Apply translations to the full page ───────────────────────────────────
 function translateSubtitle(subtitle) {
   if (!subtitle) return '';
   let s = subtitle;
-  Object.entries(GROUP_ZH).forEach(([en,zh]) => { s = s.replace(en+' Group', zh); });
+  // Translate AKC group names (only "X Group" form — avoid clobbering breed name words)
+  Object.entries(GROUP_ZH).forEach(([en,zh]) => {
+    s = s.replace(en + ' Group', zh);
+  });
+  // Standalone group words only when they clearly stand alone (between · separators)
+  s = s.replace(/· Toy ·/g, '· 玩具犬组 ·').replace(/· Herding ·/g, '· 牧羊犬组 ·')
+       .replace(/· Working ·/g, '· 工作犬组 ·').replace(/· Sporting ·/g, '· 运动犬组 ·')
+       .replace(/· Hound ·/g, '· 猎犬组 ·').replace(/· Terrier ·/g, '· 梗犬组 ·')
+       .replace(/· Non-Sporting ·/g, '· 非运动犬组 ·');
   s = s
     .replace(/Most Popular in the US/g, '美国最受欢迎')
     .replace(/Most Popular/g, '最受欢迎')
     .replace(/The Perfect City Dog/g, '完美的城市犬')
     .replace(/The World's Most Popular/g, '世界最受欢迎')
-    .replace(/\bAmerica's\b/g, '美国')
-    .replace(/\bEngland's\b/g, '英国')
-    .replace(/\bScotland's\b/g, '苏格兰')
     .replace(/Designer Hybrid/g, '设计师混血犬')
     .replace(/Hybrid Breed/g, '混血犬种')
     .replace(/Purebred/g, '纯种犬')
-    .replace(/Family Dog/g, '家庭犬');
+    .replace(/Family Dog/g, '家庭犬')
+    // The English descriptive phrase after the second "·" — translate common patterns
+    .replace(/— America's #1 most popular breed[^$]*/g, '— 美国最受欢迎的犬种之一')
+    .replace(/— The world's most popular[^·]*/g, '— 世界上最受欢迎的犬种')
+    .replace(/— Germany's ancient/g, '— 德国古老的')
+    .replace(/— England's ancient/g, '— 英国古老的')
+    .replace(/— Scotland's ancient/g, '— 苏格兰古老的')
+    .replace(/— France's iconic/g, '— 法国标志性的')
+    .replace(/\bGermany's\b/g, '德国的').replace(/\bFrance's\b/g, '法国的')
+    .replace(/\bEngland's\b/g, '英国的').replace(/\bScotland's\b/g, '苏格兰的')
+    .replace(/\bAmerica's\b/g, '美国的').replace(/\bIreland's\b/g, '爱尔兰的')
+    // Country words in subtitles
+    .replace(/\bGermany\b/g, '德国').replace(/\bFrance\b/g, '法国')
+    .replace(/\bEngland\b/g, '英国').replace(/\bScotland\b/g, '苏格兰')
+    .replace(/\bIreland\b/g, '爱尔兰').replace(/\bBelgium\b/g, '比利时')
+    .replace(/\bAustralia\b/g, '澳大利亚').replace(/\bCanada\b/g, '加拿大')
+    .replace(/\bChina\b/g, '中国').replace(/\bJapan\b/g, '日本')
+    .replace(/\bSiberia\b/g, '西伯利亚');
   return s;
 }
 
-// ── Main transform ─────────────────────────────────────────────────────────
-function translateBreedPage(html, zhName, enName) {
-  const data = extractData(html);
-
-  // Replace subtitle
-  if (data.subtitle) {
-    const subtitleZh = translateSubtitle(data.subtitle);
-    html = html.replace(
-      `<p class="breed-subtitle">${data.subtitle}</p>`,
-      `<p class="breed-subtitle">${subtitleZh}</p>`
-    );
-  }
-
-  // Replace profile tab content (between h2 sections)
-  const profileTabStart = html.indexOf('<div class="breed-tab-panel active" id="tab-profile">');
-  const profileTabEnd   = html.indexOf('</div><!-- end tab-profile -->');
-  if (profileTabStart !== -1 && profileTabEnd !== -1) {
-    const profileZh = genProfileTab(data, zhName, enName);
-    html = html.slice(0, profileTabStart) +
-      '<div class="breed-tab-panel active" id="tab-profile">\n' +
-      profileZh + '\n\n        ' +
-      html.slice(profileTabEnd);
-  }
-
-  // Diet tab
-  const dietZh = genDietTab(html, zhName, data);
-  if (dietZh) {
-    const dietStart = html.indexOf('<div class="breed-tab-panel" id="tab-diet">');
-    const dietEnd   = html.indexOf('</div><!-- end tab-diet -->');
-    if (dietStart !== -1 && dietEnd !== -1) {
-      html = html.slice(0, dietStart) +
-        '<div class="breed-tab-panel" id="tab-diet">\n          <div class="breed-section">\n' +
-        dietZh + '\n          </div>\n        ' +
-        html.slice(dietEnd);
-    }
-  }
-
-  // Cost tab
-  const costZh = genCostTab(html, zhName);
-  if (costZh) {
-    const costStart = html.indexOf('<div class="breed-tab-panel" id="tab-cost">');
-    const costEnd   = html.indexOf('</div><!-- end tab-cost -->');
-    if (costStart !== -1 && costEnd !== -1) {
-      html = html.slice(0, costStart) +
-        '<div class="breed-tab-panel" id="tab-cost">\n          <div class="breed-section">\n' +
-        costZh + '\n          </div>\n        ' +
-        html.slice(costEnd);
-    }
-  }
-
-  // Mix breeds tab
-  const mixStart = html.indexOf('<div class="breed-tab-panel" id="tab-mixes">');
-  const mixEnd   = html.indexOf('</div><!-- end tab-mixes -->');
-  if (mixStart !== -1 && mixEnd !== -1) {
-    const mixSection = html.slice(mixStart, mixEnd + '</div><!-- end tab-mixes -->'.length);
-    const mixZh = genMixesTab(mixSection, zhName);
-    html = html.slice(0, mixStart) + mixZh + html.slice(mixEnd + '</div><!-- end tab-mixes -->'.length);
-  }
-
-  // Fun facts tab
-  const factsStart = html.indexOf('<div class="breed-tab-panel" id="tab-facts">');
-  const factsEnd   = html.indexOf('</div><!-- end tab-facts -->');
-  if (factsStart !== -1 && factsEnd !== -1) {
-    const factsSection = html.slice(factsStart, factsEnd + '</div><!-- end tab-facts -->'.length);
-    const factsZh = genFactsTab(factsSection, zhName);
-    html = html.slice(0, factsStart) + factsZh + html.slice(factsEnd + '</div><!-- end tab-facts -->'.length);
-  }
-
-  // Translate related breeds section heading
-  html = html.replace(/<h2>🐾 Related Breeds<\/h2>/g, '<h2>🐾 相关犬种</h2>');
-
-  // Translate video section
-  html = html.replace(
-    /Watch this video for a quick overview of the [^<.]+ — perfect if you want to see the breed in action before diving into the details\./g,
-    `观看视频快速了解${zhName}——在深入阅读详情之前，先看看这个犬种的实际表现。`
-  );
-
-  return html;
-}
-
 // ── Process all 302 breed files ────────────────────────────────────────────
-const BREED_NAMES = require('./build_zh_breed_profiles.js').toString()
-  .match(/const BREED_NAMES = \{([\s\S]*?)\};/);
-// Simpler: re-declare the same map inline (trimmed)
-const BN = {
-  'French Bulldog':'法国斗牛犬','Labrador Retriever':'拉布拉多寻回犬',
-  'Golden Retriever':'金毛寻回犬','German Shepherd':'德国牧羊犬',
-  'Dachshund':'腊肠犬','Poodle':'贵宾犬','Beagle':'比格犬',
-  'Rottweiler':'罗威纳犬','Bulldog':'英国斗牛犬','English Bulldog':'英国斗牛犬',
-};
-// Load full BREED_NAMES from the profiles script
 const profilesScript = fs.readFileSync(path.join(__dirname,'build_zh_breed_profiles.js'),'utf8');
 const bnMatch = profilesScript.match(/const BREED_NAMES = \{([\s\S]*?)\n\};/);
-const FULL_BREED_NAMES = bnMatch ? eval('({'+bnMatch[1]+'})') : BN;
+const FULL_BREED_NAMES = bnMatch ? eval('({'+bnMatch[1]+'})') : {};
 
 const zhDir  = path.join(__dirname, 'zh', 'breeds');
 const srcDir = path.join(__dirname, 'breeds');
@@ -724,23 +1069,20 @@ files.forEach(filename => {
 
   let html = fs.readFileSync(zhPath, 'utf8');
 
-  // Get the original English source for data extraction
   let srcHtml = '';
   if (fs.existsSync(srcPath)) srcHtml = fs.readFileSync(srcPath, 'utf8');
 
-  // Extract h1 from the CHINESE file to get zhName (already translated)
+  // Extract zh name from the Chinese file
   const h1Match = html.match(/<h1>([^<]+)<\/h1>/);
   const zhName = h1Match ? h1Match[1].trim() : '';
 
-  // Extract h1 from ENGLISH source to get enName
+  // Extract en name from English source
   const enH1 = srcHtml.match(/<h1>([^<]+)<\/h1>/);
   const enName = enH1 ? enH1[1].trim() : '';
 
   if (!zhName || !srcHtml) { count++; return; }
 
-  // Run translation using ENGLISH source for data extraction
-  // but apply to the already-translated CHINESE HTML
-  const data = extractData(srcHtml); // extract from English source (has original values)
+  const data = extractData(srcHtml);
 
   // Translate subtitle
   const subtitleMatch = srcHtml.match(/<p class="breed-subtitle">([^<]+)<\/p>/);
@@ -752,72 +1094,160 @@ files.forEach(filename => {
     );
   }
 
-  // Replace profile tab from English source (with Chinese content)
-  const profileTabStart = html.indexOf('<div class="breed-tab-panel active" id="tab-profile">');
-  const profileTabEnd   = html.indexOf('</div><!-- end tab-profile -->');
-  if (profileTabStart !== -1 && profileTabEnd !== -1) {
-    const profileZh = genProfileTab(data, zhName, enName);
-    html = html.slice(0, profileTabStart) +
-      '<div class="breed-tab-panel active" id="tab-profile">\n' +
-      profileZh + '\n\n        ' +
-      html.slice(profileTabEnd);
-  }
-
-  // Diet tab — translate using English source
-  const dietZh = genDietTab(srcHtml, zhName, data);
-  const dietStart = html.indexOf('<div class="breed-tab-panel" id="tab-diet">');
-  const dietEnd   = html.indexOf('</div><!-- end tab-diet -->');
-  if (dietStart !== -1 && dietEnd !== -1 && dietZh) {
-    html = html.slice(0, dietStart) +
-      '<div class="breed-tab-panel" id="tab-diet">\n          <div class="breed-section">\n' +
-      dietZh + '\n          </div>\n        ' +
-      html.slice(dietEnd);
-  }
-
-  // Cost tab
-  const costZh = genCostTab(srcHtml, zhName);
-  const costStart = html.indexOf('<div class="breed-tab-panel" id="tab-cost">');
-  const costEnd   = html.indexOf('</div><!-- end tab-cost -->');
-  if (costStart !== -1 && costEnd !== -1 && costZh) {
-    html = html.slice(0, costStart) +
-      '<div class="breed-tab-panel" id="tab-cost">\n          <div class="breed-section">\n' +
-      costZh + '\n          </div>\n        ' +
-      html.slice(costEnd);
-  }
-
-  // Mix breeds tab — operate on current html
-  const mixStart2 = html.indexOf('<div class="breed-tab-panel" id="tab-mixes">');
-  const mixEnd2   = html.indexOf('</div><!-- end tab-mixes -->');
-  if (mixStart2 !== -1 && mixEnd2 !== -1) {
-    const mixSection = html.slice(mixStart2, mixEnd2 + '</div><!-- end tab-mixes -->'.length);
-    // Re-extract mix section from English source and translate
-    const srcMixSection = srcHtml.slice(
-      srcHtml.indexOf('<div class="breed-tab-panel" id="tab-mixes">'),
-      srcHtml.indexOf('</div><!-- end tab-mixes -->') + '</div><!-- end tab-mixes -->'.length
-    ) || mixSection;
-    const mixZh = genMixesTab(srcMixSection, zhName);
-    html = html.slice(0, mixStart2) + mixZh + html.slice(mixEnd2 + '</div><!-- end tab-mixes -->'.length);
-  }
-
-  // Fun facts tab
-  const factsStart2 = html.indexOf('<div class="breed-tab-panel" id="tab-facts">');
-  const factsEnd2   = html.indexOf('</div><!-- end tab-facts -->');
-  if (factsStart2 !== -1 && factsEnd2 !== -1) {
-    const srcFactsSection = srcHtml.slice(
-      srcHtml.indexOf('<div class="breed-tab-panel" id="tab-facts">'),
-      srcHtml.indexOf('</div><!-- end tab-facts -->') + '</div><!-- end tab-facts -->'.length
-    );
-    if (srcFactsSection) {
-      const factsZh = genFactsTab(srcFactsSection, zhName);
-      html = html.slice(0, factsStart2) + factsZh + html.slice(factsEnd2 + '</div><!-- end tab-facts -->'.length);
-    }
-  }
-
-  // Translate video section
+  // Translate video section text
   html = html.replace(
-    /Watch this video for a quick overview of the [^<.]+ — perfect if you want to see the breed in action before diving into the details\./g,
+    /Watch this video for a quick overview of the [^<.]+ — [^<.]+\./g,
     `观看视频快速了解${zhName}——在深入阅读详情之前，先看看这个犬种的实际表现。`
   );
+  html = html.replace(
+    /观看视频快速了解 [A-Za-z][^<]+ — see the breed[^<]+\./g,
+    `观看视频快速了解${zhName}——在深入阅读详情之前，先看看这个犬种的实际表现。`
+  );
+
+  // ── Replace ENTIRE tab section as one clean block ──────────────────────
+  // This avoids orphaned/duplicated content from previous partial runs.
+  const tabsNavEnd = html.indexOf('</nav>', html.indexOf('<nav class="breed-tabs-nav">')) + '</nav>'.length;
+  // Find the closing div of breed-main (just before <aside class="breed-sidebar">)
+  const asideStart = html.indexOf('<aside class="breed-sidebar">');
+
+  if (tabsNavEnd !== -1 && asideStart !== -1) {
+    const profileZh = genProfileTab(data, zhName, enName);
+    const dietZh    = genDietTab(srcHtml, zhName, data);
+    const costZh    = genCostTab(srcHtml, zhName);
+    const mixZh     = genMixesTab(
+      srcHtml.slice(srcHtml.indexOf('<div class="breed-tab-panel" id="tab-mixes">'),
+        srcHtml.indexOf('</div><!-- end tab-mixes -->') + '</div><!-- end tab-mixes -->'.length)
+      || '<div class="breed-tab-panel" id="tab-mixes"><!-- no mixes --></div><!-- end tab-mixes -->',
+      zhName
+    );
+    const factsZh   = genFactsTab(srcHtml, zhName, data);
+
+    const tabContent = `
+
+        <div class="breed-tab-panel active" id="tab-profile">
+${profileZh}
+
+        </div><!-- end tab-profile -->
+
+        <div class="breed-tab-panel" id="tab-diet">
+          <div class="breed-section">
+${dietZh}
+          </div>
+        </div><!-- end tab-diet -->
+
+        <div class="breed-tab-panel" id="tab-cost">
+          <div class="breed-section">
+${costZh}
+          </div>
+        </div><!-- end tab-cost -->
+
+        <div class="breed-tab-panel" id="tab-mixes">
+          ${mixZh}
+        </div><!-- end tab-mixes -->
+
+        ${factsZh}
+
+      </div>
+
+      `;
+
+    html = html.slice(0, tabsNavEnd) + tabContent + html.slice(asideStart);
+  }
+
+  // ── Sidebar translation ────────────────────────────────────────────────
+  html = translateSidebar(html, zhName, data);
+
+  // ── GLOBAL PASS: translate all remaining English values ──────────────
+  // 1. Translate ALL info-box-value content
+  html = html.replace(
+    /<div class="info-box-value">([^<]+)<\/div>/g,
+    (m, val) => `<div class="info-box-value">${translateVal(val)}</div>`
+  );
+
+  // 2. Translate quick-stat-values using label context
+  html = html.replace(
+    /(<span class="quick-stat-value">)([^<]+)(<\/span>\s*<span class="quick-stat-label">)([^<]+)(<\/span>)/g,
+    (m, pre, val, mid, lbl, post) => `${pre}${translateQuickStat(val, lbl)}${mid}${lbl}${post}`
+  );
+
+  // 3. Translate sidebar card text about browsing breeds
+  html = html.replace(
+    /Browse our full directory of <strong[^>]*>[^<]*<\/strong> dog breeds with detailed profiles\./g,
+    '浏览我们完整的犬种目录，每个犬种都有详细资料。'
+  );
+
+  // 4. Translate list items still in English
+  html = html.replace(/<li>([A-Z][^<]{40,})<\/li>/g, (m, text) => {
+    const ascii = (text.match(/[\x20-\x7E]/g)||[]).length;
+    if (ascii / text.length > 0.85) {
+      const translated = translateVal(text);
+      return translated !== text ? `<li>${translated}</li>` : m;
+    }
+    return m;
+  });
+
+  // 5. Translate strong-tag content that's still English in info-boxes
+  html = html.replace(
+    /<strong>([A-Z][a-zA-Z\s,.\-–]{20,})<\/strong>/g,
+    (m, text) => {
+      const t = translateVal(text);
+      return t !== text ? `<strong>${t}</strong>` : m;
+    }
+  );
+
+  // 6. Translate travel-tip-box h4 headings
+  html = html
+    .replace(/<h4>⚠️ Important: Flying with ([^<]+)<\/h4>/g,
+      `<h4>⚠️ 重要提示：${zhName}乘机注意事项</h4>`)
+    .replace(/<h4>💡 Feeding tip for [^<]+<\/h4>/g,
+      `<h4>💡 ${zhName}喂食小贴士</h4>`)
+    .replace(/<h4>💡 Money-saving tip<\/h4>/g,'<h4>💡 省钱建议</h4>')
+    .replace(/<h4>✈️ Pet Travel Tip<\/h4>/g,'<h4>✈️ 宠物出行提示</h4>')
+    .replace(/<h4>🚗 Ground Transport Option<\/h4>/g,'<h4>🚗 地面运输选项</h4>')
+    .replace(/<h4>💡 Tip: Boarding your [^<]+\?<\/h4>/g,
+      `<h4>💡 小提示：寄养${zhName}时</h4>`);
+
+  // 7. Translate travel-tip-box paragraph content
+  html = html.replace(
+    /(<div class="travel-tip-box">[\s\S]*?<p>)([A-Z][^<]{60,})(<\/p>)/g,
+    (m, pre, text, post) => {
+      const ascii = (text.match(/[\x20-\x7E]/g)||[]).length;
+      if (ascii / text.length > 0.85) {
+        return `${pre}${translateVal(text)}${post}`;
+      }
+      return m;
+    }
+  );
+
+  // 8. Translate any still-English h4 inside breed-section
+  html = html.replace(
+    /<h4>([A-Z][^<]{15,})<\/h4>/g,
+    (m, text) => {
+      const t = translateVal(text);
+      return t !== text ? `<h4>${t}</h4>` : m;
+    }
+  );
+
+  // 9. Photo gallery section heading
+  html = html.replace(
+    /<h2>📸 Photo Gallery<\/h2>/g,
+    `<h2>📸 ${zhName}照片集</h2>`
+  );
+  html = html.replace(
+    /Real [A-Za-z\s]+ — browse photos showcasing[^<]+\./g,
+    `浏览${zhName}的真实照片，欣赏它的外形、体型与个性。`
+  );
+  html = html.replace(
+    /Enlarged ([A-Za-z\s]+) photo/g,
+    '放大图片'
+  );
+  html = html.replace(
+    /alt="Enlarged [^"]*"/g,
+    'alt="放大图片"'
+  );
+
+  // 10. Related breeds section
+  html = html.replace(/<h2>🐾 Related Breeds<\/h2>/g, '<h2>🐾 相关犬种</h2>');
 
   fs.writeFileSync(zhPath, html, 'utf8');
   count++;
