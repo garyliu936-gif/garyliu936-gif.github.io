@@ -164,9 +164,9 @@ html = html
   .replace(/>Nutrition<\/a>/g, '>营养</a>')
   .replace(/>Grooming<\/a>/g, '>美容护理</a>');
 
-// Breed card hrefs: "french-bulldog.html" → "/breeds/french-bulldog.html"
+// Breed card hrefs → point to Chinese profile pages
 html = html.replace(/href="([a-z0-9-]+\.html)" class="breed-card"/g, (m, slug) => {
-  return `href="/breeds/${slug}" class="breed-card"`;
+  return `href="/zh/breeds/${slug}" class="breed-card"`;
 });
 
 // ── 4. Hero section ────────────────────────────────────────────────────────
