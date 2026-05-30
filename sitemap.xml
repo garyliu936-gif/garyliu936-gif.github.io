@@ -992,4 +992,10 @@
     <priority>0.7</priority>
   </url>
 
+  <url><loc>https://alldogfacts.com/zh/getting-a-dog/best-breeds-first-time-owners.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://alldogfacts.com/zh/getting-a-dog/cost-of-owning-a-dog.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://alldogfacts.com/zh/getting-a-dog/adopt-vs-breeder.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://alldogfacts.com/zh/getting-a-dog/find-reputable-breeder.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://alldogfacts.com/zh/getting-a-dog/new-puppy-checklist.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://alldogfacts.com/zh/getting-a-dog/prepare-home-for-puppy.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>
