@@ -430,6 +430,8 @@
         const tag = p.tagName;
         if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'CODE' || tag === 'PRE') return NodeFilter.FILTER_REJECT;
         if (p.id === 'langToggle' || p.closest('#langToggle')) return NodeFilter.FILTER_REJECT;
+        // Skip elements explicitly marked as English (e.g. breed name subtitles)
+        if (p.lang === 'en' || p.closest('[lang="en"]')) return NodeFilter.FILTER_REJECT;
         return NodeFilter.FILTER_ACCEPT;
       }
     });

@@ -223,11 +223,24 @@ html = html
   .replace(/Full Profile <span>/g, '查看完整资料 <span>')
   .replace(/View Profile <span>/g, '查看完整资料 <span>');
 
-// ── 9. Breed h3 names ─────────────────────────────────────────────────────
-// Replace <h3>English Name</h3> → <h3>Chinese Name</h3> with English subtitle
+// ── 9. Breed h3 names + descriptions in one pass ──────────────────────────
+// lang="en" on small prevents i18n.js re-translating the English subtitle
+const BREED_DESC = require('./breed_desc_zh.js');
 Object.entries(BREED_NAMES).forEach(([en, zh]) => {
-  const re = new RegExp(`<h3>${en.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}</h3>`, 'g');
-  html = html.replace(re, `<h3>${zh} <small style="font-size:.65em;font-weight:400;color:#64748b">${en}</small></h3>`);
+  const descZh = BREED_DESC[en];
+  const h3Pat  = en.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const subtitle = `<small lang="en" style="font-size:.6em;font-weight:400;color:#94a3b8">${en}</small>`;
+
+  if (descZh) {
+    // Replace h3 AND the immediately following <p> together
+    const re = new RegExp(`<h3>${h3Pat}<\\/h3>(\\s*<p>)[\\s\\S]*?(<\\/p>)`, 'g');
+    html = html.replace(re, `<h3>${zh} ${subtitle}</h3>$1${descZh}$2`);
+  } else {
+    html = html.replace(
+      new RegExp(`<h3>${h3Pat}<\\/h3>`, 'g'),
+      `<h3>${zh} ${subtitle}</h3>`
+    );
+  }
 });
 
 // ── 10. Footer translations ────────────────────────────────────────────────
