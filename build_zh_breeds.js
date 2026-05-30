@@ -271,10 +271,94 @@ Object.entries(ALL_NAMES).forEach(([en, zh]) => {
   }
 });
 
-// ── 10. Footer translations ────────────────────────────────────────────────
+// ── 10. Explore All Topics section ────────────────────────────────────────
 html = html
+  // Section header
+  .replace('>Explore All Topics<', '>探索所有主题<')
+  .replace('>Everything you need to know about dogs — all in one place.<', '>关于狗狗您需要了解的一切——尽在此处。<')
+  // Tab buttons
+  .replace(/<span class="ttb-label">Dog Breeds<\/span>/g, '<span class="ttb-label">犬种大全</span>')
+  .replace(/<span class="ttb-label">Getting a Dog<\/span>/g, '<span class="ttb-label">养狗入门</span>')
+  .replace(/<span class="ttb-label">Training<\/span>/g, '<span class="ttb-label">训练指南</span>')
+  .replace(/<span class="ttb-label">Health<\/span>/g, '<span class="ttb-label">健康</span>')
+  .replace(/<span class="ttb-label">Nutrition<\/span>/g, '<span class="ttb-label">营养</span>')
+  .replace(/<span class="ttb-label">Grooming<\/span>/g, '<span class="ttb-label">美容护理</span>')
+  // Tab panel tags
+  .replace(/<span class="ttp-tag">Dog Breeds<\/span>/g, '<span class="ttp-tag">犬种大全</span>')
+  .replace(/<span class="ttp-tag">Getting a Dog<\/span>/g, '<span class="ttp-tag">养狗入门</span>')
+  .replace(/<span class="ttp-tag">Training<\/span>/g, '<span class="ttp-tag">训练指南</span>')
+  .replace(/<span class="ttp-tag">Health &amp; Symptoms<\/span>/g, '<span class="ttp-tag">健康与症状</span>')
+  .replace(/<span class="ttp-tag">Nutrition &amp; Diet<\/span>/g, '<span class="ttp-tag">营养与饮食</span>')
+  .replace(/<span class="ttp-tag">Grooming<\/span>/g, '<span class="ttp-tag">美容护理</span>')
+  // Tab panel h3s
+  .replace('>Find Your Perfect Breed</', '>寻找您的完美犬种</')
+  .replace('>Get It Right From Day One</', '>从第一天就做对</')
+  .replace('>Train Any Dog, Any Age</', '>任何犬、任何年龄都可以训练</')
+  .replace('>Spot Problems Early</', '>及早发现问题</')
+  .replace('>Feed Them Right</', '>科学喂养</')
+  .replace('>Keep Them Looking Great</', '>保持最佳状态</')
+  // Tab panel descriptions
+  .replace(/>Profiles for 302 breeds — 202 purebreds and 100 designer hybrids\. Covers temperament, size, exercise needs, grooming, health issues, and cost to own\.</, '>收录302个犬种资料——202个纯种犬和100个混血犬。涵盖性格、体型、运动需求、美容、健康问题和养育费用。<')
+  .replace(/>Find your perfect breed, understand the real costs, choose adoption or a breeder, and prepare your home\. Includes an interactive breed-finder quiz\.</, '>找到您的完美犬种、了解真实费用、选择领养还是购买、做好家庭准备。包含互动犬种匹配测验。<')
+  .replace(/>Step-by-step guides for basic commands, puppy training, leash manners, crate training, and fixing behavior problems — for beginners to advanced owners\.</, '>从基础口令到行为问题矫正的逐步指南——适合从新手到高级养狗人。<')
+  .replace(/>Common illnesses, what symptoms really mean, vaccination schedules, dental care, and senior dog guides — so you know when to act and when to relax\.</, '>常见疾病、症状真正含义、疫苗接种时间表、牙齿护理和老年犬指南——让您知道何时采取行动、何时放心。<')
+  .replace(/>How much to feed, best foods by age and size, dry vs\. raw vs\. wet, foods that are toxic to dogs, and practical treat and supplement guidance\.</, '>喂食量、按年龄和体型推荐最佳食品、干粮与生骨肉与湿粮的对比、对狗狗有毒的食物，以及实用的零食和补充剂建议。<')
+  .replace(/>Bathing, brushing, nail trims, ear care, and managing shedding — guides for every coat type, plus when your dog needs a professional groomer\.</, '>洗澡、梳毛、剪指甲、耳朵护理和控制掉毛——适用于各种毛发类型的指南，以及何时需要专业美容师。<')
+  // Tab highlights
+  .replace(/>🏆 202 purebred breeds</g, '>🏆 202个纯种犬<')
+  .replace(/>🌟 100 hybrid breeds</g, '>🌟 100个混血犬<')
+  .replace(/>📊 AKC 2025 ranked</g, '>📊 AKC 2025排名<')
+  .replace(/>🎯 Breed-finder quiz</g, '>🎯 犬种匹配测验<')
+  .replace(/>💰 Real cost breakdown</g, '>💰 真实费用分析<')
+  .replace(/>🏠 Adopt vs\. breeder</g, '>🏠 领养还是购买<')
+  .replace(/>📖 Basic commands</g, '>📖 基础口令<')
+  .replace(/>🐕 Puppy training</g, '>🐕 幼犬训练<')
+  .replace(/>🚶 Leash & recall</g, '>🚶 牵绳与召回<')
+  .replace(/>🩺 Symptom guides</g, '>🩺 症状指南<')
+  .replace(/>💉 Vaccine schedules</g, '>💉 疫苗时间表<')
+  .replace(/>🐾 Senior dog care</g, '>🐾 老年犬护理<')
+  .replace(/>📏 Feeding by size & age</g, '>📏 按体型和年龄喂食<')
+  .replace(/>☠️ Toxic foods list</g, '>☠️ 有毒食物清单<')
+  .replace(/>🧪 Raw vs\. dry debate</g, '>🧪 生骨肉与干粮之争<')
+  .replace(/>🪮 All 6 coat types</g, '>🪮 全部6种毛发类型<')
+  .replace(/>💅 Nail & ear care</g, '>💅 指甲与耳朵护理<')
+  .replace(/>✨ Shedding control</g, '>✨ 掉毛控制<')
+  // Tab CTAs
+  .replace(/Browse All 302 Breeds →/g, '浏览全部302个犬种 →')
+  .replace(/Explore Getting a Dog →/g, '探索养狗入门 →')
+  .replace(/Explore Training Guides →/g, '探索训练指南 →')
+  .replace(/Explore Health Guides →/g, '探索健康指南 →')
+  .replace(/Explore Nutrition Guides →/g, '探索营养指南 →')
+  .replace(/Explore Grooming Guides →/g, '探索美容指南 →');
+
+// ── 11. Footer translations ────────────────────────────────────────────────
+html = html
+  // Brand taglines (breeds page has different tagline from other pages)
+  .replace(/>Your complete guide to dog breeds, pet boarding in Seattle, and nationwide pet transportation\.<\/p>/g,
+    '>狗狗品种完整指南、西雅图宠物寄宿及全国宠物托运服务。</p>')
   .replace(/>Your complete dog encyclopedia\.<\/p>/g, '>您的完整犬类百科全书。</p>')
-  .replace(/>Quick Links</g, '>快速链接<')
+  .replace(/>A free, in-depth encyclopedia for dog owners and lovers\.<\/p>/g, '>为爱狗人士提供的免费深度百科全书。</p>')
+  // Footer column headings
+  .replace(/<h4>Dog Breeds<\/h4>/g, '<h4>犬种大全</h4>')
+  .replace(/<h4>Our Services<\/h4>/g, '<h4>我们的服务</h4>')
+  .replace(/<h4>OUR SERVICES<\/h4>/g, '<h4>我们的服务</h4>')
+  .replace(/<h4>Getting a Dog<\/h4>/g, '<h4>养狗入门</h4>')
+  .replace(/<h4>Training<\/h4>/g, '<h4>训练指南</h4>')
+  .replace(/<h4>Health<\/h4>/g, '<h4>健康</h4>')
+  .replace(/<h4>Nutrition<\/h4>/g, '<h4>营养</h4>')
+  .replace(/<h4>Grooming<\/h4>/g, '<h4>美容护理</h4>')
+  .replace(/<h4>Quick Links<\/h4>/g, '<h4>快速链接</h4>')
+  // Footer breed links
+  .replace(/>Labrador Retriever</g, '>拉布拉多寻回犬<')
+  .replace(/>Golden Retriever</g, '>金毛寻回犬<')
+  .replace(/>French Bulldog</g, '>法国斗牛犬<')
+  .replace(/>German Shepherd</g, '>德国牧羊犬<')
+  .replace(/>View All Breeds →</g, '>查看全部犬种 →<')
+  // Services links
+  .replace(/>Pet Hotel Seattle</g, '>西雅图宠物酒店<')
+  .replace(/>Nationwide Transport</g, '>全国宠物运输<')
+  .replace(/>Get a Quote</g, '>获取报价<')
+  // Common footer
   .replace(/>Privacy Policy</g, '>隐私政策<')
   .replace(/>Terms of Use</g, '>使用条款<')
   .replace(/© 202[45] AllDogFacts\. All rights reserved\./g, '© 2025 AllDogFacts. 版权所有。');
