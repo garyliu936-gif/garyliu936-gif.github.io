@@ -178,6 +178,7 @@ img { max-width: 100%; display: block; }
 }
 
 .logo-paw { font-size: 1.4rem; }
+.logo-dog { color: #7c3aed; }
 .logo-accent { color: var(--teal); }
 
 .nav-links {
