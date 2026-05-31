@@ -1145,7 +1145,7 @@ textarea { resize: vertical; }
 
 .footer-brand .nav-logo { margin-bottom: 16px; }
 .footer-brand .logo-text { color: var(--white); }
-.footer-brand .logo-paw { color: var(--white); }
+.footer-brand .logo-paw { color: var(--white); filter: brightness(0) invert(1); }
 .footer-brand .logo-accent { color: var(--white); }
 
 .footer-brand p {
