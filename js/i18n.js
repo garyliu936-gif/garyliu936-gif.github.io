@@ -481,7 +481,16 @@
       }
     },
     init() {
-      if (this.currentLang === 'zh') this.apply('zh');
+      // Only auto-apply zh translations on Chinese pages.
+      // English pages should never be translated even if a Chinese page was visited earlier.
+      const isZhPage = location.pathname.startsWith('/zh/') ||
+                       document.documentElement.lang === 'zh-CN';
+      if (this.currentLang === 'zh' && isZhPage) this.apply('zh');
+      // Reset localStorage to 'en' on English pages so the toggle button state is correct.
+      if (!isZhPage) {
+        this.currentLang = 'en';
+        localStorage.setItem('adf-lang', 'en');
+      }
     }
   };
 })();
