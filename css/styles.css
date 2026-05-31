@@ -1149,7 +1149,7 @@ textarea { resize: vertical; }
 .footer-brand .logo-accent { color: var(--white); }
 
 .footer-brand p {
-  color: rgba(255,255,255,.5);
+  color: rgba(255,255,255,.8);
   font-size: .87rem;
   line-height: 1.7;
   margin-bottom: 20px;
@@ -1164,7 +1164,7 @@ textarea { resize: vertical; }
   width: 36px; height: 36px;
   border-radius: 8px;
   background: rgba(255,255,255,.08);
-  color: rgba(255,255,255,.6);
+  color: rgba(255,255,255,.85);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1189,7 +1189,7 @@ textarea { resize: vertical; }
 }
 
 .footer-col ul li, .footer-col ul a {
-  color: rgba(255,255,255,.5);
+  color: rgba(255,255,255,.8);
   font-size: .87rem;
   transition: color .2s;
 }
@@ -1203,7 +1203,7 @@ textarea { resize: vertical; }
 }
 
 .footer-bottom p {
-  color: rgba(255,255,255,.35);
+  color: rgba(255,255,255,.65);
   font-size: .8rem;
 }
 
@@ -1213,7 +1213,7 @@ textarea { resize: vertical; }
 }
 
 .footer-links a {
-  color: rgba(255,255,255,.35);
+  color: rgba(255,255,255,.65);
   font-size: .8rem;
   transition: color .2s;
 }

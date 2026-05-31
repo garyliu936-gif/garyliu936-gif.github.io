@@ -102,7 +102,7 @@
 
 .gr-header {
   background: var(--dark, #0f172a);
-  color: rgba(255,255,255,.7);
+  color: rgba(255,255,255,.92);
   font-size: .74rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -138,7 +138,7 @@
   background: var(--dark, #0f172a);
 }
 .gr-facts .section-header h2 { color: #fff; }
-.gr-facts .section-tag { background: rgba(255,255,255,.1); color: rgba(255,255,255,.7); }
+.gr-facts .section-tag { background: rgba(255,255,255,.1); color: rgba(255,255,255,.92); }
 
 .gr-facts-grid {
   display: grid;
@@ -163,7 +163,7 @@
 }
 .gr-fact-card p {
   font-size: .87rem;
-  color: rgba(255,255,255,.6);
+  color: rgba(255,255,255,.88);
   line-height: 1.6;
   margin: 0;
 }

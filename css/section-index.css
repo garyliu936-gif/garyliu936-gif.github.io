@@ -13,7 +13,7 @@
 .si-hero-tag {
   display: inline-block;
   background: rgba(255,255,255,.12);
-  color: rgba(255,255,255,.75);
+  color: rgba(255,255,255,.95);
   font-size: .73rem;
   font-weight: 700;
   letter-spacing: .1em;
@@ -30,7 +30,7 @@
 }
 .si-hero .hero-highlight { color: var(--teal-light, #ccfbf1); }
 .si-hero p {
-  color: rgba(255,255,255,.6);
+  color: rgba(255,255,255,.9);
   font-size: 1.05rem;
   max-width: 520px;
   margin: 0 auto 32px;

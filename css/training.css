@@ -307,7 +307,7 @@
   background: var(--dark, #0f172a);
 }
 .tr-facts .section-header h2 { color: #fff; }
-.tr-facts .section-tag { background: rgba(255,255,255,.1); color: rgba(255,255,255,.7); }
+.tr-facts .section-tag { background: rgba(255,255,255,.1); color: rgba(255,255,255,.92); }
 .tr-facts-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
