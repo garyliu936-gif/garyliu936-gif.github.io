@@ -46,7 +46,7 @@
 
     /* "N breeds" spans: <span class="js-breed-count">302 breeds</span> */
     document.querySelectorAll('.js-breed-count').forEach(function (el) {
-      el.textContent = total + ' breeds';
+      el.textContent = isZh ? total + '个犬种' : total + ' breeds';
     });
 
     /* CTA buttons: <a class="js-breed-btn …">Browse All 302 Breeds →</a> */
