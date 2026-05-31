@@ -31,7 +31,7 @@
 }
 .hero-highlight { color: #fbbf24; }
 .nu-hero p {
-  color: rgba(255,255,255,.65);
+  color: rgba(255,255,255,.9);
   font-size: 1.1rem;
   max-width: 560px;
   margin: 0 auto 32px;
@@ -327,7 +327,7 @@
   background: var(--dark, #0f172a);
 }
 .nu-facts .section-header h2 { color: #fff; }
-.nu-facts .section-tag { background: rgba(255,255,255,.1); color: rgba(255,255,255,.7); }
+.nu-facts .section-tag { background: rgba(255,255,255,.1); color: rgba(255,255,255,.92); }
 .nu-facts-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -341,7 +341,7 @@
   text-align: center;
 }
 .nu-fact-num { display: block; font-size: 2rem; font-weight: 800; color: #fbbf24; margin-bottom: 12px; }
-.nu-fact-card p { font-size: .87rem; color: rgba(255,255,255,.6); line-height: 1.6; margin: 0; }
+.nu-fact-card p { font-size: .87rem; color: rgba(255,255,255,.88); line-height: 1.6; margin: 0; }
 
 /* ── RESPONSIVE ──────────────────────────────────────────── */
 @media (max-width: 1024px) {
