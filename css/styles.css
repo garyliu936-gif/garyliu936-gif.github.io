@@ -150,13 +150,30 @@ img { max-width: 100%; display: block; }
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid transparent;
-  transition: border-color .3s, box-shadow .3s;
+  transition: border-color .3s, box-shadow .3s, background .3s;
 }
 
 .navbar.scrolled {
   border-color: var(--border);
   box-shadow: var(--shadow);
 }
+
+/* Dark navbar variant — used on pages with dark hero sections */
+.navbar-dark {
+  background: rgba(15,23,42,.92);
+}
+.navbar-dark.scrolled {
+  border-color: rgba(255,255,255,.1);
+  box-shadow: 0 4px 24px rgba(0,0,0,.3);
+}
+.navbar-dark .nav-logo { color: #fff; }
+.navbar-dark .logo-paw { color: #fff; }
+.navbar-dark .logo-accent { color: #fff; }
+.navbar-dark .nav-links a { color: rgba(255,255,255,.75); }
+.navbar-dark .nav-links a:hover { color: #fff; }
+.navbar-dark .hamburger span { background: #fff; }
+.navbar-dark .lang-toggle { border-color: rgba(255,255,255,.3); color: rgba(255,255,255,.8); }
+.navbar-dark .lang-toggle:hover { border-color: var(--teal); color: var(--teal); background: rgba(13,148,136,.15); }
 
 .nav-container {
   max-width: 1200px;
