@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-C8QDN9HH5F"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-C8QDN9HH5F');</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AllDogFacts — 完整狗狗百科全书</title>
+  <meta name="description" content="您的完整狗狗百科全书。探索犬种大全、训练指南、健康资讯、营养建议等更多内容。免费、可信赖、深度解析。" />
+  <meta name="keywords" content="狗狗百科, 犬种大全, 狗狗训练, 狗狗健康, 幼犬指南, 狗狗营养, 宠物护理" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="/css/home.css" />
+  <link rel="alternate" hreflang="en" href="/index.html" />
+  <link rel="alternate" hreflang="zh-CN" href="/zh/index.html" />
+  <script>localStorage.setItem('adf-lang','zh');</script>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="/zh/index.html" class="nav-logo">
+        <span class="logo-paw">🐾</span>
+        <span class="logo-text">AllDog<span class="logo-accent">Facts</span></span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/zh/index.html" style="color:var(--teal)">首页</a></li>
+        <li><a href="/zh/breeds/index.html">犬种大全</a></li>
+        <li><a href="/zh/getting-a-dog/index.html">养狗入门</a></li>
+        <li><a href="/zh/training/index.html">训练指南</a></li>
+        <li><a href="/zh/health/index.html">健康</a></li>
+        <li><a href="/zh/nutrition/index.html">营养</a></li>
+        <li><a href="/zh/grooming/index.html">美容护理</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- LANGUAGE BANNER -->
+  <div style="background:#0d9488;color:#fff;text-align:center;padding:8px 16px;font-size:.85rem">
+    🌐 您正在浏览中文版 · <a href="/index.html" style="color:#ccfbf1;text-decoration:underline">切换至英文版</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="enc-hero">
+    <div class="container">
+      <div class="enc-hero-content">
+        <div class="enc-hero-tag">免费 · 可信赖 · 深度解析</div>
+        <h1>完整的<br /><span class="hero-highlight">狗狗百科全书</span></h1>
+        <p>关于狗狗，您需要了解的一切——犬种、训练、健康、营养，以及更多。由爱狗人士为爱狗人士编写。</p>
+        <div class="enc-search-wrap">
+          <span class="enc-search-icon">🔍</span>
+          <input type="text" placeholder="搜索犬种、训练技巧、健康话题..." id="homeSearch" />
+          <button class="enc-search-btn" onclick="handleSearch()">搜索</button>
+        </div>
+        <div class="enc-popular">
+          <span>热门搜索：</span>
+          <a href="/zh/breeds/labrador-retriever.html">拉布拉多寻回犬</a>
+          <a href="/zh/breeds/golden-retriever.html">金毛寻回犬</a>
+          <a href="/zh/breeds/french-bulldog.html">法国斗牛犬</a>
+          <a href="/zh/breeds/german-shepherd.html">德国牧羊犬</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BROWSE BY TOPIC -->
+  <section class="browse-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">浏览主题</span>
+        <h2>您想了解什么？</h2>
+        <p>选择一个主题，探索我们的深度指南和文章。</p>
+      </div>
+      <div class="topic-grid">
+        <a href="/zh/breeds/index.html" class="topic-card">
+          <div class="topic-icon">🐕</div>
+          <h3>犬种大全</h3>
+          <p>302个犬种档案——纯种犬与混血犬——性格、体型、护理、健康等完整资料。</p>
+          <span class="topic-count js-breed-count">302个犬种</span>
+        </a>
+        <a href="/zh/getting-a-dog/index.html" class="topic-card">
+          <div class="topic-icon">🐣</div>
+          <h3>养狗入门</h3>
+          <p>选择犬种、领养还是购买、幼犬准备、接狗回家第一周，以及养狗费用。</p>
+          <span class="topic-count">6篇指南</span>
+        </a>
+        <a href="/zh/training/index.html" class="topic-card">
+          <div class="topic-icon">🎓</div>
+          <h3>训练指南</h3>
+          <p>基础口令、幼犬训练、牵绳礼仪，以及行为问题矫正。</p>
+          <span class="topic-count">完整指南</span>
+        </a>
+        <a href="/zh/health/index.html" class="topic-card">
+          <div class="topic-icon">🏥</div>
+          <h3>健康与症状</h3>
+          <p>常见疾病、症状解读、兽医就诊指南，以及预防性护理。</p>
+          <span class="topic-count">完整指南</span>
+        </a>
+        <a href="/zh/nutrition/index.html" class="topic-card">
+          <div class="topic-icon">🍽️</div>
+          <h3>营养与饮食</h3>
+          <p>按犬种和年龄的喂食指南、最佳食品推荐、有毒食物，以及零食建议。</p>
+          <span class="topic-count">完整指南</span>
+        </a>
+        <a href="/zh/grooming/index.html" class="topic-card">
+          <div class="topic-icon">✂️</div>
+          <h3>美容护理</h3>
+          <p>居家美容技巧、按犬种的毛发护理，以及工具推荐。</p>
+          <span class="topic-count">12篇指南</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED BREEDS -->
+  <section class="featured-breeds">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">犬种大全</span>
+        <h2>探索热门犬种</h2>
+        <p class="js-breed-dir-desc">浏览顶级纯种犬和混血设计犬——完整目录收录302个犬种。</p>
+      </div>
+
+      <div class="breed-filter-tabs">
+        <button class="breed-tab active" data-filter="all">全部犬种</button>
+        <button class="breed-tab" data-filter="purebred">纯种犬</button>
+        <button class="breed-tab" data-filter="hybrid">混血犬</button>
+      </div>
+
+      <div class="featured-grid" id="featuredGrid">
+
+        <a href="/zh/breeds/french-bulldog.html" class="featured-card" data-type="purebred">
+          <div class="featured-img" data-api="bulldog/french">
+            <img class="featured-real-photo" alt="法国斗牛犬" />
+            <span class="featured-emoji">🐶</span>
+            <span class="featured-type-badge badge-purebred">纯种犬</span>
+          </div>
+          <div class="featured-info">
+            <span class="featured-rank">#1 最受欢迎</span>
+            <h3>法国斗牛犬</h3>
+            <p>活泼、适应性强、个性十足。美国城市里最受欢迎的犬种。</p>
+            <span class="featured-link">查看完整档案 →</span>
+          </div>
+        </a>
+
+        <a href="/zh/breeds/labrador-retriever.html" class="featured-card" data-type="purebred">
+          <div class="featured-img" data-api="labrador">
+            <img class="featured-real-photo" alt="拉布拉多寻回犬" />
+            <span class="featured-emoji">🦮</span>
+            <span class="featured-type-badge badge-purebred">纯种犬</span>
+          </div>
+          <div class="featured-info">
+            <span class="featured-rank">#2 最受欢迎</span>
+            <h3>拉布拉多寻回犬</h3>
+            <p>友善、忠诚、精力充沛。深受美国家庭喜爱的犬种。</p>
+            <span class="featured-link">查看完整档案 →</span>
+          </div>
+        </a>
+
+        <a href="/zh/breeds/golden-retriever.html" class="featured-card" data-type="purebred">
+          <div class="featured-img" data-api="retriever/golden">
+            <img class="featured-real-photo" alt="金毛寻回犬" />
+            <span class="featured-emoji">🐕</span>
+            <span class="featured-type-badge badge-purebred">纯种犬</span>
+          </div>
+          <div class="featured-info">
+            <span class="featured-rank">#3 最受欢迎</span>
+            <h3>金毛寻回犬</h3>
+            <p>温柔、充满爱心、极度忠诚。全球最受欢迎的家庭犬之一。</p>
+            <span class="featured-link">查看完整档案 →</span>
+          </div>
+        </a>
+
+        <a href="/zh/breeds/german-shepherd.html" class="featured-card" data-type="purebred">
+          <div class="featured-img" data-api="german/shepherd">
+            <img class="featured-real-photo" alt="德国牧羊犬" />
+            <span class="featured-emoji">🐕‍🦺</span>
+            <span class="featured-type-badge badge-purebred">纯种犬</span>
+          </div>
+          <div class="featured-info">
+            <span class="featured-rank">#4 最受欢迎</span>
+            <h3>德国牧羊犬</h3>
+            <p>聪明、勇敢、忠诚。全球最顶尖的工作犬。</p>
+            <span class="featured-link">查看完整档案 →</span>
+          </div>
+        </a>
+
+        <a href="/zh/breeds/goldendoodle.html" class="featured-card" data-type="hybrid">
+          <div class="featured-img" data-api="retriever/golden">
+            <img class="featured-real-photo" alt="黄金贵宾犬" />
+            <span class="featured-emoji">🌟</span>
+            <span class="featured-type-badge badge-hybrid">混血犬</span>
+          </div>
+          <div class="featured-info">
+            <span class="featured-rank">#1 热门混血</span>
+            <h3>黄金贵宾犬</h3>
+            <p>金毛 × 贵宾犬——毛茸茸、友善、低掉毛量。</p>
+            <span class="featured-link">查看完整档案 →</span>
+          </div>
+        </a>
+
+        <a href="/zh/breeds/labradoodle.html" class="featured-card" data-type="hybrid">
+          <div class="featured-img" data-api="labrador">
+            <img class="featured-real-photo" alt="拉布拉多贵宾犬" />
+            <span class="featured-emoji">🐾</span>
+            <span class="featured-type-badge badge-hybrid">混血犬</span>
+          </div>
+          <div class="featured-info">
+            <span class="featured-rank">#2 热门混血</span>
+            <h3>拉布拉多贵宾犬</h3>
+            <p>拉布拉多 × 贵宾犬——最早的设计犬种。聪明、温和、低掉毛。</p>
+            <span class="featured-link">查看完整档案 →</span>
+          </div>
+        </a>
+
+        <a href="/zh/breeds/bernedoodle.html" class="featured-card" data-type="hybrid">
+          <div class="featured-img" data-api="mountain/bernese">
+            <img class="featured-real-photo" alt="伯恩贵宾犬" />
+            <span class="featured-emoji">🐻</span>
+            <span class="featured-type-badge badge-hybrid">混血犬</span>
+          </div>
+          <div class="featured-info">
+            <span class="featured-rank">#3 热门混血</span>
+            <h3>伯恩贵宾犬</h3>
+            <p>伯恩山犬 × 贵宾犬——三色温柔巨人，拥有贵宾犬的聪明头脑。</p>
+            <span class="featured-link">查看完整档案 →</span>
+          </div>
+        </a>
+
+        <a href="/zh/breeds/cockapoo.html" class="featured-card" data-type="hybrid">
+          <div class="featured-img" data-api="spaniel/cocker">
+            <img class="featured-real-photo" alt="可卡贵宾犬" />
+            <span class="featured-emoji">🌸</span>
+            <span class="featured-type-badge badge-hybrid">混血犬</span>
+          </div>
+          <div class="featured-info">
+            <span class="featured-rank">#4 热门混血</span>
+            <h3>可卡贵宾犬</h3>
+            <p>可卡犬 × 贵宾犬——开朗、充满爱意，历史最悠久的混血犬种之一。</p>
+            <span class="featured-link">查看完整档案 →</span>
+          </div>
+        </a>
+
+      </div>
+      <div style="text-align:center; margin-top:40px">
+        <a href="/zh/breeds/index.html" class="btn btn-primary js-breed-btn">浏览全部302个犬种 →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DID YOU KNOW -->
+  <section class="did-you-know">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">狗狗趣闻</span>
+        <h2>你知道吗？</h2>
+      </div>
+      <div class="facts-grid">
+        <div class="fact-card">
+          <span class="fact-num">3亿+</span>
+          <p>狗狗的鼻子拥有3亿个嗅觉受体——人类只有600万个。</p>
+        </div>
+        <div class="fact-card">
+          <span class="fact-num">450+</span>
+          <p>全球有超过450个被FCI认可的犬种。</p>
+        </div>
+        <div class="fact-card">
+          <span class="fact-num">15,000年</span>
+          <p>狗狗在大约15,000年前由狼驯化而来，是人类最古老的伙伴。</p>
+        </div>
+        <div class="fact-card">
+          <span class="fact-num">250个</span>
+          <p>最聪明的犬种能理解多达250个词汇和手势指令。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="nav-logo">
+            <span class="logo-paw">🐾</span>
+            <span class="logo-text">AllDog<span class="logo-accent">Facts</span></span>
+          </div>
+          <p>为爱狗人士提供的免费深度百科全书。无广告、无偏见——只有可靠的资讯。</p>
+        </div>
+        <div class="footer-col">
+          <h4>犬种大全</h4>
+          <ul>
+            <li><a href="/zh/breeds/labrador-retriever.html">拉布拉多寻回犬</a></li>
+            <li><a href="/zh/breeds/golden-retriever.html">金毛寻回犬</a></li>
+            <li><a href="/zh/breeds/french-bulldog.html">法国斗牛犬</a></li>
+            <li><a href="/zh/breeds/german-shepherd.html">德国牧羊犬</a></li>
+            <li><a href="/zh/breeds/index.html">全部犬种 →</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>主题导航</h4>
+          <ul>
+            <li><a href="/zh/getting-a-dog/index.html">养狗入门</a></li>
+            <li><a href="/zh/training/index.html">训练指南</a></li>
+            <li><a href="/zh/health/index.html">健康与症状</a></li>
+            <li><a href="/zh/nutrition/index.html">营养与饮食</a></li>
+            <li><a href="/zh/grooming/index.html">美容护理</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>犬种筛选</h4>
+          <ul>
+            <li><a href="/zh/breeds/index.html?size=small">小型犬</a></li>
+            <li><a href="/zh/breeds/index.html?size=large">大型犬</a></li>
+            <li><a href="/zh/breeds/index.html?kids=yes">适合有孩子的家庭</a></li>
+            <li><a href="/zh/breeds/index.html?energy=low">低运动量犬种</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 AllDogFacts — 完整狗狗百科全书。保留所有权利。</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/breed-count.js"></script>
+  <script>
+    // Load real breed photos
+    document.querySelectorAll('.featured-img[data-api]').forEach(wrap => {
+      const api = wrap.dataset.api;
+      const img = wrap.querySelector('.featured-real-photo');
+      const emoji = wrap.querySelector('.featured-emoji');
+      fetch(`https://dog.ceo/api/breed/${api}/images`)
+        .then(r => r.json())
+        .then(data => {
+          img.src = data.message[2];
+          img.onload = () => {
+            img.style.display = 'block';
+            if (emoji) emoji.style.display = 'none';
+          };
+        }).catch(() => {});
+    });
+
+    // Featured breeds filter tabs
+    document.querySelectorAll('.breed-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.breed-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const filter = tab.dataset.filter;
+        document.querySelectorAll('#featuredGrid .featured-card').forEach(card => {
+          card.style.display = (filter === 'all' || card.dataset.type === filter) ? '' : 'none';
+        });
+      });
+    });
+
+    function handleSearch() {
+      const q = document.getElementById('homeSearch').value.trim().toLowerCase();
+      if (q) window.location.href = `/zh/breeds/index.html?search=${encodeURIComponent(q)}`;
+    }
+
+    document.getElementById('homeSearch').addEventListener('keydown', e => {
+      if (e.key === 'Enter') handleSearch();
+    });
+  </script>
+</body>
+</html>
