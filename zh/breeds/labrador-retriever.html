@@ -564,10 +564,10 @@
         };
 
         // Gallery photos — build the galleryPhotos array so arrows can navigate
-        const picks = [8, 15, 25, 38, 17, 62];
+        const picks = [8, 15, 25, 38, 50, 62];
         picks.forEach((index, i) => {
           const el = document.getElementById('gp' + (i + 1));
-          const src = (i === 4) ? '../images/lab-grass.jpg' : photos[index];
+          const src = photos[index];
           if (el && src) {
             galleryPhotos.push(src);
             el.src = src;
