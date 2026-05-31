@@ -51,18 +51,6 @@ window.addEventListener('scroll', function () {
   navbar.classList.toggle('scrolled', window.scrollY > 20);
 });
 
-// Auto dark navbar — detect if the hero section has a dark background
-(function () {
-  var hero = document.querySelector('.ga-hero, .si-hero, .hero-section, .hero');
-  if (!hero) return;
-  var style = hero.getAttribute('style') || '';
-  var bg = window.getComputedStyle(hero).backgroundColor;
-  var rgb = bg.match(/\d+/g);
-  var isDark = style.indexOf('0f172a') !== -1 || style.indexOf('1a3a2a') !== -1 ||
-               (rgb && (0.299 * rgb[0] + 0.587 * rgb[1] + 0.114 * rgb[2]) / 255 < 0.3);
-  if (isDark && navbar) navbar.classList.add('navbar-dark');
-})();
-
 // Mobile hamburger menu
 var hamburger = document.getElementById('hamburger');
 var navLinks = document.getElementById('navLinks');
