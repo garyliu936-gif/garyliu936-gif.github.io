@@ -17,6 +17,7 @@
   var PUREBRED_TOTAL  = 202;
 
   document.addEventListener('DOMContentLoaded', function () {
+    var isZh = document.documentElement.lang === 'zh-CN' || location.pathname.startsWith('/zh/');
     var isBreedPage = !!document.getElementById('breedsGrid');
     var total;
 
@@ -29,7 +30,7 @@
 
       /* Update the results-count badge (before any filter is applied) */
       var rc = document.getElementById('resultsCount');
-      if (rc) rc.textContent = total + ' breeds';
+      if (rc) rc.textContent = isZh ? total + '个犬种' : total + ' breeds';
     } else {
       /* Other pages — prefer localStorage so live count propagates */
       var stored = parseInt(localStorage.getItem('siteBreedTotal'), 10);
@@ -50,37 +51,36 @@
 
     /* CTA buttons: <a class="js-breed-btn …">Browse All 302 Breeds →</a> */
     document.querySelectorAll('.js-breed-btn').forEach(function (el) {
-      el.textContent = 'Browse All ' + total + ' Breeds →';
+      el.textContent = isZh ? '浏览全部' + total + '个犬种 →' : 'Browse All ' + total + ' Breeds →';
     });
 
     /* Description paragraphs in tab panels */
     document.querySelectorAll('.js-breed-desc').forEach(function (el) {
-      el.textContent =
-        'Profiles for ' + total + ' breeds — ' +
-        PUREBRED_TOTAL + ' purebreds and ' +
-        HYBRID_TOTAL + ' designer hybrids. ' +
-        'Covers temperament, size, exercise needs, grooming, health issues, and cost to own.';
+      el.textContent = isZh
+        ? '收录' + total + '个犬种资料——' + PUREBRED_TOTAL + '个纯种犬和' + HYBRID_TOTAL + '个混血犬。涵盖性格、体型、运动需求、美容护理、健康问题及养育费用。'
+        : 'Profiles for ' + total + ' breeds — ' + PUREBRED_TOTAL + ' purebreds and ' + HYBRID_TOTAL + ' designer hybrids. Covers temperament, size, exercise needs, grooming, health issues, and cost to own.';
     });
 
     /* Short description on home topic card */
     document.querySelectorAll('.js-breed-short-desc').forEach(function (el) {
-      el.textContent =
-        'Profiles for ' + total + ' breeds — purebreds & hybrids — ' +
-        'temperament, size, care, health, and more.';
+      el.textContent = isZh
+        ? '收录' + total + '个犬种资料——纯种犬与混血犬——性格、体型、护理、健康等全方位介绍。'
+        : 'Profiles for ' + total + ' breeds — purebreds & hybrids — temperament, size, care, health, and more.';
     });
 
     /* Section header sub-text on home breeds section */
     document.querySelectorAll('.js-breed-dir-desc').forEach(function (el) {
-      el.textContent =
-        'Browse top purebreds and designer hybrids — ' + total + ' breeds in our full directory.';
+      el.textContent = isZh
+        ? '浏览顶级纯种犬和混血设计犬——完整目录收录' + total + '个犬种。'
+        : 'Browse top purebreds and designer hybrids — ' + total + ' breeds in our full directory.';
     });
 
     /* Tab panel highlights: <span class="ttp-highlight js-hybrid-count"> */
     document.querySelectorAll('.js-hybrid-count').forEach(function (el) {
-      el.textContent = '🌟 ' + HYBRID_TOTAL + ' hybrid breeds';
+      el.textContent = isZh ? '🌟 ' + HYBRID_TOTAL + '个混血犬种' : '🌟 ' + HYBRID_TOTAL + ' hybrid breeds';
     });
     document.querySelectorAll('.js-purebred-count').forEach(function (el) {
-      el.textContent = '🏆 ' + PUREBRED_TOTAL + ' purebred breeds';
+      el.textContent = isZh ? '🏆 ' + PUREBRED_TOTAL + '个纯种犬' : '🏆 ' + PUREBRED_TOTAL + ' purebred breeds';
     });
   });
 })();
