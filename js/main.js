@@ -26,21 +26,13 @@
           location.reload();
         }
       } else {
-        /* Switch to Chinese — navigate to /zh/ version if it exists, else translate in-place */
-        const ZH_PAGES = {
-          'breeds':       '/zh/breeds/index.html',
-          'training':     '/zh/training/index.html',
-          'health':       '/zh/health/index.html',
-          'nutrition':    '/zh/nutrition/index.html',
-          'grooming':     '/zh/grooming/index.html',
-          'getting-a-dog':'/zh/getting-a-dog/index.html',
-        };
-        /* Normalise path: strip leading slash, trailing slash, index.html */
-        const seg = location.pathname.replace(/^\//, '').replace(/\/?index\.html$/, '').replace(/\/$/, '');
-        const dest = ZH_PAGES[seg];
-        if (dest) {
-          localStorage.setItem('adf-lang', 'zh');
-          location.href = dest;
+        /* Switch to Chinese — navigate to /zh/ version of the current page */
+        localStorage.setItem('adf-lang', 'zh');
+        const p = location.pathname;
+        if (p === '/' || p === '/index.html' || p === '') {
+          location.href = '/zh/index.html';
+        } else if (!p.startsWith('/zh/')) {
+          location.href = '/zh' + p;
         } else if (window.i18n) {
           window.i18n.apply('zh');
         }
