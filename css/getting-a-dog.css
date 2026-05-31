@@ -23,13 +23,14 @@
 .section-tag {
   display: inline-block;
   background: var(--teal-light, #e0f2f1);
-  color: var(--teal);
+  color: var(--dark);
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   padding: 0.3rem 0.9rem;
   border-radius: 100px;
 }
+.section-tag .st-dog { color: var(--teal-dark); }
 
 /* ── HERO ────────────────────────────────────────────────── */
 .gad-hero {
