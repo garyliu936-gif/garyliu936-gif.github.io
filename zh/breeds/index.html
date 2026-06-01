@@ -122,7 +122,6 @@
             <option value="sporting">第7/8组 — 枪猎犬</option>
             <option value="toy">第9组 — 伴侣/玩具犬</option>
             <option value="sighthound">第10组 — 视觉猎犬</option>
-            <option value="hybrid">混血/无FCI</option>
           </select>
         </div>
 
@@ -132,6 +131,7 @@
           <div class="filter-chips" id="sortFilters">
             <button class="chip active" data-sort="popularity">⭐ 热门 (AKC排名)</button>
             <button class="chip" data-sort="alpha">🔤 A – Z</button>
+            <button class="chip" data-sort="fci">🌍 FCI分组</button>
           </div>
         </div>
 
@@ -4697,11 +4697,25 @@
       });
     });
 
+    const FCI_ORDER = { herding:1, working:2, terrier:3, dachshund:4, spitz:5, hound:6, sporting:7, toy:9, sighthound:10 };
+
     function applySort() {
       if (currentSort === 'alpha') {
         const cards = Array.from(document.querySelectorAll('a.breed-card'));
         cards.sort((a, b) => {
-          // Use first plain-text word of the <h3> for sorting
+          const nameA = (a.querySelector('h3').firstChild.textContent || '').trim().toLowerCase();
+          const nameB = (b.querySelector('h3').firstChild.textContent || '').trim().toLowerCase();
+          return nameA.localeCompare(nameB);
+        });
+        cards.forEach(card => grid.insertBefore(card, noResultsEl));
+      } else if (currentSort === 'fci') {
+        const cards = Array.from(document.querySelectorAll('a.breed-card'));
+        cards.sort((a, b) => {
+          const slugA = getSlug(a), slugB = getSlug(b);
+          const typeA = a.dataset.type || 'purebred', typeB = b.dataset.type || 'purebred';
+          const grpA = typeA === 'hybrid' ? 99 : (FCI_ORDER[FCI_MAP[slugA]] ?? 99);
+          const grpB = typeB === 'hybrid' ? 99 : (FCI_ORDER[FCI_MAP[slugB]] ?? 99);
+          if (grpA !== grpB) return grpA - grpB;
           const nameA = (a.querySelector('h3').firstChild.textContent || '').trim().toLowerCase();
           const nameB = (b.querySelector('h3').firstChild.textContent || '').trim().toLowerCase();
           return nameA.localeCompare(nameB);
