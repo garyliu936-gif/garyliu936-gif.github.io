@@ -108,11 +108,29 @@
           </div>
         </div>
 
+        <!-- FCI GROUP -->
+        <div class="filter-group fg-fci">
+          <span class="filter-label">🌍 FCI分组</span>
+          <select id="fciFilter" class="fci-select">
+            <option value="all">全部分组</option>
+            <option value="herding">第1组 — 牧羊犬</option>
+            <option value="working">第2组 — 工作犬</option>
+            <option value="terrier">第3组 — 㹴犬</option>
+            <option value="dachshund">第4组 — 腊肠犬</option>
+            <option value="spitz">第5组 — 狐狸犬/原始型</option>
+            <option value="hound">第6组 — 嗅觉猎犬</option>
+            <option value="sporting">第7/8组 — 枪猎犬</option>
+            <option value="toy">第9组 — 伴侣/玩具犬</option>
+            <option value="sighthound">第10组 — 视觉猎犬</option>
+            <option value="hybrid">混血/无FCI</option>
+          </select>
+        </div>
+
         <!-- SORT -->
         <div class="filter-group fg-sort">
           <span class="filter-label">🔀 排序</span>
           <div class="filter-chips" id="sortFilters">
-            <button class="chip active" data-sort="popularity">⭐ 热门</button>
+            <button class="chip active" data-sort="popularity">⭐ 热门 (AKC排名)</button>
             <button class="chip" data-sort="alpha">🔤 A – Z</button>
           </div>
         </div>
@@ -4547,7 +4565,108 @@
     searchInput.addEventListener('input', filterBreeds);
 
     // Filter state
-    const filters = { size: 'all', energy: 'all', type: 'all', kids: 'all' };
+    const filters = { size: 'all', energy: 'all', type: 'all', kids: 'all', fci: 'all' };
+
+    // ── FCI Group lookup map (keyed by href slug) ────────────────
+    const FCI_MAP = {
+      'australian-cattle-dog':'herding','australian-shepherd':'herding','bearded-collie':'herding',
+      'belgian-laekenois':'herding','belgian-malinois':'herding','belgian-sheepdog':'herding',
+      'belgian-tervuren':'herding','bergamasco-sheepdog':'herding','berger-blanc-suisse':'herding',
+      'berger-picard':'herding','bohemian-shepherd':'herding','border-collie':'herding',
+      'bouvier-des-flandres':'herding','briard':'herding','cardigan-welsh-corgi':'herding',
+      'catalan-sheepdog':'herding','collie':'herding','corgi':'herding','german-shepherd':'herding',
+      'icelandic-sheepdog':'herding','komondor':'herding','lancashire-heeler':'herding',
+      'miniature-american-shepherd':'herding','mudi':'herding','norwegian-buhund':'herding',
+      'old-english-sheepdog':'herding','polish-lowland-sheepdog':'herding','puli':'herding',
+      'pumi':'herding','pyrenean-shepherd':'herding','schapendoes':'herding','schipperke':'herding',
+      'shetland-sheepdog':'herding','slovak-cuvac':'herding','swedish-vallhund':'herding',
+      'czechoslovakian-wolfdog':'herding',
+      'akita':'working','akita-shepherd':'working','anatolian-shepherd-dog':'working',
+      'appenzeller-sennenhund':'working','bernese-mountain-dog':'working',
+      'black-russian-terrier':'working','boerboel':'working','boxer':'working',
+      'broholmer':'working','bulldog':'working','bullmastiff':'working','cane-corso':'working',
+      'cao-de-castro-laboreiro':'working','caucasian-shepherd-dog':'working','dogo-argentino':'working',
+      'dogue-de-bordeaux':'working','entlebucher-mountain-dog':'working',
+      'estrela-mountain-dog':'working','german-pinscher':'working','giant-schnauzer':'working',
+      'great-dane':'working','great-pyrenees':'working','greater-swiss-mountain-dog':'working',
+      'hovawart':'working','leonberger':'working','mastiff':'working','miniature-pinscher':'working',
+      'miniature-schnauzer':'working','neapolitan-mastiff':'working','newfoundland':'working',
+      'presa-canario':'working','rottweiler':'working','saint-bernard':'working',
+      'standard-schnauzer':'working','tibetan-mastiff':'working',
+      'airedale-terrier':'terrier','american-hairless-terrier':'terrier',
+      'american-staffordshire-terrier':'terrier','australian-terrier':'terrier',
+      'bedlington-terrier':'terrier','border-terrier':'terrier','bull-terrier':'terrier',
+      'cairn-terrier':'terrier','cesky-terrier':'terrier','dandie-dinmont-terrier':'terrier',
+      'glen-of-imaal-terrier':'terrier','irish-terrier':'terrier','kerry-blue-terrier':'terrier',
+      'lakeland-terrier':'terrier','manchester-terrier':'terrier','miniature-bull-terrier':'terrier',
+      'norfolk-terrier':'terrier','norwich-terrier':'terrier','parson-russell-terrier':'terrier',
+      'rat-terrier':'terrier','russell-terrier':'terrier','scottish-terrier':'terrier',
+      'sealyham-terrier':'terrier','silky-terrier':'terrier','skye-terrier':'terrier',
+      'smooth-fox-terrier':'terrier','soft-coated-wheaten-terrier':'terrier',
+      'staffordshire-bull-terrier':'terrier','toy-fox-terrier':'terrier',
+      'welsh-terrier':'terrier','west-highland-white-terrier':'terrier','wire-fox-terrier':'terrier',
+      'dachshund':'dachshund',
+      'alaskan-malamute':'spitz','american-eskimo-dog':'spitz','azawakh':'spitz',
+      'basenji':'spitz','canaan-dog':'spitz','chinese-shar-pei':'spitz','chow-chow':'spitz',
+      'cirneco-dell-etna':'spitz','eurasier':'spitz','finnish-lapphund':'spitz',
+      'finnish-spitz':'spitz','jamthund':'spitz','kai-ken':'spitz','karelian-bear-dog':'spitz',
+      'keeshond':'spitz','korean-jindo':'spitz','norwegian-elkhound':'spitz',
+      'norwegian-lundehund':'spitz','peruvian-inca-orchid':'spitz','pomeranian':'spitz',
+      'shiba-inu':'spitz','shikoku':'spitz','siberian-husky':'spitz','thai-ridgeback':'spitz',
+      'volpino-italiano':'spitz','xoloitzcuintli':'spitz',
+      'alpine-dachsbracke':'hound','american-english-coonhound':'hound',
+      'american-foxhound':'hound','basset-bleu-de-gascogne':'hound','basset-hound':'hound',
+      'beagle':'hound','black-and-tan-coonhound':'hound','bloodhound':'hound',
+      'bluetick-coonhound':'hound','chien-dartois':'hound','drever':'hound','dunker':'hound',
+      'english-foxhound':'hound','grand-basset-griffon-vendeen':'hound',
+      'hamiltonstovare':'hound','harrier':'hound','istrian-shorthaired-hound':'hound',
+      'otterhound':'hound','petit-basset-griffon-vendeen':'hound','plott-hound':'hound',
+      'porcelaine':'hound','posavac-hound':'hound','redbone-coonhound':'hound',
+      'rhodesian-ridgeback':'hound','segugio-italiano':'hound',
+      'treeing-walker-coonhound':'hound','tyrolean-hound':'hound',
+      'american-water-spaniel':'sporting','barbet':'sporting','boykin-spaniel':'sporting',
+      'bracco-italiano':'sporting','braque-du-bourbonnais':'sporting','brittany':'sporting',
+      'chesapeake-bay-retriever':'sporting','clumber-spaniel':'sporting',
+      'cocker-spaniel':'sporting','curly-coated-retriever':'sporting',
+      'drentsche-patrijshond':'sporting','english-cocker-spaniel':'sporting',
+      'english-setter':'sporting','english-springer-spaniel':'sporting',
+      'field-spaniel':'sporting','flat-coated-retriever':'sporting',
+      'german-shorthaired-pointer':'sporting','german-wirehaired-pointer':'sporting',
+      'golden-retriever':'sporting','gordon-setter':'sporting','grosser-munsterlander':'sporting',
+      'irish-red-and-white-setter':'sporting','irish-setter':'sporting',
+      'irish-water-spaniel':'sporting','kleiner-munsterlander':'sporting',
+      'labrador-retriever':'sporting','lagotto-romagnolo':'sporting',
+      'nova-scotia-duck-tolling-retriever':'sporting','picardy-spaniel':'sporting',
+      'pointer':'sporting','portuguese-water-dog':'sporting','pudelpointer':'sporting',
+      'spanish-water-dog':'sporting','spinone-italiano':'sporting','stabyhoun':'sporting',
+      'sussex-spaniel':'sporting','vizsla':'sporting','weimaraner':'sporting',
+      'welsh-springer-spaniel':'sporting','wirehaired-pointing-griffon':'sporting',
+      'wirehaired-vizsla':'sporting',
+      'affenpinscher':'toy','bichon-frise':'toy','biewer-terrier':'toy',
+      'brussels-griffon':'toy','cavalier-king-charles':'toy','chihuahua':'toy',
+      'chinese-crested':'toy','coton-de-tulear':'toy','english-toy-spaniel':'toy',
+      'havanese':'toy','japanese-chin':'toy','lowchen':'toy','maltese':'toy',
+      'papillon':'toy','pekingese':'toy','poodle':'toy','pug':'toy',
+      'russian-toy':'toy','shih-tzu':'toy','tibetan-spaniel':'toy',
+      'tibetan-terrier':'toy','yorkshire-terrier':'toy',
+      'afghan-hound':'sighthound','borzoi':'sighthound','greyhound':'sighthound',
+      'ibizan-hound':'sighthound','irish-wolfhound':'sighthound',
+      'italian-greyhound':'sighthound','pharaoh-hound':'sighthound',
+      'saluki':'sighthound','scottish-deerhound':'sighthound','sloughi':'sighthound',
+      'whippet':'sighthound',
+    };
+
+    function getSlug(card) {
+      const href = card.getAttribute('href') || '';
+      return href.replace(/\.html$/, '').split('/').pop();
+    }
+
+    // ── FCI Group select ─────────────────────────────────────────
+    const fciSelect = document.getElementById('fciFilter');
+    fciSelect.addEventListener('change', () => {
+      filters.fci = fciSelect.value;
+      filterBreeds();
+    });
 
     // ── Filter chips (size / energy / type / kids) ──────────────
     document.querySelectorAll('.chip[data-filter]').forEach(chip => {
@@ -4609,13 +4728,17 @@
         // Energy grouping
         const energyVal = energyLevel === 'high' ? 'high' : energyLevel === 'medium' ? 'medium' : 'low';
 
+        const slug = getSlug(card);
+        const fciGroup = type === 'hybrid' ? 'hybrid' : (FCI_MAP[slug] || 'other');
+
         const matchSearch = !query || name.includes(query);
         const matchSize = filters.size === 'all' || size === filters.size;
         const matchEnergy = filters.energy === 'all' || energyVal === filters.energy;
         const matchKids = filters.kids === 'all' || (filters.kids === 'yes' && kids === 'yes');
         const matchType = filters.type === 'all' || type === filters.type;
+        const matchFci = filters.fci === 'all' || fciGroup === filters.fci;
 
-        if (matchSearch && matchSize && matchEnergy && matchType && matchKids) {
+        if (matchSearch && matchSize && matchEnergy && matchType && matchKids && matchFci) {
           card.classList.remove('hidden');
           visible++;
         } else {
