@@ -139,26 +139,24 @@
 .fg-kids .chip:hover  { background: #fce7f3; color: #db2777; }
 .fg-kids .chip.active { background: #db2777; color: #fff; }
 
-/* ── FCI GROUP — Emerald green ───── */
-.fg-fci { border-color: #6ee7b7; background: #ecfdf5; }
-.fg-fci .filter-label { color: #059669; }
+/* ── FCI Group dropdown (lives inside Sort group) ─── */
 .fci-select {
   appearance: none;
   -webkit-appearance: none;
-  background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23059669'/%3E%3C/svg%3E") no-repeat right 10px center;
-  border: 1.5px solid #6ee7b7;
+  background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%230d9488'/%3E%3C/svg%3E") no-repeat right 10px center;
+  border: 1.5px solid #99f6e4;
   border-radius: 20px;
   padding: 5px 30px 5px 14px;
   font-size: .82rem;
   font-weight: 600;
-  color: #065f46;
+  color: var(--teal-dark, #0f766e);
   cursor: pointer;
-  min-width: 190px;
+  min-width: 160px;
   outline: none;
   transition: border-color .2s, box-shadow .2s;
 }
-.fci-select:hover  { border-color: #059669; }
-.fci-select:focus  { border-color: #059669; box-shadow: 0 0 0 3px rgba(5,150,105,.15); }
+.fci-select:hover  { border-color: var(--teal); }
+.fci-select:focus  { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(13,148,136,.15); }
 
 /* ── SORT — Teal (brand) ─────────── */
 .fg-sort { border-color: #99f6e4; background: #f0fdfa; }

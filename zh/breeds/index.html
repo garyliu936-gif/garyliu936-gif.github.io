@@ -108,11 +108,15 @@
           </div>
         </div>
 
-        <!-- FCI GROUP -->
-        <div class="filter-group fg-fci">
-          <span class="filter-label">🌍 FCI分组</span>
+        <!-- SORT -->
+        <div class="filter-group fg-sort">
+          <span class="filter-label">🔀 排序</span>
+          <div class="filter-chips" id="sortFilters">
+            <button class="chip active" data-sort="popularity">⭐ 热门 (AKC排名)</button>
+            <button class="chip" data-sort="alpha">🔤 A – Z</button>
+          </div>
           <select id="fciFilter" class="fci-select">
-            <option value="all">全部分组</option>
+            <option value="all">🌍 FCI分组</option>
             <option value="herding">第1组 — 牧羊犬</option>
             <option value="working">第2组 — 工作犬</option>
             <option value="terrier">第3组 — 㹴犬</option>
@@ -123,16 +127,6 @@
             <option value="toy">第9组 — 伴侣/玩具犬</option>
             <option value="sighthound">第10组 — 视觉猎犬</option>
           </select>
-        </div>
-
-        <!-- SORT -->
-        <div class="filter-group fg-sort">
-          <span class="filter-label">🔀 排序</span>
-          <div class="filter-chips" id="sortFilters">
-            <button class="chip active" data-sort="popularity">⭐ 热门 (AKC排名)</button>
-            <button class="chip" data-sort="alpha">🔤 A – Z</button>
-            <button class="chip" data-sort="fci">🌍 FCI分组</button>
-          </div>
         </div>
 
         <span class="results-count js-breed-count" id="resultsCount">322个犬种</span>

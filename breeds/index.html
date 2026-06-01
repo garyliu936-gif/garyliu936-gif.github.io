@@ -102,11 +102,15 @@
           </div>
         </div>
 
-        <!-- FCI GROUP -->
-        <div class="filter-group fg-fci">
-          <span class="filter-label">🌍 FCI Group</span>
+        <!-- SORT -->
+        <div class="filter-group fg-sort">
+          <span class="filter-label">🔀 Sort</span>
+          <div class="filter-chips" id="sortFilters">
+            <button class="chip active" data-sort="popularity">⭐ Popularity (AKC Rank)</button>
+            <button class="chip" data-sort="alpha">🔤 A – Z</button>
+          </div>
           <select id="fciFilter" class="fci-select">
-            <option value="all">All Groups</option>
+            <option value="all">🌍 FCI Group</option>
             <option value="herding">G1 — Herding &amp; Pastoral</option>
             <option value="working">G2 — Working &amp; Molossoid</option>
             <option value="terrier">G3 — Terrier</option>
@@ -117,16 +121,6 @@
             <option value="toy">G9 — Companion &amp; Toy</option>
             <option value="sighthound">G10 — Sighthound</option>
           </select>
-        </div>
-
-        <!-- SORT -->
-        <div class="filter-group fg-sort">
-          <span class="filter-label">🔀 Sort</span>
-          <div class="filter-chips" id="sortFilters">
-            <button class="chip active" data-sort="popularity">⭐ Popularity (AKC Rank)</button>
-            <button class="chip" data-sort="alpha">🔤 A – Z</button>
-            <button class="chip" data-sort="fci">🌍 FCI Group</button>
-          </div>
         </div>
 
         <span class="results-count js-breed-count" id="resultsCount">322 breeds</span>
