@@ -157,6 +157,12 @@
 }
 .fci-select:hover  { border-color: var(--teal); }
 .fci-select:focus  { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(13,148,136,.15); }
+.fci-select.fci-active {
+  background-color: var(--teal);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23fff'/%3E%3C/svg%3E");
+  border-color: var(--teal);
+  color: #fff;
+}
 
 /* ── SORT — Teal (brand) ─────────── */
 .fg-sort { border-color: #99f6e4; background: #f0fdfa; }

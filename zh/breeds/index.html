@@ -112,11 +112,11 @@
         <div class="filter-group fg-sort">
           <span class="filter-label">🔀 排序</span>
           <div class="filter-chips" id="sortFilters">
-            <button class="chip active" data-sort="popularity">⭐ 热门 (AKC排名)</button>
-            <button class="chip" data-sort="alpha">🔤 A – Z</button>
+            <button class="chip active" data-sort="alpha">全部 (🔤 A – Z)</button>
+            <button class="chip" data-sort="popularity">⭐ 热门 (AKC排名)</button>
           </div>
           <select id="fciFilter" class="fci-select">
-            <option value="all">🌍 FCI分组</option>
+            <option value="all">🌍 全部分组</option>
             <option value="herding">第1组 — 牧羊犬</option>
             <option value="working">第2组 — 工作犬</option>
             <option value="terrier">第3组 — 㹴犬</option>
@@ -4655,10 +4655,41 @@
       return href.replace(/\.html$/, '').split('/').pop();
     }
 
-    // ── FCI Group select ─────────────────────────────────────────
+    // ── Sort + FCI — shared state ─────────────────────────────────
+    const grid = document.getElementById('breedsGrid');
+    const noResultsEl = document.getElementById('noResults');
+    const originalOrder = Array.from(document.querySelectorAll('a.breed-card'));
+    let currentSort = 'alpha'; // default: A–Z
+
     const fciSelect = document.getElementById('fciFilter');
+
+    // Sort chips (All A–Z | Popularity) — clicking resets FCI to "All Groups"
+    document.querySelectorAll('.chip[data-sort]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        currentSort = btn.dataset.sort;
+        document.querySelectorAll('.chip[data-sort]').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        fciSelect.value = 'all';
+        fciSelect.classList.remove('fci-active');
+        filters.fci = 'all';
+        applySort();
+        filterBreeds();
+      });
+    });
+
+    // FCI dropdown — selecting a group deactivates both sort chips
     fciSelect.addEventListener('change', () => {
       filters.fci = fciSelect.value;
+      if (fciSelect.value !== 'all') {
+        document.querySelectorAll('.chip[data-sort]').forEach(b => b.classList.remove('active'));
+        fciSelect.classList.add('fci-active');
+        applyAlpha();
+      } else {
+        fciSelect.classList.remove('fci-active');
+        document.querySelector('.chip[data-sort="alpha"]').classList.add('active');
+        currentSort = 'alpha';
+        applySort();
+      }
       filterBreeds();
     });
 
@@ -4674,49 +4705,20 @@
       });
     });
 
-    // ── Sort chips ───────────────────────────────────────────────
-    const grid = document.getElementById('breedsGrid');
-    const noResultsEl = document.getElementById('noResults');
-    // Snapshot original popularity order once the DOM is ready
-    const originalOrder = Array.from(document.querySelectorAll('a.breed-card'));
-    let currentSort = 'popularity';
-
-    document.querySelectorAll('.chip[data-sort]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        currentSort = btn.dataset.sort;
-        document.querySelectorAll('.chip[data-sort]').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        applySort();
-        filterBreeds();
+    function applyAlpha() {
+      const cards = Array.from(document.querySelectorAll('a.breed-card'));
+      cards.sort((a, b) => {
+        const nameA = (a.querySelector('h3').firstChild.textContent || '').trim().toLowerCase();
+        const nameB = (b.querySelector('h3').firstChild.textContent || '').trim().toLowerCase();
+        return nameA.localeCompare(nameB);
       });
-    });
-
-    const FCI_ORDER = { herding:1, working:2, terrier:3, dachshund:4, spitz:5, hound:6, sporting:7, toy:9, sighthound:10 };
+      cards.forEach(card => grid.insertBefore(card, noResultsEl));
+    }
 
     function applySort() {
       if (currentSort === 'alpha') {
-        const cards = Array.from(document.querySelectorAll('a.breed-card'));
-        cards.sort((a, b) => {
-          const nameA = (a.querySelector('h3').firstChild.textContent || '').trim().toLowerCase();
-          const nameB = (b.querySelector('h3').firstChild.textContent || '').trim().toLowerCase();
-          return nameA.localeCompare(nameB);
-        });
-        cards.forEach(card => grid.insertBefore(card, noResultsEl));
-      } else if (currentSort === 'fci') {
-        const cards = Array.from(document.querySelectorAll('a.breed-card'));
-        cards.sort((a, b) => {
-          const slugA = getSlug(a), slugB = getSlug(b);
-          const typeA = a.dataset.type || 'purebred', typeB = b.dataset.type || 'purebred';
-          const grpA = typeA === 'hybrid' ? 99 : (FCI_ORDER[FCI_MAP[slugA]] ?? 99);
-          const grpB = typeB === 'hybrid' ? 99 : (FCI_ORDER[FCI_MAP[slugB]] ?? 99);
-          if (grpA !== grpB) return grpA - grpB;
-          const nameA = (a.querySelector('h3').firstChild.textContent || '').trim().toLowerCase();
-          const nameB = (b.querySelector('h3').firstChild.textContent || '').trim().toLowerCase();
-          return nameA.localeCompare(nameB);
-        });
-        cards.forEach(card => grid.insertBefore(card, noResultsEl));
+        applyAlpha();
       } else {
-        // Restore original popularity order
         originalOrder.forEach(card => grid.insertBefore(card, noResultsEl));
       }
     }
@@ -4759,7 +4761,8 @@
       noResults.classList.toggle('show', visible === 0);
     }
 
-    // Auto-count on page load — always shows real total, no manual updates needed
+    // Apply default A–Z sort then count on page load
+    applySort();
     filterBreeds();
     document.querySelectorAll('.topic-tab-btn').forEach(btn => {
       btn.addEventListener('click', () => {

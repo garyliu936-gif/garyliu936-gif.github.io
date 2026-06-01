@@ -106,11 +106,11 @@
         <div class="filter-group fg-sort">
           <span class="filter-label">🔀 Sort</span>
           <div class="filter-chips" id="sortFilters">
-            <button class="chip active" data-sort="popularity">⭐ Popularity (AKC Rank)</button>
-            <button class="chip" data-sort="alpha">🔤 A – Z</button>
+            <button class="chip active" data-sort="alpha">All (🔤 A – Z)</button>
+            <button class="chip" data-sort="popularity">⭐ Popularity (AKC Rank)</button>
           </div>
           <select id="fciFilter" class="fci-select">
-            <option value="all">🌍 FCI Group</option>
+            <option value="all">🌍 All Groups</option>
             <option value="herding">G1 — Herding &amp; Pastoral</option>
             <option value="working">G2 — Working &amp; Molossoid</option>
             <option value="terrier">G3 — Terrier</option>
@@ -4659,10 +4659,43 @@
       return href.replace(/\.html$/, '').split('/').pop();
     }
 
-    // ── FCI Group select ─────────────────────────────────────────
+    // ── Sort + FCI — shared state ─────────────────────────────────
+    const grid = document.getElementById('breedsGrid');
+    const noResultsEl = document.getElementById('noResults');
+    const originalOrder = Array.from(document.querySelectorAll('a.breed-card'));
+    let currentSort = 'alpha'; // default: A–Z
+
     const fciSelect = document.getElementById('fciFilter');
+
+    // Sort chips (All A–Z | Popularity) — clicking resets FCI to "All Groups"
+    document.querySelectorAll('.chip[data-sort]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        currentSort = btn.dataset.sort;
+        document.querySelectorAll('.chip[data-sort]').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        fciSelect.value = 'all';
+        fciSelect.classList.remove('fci-active');
+        filters.fci = 'all';
+        applySort();
+        filterBreeds();
+      });
+    });
+
+    // FCI dropdown — selecting a group deactivates both sort chips
     fciSelect.addEventListener('change', () => {
       filters.fci = fciSelect.value;
+      if (fciSelect.value !== 'all') {
+        document.querySelectorAll('.chip[data-sort]').forEach(b => b.classList.remove('active'));
+        fciSelect.classList.add('fci-active');
+        // Display filtered breeds in A–Z order
+        applyAlpha();
+      } else {
+        // Reset to "All A–Z"
+        fciSelect.classList.remove('fci-active');
+        document.querySelector('.chip[data-sort="alpha"]').classList.add('active');
+        currentSort = 'alpha';
+        applySort();
+      }
       filterBreeds();
     });
 
@@ -4678,51 +4711,21 @@
       });
     });
 
-    // ── Sort chips ───────────────────────────────────────────────
-    const grid = document.getElementById('breedsGrid');
-    const noResultsEl = document.getElementById('noResults');
-    // Snapshot original popularity order once the DOM is ready
-    const originalOrder = Array.from(document.querySelectorAll('a.breed-card'));
-    let currentSort = 'popularity';
-
-    document.querySelectorAll('.chip[data-sort]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        currentSort = btn.dataset.sort;
-        document.querySelectorAll('.chip[data-sort]').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        applySort();
-        filterBreeds();
+    function applyAlpha() {
+      const cards = Array.from(document.querySelectorAll('a.breed-card'));
+      cards.sort((a, b) => {
+        const nameA = (a.querySelector('h3').firstChild.textContent || '').trim().toLowerCase();
+        const nameB = (b.querySelector('h3').firstChild.textContent || '').trim().toLowerCase();
+        return nameA.localeCompare(nameB);
       });
-    });
-
-    // FCI group → sort order number (hybrids / unmapped → 99)
-    const FCI_ORDER = { herding:1, working:2, terrier:3, dachshund:4, spitz:5, hound:6, sporting:7, toy:9, sighthound:10 };
+      cards.forEach(card => grid.insertBefore(card, noResultsEl));
+    }
 
     function applySort() {
       if (currentSort === 'alpha') {
-        const cards = Array.from(document.querySelectorAll('a.breed-card'));
-        cards.sort((a, b) => {
-          const nameA = (a.querySelector('h3').firstChild.textContent || '').trim().toLowerCase();
-          const nameB = (b.querySelector('h3').firstChild.textContent || '').trim().toLowerCase();
-          return nameA.localeCompare(nameB);
-        });
-        cards.forEach(card => grid.insertBefore(card, noResultsEl));
-      } else if (currentSort === 'fci') {
-        const cards = Array.from(document.querySelectorAll('a.breed-card'));
-        cards.sort((a, b) => {
-          const slugA = getSlug(a), slugB = getSlug(b);
-          const typeA = a.dataset.type || 'purebred', typeB = b.dataset.type || 'purebred';
-          const grpA = typeA === 'hybrid' ? 99 : (FCI_ORDER[FCI_MAP[slugA]] ?? 99);
-          const grpB = typeB === 'hybrid' ? 99 : (FCI_ORDER[FCI_MAP[slugB]] ?? 99);
-          if (grpA !== grpB) return grpA - grpB;
-          // Within same group: alphabetical
-          const nameA = (a.querySelector('h3').firstChild.textContent || '').trim().toLowerCase();
-          const nameB = (b.querySelector('h3').firstChild.textContent || '').trim().toLowerCase();
-          return nameA.localeCompare(nameB);
-        });
-        cards.forEach(card => grid.insertBefore(card, noResultsEl));
+        applyAlpha();
       } else {
-        // Restore original popularity order
+        // Popularity — restore original AKC rank order
         originalOrder.forEach(card => grid.insertBefore(card, noResultsEl));
       }
     }
@@ -4766,7 +4769,8 @@
       noResults.classList.toggle('show', visible === 0);
     }
 
-    // Auto-count on page load — always shows real total, no manual updates needed
+    // Apply default A–Z sort then count on page load
+    applySort();
     filterBreeds();
     document.querySelectorAll('.topic-tab-btn').forEach(btn => {
       btn.addEventListener('click', () => {
