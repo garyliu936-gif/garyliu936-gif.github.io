@@ -108,19 +108,22 @@
           <div class="filter-chips" id="sortFilters">
             <button class="chip active" data-sort="alpha">All (🔤 A – Z)</button>
             <button class="chip" data-sort="popularity">⭐ Popularity (AKC Rank)</button>
+            <div class="fci-chip-wrap">
+              <button class="chip" id="fciChipBtn" data-sort="fci">🌍 FCI Group ▼</button>
+              <div class="fci-dropdown" id="fciDropdown">
+                <button class="fci-opt active" data-fci="all">All Groups</button>
+                <button class="fci-opt" data-fci="herding">G1 — Herding &amp; Pastoral</button>
+                <button class="fci-opt" data-fci="working">G2 — Working &amp; Molossoid</button>
+                <button class="fci-opt" data-fci="terrier">G3 — Terrier</button>
+                <button class="fci-opt" data-fci="dachshund">G4 — Dachshund</button>
+                <button class="fci-opt" data-fci="spitz">G5 — Spitz &amp; Primitive</button>
+                <button class="fci-opt" data-fci="hound">G6 — Scent Hound</button>
+                <button class="fci-opt" data-fci="sporting">G7/8 — Sporting &amp; Retriever</button>
+                <button class="fci-opt" data-fci="toy">G9 — Companion &amp; Toy</button>
+                <button class="fci-opt" data-fci="sighthound">G10 — Sighthound</button>
+              </div>
+            </div>
           </div>
-          <select id="fciFilter" class="fci-select">
-            <option value="all">🌍 All Groups</option>
-            <option value="herding">G1 — Herding &amp; Pastoral</option>
-            <option value="working">G2 — Working &amp; Molossoid</option>
-            <option value="terrier">G3 — Terrier</option>
-            <option value="dachshund">G4 — Dachshund</option>
-            <option value="spitz">G5 — Spitz &amp; Primitive</option>
-            <option value="hound">G6 — Scent Hound</option>
-            <option value="sporting">G7/8 — Sporting &amp; Retriever</option>
-            <option value="toy">G9 — Companion &amp; Toy</option>
-            <option value="sighthound">G10 — Sighthound</option>
-          </select>
         </div>
 
         <span class="results-count js-breed-count" id="resultsCount">401 breeds</span>
@@ -4772,39 +4775,62 @@
     const originalOrder = Array.from(document.querySelectorAll('a.breed-card'));
     let currentSort = 'alpha'; // default: A–Z
 
-    const fciSelect = document.getElementById('fciFilter');
+    const fciChipBtn  = document.getElementById('fciChipBtn');
+    const fciDropdown = document.getElementById('fciDropdown');
+
+    // Helper: deactivate all three sort buttons
+    function clearSortActive() {
+      document.querySelectorAll('.chip[data-sort]').forEach(b => b.classList.remove('active'));
+    }
+
+    // Helper: close the FCI dropdown
+    function closeFciDropdown() { fciDropdown.classList.remove('open'); }
 
     // Sort chips (All A–Z | Popularity) — clicking resets FCI to "All Groups"
     document.querySelectorAll('.chip[data-sort]').forEach(btn => {
+      if (btn.id === 'fciChipBtn') return; // handled separately
       btn.addEventListener('click', () => {
         currentSort = btn.dataset.sort;
-        document.querySelectorAll('.chip[data-sort]').forEach(b => b.classList.remove('active'));
+        clearSortActive();
         btn.classList.add('active');
-        fciSelect.value = 'all';
-        fciSelect.classList.remove('fci-active');
         filters.fci = 'all';
+        document.querySelectorAll('.fci-opt').forEach(o => o.classList.remove('active'));
+        document.querySelector('.fci-opt[data-fci="all"]').classList.add('active');
+        closeFciDropdown();
         applySort();
         filterBreeds();
       });
     });
 
-    // FCI dropdown — selecting a group deactivates both sort chips
-    fciSelect.addEventListener('change', () => {
-      filters.fci = fciSelect.value;
-      if (fciSelect.value !== 'all') {
-        document.querySelectorAll('.chip[data-sort]').forEach(b => b.classList.remove('active'));
-        fciSelect.classList.add('fci-active');
-        // Display filtered breeds in A–Z order
-        applyAlpha();
-      } else {
-        // Reset to "All A–Z"
-        fciSelect.classList.remove('fci-active');
-        document.querySelector('.chip[data-sort="alpha"]').classList.add('active');
-        currentSort = 'alpha';
-        applySort();
-      }
-      filterBreeds();
+    // FCI chip button — toggle dropdown open/closed
+    fciChipBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      fciDropdown.classList.toggle('open');
     });
+
+    // FCI option selected inside dropdown
+    document.querySelectorAll('.fci-opt').forEach(opt => {
+      opt.addEventListener('click', () => {
+        filters.fci = opt.dataset.fci;
+        document.querySelectorAll('.fci-opt').forEach(o => o.classList.remove('active'));
+        opt.classList.add('active');
+        closeFciDropdown();
+        if (filters.fci !== 'all') {
+          clearSortActive();
+          fciChipBtn.classList.add('active');
+          applyAlpha();
+        } else {
+          fciChipBtn.classList.remove('active');
+          currentSort = 'alpha';
+          document.querySelector('.chip[data-sort="alpha"]').classList.add('active');
+          applySort();
+        }
+        filterBreeds();
+      });
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', () => closeFciDropdown());
 
     // ── Filter chips (size / energy / type / kids) ──────────────
     document.querySelectorAll('.chip[data-filter]').forEach(chip => {

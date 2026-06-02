@@ -139,30 +139,42 @@
 .fg-kids .chip:hover  { background: #fce7f3; color: #db2777; }
 .fg-kids .chip.active { background: #db2777; color: #fff; }
 
-/* ── FCI Group dropdown (lives inside Sort group) ─── */
-.fci-select {
-  appearance: none;
-  -webkit-appearance: none;
-  background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%230d9488'/%3E%3C/svg%3E") no-repeat right 10px center;
+/* ── FCI Group chip + custom dropdown ─── */
+.fci-chip-wrap {
+  position: relative;
+  display: inline-block;
+}
+.fci-dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  background: #fff;
   border: 1.5px solid #99f6e4;
-  border-radius: 20px;
-  padding: 5px 30px 5px 14px;
-  font-size: .82rem;
-  font-weight: 600;
-  color: var(--teal-dark, #0f766e);
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0,0,0,.12);
+  z-index: 200;
+  min-width: 210px;
+  padding: 5px 0;
+}
+.fci-dropdown.open { display: block; }
+.fci-opt {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 7px 16px;
+  background: none;
+  border: none;
   cursor: pointer;
-  min-width: 160px;
-  outline: none;
-  transition: border-color .2s, box-shadow .2s;
+  font-family: var(--font-body);
+  font-size: .8rem;
+  font-weight: 600;
+  color: var(--soft);
+  transition: background .15s, color .15s;
+  white-space: nowrap;
 }
-.fci-select:hover  { border-color: var(--teal); }
-.fci-select:focus  { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(13,148,136,.15); }
-.fci-select.fci-active {
-  background-color: var(--teal);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23fff'/%3E%3C/svg%3E");
-  border-color: var(--teal);
-  color: #fff;
-}
+.fci-opt:hover  { background: #f0fdfa; color: var(--teal); }
+.fci-opt.active { background: #ccfbf1; color: var(--teal); }
 
 /* ── SORT — Teal (brand) ─────────── */
 .fg-sort { border-color: #99f6e4; background: #f0fdfa; }
