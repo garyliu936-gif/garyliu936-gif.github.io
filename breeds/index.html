@@ -4886,7 +4886,9 @@
         const matchEnergy = filters.energy === 'all' || energyVal === filters.energy;
         const matchKids = filters.kids === 'all' || (filters.kids === 'yes' && kids === 'yes');
         const matchType = filters.type === 'all' || type === filters.type;
-        const matchFci = filters.fci === 'all' || fciGroup === filters.fci;
+        const matchFci = filters.fci === 'all'
+          || (filters.fci === 'fci-all' && fciGroup !== 'hybrid' && fciGroup !== 'other')
+          || fciGroup === filters.fci;
 
         if (matchSearch && matchSize && matchEnergy && matchType && matchKids && matchFci) {
           card.classList.remove('hidden');
