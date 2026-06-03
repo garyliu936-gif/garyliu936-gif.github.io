@@ -184,7 +184,10 @@
       "Bash(node -e \"const b=require\\('./missing_fci_breeds.json'\\); b.slice\\(0,15\\).forEach\\(\\(x,i\\)=>console.log\\(i+1,x\\)\\)\")",
       "Bash(git -C \"C:\\\\Pet Website\" log --oneline)",
       "Bash(git -C \"C:\\\\Pet Website\" show 6863853 --stat)",
-      "PowerShell(\\(Get-Content \"C:\\\\Pet Website\\\\zh\\\\breeds\\\\index.html\" | Select-String \"wetterhoun\"\\).LineNumber)"
+      "PowerShell(\\(Get-Content \"C:\\\\Pet Website\\\\zh\\\\breeds\\\\index.html\" | Select-String \"wetterhoun\"\\).LineNumber)",
+      "Bash(grep -o 'info-box-label\">[^<]\\\\{1,50\\\\}' \"C:/Pet Website/zh/breeds/berger-blanc-suisse.html\")",
+      "Bash(grep -o 'info-box-label\">[^<]\\\\{1,50\\\\}' \"C:/Pet Website/zh/breeds/kai-ken.html\")",
+      "Bash(node)"
     ]
   },
   "hooks": {
