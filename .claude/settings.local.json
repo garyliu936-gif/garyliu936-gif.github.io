@@ -187,7 +187,10 @@
       "PowerShell(\\(Get-Content \"C:\\\\Pet Website\\\\zh\\\\breeds\\\\index.html\" | Select-String \"wetterhoun\"\\).LineNumber)",
       "Bash(grep -o 'info-box-label\">[^<]\\\\{1,50\\\\}' \"C:/Pet Website/zh/breeds/berger-blanc-suisse.html\")",
       "Bash(grep -o 'info-box-label\">[^<]\\\\{1,50\\\\}' \"C:/Pet Website/zh/breeds/kai-ken.html\")",
-      "Bash(node)"
+      "Bash(node)",
+      "Bash(node \"C:/Pet Website/check_gaps.js\")",
+      "Bash(node -e \"const d=require\\('/dev/stdin'\\);console.log\\(JSON.stringify\\(d.slice\\(0,10\\),null,2\\)\\)\")",
+      "Bash(node -e \"const d=require\\('C:/Pet Website/missing_fci_breeds.json'\\);console.log\\(d.length,'missing breeds'\\);d.slice\\(0,20\\).forEach\\(b=>console.log\\(' ',b.name||b\\)\\)\")"
     ]
   },
   "hooks": {
