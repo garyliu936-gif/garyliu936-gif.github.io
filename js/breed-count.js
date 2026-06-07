@@ -12,44 +12,52 @@
    ✅  Other pages update the moment anyone views the breeds page.
    ────────────────────────────────────────────────────────────────────────────── */
 (function () {
-  var FALLBACK_TOTAL  = 302;   // only used before breeds page is visited
-  var HYBRID_TOTAL    = 100;
-  var PUREBRED_TOTAL  = 202;
+  var EN_FALLBACK      = 506;   // English total — update if you add more breeds
+  var ZH_FALLBACK      = 391;   // Chinese total
+  var HYBRID_TOTAL     = 113;   // hybrid/designer breeds
+  var PUREBRED_TOTAL   = 393;   // purebred breeds
 
   document.addEventListener('DOMContentLoaded', function () {
     var isZh = document.documentElement.lang === 'zh-CN' || location.pathname.startsWith('/zh/');
     var isBreedPage = !!document.getElementById('breedsGrid');
+    var storageKey = isZh ? 'siteBreedTotal-zh' : 'siteBreedTotal-en';
+    var fallback   = isZh ? ZH_FALLBACK : EN_FALLBACK;
     var total;
 
     if (isBreedPage) {
       /* Count every breed card on the breeds page — zero manual work */
       total = document.querySelectorAll('a.breed-card').length;
-      localStorage.setItem('siteBreedTotal',   total);
-      localStorage.setItem('siteHybridTotal',  HYBRID_TOTAL);
-      localStorage.setItem('sitePurebredTotal',PUREBRED_TOTAL);
+      localStorage.setItem(storageKey, total);
+      localStorage.setItem('siteHybridTotal',   HYBRID_TOTAL);
+      localStorage.setItem('sitePurebredTotal', PUREBRED_TOTAL);
 
       /* Update the results-count badge (before any filter is applied) */
       var rc = document.getElementById('resultsCount');
       if (rc) rc.textContent = isZh ? total + '个犬种' : total + ' breeds';
     } else {
       /* Other pages — prefer localStorage so live count propagates */
-      var stored = parseInt(localStorage.getItem('siteBreedTotal'), 10);
-      total = (stored && stored > 0) ? stored : FALLBACK_TOTAL;
+      var stored = parseInt(localStorage.getItem(storageKey), 10);
+      total = (stored && stored > 0) ? stored : fallback;
     }
 
     /* ── Update every marked element ─────────────────────────────── */
 
-    /* Plain number spans: <span class="js-breed-total">302</span> */
+    /* Plain number spans: <span class="js-breed-total">506</span> */
     document.querySelectorAll('.js-breed-total').forEach(function (el) {
       el.textContent = total;
     });
 
-    /* "N breeds" spans: <span class="js-breed-count">302 breeds</span> */
+    /* "N+ breeds" spans with breed-count-live class (used in breed profile CTAs) */
+    document.querySelectorAll('.breed-count-live').forEach(function (el) {
+      el.textContent = total + '+';
+    });
+
+    /* "N breeds" spans: <span class="js-breed-count">506 breeds</span> */
     document.querySelectorAll('.js-breed-count').forEach(function (el) {
       el.textContent = isZh ? total + '个犬种' : total + ' breeds';
     });
 
-    /* CTA buttons: <a class="js-breed-btn …">Browse All 302 Breeds →</a> */
+    /* CTA buttons: <a class="js-breed-btn …">Browse All 506 Breeds →</a> */
     document.querySelectorAll('.js-breed-btn').forEach(function (el) {
       el.textContent = isZh ? '浏览全部' + total + '个犬种 →' : 'Browse All ' + total + ' Breeds →';
     });

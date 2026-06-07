@@ -190,7 +190,20 @@
       "Bash(node)",
       "Bash(node \"C:/Pet Website/check_gaps.js\")",
       "Bash(node -e \"const d=require\\('/dev/stdin'\\);console.log\\(JSON.stringify\\(d.slice\\(0,10\\),null,2\\)\\)\")",
-      "Bash(node -e \"const d=require\\('C:/Pet Website/missing_fci_breeds.json'\\);console.log\\(d.length,'missing breeds'\\);d.slice\\(0,20\\).forEach\\(b=>console.log\\(' ',b.name||b\\)\\)\")"
+      "Bash(node -e \"const d=require\\('C:/Pet Website/missing_fci_breeds.json'\\);console.log\\(d.length,'missing breeds'\\);d.slice\\(0,20\\).forEach\\(b=>console.log\\(' ',b.name||b\\)\\)\")",
+      "PowerShell(git -C \"C:\\\\Pet Website\" show --stat 96aed92)",
+      "PowerShell(head -60)",
+      "WebFetch(domain:www.fci.be)",
+      "mcp__Claude_in_Chrome__navigate",
+      "mcp__Claude_in_Chrome__computer",
+      "mcp__Claude_in_Chrome__read_page",
+      "mcp__Claude_in_Chrome__javascript_tool",
+      "WebFetch(domain:docs.google.com)",
+      "WebFetch(domain:doc-10-0o-sheets.googleusercontent.com)",
+      "mcp__Claude_in_Chrome__get_page_text",
+      "mcp__Claude_in_Chrome__find",
+      "mcp__Claude_in_Chrome__tabs_create_mcp",
+      "Bash(xargs grep -l '\"322+\"')"
     ]
   },
   "hooks": {
