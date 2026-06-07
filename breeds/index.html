@@ -4986,12 +4986,22 @@
       cards.forEach(card => grid.insertBefore(card, noResultsEl));
     }
 
+    // Extract AKC rank number from a card's badge (returns Infinity if none)
+    function getAkcRank(card) {
+      const badge = card.querySelector('.breed-emoji-wrap span');
+      if (!badge) return Infinity;
+      const m = badge.innerText.match(/AKC\s*#(\d+)/i);
+      return m ? parseInt(m[1], 10) : Infinity;
+    }
+
     function applySort() {
       if (currentSort === 'alpha') {
         applyAlpha();
       } else {
-        // Popularity — restore original AKC rank order
-        originalOrder.forEach(card => grid.insertBefore(card, noResultsEl));
+        // Popularity — sort by AKC rank number ascending
+        const cards = Array.from(document.querySelectorAll('a.breed-card'));
+        cards.sort((a, b) => getAkcRank(a) - getAkcRank(b));
+        cards.forEach(card => grid.insertBefore(card, noResultsEl));
       }
     }
 
@@ -5022,8 +5032,10 @@
         const matchFci = filters.fci === 'all'
           || (filters.fci === 'fci-all' && fciGroup !== 'hybrid' && fciGroup !== 'other')
           || fciGroup === filters.fci;
+        // When sorted by AKC Popularity, only show breeds that have an AKC rank
+        const matchAkc = currentSort !== 'popularity' || getAkcRank(card) < Infinity;
 
-        if (matchSearch && matchSize && matchEnergy && matchType && matchKids && matchFci) {
+        if (matchSearch && matchSize && matchEnergy && matchType && matchKids && matchFci && matchAkc) {
           card.classList.remove('hidden');
           visible++;
         } else {
@@ -5031,7 +5043,10 @@
         }
       });
 
-      document.getElementById('resultsCount').textContent = `${visible} breed${visible !== 1 ? 's' : ''}`;
+      const label = currentSort === 'popularity'
+        ? `${visible} AKC breed${visible !== 1 ? 's' : ''}`
+        : `${visible} breed${visible !== 1 ? 's' : ''}`;
+      document.getElementById('resultsCount').textContent = label;
       const noResults = document.getElementById('noResults');
       noResults.classList.toggle('show', visible === 0);
     }
