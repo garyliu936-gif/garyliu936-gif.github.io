@@ -4751,6 +4751,18 @@
       return href.replace(/\.html$/, '').split('/').pop();
     }
 
+    // Read FCI group directly from each card's badge text (KCI G1–G10 or "FCI")
+    const FCI_GROUP_MAP = {1:'herding',2:'working',3:'terrier',4:'dachshund',5:'spitz',6:'hound',7:'sporting',8:'sporting',9:'toy',10:'sighthound'};
+    function getFciGroupFromBadge(card) {
+      const badge = card.querySelector('.breed-emoji-wrap span');
+      if (!badge) return null;
+      const text = (badge.innerText || badge.textContent || '').trim();
+      if (/^FCI$/i.test(text)) return 'fci';
+      const m = text.match(/KCI\s*G(\d+)/i);
+      if (!m) return null;
+      return FCI_GROUP_MAP[parseInt(m[1])] || null;
+    }
+
     // ── Sort + FCI — shared state ─────────────────────────────────
     const grid = document.getElementById('breedsGrid');
     const noResultsEl = document.getElementById('noResults');
@@ -4760,14 +4772,23 @@
     const fciChipBtn  = document.getElementById('fciChipBtn');
     const fciDropdown = document.getElementById('fciDropdown');
 
-    // Toggle FCI dropdown open/close
+    // FCI chip — opens dropdown AND immediately filters to all FCI breeds on first click
     fciChipBtn.addEventListener('click', e => {
       e.stopPropagation();
       fciDropdown.classList.toggle('open');
+      if (!fciChipBtn.classList.contains('active')) {
+        filters.fci = 'fci-all';
+        document.querySelectorAll('.chip[data-sort]').forEach(b => b.classList.remove('active'));
+        fciChipBtn.classList.add('active');
+        document.querySelectorAll('.fci-opt').forEach(o => o.classList.remove('active'));
+        document.querySelector('.fci-opt[data-fci="all"]').classList.add('active');
+        applyAlpha();
+        filterBreeds();
+      }
     });
     document.addEventListener('click', () => fciDropdown.classList.remove('open'));
 
-    // Sort chips (All A–Z | Popularity) — clicking resets FCI to "All Groups"
+    // Sort chips (全部 A–Z | 热门) — clicking resets FCI
     document.querySelectorAll('.chip[data-sort]').forEach(btn => {
       btn.addEventListener('click', () => {
         if (btn.id === 'fciChipBtn') return;
@@ -4775,7 +4796,6 @@
         document.querySelectorAll('.chip[data-sort]').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         fciChipBtn.classList.remove('active');
-        // Reset FCI to all
         document.querySelectorAll('.fci-opt').forEach(o => o.classList.remove('active'));
         document.querySelector('.fci-opt[data-fci="all"]').classList.add('active');
         filters.fci = 'all';
@@ -4784,23 +4804,16 @@
       });
     });
 
-    // FCI option clicks
+    // FCI group option clicks
     document.querySelectorAll('.fci-opt').forEach(opt => {
       opt.addEventListener('click', () => {
         document.querySelectorAll('.fci-opt').forEach(o => o.classList.remove('active'));
         opt.classList.add('active');
-        filters.fci = opt.dataset.fci;
+        filters.fci = (opt.dataset.fci === 'all') ? 'fci-all' : opt.dataset.fci;
         fciDropdown.classList.remove('open');
-        if (opt.dataset.fci !== 'all') {
-          document.querySelectorAll('.chip[data-sort]').forEach(b => b.classList.remove('active'));
-          fciChipBtn.classList.add('active');
-          applyAlpha();
-        } else {
-          fciChipBtn.classList.remove('active');
-          document.querySelector('.chip[data-sort="alpha"]').classList.add('active');
-          currentSort = 'alpha';
-          applySort();
-        }
+        document.querySelectorAll('.chip[data-sort]').forEach(b => b.classList.remove('active'));
+        fciChipBtn.classList.add('active');
+        applyAlpha();
         filterBreeds();
       });
     });
@@ -4861,16 +4874,17 @@
         // Energy grouping
         const energyVal = energyLevel === 'high' ? 'high' : energyLevel === 'medium' ? 'medium' : 'low';
 
-        const slug = getSlug(card);
-        const fciGroup = type === 'hybrid' ? 'hybrid' : (FCI_MAP[slug] || 'other');
+        // FCI group — read directly from badge
+        const fciGroup = getFciGroupFromBadge(card); // null = not FCI
 
         const matchSearch = !query || name.includes(query);
         const matchSize = filters.size === 'all' || size === filters.size;
         const matchEnergy = filters.energy === 'all' || energyVal === filters.energy;
         const matchKids = filters.kids === 'all' || (filters.kids === 'yes' && kids === 'yes');
         const matchType = filters.type === 'all' || type === filters.type;
-        const matchFci = filters.fci === 'all' || fciGroup === filters.fci;
-        // When sorted by AKC Popularity, only show breeds that have an AKC rank
+        const matchFci = filters.fci === 'all'
+          || (filters.fci === 'fci-all' && fciGroup !== null)
+          || (filters.fci !== 'fci-all' && fciGroup === filters.fci);
         const matchAkc = currentSort !== 'popularity' || getAkcRank(card) < Infinity;
 
         if (matchSearch && matchSize && matchEnergy && matchType && matchKids && matchFci && matchAkc) {
@@ -4883,7 +4897,9 @@
 
       const label = currentSort === 'popularity'
         ? `${visible}个AKC犬种`
-        : `${visible}个犬种`;
+        : filters.fci !== 'all'
+          ? `${visible}个FCI犬种`
+          : `${visible}个犬种`;
       document.getElementById('resultsCount').textContent = label;
       const noResults = document.getElementById('noResults');
       noResults.classList.toggle('show', visible === 0);

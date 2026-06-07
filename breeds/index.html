@@ -4905,6 +4905,19 @@
       return href.replace(/\.html$/, '').split('/').pop();
     }
 
+    // Read FCI group directly from each card's badge text (KCI G1–G10 or "FCI")
+    const FCI_GROUP_MAP = {1:'herding',2:'working',3:'terrier',4:'dachshund',5:'spitz',6:'hound',7:'sporting',8:'sporting',9:'toy',10:'sighthound'};
+    function getFciGroupFromBadge(card) {
+      const badge = card.querySelector('.breed-emoji-wrap span');
+      if (!badge) return null;
+      const text = (badge.innerText || badge.textContent || '').trim();
+      // Plain "FCI" badge — registered but group unclassified on this site
+      if (/^FCI$/i.test(text)) return 'fci';
+      const m = text.match(/KCI\s*G(\d+)/i);
+      if (!m) return null;
+      return FCI_GROUP_MAP[parseInt(m[1])] || null;
+    }
+
     // ── Sort + FCI — shared state ─────────────────────────────────
     const grid = document.getElementById('breedsGrid');
     const noResultsEl = document.getElementById('noResults');
@@ -4942,18 +4955,26 @@
     fciChipBtn.addEventListener('click', (e) => {
       e.stopPropagation();
       fciDropdown.classList.toggle('open');
+      // On first click (chip not yet active) → immediately filter to all FCI breeds
+      if (!fciChipBtn.classList.contains('active')) {
+        filters.fci = 'fci-all';
+        clearSortActive();
+        fciChipBtn.classList.add('active');
+        document.querySelectorAll('.fci-opt').forEach(o => o.classList.remove('active'));
+        document.querySelector('.fci-opt[data-fci="all"]').classList.add('active');
+        applyAlpha();
+        filterBreeds();
+      }
     });
 
     // FCI option selected inside dropdown
     document.querySelectorAll('.fci-opt').forEach(opt => {
       opt.addEventListener('click', () => {
         const val = opt.dataset.fci;
-        // 'all' inside FCI dropdown = show all FCI breeds (not hybrids/unmapped)
         filters.fci = (val === 'all') ? 'fci-all' : val;
         document.querySelectorAll('.fci-opt').forEach(o => o.classList.remove('active'));
         opt.classList.add('active');
         closeFciDropdown();
-        // FCI chip stays active for any FCI selection (including "All Groups")
         clearSortActive();
         fciChipBtn.classList.add('active');
         applyAlpha();
@@ -5020,9 +5041,8 @@
         // Energy grouping
         const energyVal = energyLevel === 'high' ? 'high' : energyLevel === 'medium' ? 'medium' : 'low';
 
-        // FCI group: look up by slug; hybrids = 'hybrid'
-        const slug = getSlug(card);
-        const fciGroup = type === 'hybrid' ? 'hybrid' : (FCI_MAP[slug] || 'other');
+        // FCI group — read directly from badge (KCI G1–G10 or "FCI")
+        const fciGroup = getFciGroupFromBadge(card); // null = not FCI registered
 
         const matchSearch = !query || name.includes(query);
         const matchSize = filters.size === 'all' || size === filters.size;
@@ -5030,8 +5050,8 @@
         const matchKids = filters.kids === 'all' || (filters.kids === 'yes' && kids === 'yes');
         const matchType = filters.type === 'all' || type === filters.type;
         const matchFci = filters.fci === 'all'
-          || (filters.fci === 'fci-all' && fciGroup !== 'hybrid' && fciGroup !== 'other')
-          || fciGroup === filters.fci;
+          || (filters.fci === 'fci-all' && fciGroup !== null)   // any FCI breed
+          || (filters.fci !== 'fci-all' && fciGroup === filters.fci); // specific group
         // When sorted by AKC Popularity, only show breeds that have an AKC rank
         const matchAkc = currentSort !== 'popularity' || getAkcRank(card) < Infinity;
 
@@ -5043,9 +5063,14 @@
         }
       });
 
-      const label = currentSort === 'popularity'
-        ? `${visible} AKC breed${visible !== 1 ? 's' : ''}`
-        : `${visible} breed${visible !== 1 ? 's' : ''}`;
+      let label;
+      if (currentSort === 'popularity') {
+        label = `${visible} AKC breed${visible !== 1 ? 's' : ''}`;
+      } else if (filters.fci !== 'all') {
+        label = `${visible} FCI breed${visible !== 1 ? 's' : ''}`;
+      } else {
+        label = `${visible} breed${visible !== 1 ? 's' : ''}`;
+      }
       document.getElementById('resultsCount').textContent = label;
       const noResults = document.getElementById('noResults');
       noResults.classList.toggle('show', visible === 0);
