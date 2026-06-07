@@ -101,6 +101,8 @@
   align-items: center;
 }
 
+.fg-sort .filter-chips { flex-wrap: nowrap; }
+
 .chip {
   padding: 4px 12px;
   border-radius: 999px;
