@@ -127,6 +127,18 @@
         </div>
 
         <span class="results-count js-breed-count" id="resultsCount">401 breeds</span>
+
+        <!-- VIEW TOGGLE -->
+        <div class="view-toggle" id="viewToggle" title="Switch view">
+          <button class="vt-btn active" id="vtGrid" aria-label="Card view" title="Card view">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="1" y="1" width="6" height="6" rx="1.5" fill="currentColor"/><rect x="11" y="1" width="6" height="6" rx="1.5" fill="currentColor"/><rect x="1" y="11" width="6" height="6" rx="1.5" fill="currentColor"/><rect x="11" y="11" width="6" height="6" rx="1.5" fill="currentColor"/></svg>
+            <span>Cards</span>
+          </button>
+          <button class="vt-btn" id="vtList" aria-label="List view" title="List view">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="1" y="2" width="16" height="2.5" rx="1.25" fill="currentColor"/><rect x="1" y="7.75" width="16" height="2.5" rx="1.25" fill="currentColor"/><rect x="1" y="13.5" width="16" height="2.5" rx="1.25" fill="currentColor"/></svg>
+            <span>List</span>
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -5023,6 +5035,69 @@
       const noResults = document.getElementById('noResults');
       noResults.classList.toggle('show', visible === 0);
     }
+
+    // ── View toggle (Card / List) ──────────────────────────
+    const vtGrid = document.getElementById('vtGrid');
+    const vtList = document.getElementById('vtList');
+
+    // Build list-view badges once and cache them on each card
+    function buildListBadges() {
+      grid.querySelectorAll('.breed-card').forEach(card => {
+        if (card.querySelector('.lv-badges')) return; // already built
+        const badgeEl = card.querySelector('.breed-emoji-wrap span');
+        const raw = badgeEl ? badgeEl.innerText.trim() : '';
+        const type = card.dataset.type || 'purebred';
+
+        // Parse AKC rank  e.g. "AKC #153\nKCI G9" or just "#88" (hybrid custom rank)
+        const akcMatch = raw.match(/AKC\s*#(\d+)/i);
+        const fciMatch = raw.match(/KCI\s*(G\d+)/i);
+
+        const wrap = document.createElement('div');
+        wrap.className = 'lv-badges';
+
+        if (akcMatch) {
+          const b = document.createElement('span');
+          b.className = 'lv-badge akc';
+          b.textContent = 'AKC #' + akcMatch[1];
+          wrap.appendChild(b);
+        }
+        if (fciMatch) {
+          const b = document.createElement('span');
+          b.className = 'lv-badge fci';
+          b.textContent = 'FCI ' + fciMatch[1];
+          wrap.appendChild(b);
+        }
+        if (!akcMatch && !fciMatch) {
+          const b = document.createElement('span');
+          b.className = 'lv-badge ' + (type === 'hybrid' ? 'mix' : 'pure');
+          b.textContent = type === 'hybrid' ? 'Mix / Hybrid' : 'Purebred';
+          wrap.appendChild(b);
+        }
+
+        card.querySelector('.breed-info').appendChild(wrap);
+      });
+    }
+
+    function setView(mode) {
+      if (mode === 'list') {
+        buildListBadges();
+        grid.classList.add('list-view');
+        vtList.classList.add('active');
+        vtGrid.classList.remove('active');
+        localStorage.setItem('breedsView', 'list');
+      } else {
+        grid.classList.remove('list-view');
+        vtGrid.classList.add('active');
+        vtList.classList.remove('active');
+        localStorage.setItem('breedsView', 'grid');
+      }
+    }
+
+    vtGrid.addEventListener('click', () => setView('grid'));
+    vtList.addEventListener('click', () => setView('list'));
+
+    // Restore last-used view
+    if (localStorage.getItem('breedsView') === 'list') setView('list');
 
     // Apply default A–Z sort then count on page load
     applySort();

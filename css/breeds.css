@@ -891,3 +891,155 @@
 @media (max-width: 480px) {
   .breeds-grid { grid-template-columns: 1fr 1fr; }
 }
+
+/* =============================================
+   VIEW TOGGLE — Card / List switch
+   ============================================= */
+
+.view-toggle {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  background: #f1f5f9;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 4px;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.vt-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  font-family: var(--font-body);
+  font-size: .75rem;
+  font-weight: 600;
+  color: #64748b;
+  cursor: pointer;
+  transition: all .18s;
+  white-space: nowrap;
+}
+
+.vt-btn:hover {
+  background: #fff;
+  color: #0d9488;
+  box-shadow: 0 1px 4px rgba(0,0,0,.08);
+}
+
+.vt-btn.active {
+  background: #0d9488;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(13,148,136,.25);
+}
+
+.vt-btn svg { flex-shrink: 0; }
+
+/* =============================================
+   LIST VIEW — simple text rows, no photo
+   ============================================= */
+
+.breeds-grid.list-view {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1.5px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+/* Each card = a clean horizontal row */
+.breeds-grid.list-view .breed-card {
+  flex-direction: row;
+  align-items: center;
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  min-height: 52px;
+  padding: 0 20px;
+  gap: 14px;
+  transition: background .15s;
+}
+
+.breeds-grid.list-view .breed-card:last-child { border-bottom: none; }
+
+.breeds-grid.list-view .breed-card:hover {
+  transform: none;
+  box-shadow: none;
+  background: #f0fdfa;
+}
+
+/* Hide photo, description, traits, profile link — show only text */
+.breeds-grid.list-view .breed-emoji-wrap   { display: none; }
+.breeds-grid.list-view .breed-info p       { display: none; }
+.breeds-grid.list-view .trait-dots         { display: none; }
+.breeds-grid.list-view .breed-link-row     { display: none; }
+
+/* Info area: name left, badges right */
+.breeds-grid.list-view .breed-info {
+  flex: 1;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
+  gap: 12px;
+}
+
+.breeds-grid.list-view .breed-info h3 {
+  font-size: .9rem;
+  font-weight: 600;
+  color: var(--dark);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 260px;
+}
+
+/* Badges injected by JS */
+.lv-badges {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-shrink: 0;
+}
+
+.lv-badge {
+  font-size: .7rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+  letter-spacing: .02em;
+}
+
+.lv-badge.akc  { background: #e0f2fe; color: #0369a1; }
+.lv-badge.fci  { background: #dcfce7; color: #15803d; }
+.lv-badge.pure { background: #f0fdf4; color: #16a34a; border: 1px solid #bbf7d0; }
+.lv-badge.mix  { background: #fef9c3; color: #854d0e; border: 1px solid #fde68a; }
+
+/* Arrow chevron on the right */
+.breeds-grid.list-view .breed-card::after {
+  content: '→';
+  font-size: .85rem;
+  color: #94a3b8;
+  flex-shrink: 0;
+  margin-left: 8px;
+  transition: color .15s, transform .15s;
+}
+
+.breeds-grid.list-view .breed-card:hover::after {
+  color: #0d9488;
+  transform: translateX(3px);
+}
+
+@media (max-width: 640px) {
+  .breeds-grid.list-view .breed-card { padding: 0 14px; gap: 10px; }
+  .breeds-grid.list-view .breed-info h3 { max-width: 160px; font-size: .84rem; }
+  .lv-badge { font-size: .65rem; padding: 2px 8px; }
+  .view-toggle span { display: none; }
+  .vt-btn { padding: 5px 8px; }
+}
