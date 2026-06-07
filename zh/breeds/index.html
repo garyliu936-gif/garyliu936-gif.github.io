@@ -115,18 +115,21 @@
             <button class="chip active" data-sort="alpha">全部 (🔤 A – Z)</button>
             <button class="chip" data-sort="popularity">⭐ 热门 (AKC排名)</button>
           </div>
-          <select id="fciFilter" class="fci-select">
-            <option value="all">🌍 全部分组</option>
-            <option value="herding">第1组 — 牧羊犬</option>
-            <option value="working">第2组 — 工作犬</option>
-            <option value="terrier">第3组 — 㹴犬</option>
-            <option value="dachshund">第4组 — 腊肠犬</option>
-            <option value="spitz">第5组 — 狐狸犬/原始型</option>
-            <option value="hound">第6组 — 嗅觉猎犬</option>
-            <option value="sporting">第7/8组 — 枪猎犬</option>
-            <option value="toy">第9组 — 伴侣/玩具犬</option>
-            <option value="sighthound">第10组 — 视觉猎犬</option>
-          </select>
+          <div class="fci-chip-wrap">
+            <button class="chip" id="fciChipBtn" data-sort="fci">🌍 FCI 分组 ▼</button>
+            <div class="fci-dropdown" id="fciDropdown">
+              <button class="fci-opt active" data-fci="all">全部分组</button>
+              <button class="fci-opt" data-fci="herding">第1组 — 牧羊犬</button>
+              <button class="fci-opt" data-fci="working">第2组 — 工作犬</button>
+              <button class="fci-opt" data-fci="terrier">第3组 — 㹴犬</button>
+              <button class="fci-opt" data-fci="dachshund">第4组 — 腊肠犬</button>
+              <button class="fci-opt" data-fci="spitz">第5组 — 狐狸犬/原始型</button>
+              <button class="fci-opt" data-fci="hound">第6组 — 嗅觉猎犬</button>
+              <button class="fci-opt" data-fci="sporting">第7/8组 — 枪猎犬</button>
+              <button class="fci-opt" data-fci="toy">第9组 — 伴侣/玩具犬</button>
+              <button class="fci-opt" data-fci="sighthound">第10组 — 视觉猎犬</button>
+            </div>
+          </div>
         </div>
 
         <span class="results-count js-breed-count" id="resultsCount">322个犬种</span>
@@ -4754,36 +4757,52 @@
     const originalOrder = Array.from(document.querySelectorAll('a.breed-card'));
     let currentSort = 'alpha'; // default: A–Z
 
-    const fciSelect = document.getElementById('fciFilter');
+    const fciChipBtn  = document.getElementById('fciChipBtn');
+    const fciDropdown = document.getElementById('fciDropdown');
+
+    // Toggle FCI dropdown open/close
+    fciChipBtn.addEventListener('click', e => {
+      e.stopPropagation();
+      fciDropdown.classList.toggle('open');
+    });
+    document.addEventListener('click', () => fciDropdown.classList.remove('open'));
 
     // Sort chips (All A–Z | Popularity) — clicking resets FCI to "All Groups"
     document.querySelectorAll('.chip[data-sort]').forEach(btn => {
       btn.addEventListener('click', () => {
+        if (btn.id === 'fciChipBtn') return;
         currentSort = btn.dataset.sort;
         document.querySelectorAll('.chip[data-sort]').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        fciSelect.value = 'all';
-        fciSelect.classList.remove('fci-active');
+        fciChipBtn.classList.remove('active');
+        // Reset FCI to all
+        document.querySelectorAll('.fci-opt').forEach(o => o.classList.remove('active'));
+        document.querySelector('.fci-opt[data-fci="all"]').classList.add('active');
         filters.fci = 'all';
         applySort();
         filterBreeds();
       });
     });
 
-    // FCI dropdown — selecting a group deactivates both sort chips
-    fciSelect.addEventListener('change', () => {
-      filters.fci = fciSelect.value;
-      if (fciSelect.value !== 'all') {
-        document.querySelectorAll('.chip[data-sort]').forEach(b => b.classList.remove('active'));
-        fciSelect.classList.add('fci-active');
-        applyAlpha();
-      } else {
-        fciSelect.classList.remove('fci-active');
-        document.querySelector('.chip[data-sort="alpha"]').classList.add('active');
-        currentSort = 'alpha';
-        applySort();
-      }
-      filterBreeds();
+    // FCI option clicks
+    document.querySelectorAll('.fci-opt').forEach(opt => {
+      opt.addEventListener('click', () => {
+        document.querySelectorAll('.fci-opt').forEach(o => o.classList.remove('active'));
+        opt.classList.add('active');
+        filters.fci = opt.dataset.fci;
+        fciDropdown.classList.remove('open');
+        if (opt.dataset.fci !== 'all') {
+          document.querySelectorAll('.chip[data-sort]').forEach(b => b.classList.remove('active'));
+          fciChipBtn.classList.add('active');
+          applyAlpha();
+        } else {
+          fciChipBtn.classList.remove('active');
+          document.querySelector('.chip[data-sort="alpha"]').classList.add('active');
+          currentSort = 'alpha';
+          applySort();
+        }
+        filterBreeds();
+      });
     });
 
     // ── Filter chips (size / energy / type / kids) ──────────────
