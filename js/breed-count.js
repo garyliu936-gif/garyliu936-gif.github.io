@@ -12,10 +12,10 @@
    ✅  Other pages update the moment anyone views the breeds page.
    ────────────────────────────────────────────────────────────────────────────── */
 (function () {
-  var EN_FALLBACK      = 496;   // English total — update if you add more breeds
+  var EN_FALLBACK      = 492;   // English total — update if you add more breeds
   var ZH_FALLBACK      = 391;   // Chinese total
   var HYBRID_TOTAL     = 100;   // hybrid/designer breeds
-  var PUREBRED_TOTAL   = 396;   // purebred breeds
+  var PUREBRED_TOTAL   = 392;   // purebred breeds
 
   document.addEventListener('DOMContentLoaded', function () {
     var isZh = document.documentElement.lang === 'zh-CN' || location.pathname.startsWith('/zh/');
