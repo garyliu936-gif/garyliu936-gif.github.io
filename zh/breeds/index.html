@@ -4777,6 +4777,24 @@
     const fciDropdown = document.getElementById('fciDropdown');
 
     // FCI chip — opens dropdown AND immediately filters to all FCI breeds on first click
+    // Map FCI option data-fci values to Chinese button labels
+    const FCI_LABELS_ZH = {
+      'all':        '全部分组',
+      'herding':    'G1-牧羊犬',
+      'working':    'G2-工作犬',
+      'terrier':    'G3-㹴犬',
+      'dachshund':  'G4-腊肠犬',
+      'spitz':      'G5-狐狸犬',
+      'hound':      'G6-嗅觉猎犬',
+      'sporting':   'G7/8-枪猎犬',
+      'toy':        'G9-伴侣犬',
+      'sighthound': 'G10-视觉猎犬',
+    };
+
+    function setFciChipLabelZh(val) {
+      fciChipBtn.textContent = '🌍 ' + (FCI_LABELS_ZH[val] || 'FCI 分组') + ' ▼';
+    }
+
     fciChipBtn.addEventListener('click', e => {
       e.stopPropagation();
       fciDropdown.classList.toggle('open');
@@ -4786,6 +4804,7 @@
         fciChipBtn.classList.add('active');
         document.querySelectorAll('.fci-opt').forEach(o => o.classList.remove('active'));
         document.querySelector('.fci-opt[data-fci="all"]').classList.add('active');
+        setFciChipLabelZh('all');
         applyAlpha();
         filterBreeds();
       }
@@ -4803,6 +4822,7 @@
         document.querySelectorAll('.fci-opt').forEach(o => o.classList.remove('active'));
         document.querySelector('.fci-opt[data-fci="all"]').classList.add('active');
         filters.fci = 'all';
+        fciChipBtn.textContent = '🌍 FCI 分组 ▼';
         applySort();
         filterBreeds();
       });
@@ -4817,6 +4837,7 @@
         fciDropdown.classList.remove('open');
         document.querySelectorAll('.chip[data-sort]').forEach(b => b.classList.remove('active'));
         fciChipBtn.classList.add('active');
+        setFciChipLabelZh(opt.dataset.fci);
         applyAlpha();
         filterBreeds();
       });

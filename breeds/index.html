@@ -4856,11 +4856,31 @@
         filters.fci = 'all';
         document.querySelectorAll('.fci-opt').forEach(o => o.classList.remove('active'));
         document.querySelector('.fci-opt[data-fci="all"]').classList.add('active');
+        fciChipBtn.textContent = '🌍 FCI Group ▼';
         closeFciDropdown();
         applySort();
         filterBreeds();
       });
     });
+
+    // Map FCI option data-fci values to short button labels
+    const FCI_LABELS = {
+      'all':        'All Groups',
+      'herding':    'G1-Herding & Pastoral',
+      'working':    'G2-Working & Molossoid',
+      'terrier':    'G3-Terrier',
+      'dachshund':  'G4-Dachshund',
+      'spitz':      'G5-Spitz & Primitive',
+      'hound':      'G6-Scent Hound',
+      'pointing':   'G7-Pointing Dogs',
+      'retriever':  'G8-Retrievers & Spaniels',
+      'toy':        'G9-Companion & Toy',
+      'sighthound': 'G10-Sighthound',
+    };
+
+    function setFciChipLabel(val) {
+      fciChipBtn.textContent = '🌍 ' + (FCI_LABELS[val] || 'FCI Group') + ' ▼';
+    }
 
     // FCI chip button — toggle dropdown open/closed
     fciChipBtn.addEventListener('click', (e) => {
@@ -4873,6 +4893,7 @@
         fciChipBtn.classList.add('active');
         document.querySelectorAll('.fci-opt').forEach(o => o.classList.remove('active'));
         document.querySelector('.fci-opt[data-fci="all"]').classList.add('active');
+        setFciChipLabel('all');
         applyAlpha();
         filterBreeds();
       }
@@ -4888,6 +4909,7 @@
         closeFciDropdown();
         clearSortActive();
         fciChipBtn.classList.add('active');
+        setFciChipLabel(val);
         applyAlpha();
         filterBreeds();
       });
