@@ -4806,6 +4806,13 @@
       'azawakh':'sighthound','galgo-espanol':'sighthound','kazakh-tazy':'sighthound',
     };
 
+    // Maps FCI group number → filter key (used by badge-text fallback)
+    const FCI_GROUP_MAP = {
+      1: 'herding', 2: 'working', 3: 'terrier', 4: 'dachshund',
+      5: 'spitz', 6: 'hound', 7: 'pointing', 8: 'retriever',
+      9: 'toy', 10: 'sighthound',
+    };
+
     // Helper: extract slug from card href (e.g. "golden-retriever.html" → "golden-retriever")
     function getSlug(card) {
       const href = card.getAttribute('href') || '';
