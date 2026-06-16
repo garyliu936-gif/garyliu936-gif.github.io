@@ -237,7 +237,15 @@
       "Read(//c/Program Files/LibreOffice/program/**)",
       "Read(//c/Program Files/**)",
       "Read(//c/Program Files \\(x86\\)/**)",
-      "Bash(node pawsvip_may2026_report.js)"
+      "Bash(node pawsvip_may2026_report.js)",
+      "Bash(grep -v -E \"\\(doodle|poo$|poos|pomchi|morkie|puggle|jug\\\\.html|bugg\\\\.html|dorgi|horgi|corgidor|labsky|chusky|pomsky|pitsky|shorkie|cavachon|cavapoo|malshi|maltichon|chug|frenchton|goldador|gollie|borador|boxador|bassador|corgipoo|sheprador|rottador|beabull|beagador|beaglier|bullador|bagel|schnoodle|springerdoodle|shih-poo|shepadoodle|ratoodle|portidoodle|peekapoo|poochon|pooton|pomapoo|pomchi|lhasapoo|jackadoodle|huskydoodle|husky-inu|huskimo|havapoo|goberian|foodle|flandoodle|double-doodle|doxiepoo|doberdoodle|dalmadoodle|chipoo|cheagle\\\\.html|cairnoodle|bordoodle|bossipoo|boxerdoodle|airedoodle|affenpoo|aussiedoodle|woodle|whoodle|westiepoo|weimardoodle|yorki\\)\")",
+      "WebFetch(domain:doc-0c-0o-sheets.googleusercontent.com)",
+      "Bash(collie)",
+      "Bash(greater-swiss)",
+      "Bash(bichon)",
+      "Bash(coton)",
+      "Bash(american-cocker)",
+      "Bash(german-shepherd\")"
     ]
   },
   "hooks": {
