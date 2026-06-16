@@ -1179,8 +1179,6 @@
   <url><loc>https://alldogfacts.com/zh/breeds/bavarian-mountain-hound.html</loc><lastmod>2026-06-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://alldogfacts.com/breeds/beagle-harrier.html</loc><lastmod>2026-06-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://alldogfacts.com/zh/breeds/beagle-harrier.html</loc><lastmod>2026-06-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://alldogfacts.com/breeds/belgian-shepherd.html</loc><lastmod>2026-06-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://alldogfacts.com/zh/breeds/belgian-shepherd.html</loc><lastmod>2026-06-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://alldogfacts.com/breeds/bergamasco-shepherd.html</loc><lastmod>2026-06-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://alldogfacts.com/zh/breeds/bergamasco-shepherd.html</loc><lastmod>2026-06-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://alldogfacts.com/breeds/bichon-frise.html</loc><lastmod>2026-06-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -1283,8 +1281,6 @@
   <url><loc>https://alldogfacts.com/zh/breeds/grand-bleu-de-gascogne.html</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://alldogfacts.com/breeds/grand-griffon-vendeen.html</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://alldogfacts.com/zh/breeds/grand-griffon-vendeen.html</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://alldogfacts.com/breeds/greek-harehound.html</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://alldogfacts.com/zh/breeds/greek-harehound.html</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://alldogfacts.com/breeds/greenland-dog.html</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://alldogfacts.com/zh/breeds/greenland-dog.html</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://alldogfacts.com/breeds/griffon-bleu-de-gascogne.html</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -1514,18 +1510,6 @@
   </url>
   <url>
     <loc>https://www.alldogfacts.com/zh/breeds/kazakh-tazy.html</loc>
-    <lastmod>2026-06-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.alldogfacts.com/breeds/king-charles-spaniel.html</loc>
-    <lastmod>2026-06-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.alldogfacts.com/zh/breeds/king-charles-spaniel.html</loc>
     <lastmod>2026-06-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1822,19 +1806,7 @@
     <priority>0.7</priority>
   </url>
 
-  <url>
-    <loc>https://alldogfacts.com/breeds/griffon-belge.html</loc>
-    <lastmod>2026-06-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
 
-  <url>
-    <loc>https://alldogfacts.com/breeds/petit-brabancon.html</loc>
-    <lastmod>2026-06-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
 
   <url>
     <loc>https://alldogfacts.com/breeds/rastreador-brasileiro.html</loc>
@@ -1878,12 +1850,6 @@
     <priority>0.7</priority>
   </url>
 
-  <url>
-    <loc>https://alldogfacts.com/zh/breeds/griffon-belge.html</loc>
-    <lastmod>2026-06-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
 
   <url>
     <loc>https://alldogfacts.com/zh/breeds/montenegrin-mountain-hound.html</loc>
@@ -1899,12 +1865,6 @@
     <priority>0.7</priority>
   </url>
 
-  <url>
-    <loc>https://alldogfacts.com/zh/breeds/petit-brabancon.html</loc>
-    <lastmod>2026-06-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
 
   <url>
     <loc>https://alldogfacts.com/zh/breeds/poitevin.html</loc>
