@@ -245,7 +245,10 @@
       "Bash(bichon)",
       "Bash(coton)",
       "Bash(american-cocker)",
-      "Bash(german-shepherd\")"
+      "Bash(german-shepherd\")",
+      "Bash(gh api *)",
+      "Bash(xargs curl -s)",
+      "Bash(node update_fci_names.js)"
     ]
   },
   "hooks": {
