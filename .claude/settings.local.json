@@ -248,7 +248,8 @@
       "Bash(german-shepherd\")",
       "Bash(gh api *)",
       "Bash(xargs curl -s)",
-      "Bash(node update_fci_names.js)"
+      "Bash(node update_fci_names.js)",
+      "Bash(rm breeds/chien-dartois.html zh/breeds/chien-dartois.html)"
     ]
   },
   "hooks": {
