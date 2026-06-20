@@ -4774,8 +4774,7 @@
     const FCI_MAP = {
       // G1 — Herding & Pastoral (47) — total 47
       'australian-cattle-dog':'herding','australian-shepherd':'herding','bearded-collie':'herding',
-      'belgian-laekenois':'herding','belgian-malinois':'herding','belgian-sheepdog':'herding',
-      'belgian-tervuren':'herding','bergamasco-sheepdog':'herding','berger-blanc-suisse':'herding',
+      'bergamasco-sheepdog':'herding','berger-blanc-suisse':'herding',
       'berger-picard':'herding','bohemian-shepherd':'herding','border-collie':'herding',
       'bouvier-des-flandres':'herding','briard':'herding','cardigan-welsh-corgi':'herding',
       'catalan-sheepdog':'herding','collie':'herding','corgi':'herding','german-shepherd':'herding',
@@ -4804,7 +4803,7 @@
       'great-dane':'working','great-pyrenees':'working','greater-swiss-mountain-dog':'working',
       'hovawart':'working','leonberger':'working','mastiff':'working','miniature-pinscher':'working',
       'miniature-schnauzer':'working','neapolitan-mastiff':'working','newfoundland':'working',
-      'presa-canario':'working','rottweiler':'working','saint-bernard':'working',
+      'presa-canario':'working','rottweiler':'working','saint-bernard':'spitz',
       'standard-schnauzer':'working','tibetan-mastiff':'working',
       'aidi':'working','bucovina-shepherd-dog':'working','ca-de-bou':'working',
       'campeiro-bulldog':'working','cao-de-gado-transmontano':'working',
@@ -4847,7 +4846,7 @@
       'cirneco-dell-etna':'spitz','eurasier':'spitz','finnish-lapphund':'spitz',
       'finnish-spitz':'spitz','jamthund':'spitz','kai-ken':'spitz','karelian-bear-dog':'spitz',
       'keeshond':'spitz','korean-jindo':'spitz','norwegian-elkhound':'spitz',
-      'peruvian-inca-orchid':'spitz','pomeranian':'spitz',
+      'peruvian-inca-orchid':'spitz',
       'shiba-inu':'spitz','shikoku':'spitz','thai-ridgeback':'spitz',
       'volpino-italiano':'spitz','xoloitzcuintli':'spitz',
       'black-norwegian-elkhound':'spitz','canadian-eskimo-dog':'spitz',
@@ -4915,10 +4914,10 @@
       // added to reach 37:
       'large-munsterlander':'pointing','french-spaniel':'pointing',
       'german-longhaired-pointer':'pointing','small-munsterlander':'pointing',
-      'pont-audemer-spaniel':'pointing',
+      'pont-audemer-spaniel':'pointing','chesapeake-bay-retriever':'pointing',
 
       // G8 — Retrievers & Spaniels (17)
-      'chesapeake-bay-retriever':'retriever','clumber-spaniel':'retriever',
+      'clumber-spaniel':'retriever',
       'curly-coated-retriever':'retriever','english-cocker-spaniel':'retriever',
       'english-springer-spaniel':'retriever','field-spaniel':'retriever',
       'flat-coated-retriever':'retriever','golden-retriever':'retriever',
@@ -4964,13 +4963,10 @@
       return href.replace(/\.html$/, '').split('/').pop();
     }
 
-    // FCI group lookup: FCI_MAP (slug-based) is primary source of truth.
-    // Badge text is used only as fallback for breeds not in FCI_MAP.
+    // FCI group lookup: badge text is primary source of truth (badges correct per spreadsheet).
+    // FCI_MAP is fallback for breeds whose badge text doesn't contain FCI.
     function getFciGroupFromBadge(card) {
-      // Primary: FCI_MAP lookup by slug (authoritative, matches official FCI groups)
-      const slug = (card.getAttribute('href') || '').replace(/\.html$/, '').split('/').pop();
-      if (FCI_MAP[slug]) return FCI_MAP[slug];
-      // Fallback: badge text for breeds not explicitly in FCI_MAP
+      // Primary: badge text (always reflects correct FCI group per spreadsheet)
       const badge = card.querySelector('.breed-emoji-wrap span');
       if (badge) {
         const text = (badge.innerText || badge.textContent || '').trim();
@@ -4978,7 +4974,9 @@
         if (m) return FCI_GROUP_MAP[parseInt(m[1])] || null;
         if (/^FCI$/i.test(text)) return 'fci';
       }
-      return null;
+      // Fallback: FCI_MAP by slug
+      const slug = (card.getAttribute('href') || '').replace(/\.html$/, '').split('/').pop();
+      return FCI_MAP[slug] || null;
     }
 
     // ── Sort + FCI — shared state ─────────────────────────────────
