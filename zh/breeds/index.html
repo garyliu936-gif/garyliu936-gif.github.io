@@ -1466,7 +1466,7 @@
           <div class="breed-link-row">查看完整资料 <span>→</span></div>
         </a>
 <a href="/zh/breeds/anatolian-shepherd-dog.html" class="breed-card" data-type="purebred" data-size="large" data-energy="medium" data-kids="yes" data-name="anatolian shepherd dog turkey livestock guardian kangal">
-          <div class="breed-emoji-wrap" data-api="sheepdog/english"><span style="position:absolute;top:8px;left:8px;background:#0d9488;color:#fff;font-size:.68rem;font-weight:800;padding:3px 9px;border-radius:20px;z-index:3;line-height:1.5;letter-spacing:.02em">AKC #88<br>FCI G2</span><img class="breed-card-real-photo" alt="Anatolian Shepherd Dog" /><span class="breed-card-emoji-fallback">🐏</span><span class="size-badge large">大型</span></div>
+          <div class="breed-emoji-wrap" data-api="sheepdog/english"><span style="position:absolute;top:8px;left:8px;background:#0d9488;color:#fff;font-size:.68rem;font-weight:800;padding:3px 9px;border-radius:20px;z-index:3;line-height:1.5;letter-spacing:.02em">AKC #88</span><img class="breed-card-real-photo" alt="Anatolian Shepherd Dog" /><span class="breed-card-emoji-fallback">🐏</span><span class="size-badge large">大型</span></div>
           <div class="breed-info">
             <h3>安纳托利亚牧羊犬 <small lang="en" style="font-size:.6em;font-weight:400;color:#94a3b8">Anatolian Shepherd Dog</small></h3>
             <p>土耳其古代护畜犬——巨大、独立、速度惊人的工作犬，对其羊群极度忠诚，将任何威胁视为生死挑战。</p>
@@ -1737,7 +1737,7 @@
           <div class="breed-link-row">查看完整资料 <span>→</span></div>
         </a>
 <a href="/zh/breeds/american-hairless-terrier.html" class="breed-card" data-type="purebred" data-size="small" data-energy="high" data-kids="yes" data-name="american hairless terrier AHT louisiana hairless skin allergy friendly terrier rat terrier">
-          <div class="breed-emoji-wrap" data-api="terrier/american"><span style="position:absolute;top:8px;left:8px;background:#0d9488;color:#fff;font-size:.68rem;font-weight:800;padding:3px 9px;border-radius:20px;z-index:3;line-height:1.5;letter-spacing:.02em">AKC #108<br>FCI G3</span><img class="breed-card-real-photo" alt="American Hairless Terrier" /><span class="breed-card-emoji-fallback">🦴</span><span class="size-badge small">小型</span></div>
+          <div class="breed-emoji-wrap" data-api="terrier/american"><span style="position:absolute;top:8px;left:8px;background:#0d9488;color:#fff;font-size:.68rem;font-weight:800;padding:3px 9px;border-radius:20px;z-index:3;line-height:1.5;letter-spacing:.02em">AKC #108</span><img class="breed-card-real-photo" alt="American Hairless Terrier" /><span class="breed-card-emoji-fallback">🦴</span><span class="size-badge small">小型</span></div>
           <div class="breed-info">
             <h3>美国无毛梗 <small lang="en" style="font-size:.6em;font-weight:400;color:#94a3b8">American Hairless Terrier</small></h3>
             <p>美国唯一的本土无毛犬种——起源于1972年单一突变幼犬的活泼路易斯安那梗，非常适合过敏症患者。</p>
@@ -5048,7 +5048,7 @@
       'icelandic-sheepdog':'herding','komondor':'herding','lancashire-heeler':'herding',
       'miniature-american-shepherd':'herding','mudi':'herding','norwegian-buhund':'herding',
       'old-english-sheepdog':'herding','polish-lowland-sheepdog':'herding','puli':'herding',
-      'pumi':'herding','pyrenean-shepherd':'herding','pyrenean-sheepdog-smooth-faced':'herding','romanian-raven-shepherd-dog':'herding','schapendoes':'herding','schipperke':'herding',
+      'pumi':'herding','pyrenean-shepherd':'herding','pyrenean-sheepdog-smooth-faced':null,'romanian-raven-shepherd-dog':'herding','schapendoes':'herding','schipperke':'herding',
       'shetland-sheepdog':'herding','slovak-cuvac':'herding','swedish-vallhund':'herding',
       'czechoslovakian-wolfdog':'herding',
       'akita':'working','akita-shepherd':'working','anatolian-shepherd-dog':'working',
@@ -5133,7 +5133,7 @@
 
     const FCI_GROUP_MAP = {1:'herding',2:'working',3:'terrier',4:'dachshund',5:'spitz',6:'hound',7:'pointing',8:'retriever',9:'toy',10:'sighthound'};
     function getFciGroupFromBadge(card) {
-      const badge = card.querySelector('.breed-emoji-wrap span');
+      const badge = card.querySelector('.breed-emoji-wrap span[style*="position:absolute"]');
       if (badge) {
         const text = (badge.innerText || badge.textContent || '').trim();
         // Standard format: "FCI G1", "KCI G3", etc.

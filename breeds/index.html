@@ -1490,7 +1490,7 @@
           <div class="breed-link-row">Full Profile <span>→</span></div>
         </a>
 <a href="anatolian-shepherd-dog.html" class="breed-card" data-type="purebred" data-size="large" data-energy="medium" data-kids="yes" data-name="anatolian shepherd dog turkey livestock guardian kangal">
-          <div class="breed-emoji-wrap" data-api="sheepdog/english"><span style="position:absolute;top:8px;left:8px;background:#0d9488;color:#fff;font-size:.68rem;font-weight:800;padding:3px 9px;border-radius:20px;z-index:3;line-height:1.5;letter-spacing:.02em">AKC #88<br>FCI G2</span><img class="breed-card-real-photo" alt="Anatolian Shepherd Dog" /><span class="breed-card-emoji-fallback">🐏</span><span class="size-badge large">Large</span></div>
+          <div class="breed-emoji-wrap" data-api="sheepdog/english"><span style="position:absolute;top:8px;left:8px;background:#0d9488;color:#fff;font-size:.68rem;font-weight:800;padding:3px 9px;border-radius:20px;z-index:3;line-height:1.5;letter-spacing:.02em">AKC #88</span><img class="breed-card-real-photo" alt="Anatolian Shepherd Dog" /><span class="breed-card-emoji-fallback">🐏</span><span class="size-badge large">Large</span></div>
           <div class="breed-info">
             <h3>Anatolian Shepherd Dog</h3>
             <p>Turkey's ancient livestock guardian — a massive, independent, and remarkably fast working dog that bonds fiercely to its flock and treats any threat as a mortal challenge.</p>
@@ -1751,7 +1751,7 @@
           <div class="breed-link-row">Full Profile <span>→</span></div>
         </a>
 <a href="american-hairless-terrier.html" class="breed-card" data-type="purebred" data-size="small" data-energy="high" data-kids="yes" data-name="american hairless terrier AHT louisiana hairless skin allergy friendly terrier rat terrier">
-          <div class="breed-emoji-wrap" data-api="terrier/american"><span style="position:absolute;top:8px;left:8px;background:#0d9488;color:#fff;font-size:.68rem;font-weight:800;padding:3px 9px;border-radius:20px;z-index:3;line-height:1.5;letter-spacing:.02em">AKC #108<br>FCI G3</span><img class="breed-card-real-photo" alt="American Hairless Terrier" /><span class="breed-card-emoji-fallback">🦴</span><span class="size-badge small">Small</span></div>
+          <div class="breed-emoji-wrap" data-api="terrier/american"><span style="position:absolute;top:8px;left:8px;background:#0d9488;color:#fff;font-size:.68rem;font-weight:800;padding:3px 9px;border-radius:20px;z-index:3;line-height:1.5;letter-spacing:.02em">AKC #108</span><img class="breed-card-real-photo" alt="American Hairless Terrier" /><span class="breed-card-emoji-fallback">🦴</span><span class="size-badge small">Small</span></div>
           <div class="breed-info">
             <h3>American Hairless Terrier</h3>
             <p>America's only native hairless breed — a feisty Louisiana terrier descended from a single 1972 mutant puppy, ideal for allergy sufferers who love terrier spirit.</p>
@@ -4781,7 +4781,7 @@
       'komondor':'herding','lancashire-heeler':'herding',
       'miniature-american-shepherd':'herding','mudi':'herding',
       'old-english-sheepdog':'herding','polish-lowland-sheepdog':'herding','puli':'herding',
-      'pumi':'herding','pyrenean-shepherd':'herding','pyrenean-sheepdog-smooth-faced':'herding','schapendoes':'herding','schipperke':'herding',
+      'pumi':'herding','pyrenean-shepherd':'herding','pyrenean-sheepdog-smooth-faced':null,'schapendoes':'herding','schipperke':'herding',
       'shetland-sheepdog':'herding','slovak-cuvac':'herding','swedish-vallhund':'herding',
       'czechoslovakian-wolfdog':'herding',
       'australian-kelpie':'herding','australian-stumpy-tail-cattle-dog':'herding',
@@ -4849,7 +4849,7 @@
       'peruvian-inca-orchid':'spitz',
       'shiba-inu':'spitz','shikoku':'spitz','thai-ridgeback':'spitz',
       'volpino-italiano':'spitz','xoloitzcuintli':'spitz',
-      'black-norwegian-elkhound':'spitz','canadian-eskimo-dog':'spitz',
+      'black-norwegian-elkhound':'spitz','canadian-eskimo-dog':null,
       // FCI_MAP corrections (moved here from other groups):
       'icelandic-sheepdog':'spitz','norwegian-buhund':'spitz',
       'akita':'spitz','ibizan-hound':'spitz','pharaoh-hound':'spitz',
@@ -4965,7 +4965,7 @@
 
     // FCI group lookup: badge text is primary source of truth (badges correct per spreadsheet).
     function getFciGroupFromBadge(card) {
-      const badge = card.querySelector('.breed-emoji-wrap span');
+      const badge = card.querySelector('.breed-emoji-wrap span[style*="position:absolute"]');
       if (badge) {
         const text = (badge.innerText || badge.textContent || '').trim();
         // Standard format: "FCI G1", "KCI G3", etc.
