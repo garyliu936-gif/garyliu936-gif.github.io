@@ -455,7 +455,7 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
 
-    fetch('https://dog.ceo/api/breed/mastiff/neapolitan/images')
+    fetch('https://dog.ceo/api/breed/mastiff/english/images')
       .then(r => r.json())
       .then(data => {
         if (!Array.isArray(data.message) || !data.message.length) return;
