@@ -129,3 +129,29 @@ document.querySelectorAll('.service-card, .step, .review-card, .feature-item').f
     el.textContent = BREED_COUNT + '+';
   });
 })();
+
+// De-duplicate breed photo galleries: some Dog CEO API breeds have very few
+// images, so a gallery can repeat the same photo in every slot. Hide any
+// gallery photo whose image repeats one already shown (keeps the first).
+(function () {
+  function dedupeGallery() {
+    var imgs = Array.prototype.slice.call(document.querySelectorAll('.gallery-photo'));
+    if (!imgs.length) return true; // nothing to do
+    var seen = {}, allHaveSrc = true;
+    imgs.forEach(function (img) {
+      var src = img.getAttribute('src');
+      if (!src) { allHaveSrc = false; return; }
+      if (seen[src]) { img.style.display = 'none'; }
+      else { seen[src] = 1; img.style.display = ''; }
+    });
+    return allHaveSrc;
+  }
+  document.addEventListener('DOMContentLoaded', function () {
+    if (!document.querySelector('.gallery-photo')) return;
+    var tries = 0;
+    var iv = setInterval(function () {
+      tries++;
+      if (dedupeGallery() || tries > 20) clearInterval(iv); // up to ~10s
+    }, 500);
+  });
+})();
