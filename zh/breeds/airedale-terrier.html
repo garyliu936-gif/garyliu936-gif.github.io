@@ -484,7 +484,7 @@
       .then(r => r.json())
       .then(data => {
         if (!Array.isArray(data.message) || !data.message.length) return;
-        const photos = data.message;
+        const photos=/*rot*/(function(_m){if(!Array.isArray(_m)||_m.length<2)return _m;var _o=46%_m.length;return _m.slice(_o).concat(_m.slice(0,_o));})(data.message);
         const hero = document.getElementById('breedPhoto');
         hero.src = photos[2] || photos[0];
         hero.onload = () => { hero.style.display = 'block'; document.getElementById('breedEmoji').style.display = 'none'; };
