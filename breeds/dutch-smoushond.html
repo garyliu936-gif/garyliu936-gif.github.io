@@ -325,5 +325,28 @@
     }).catch(function(){});
   })();
   </script>
+
+  <script>
+  /* language toggle (these pages don't load main.js) */
+  (function () {
+    var nav = document.querySelector('.nav-container');
+    if (!nav || document.getElementById('langToggle')) return;
+    var onZh = document.documentElement.lang === 'zh-CN' || location.pathname.startsWith('/zh/');
+    var btn = document.createElement('button');
+    btn.id = 'langToggle';
+    btn.className = 'lang-toggle';
+    btn.title = onZh ? 'Switch to English' : 'Switch to Chinese';
+    btn.innerHTML = onZh ? '<span class="lang-icon">\uD83C\uDF10</span> EN' : '<span class="lang-icon">\uD83C\uDF10</span> \u4E2D\u6587';
+    btn.setAttribute('aria-label', 'Toggle language');
+    var hb = nav.querySelector('.hamburger');
+    if (hb) nav.insertBefore(btn, hb); else nav.appendChild(btn);
+    btn.addEventListener('click', function () {
+      var zh = document.documentElement.lang === 'zh-CN' || location.pathname.startsWith('/zh/');
+      var p = location.pathname;
+      if (zh) { localStorage.setItem('adf-lang','en'); location.href = p.indexOf('/zh/')===0 ? p.replace('/zh/','/') : '/index.html'; }
+      else { localStorage.setItem('adf-lang','zh'); location.href = (p==='/'||p==='/index.html'||p==='') ? '/zh/index.html' : '/zh'+p; }
+    });
+  })();
+  </script>
 </body>
 </html>
