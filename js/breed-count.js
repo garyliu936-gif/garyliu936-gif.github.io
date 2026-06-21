@@ -27,19 +27,21 @@
       purebred = document.querySelectorAll('a.breed-card[data-type="purebred"]').length;
       hybrid   = document.querySelectorAll('a.breed-card[data-type="hybrid"]').length;
 
-      /* Save for all other pages */
-      localStorage.setItem('siteBreedTotal',    total);
-      localStorage.setItem('sitePurebredTotal', purebred);
-      localStorage.setItem('siteHybridTotal',   hybrid);
-
-      /* Update the results-count badge (before any filter is applied) */
-      var rc = document.getElementById('resultsCount');
-      if (rc) rc.textContent = isZh ? total + '个犬种' : total + ' breeds';
+      /* Save for all other pages (versioned keys so old stale values are ignored) */
+      localStorage.setItem('siteBreedTotal-v4',    total);
+      localStorage.setItem('sitePurebredTotal-v4', purebred);
+      localStorage.setItem('siteHybridTotal-v4',   hybrid);
     } else {
       /* Other pages — prefer localStorage so counts propagate automatically */
-      total    = parseInt(localStorage.getItem('siteBreedTotal'),    10) || FALLBACK_TOTAL;
-      purebred = parseInt(localStorage.getItem('sitePurebredTotal'), 10) || FALLBACK_PUREBRED;
-      hybrid   = parseInt(localStorage.getItem('siteHybridTotal'),   10) || FALLBACK_HYBRID;
+      total    = parseInt(localStorage.getItem('siteBreedTotal-v4'),    10) || FALLBACK_TOTAL;
+      purebred = parseInt(localStorage.getItem('sitePurebredTotal-v4'), 10) || FALLBACK_PUREBRED;
+      hybrid   = parseInt(localStorage.getItem('siteHybridTotal-v4'),   10) || FALLBACK_HYBRID;
+    }
+
+    /* Update the results-count badge on the breeds page (before any filter) */
+    if (isBreedPage) {
+      var rc = document.getElementById('resultsCount');
+      if (rc) rc.textContent = isZh ? total + '个犬种' : total + ' breeds';
     }
 
     /* ── Update every marked element ─────────────────────────────── */
