@@ -418,10 +418,15 @@
       const api = wrap.dataset.api;
       const img = wrap.querySelector('.featured-real-photo');
       const emoji = wrap.querySelector('.featured-emoji');
+      const card = wrap.closest('a.featured-card');
+      const slug = (card ? (card.getAttribute('href') || api) : api).replace(/.*\//, '').replace(/\.html$/, '');
+      let hash = 0; for (let i = 0; i < slug.length; i++) hash = (hash * 31 + slug.charCodeAt(i)) >>> 0;
       fetch(`https://dog.ceo/api/breed/${api}/images`)
         .then(r => r.json())
         .then(data => {
-          img.src = data.message[2];
+          if (!Array.isArray(data.message) || !data.message.length) return;
+          const photos = data.message;
+          img.src = photos[hash % photos.length];   // per-card pick so shared breeds differ
           img.onload = () => {
             img.style.display = 'block';
             if (emoji) emoji.style.display = 'none';

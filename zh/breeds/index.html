@@ -3760,7 +3760,8 @@
   <script src="../../js/main.js"></script>
   <script src="../../js/breed-count.js?v=4"></script>
   <script>
-    // Load real photos — uses /images/random so every card gets a unique shot
+    // Load real photos — fetch the breed's image list (cached per breed) and
+    // pick an index from each card's slug, so cards sharing a breed differ.
     document.querySelectorAll('.breed-emoji-wrap[data-api]').forEach(wrap => {
       const api = wrap.dataset.api;
       const img = wrap.querySelector('.breed-card-real-photo');
