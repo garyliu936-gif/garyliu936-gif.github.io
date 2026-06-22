@@ -1,0 +1,17 @@
+# Cache static assets longer to reduce bandwidth (credit) usage on Netlify.
+# HTML is intentionally NOT long-cached so content updates appear immediately.
+
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"   # 30 days — CSS rarely changes
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"      # 1 day — JS (versioned where it matters)
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"    # 30 days — local images/logos
