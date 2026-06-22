@@ -4027,7 +4027,12 @@
       let visible = 0;
 
       cards.forEach(card => {
-        const name = card.dataset.name || '';
+        // include the visible Chinese name + description so Chinese search works
+        const h3El = card.querySelector('h3');
+        const descEl = card.querySelector('.breed-info > p');
+        const name = (card.dataset.name || '') + ' '
+          + (h3El ? h3El.textContent.toLowerCase() : '') + ' '
+          + (descEl ? descEl.textContent.toLowerCase() : '');
         const size = card.dataset.size || '';
         const energyLevel = card.dataset.energy || '';
         const kids = card.dataset.kids || '';
