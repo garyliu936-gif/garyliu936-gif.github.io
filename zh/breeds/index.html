@@ -3765,10 +3765,15 @@
       const api = wrap.dataset.api;
       const img = wrap.querySelector('.breed-card-real-photo');
       const emoji = wrap.querySelector('.breed-card-emoji-fallback');
-      fetch(`https://dog.ceo/api/breed/${api}/images/random`)
+      const card = wrap.closest('a.breed-card');
+      const slug = (card ? (card.getAttribute('href') || api) : api).replace(/.*\//, '').replace(/\.html$/, '');
+      let hash = 0; for (let i = 0; i < slug.length; i++) hash = (hash * 31 + slug.charCodeAt(i)) >>> 0;
+      fetch(`https://dog.ceo/api/breed/${api}/images`)
         .then(r => r.json())
         .then(data => {
-          img.src = data.message;          // random endpoint returns a string, not array
+          if (!Array.isArray(data.message) || !data.message.length) return;
+          const photos = data.message;
+          img.src = photos[hash % photos.length];   // deterministic per-card pick
           img.onload = () => {
             img.style.display = 'block';
             if (emoji) emoji.style.display = 'none';
