@@ -214,7 +214,7 @@
           <div class="breed-link-row">View Profile <span>→</span></div>
         </a>
 <a href="poodle.html" class="breed-card" data-type="purebred" data-size="medium" data-energy="high" data-kids="yes" data-name="poodle standard miniature toy">
-          <div class="breed-emoji-wrap" data-api="poodle/standard"><span style="position:absolute;top:8px;left:8px;background:#0d9488;color:#fff;font-size:.68rem;font-weight:800;padding:3px 9px;border-radius:20px;z-index:3;line-height:1.5;letter-spacing:.02em">AKC #6<br>FCI G9</span><img class="breed-card-real-photo" alt="Poodle" /><span class="breed-card-emoji-fallback">🐩</span><span class="size-badge medium">Varies</span></div>
+          <div class="breed-emoji-wrap" data-api="poodle"><span style="position:absolute;top:8px;left:8px;background:#0d9488;color:#fff;font-size:.68rem;font-weight:800;padding:3px 9px;border-radius:20px;z-index:3;line-height:1.5;letter-spacing:.02em">AKC #6<br>FCI G9</span><img class="breed-card-real-photo" alt="Poodle" /><span class="breed-card-emoji-fallback">🐩</span><span class="size-badge medium">Varies</span></div>
           <div class="breed-info">
             <h3>Poodle</h3>
             <p>Exceptionally intelligent and athletic. Poodles are hypoallergenic, highly trainable, and come in three sizes.</p>
@@ -4029,6 +4029,49 @@
       }
     }
 
+    // ── Search aliases: extra terms (other languages, nicknames, common typos) ──
+    const SEARCH_ALIASES = {
+      'poodle': 'caniche pudel 贵宾 贵宾犬 泰迪 teddy 卷毛狗 贵妇犬',
+      'cavalier-king-charles': 'cavalier 查理士 查里士 骑士查理王 骑士查理士王猎犬 查尔斯 骑士',
+      'german-shepherd': 'alsatian 德牧 德国牧羊 狼狗 黑背',
+      'golden-retriever': '黄金猎犬 金毛寻回',
+      'labrador-retriever': '拉拉 拉布拉多寻回',
+      'siberian-husky': '二哈 哈士奇 雪橇三傻',
+      'pomeranian': '哈多利 博美犬 松鼠狗',
+      'french-bulldog': '法斗 法国斗牛 法牛',
+      'bulldog': '英斗 英国斗牛',
+      'pembroke-welsh-corgi': '柯基 威尔士柯基', 'corgi': '柯基 威尔士柯基',
+      'dachshund': 'sausage wiener doxie 腊肠犬 香肠狗',
+      'chihuahua': '吉娃娃 芝娃娃', 'shiba-inu': 'doge 柴犬',
+      'border-collie': '边牧 边境牧羊', 'samoyed': '萨摩耶 微笑天使',
+      'bichon-frise': '比熊', 'shih-tzu': '西施 狮子狗', 'maltese': '马尔济斯 摩天使',
+      'rottweiler': '罗威纳', 'doberman-pinscher': '杜宾', 'great-dane': '大丹',
+      'akita': '秋田', 'beagle': '比格 米格鲁', 'yorkshire-terrier': '约克夏 约瑟梗',
+    };
+    function cardSlug(card){ return (card.getAttribute('href')||'').replace(/.*\//,'').replace(/\.html$/,''); }
+    function cardSearchText(card){
+      const h3 = card.querySelector('h3'), desc = card.querySelector('.breed-info > p');
+      return ((card.dataset.name||'')+' '+(h3?h3.textContent:'')+' '+(desc?desc.textContent:'')+' '+(SEARCH_ALIASES[cardSlug(card)]||'')).toLowerCase();
+    }
+    function cardPrimaryName(card){
+      const h3 = card.querySelector('h3'); if(!h3) return '';
+      return ((h3.firstChild && h3.firstChild.textContent ? h3.firstChild.textContent : h3.textContent)||'').trim().toLowerCase();
+    }
+    // Higher score = more relevant. Exact name match wins; purebred breaks ties.
+    function searchRelevance(card, query){
+      const name = cardPrimaryName(card);
+      const h3 = card.querySelector('h3');
+      const full = (h3 ? h3.textContent : '').toLowerCase();
+      let score = 1;
+      if (name === query) score = 5;
+      else if (name.startsWith(query)) score = 4;
+      else if (name.includes(query) || full.includes(query)) score = 3;
+      else if ((SEARCH_ALIASES[cardSlug(card)]||'').toLowerCase().split(/\s+/).includes(query)) score = 3;
+      else if ((card.dataset.name||'').toLowerCase().split(/\s+/).includes(query)) score = 2;
+      if ((card.dataset.type||'purebred') === 'purebred') score += 0.5;
+      return score;
+    }
+
     function filterBreeds() {
       const query = searchInput.value.toLowerCase().trim();
       const cards = document.querySelectorAll('.breed-card[data-name]');
@@ -4047,7 +4090,7 @@
         // FCI group — read directly from badge (KCI G1–G10 or "FCI")
         const fciGroup = getFciGroupFromBadge(card); // null = not FCI registered
 
-        const matchSearch = !query || name.includes(query);
+        const matchSearch = !query || cardSearchText(card).includes(query);
         const matchSize = filters.size === 'all' || size === filters.size;
         const matchEnergy = filters.energy === 'all' || energyVal === filters.energy;
         const matchKids = filters.kids === 'all' || (filters.kids === 'yes' && kids === 'yes');
@@ -4065,6 +4108,13 @@
           card.classList.add('hidden');
         }
       });
+
+      // When searching, order results by relevance (exact name match first)
+      if (query) {
+        Array.from(grid.querySelectorAll('a.breed-card:not(.hidden)'))
+          .sort((a, b) => searchRelevance(b, query) - searchRelevance(a, query))
+          .forEach(card => grid.insertBefore(card, noResultsEl));
+      }
 
       let label;
       if (currentSort === 'popularity') {
@@ -4145,6 +4195,23 @@
     // Apply default A–Z sort then count on page load
     applySort();
     filterBreeds();
+
+    // Handle ?search= coming from the homepage search box.
+    (function () {
+      const q = (new URLSearchParams(location.search).get('search') || '').trim();
+      if (!q) return;
+      const ql = q.toLowerCase();
+      // Exact breed-name or alias match -> jump straight to that breed's profile
+      const exact = Array.from(document.querySelectorAll('a.breed-card')).find(c =>
+        cardPrimaryName(c) === ql ||
+        (SEARCH_ALIASES[cardSlug(c)] || '').toLowerCase().split(/\s+/).includes(ql)
+      );
+      if (exact) { location.href = exact.getAttribute('href'); return; }
+      searchInput.value = q;
+      filterBreeds();
+      searchInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    })();
+
     document.querySelectorAll('.topic-tab-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         document.querySelectorAll('.topic-tab-btn').forEach(b => b.classList.remove('active'));

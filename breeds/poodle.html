@@ -89,6 +89,12 @@
           <h2>🐾 Overview</h2>
           <p>The Poodle is far more than a show dog with a fancy haircut. Ranked as the second most intelligent dog breed in the world (after the Border Collie), Poodles are athletic, versatile working dogs that have excelled at hunting, performing, service work, and competitive dog sports. The elaborate show clip was originally designed to help hunting Poodles move through water while keeping vital joints warm.</p>
           <p>Standard Poodles were originally bred as water retrievers in Germany and France. Their curly, dense coat is nearly waterproof and sheds minimally, making them one of the best options for allergy sufferers. Despite the elegant appearance, there is nothing fragile about a Standard Poodle — they are strong, agile, and built to work.</p>
+          <p><strong>Three sizes, one breed.</strong> The Poodle comes in three official sizes — that's why its size shows as "Varies." All three share the same curly, low-shedding coat and brilliant temperament; they differ mainly in height and weight:</p>
+          <div class="info-grid" style="margin-bottom:18px">
+            <div class="info-box"><div class="info-box-label">Standard Poodle</div><div class="info-box-value">Over 15" · 40–70 lbs</div></div>
+            <div class="info-box"><div class="info-box-label">Miniature Poodle</div><div class="info-box-value">10–15" · 10–15 lbs</div></div>
+            <div class="info-box"><div class="info-box-label">Toy Poodle</div><div class="info-box-value">Under 10" · 4–6 lbs</div></div>
+          </div>
           <div class="info-grid">
             <div class="info-box"><div class="info-box-label">Origin</div><div class="info-box-value">Germany (refined in France)</div></div>
             <div class="info-box"><div class="info-box-label">Group</div><div class="info-box-value">FCI Group 9 : Companion & Toy Dogs</div></div>
@@ -466,15 +472,15 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
 
-    fetch('https://dog.ceo/api/breed/poodle/standard/images')
+    fetch('https://dog.ceo/api/breed/poodle/images')
       .then(r => r.json())
       .then(data => {
         if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
-        hero.src = photos[2] || photos[0];
+        hero.src = photos[Math.floor(photos.length/2)] || photos[0];
         hero.onload = () => { hero.style.display = 'block'; document.getElementById('breedEmoji').style.display = 'none'; };
-        const picks = [5, 15, 25, 35, 45, 55];
+        const picks = [0,1,2,3,4,5].map(k => Math.floor((k + 0.5) * photos.length / 6)); // spread across Standard/Miniature/Toy
         picks.forEach((index, i) => {
           const el = document.getElementById('gp' + (i + 1));
           const src = photos[index] || photos[i % photos.length] || photos[0];

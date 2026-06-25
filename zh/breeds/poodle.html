@@ -95,6 +95,12 @@
           <h2>🐾 品种简介</h2>
           <p>贵宾犬原产于德国（在法国改良），是AKC认可的犬种，专为水中寻回、寻找松露而培育。这一犬种拥有独特的个性和外形，无论是作为家庭伴侣还是工作犬，都在全球范围内赢得了无数爱好者的喜爱。</p>
           <p>就日常生活而言，贵宾犬的活力充沛，每天需要至少90分钟的运动，适合活跃家庭。与孩子相处极佳，天性温柔耐心，是出色的家庭犬，适合公寓生活，寿命通常为10–18年。其浓密卷曲，低掉毛的毛发特点为其增添了独特魅力。</p>
+          <p><strong>同一品种，三种体型。</strong>贵宾犬有三种官方体型——这就是体型显示为"不固定"的原因。三种体型拥有相同的卷曲、低掉毛被毛和聪慧性格，主要区别在于身高和体重：</p>
+          <div class="info-grid" style="margin-bottom:18px">
+            <div class="info-box"><div class="info-box-label">标准贵宾</div><div class="info-box-value">15英寸以上 · 40–70磅</div></div>
+            <div class="info-box"><div class="info-box-label">迷你贵宾</div><div class="info-box-value">10–15英寸 · 10–15磅</div></div>
+            <div class="info-box"><div class="info-box-label">玩具贵宾</div><div class="info-box-value">10英寸以下 · 4–6磅</div></div>
+          </div>
           <div class="info-grid">
             <div class="info-box"><div class="info-box-label">起源</div><div class="info-box-value">德国（在法国改良）</div></div>
             <div class="info-box"><div class="info-box-label">犬种组</div><div class="info-box-value">FCI第9组：伴侣与玩具犬</div></div>
@@ -487,15 +493,15 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
 
-    fetch('https://dog.ceo/api/breed/poodle/standard/images')
+    fetch('https://dog.ceo/api/breed/poodle/images')
       .then(r => r.json())
       .then(data => {
         if (!Array.isArray(data.message) || !data.message.length) return;
         const photos = data.message;
         const hero = document.getElementById('breedPhoto');
-        hero.src = photos[2] || photos[0];
+        hero.src = photos[Math.floor(photos.length/2)] || photos[0];
         hero.onload = () => { hero.style.display = 'block'; document.getElementById('breedEmoji').style.display = 'none'; };
-        const picks = [5, 15, 25, 35, 45, 55];
+        const picks = [0,1,2,3,4,5].map(k => Math.floor((k + 0.5) * photos.length / 6)); // spread across Standard/Miniature/Toy
         picks.forEach((index, i) => {
           const el = document.getElementById('gp' + (i + 1));
           const src = photos[index] || photos[i % photos.length] || photos[0];
