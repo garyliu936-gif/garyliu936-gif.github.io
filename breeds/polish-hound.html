@@ -354,7 +354,7 @@
     <button class="lightbox-next" id="lightboxNext">&#9654;</button>
   </div>
   <script src="../js/main.js"></script>
-  <script src="../js/breed-count.js?v=4"></script>
+  <script src="../js/breed-count.js?v=7"></script>
   <script>document.querySelectorAll('.breed-tab').forEach(tab=>{tab.addEventListener('click',()=>{document.querySelectorAll('.breed-tab').forEach(t=>t.classList.remove('active'));document.querySelectorAll('.breed-tab-panel').forEach(p=>p.classList.remove('active'));tab.classList.add('active');document.getElementById('tab-'+tab.dataset.tab).classList.add('active');document.querySelector('.breed-tabs-nav').scrollIntoView({behavior:'smooth',block:'nearest'});});});</script>
   <script>
     let galleryPhotos=[];let currentPhotoIndex=0;

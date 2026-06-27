@@ -12,9 +12,10 @@
    ✅  Other pages update the moment anyone views the breeds page.
    ────────────────────────────────────────────────────────────────────────────── */
 (function () {
-  var FALLBACK_TOTAL    = 571;
-  var FALLBACK_PUREBRED = 380;
+  var FALLBACK_TOTAL    = 603;
+  var FALLBACK_PUREBRED = 412;
   var FALLBACK_HYBRID   = 191;
+  var FALLBACK_FCI      = 359;
 
   document.addEventListener('DOMContentLoaded', function () {
     var isZh = document.documentElement.lang === 'zh-CN' || location.pathname.startsWith('/zh/');
@@ -23,19 +24,21 @@
 
     if (isBreedPage) {
       /* Count directly from the DOM — always accurate */
-      total    = document.querySelectorAll('a.breed-card').length;
-      purebred = document.querySelectorAll('a.breed-card[data-type="purebred"]').length;
-      hybrid   = document.querySelectorAll('a.breed-card[data-type="hybrid"]').length;
+      /* Count DISTINCT breeds — cards flagged data-dup="1" are intentional
+         variety/synonym listings kept for search but not counted as separate breeds. */
+      total    = document.querySelectorAll('a.breed-card:not([data-dup])').length;
+      purebred = document.querySelectorAll('a.breed-card[data-type="purebred"]:not([data-dup])').length;
+      hybrid   = document.querySelectorAll('a.breed-card[data-type="hybrid"]:not([data-dup])').length;
 
       /* Save for all other pages (versioned keys so old stale values are ignored) */
-      localStorage.setItem('siteBreedTotal-v4',    total);
-      localStorage.setItem('sitePurebredTotal-v4', purebred);
-      localStorage.setItem('siteHybridTotal-v4',   hybrid);
+      localStorage.setItem('siteBreedTotal-v5',    total);
+      localStorage.setItem('sitePurebredTotal-v5', purebred);
+      localStorage.setItem('siteHybridTotal-v5',   hybrid);
     } else {
       /* Other pages — prefer localStorage so counts propagate automatically */
-      total    = parseInt(localStorage.getItem('siteBreedTotal-v4'),    10) || FALLBACK_TOTAL;
-      purebred = parseInt(localStorage.getItem('sitePurebredTotal-v4'), 10) || FALLBACK_PUREBRED;
-      hybrid   = parseInt(localStorage.getItem('siteHybridTotal-v4'),   10) || FALLBACK_HYBRID;
+      total    = parseInt(localStorage.getItem('siteBreedTotal-v5'),    10) || FALLBACK_TOTAL;
+      purebred = parseInt(localStorage.getItem('sitePurebredTotal-v5'), 10) || FALLBACK_PUREBRED;
+      hybrid   = parseInt(localStorage.getItem('siteHybridTotal-v5'),   10) || FALLBACK_HYBRID;
     }
 
     /* Update the results-count badge on the breeds page (before any filter) */
@@ -86,6 +89,13 @@
 
     document.querySelectorAll('.js-purebred-count').forEach(function (el) {
       el.textContent = isZh ? '🏆 ' + purebred + '个纯种犬' : '🏆 ' + purebred + ' purebred breeds';
+    });
+
+    /* FCI-recognized breed count — saved by the breeds page, shown on the
+       homepage "Did You Know?" card. Falls back until the breeds page is visited. */
+    var fci = parseInt(localStorage.getItem('siteFciTotal-v5'), 10) || FALLBACK_FCI;
+    document.querySelectorAll('.js-fci-num').forEach(function (el) {
+      el.textContent = fci;
     });
   });
 })();
