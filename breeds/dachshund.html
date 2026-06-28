@@ -88,7 +88,7 @@
           <h2>🎬 Dachshund Facts</h2>
           <p>Watch this video for a quick overview of the Dachshund — perfect if you want to see the breed in action before diving into the details.</p>
           <div class="video-embed">
-            <iframe src="https://www.youtube.com/embed/1SaXch9bpXw" title="Dogs 101: Dachshund" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/YorZehJKY6A" title="The Dog Bred to Hunt Badgers — Dachshund | AKC" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         </div>
 
@@ -125,6 +125,7 @@
             <img class="gallery-photo" id="gp5" alt="Dachshund photo 5" />
             <img class="gallery-photo" id="gp6" alt="Dachshund photo 6" />
           </div>
+          <p style="font-size:.8rem;color:#94a3b8;margin:14px 0 0">📷 Photos: various photographers (CC BY-SA / CC0) · via <a href="https://commons.wikimedia.org/wiki/Category:Dachshund" target="_blank" rel="noopener nofollow">Wikimedia Commons</a></p>
         </div>
 
         <div class="breed-section">
@@ -480,24 +481,30 @@
     });
   </script>
   <script>
-    let galleryPhotos = [];
+    // Curated, verified Wikimedia Commons photos (clear, full-body / full-head).
+    const heroPhoto = "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Wiener_dog.jpg/960px-Wiener_dog.jpg";
+    const galleryPhotos = [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Dog_on_Hrad%C4%8Dansk%C3%A9_n%C3%A1m%C4%9Bst%C3%AD.jpg/960px-Dog_on_Hrad%C4%8Dansk%C3%A9_n%C3%A1m%C4%9Bst%C3%AD.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Dachshund_Greta_on_bed.jpg/960px-Dachshund_Greta_on_bed.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Jamnik_dachshund_Kacper.JPG/960px-Jamnik_dachshund_Kacper.JPG",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Teckel_tender_look.jpg/960px-Teckel_tender_look.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/DOG2_C_01MAY94_PK_NW.jpg/960px-DOG2_C_01MAY94_PK_NW.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/a/a4/MiniatureDachshund.jpg"
+    ];
     let currentPhotoIndex = 0;
 
-    fetch('https://dog.ceo/api/breed/dachshund/images')
-      .then(r => r.json())
-      .then(data => {
-        if (!Array.isArray(data.message) || !data.message.length) return;
-        const photos = data.message;
-        const hero = document.getElementById('breedPhoto');
-        hero.src = photos[2] || photos[0];
-        hero.onload = () => { hero.style.display = 'block'; document.getElementById('breedEmoji').style.display = 'none'; };
-        const picks = [5, 15, 25, 35, 45, 55];
-        picks.forEach((index, i) => {
-          const el = document.getElementById('gp' + (i + 1));
-          const src = photos[index] || photos[i % photos.length] || photos[0];
-          if (el && src) { galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i)); }
-        });
-      }).catch(() => {});
+    (function () {
+      const hero = document.getElementById('breedPhoto');
+      if (hero) {
+        hero.referrerPolicy = 'no-referrer';
+        hero.onload = () => { hero.style.display = 'block'; const e = document.getElementById('breedEmoji'); if (e) e.style.display = 'none'; };
+        hero.src = heroPhoto;
+      }
+      galleryPhotos.forEach((src, i) => {
+        const el = document.getElementById('gp' + (i + 1));
+        if (el && src) { el.referrerPolicy = 'no-referrer'; el.src = src; el.addEventListener('click', () => openLightbox(i)); }
+      });
+    })();
 
     function openLightbox(index) { currentPhotoIndex = index; document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex]; document.getElementById('lightbox').classList.add('open'); }
     function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); }

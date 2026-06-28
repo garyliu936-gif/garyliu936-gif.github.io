@@ -88,7 +88,7 @@
           <h2>🎬 Bernese Mountain Dog Facts</h2>
           <p>Watch this video for a quick overview of the Bernese Mountain Dog — one of the most visually stunning and gentle-natured large breeds in the world.</p>
           <div class="video-embed">
-            <iframe src="https://www.youtube.com/embed/X4mupT2AIsM" title="Bernese Mountain Dog Dogs 101" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/wQYlvb5n1cg" title="Bernese Mountain Dog — AKC Dog Breed Series" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         </div>
 
@@ -123,6 +123,7 @@
             <img class="gallery-photo" id="gp5" alt="Bernese Mountain Dog photo 5" />
             <img class="gallery-photo" id="gp6" alt="Bernese Mountain Dog photo 6" />
           </div>
+          <p style="font-size:.8rem;color:#94a3b8;margin:14px 0 0">📷 Photos: various photographers (CC BY / CC BY-SA) · via <a href="https://commons.wikimedia.org/wiki/Category:Bernese_Mountain_Dog" target="_blank" rel="noopener nofollow">Wikimedia Commons</a></p>
         </div>
 
         <div class="breed-section">
@@ -404,24 +405,30 @@
     });
   </script>
   <script>
-    let galleryPhotos = [];
+    // Curated, verified Wikimedia Commons photos (bright, clear, full-body).
+    const heroPhoto = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/3-BerneseMountainDogInGrass.jpg/960px-3-BerneseMountainDogInGrass.jpg";
+    const galleryPhotos = [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/2-BerneseMountainDogInGrass.jpg/960px-2-BerneseMountainDogInGrass.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Bernese.png/960px-Bernese.png",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Standing_Bernese_Mountain_Dog_Female_%28cropped%29.jpg/960px-Standing_Bernese_Mountain_Dog_Female_%28cropped%29.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Bernese_Mountain_Dog_%284513769952%29.jpg/960px-Bernese_Mountain_Dog_%284513769952%29.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Bernese_Mountain_Dog_side_profile.jpg/960px-Bernese_Mountain_Dog_side_profile.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Bernese_Mountain_Dog_being_Silly.jpg/960px-Bernese_Mountain_Dog_being_Silly.jpg"
+    ];
     let currentPhotoIndex = 0;
 
-    fetch('https://dog.ceo/api/breed/mountain/bernese/images')
-      .then(r => r.json())
-      .then(data => {
-        if (!Array.isArray(data.message) || !data.message.length) return;
-        const photos = data.message;
-        const hero = document.getElementById('breedPhoto');
-        hero.src = photos[2] || photos[0];
-        hero.onload = () => { hero.style.display = 'block'; document.getElementById('breedEmoji').style.display = 'none'; };
-        const picks = [5, 15, 25, 35, 45, 55];
-        picks.forEach((index, i) => {
-          const el = document.getElementById('gp' + (i + 1));
-          const src = photos[index] || photos[i % photos.length] || photos[0];
-          if (el && src) { galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i)); }
-        });
-      }).catch(() => {});
+    (function () {
+      const hero = document.getElementById('breedPhoto');
+      if (hero) {
+        hero.referrerPolicy = 'no-referrer';
+        hero.onload = () => { hero.style.display = 'block'; const e = document.getElementById('breedEmoji'); if (e) e.style.display = 'none'; };
+        hero.src = heroPhoto;
+      }
+      galleryPhotos.forEach((src, i) => {
+        const el = document.getElementById('gp' + (i + 1));
+        if (el && src) { el.referrerPolicy = 'no-referrer'; el.src = src; el.addEventListener('click', () => openLightbox(i)); }
+      });
+    })();
 
     function openLightbox(index) { currentPhotoIndex = index; document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex]; document.getElementById('lightbox').classList.add('open'); }
     function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); }

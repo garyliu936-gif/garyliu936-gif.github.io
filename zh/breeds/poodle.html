@@ -93,7 +93,7 @@
           <h2>🎬 贵宾犬 趣闻</h2>
           <p>观看视频快速了解贵宾犬——在深入阅读详情之前，先看看这个犬种的实际表现。</p>
           <div class="video-embed">
-            <iframe src="https://www.youtube.com/embed/74mx2OWM6mE" title="Poodle Dogs 101" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/2o4rdoFa1vk" title="Poodle — AKC Meet the Breeds" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         </div>
 
@@ -136,6 +136,7 @@
             <img class="gallery-photo" id="gp5" alt="贵宾犬照片 5" />
             <img class="gallery-photo" id="gp6" alt="贵宾犬照片 6" />
           </div>
+          <p style="font-size:.8rem;color:#94a3b8;margin:14px 0 0">📷 照片来自 <a href="https://commons.wikimedia.org/wiki/Category:Poodles" target="_blank" rel="noopener nofollow">Wikimedia Commons</a>（CC BY-SA / CC0）</p>
         </div>
 
 
@@ -506,24 +507,30 @@
     });
   </script>
   <script>
-    let galleryPhotos = [];
+    // Curated, verified Wikimedia Commons photos (clear, recognizable; Standard / Miniature / Toy).
+    const heroPhoto = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Miniature_poodle.jpg/960px-Miniature_poodle.jpg";
+    const galleryPhotos = [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/AKC_Helena_Fall_Dog_Show_2011_%286187041897%29.jpg/960px-AKC_Helena_Fall_Dog_Show_2011_%286187041897%29.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Poodle_Medium_black.jpg/960px-Poodle_Medium_black.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Poodle_Champion_Dog_Show.jpg/960px-Poodle_Champion_Dog_Show.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Red_Standard_Poodle_Abigail_by_Don_Ramey_Logan.jpg/960px-Red_Standard_Poodle_Abigail_by_Don_Ramey_Logan.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Bell_Poodle_Dog_2021.jpg/960px-Bell_Poodle_Dog_2021.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Poodle_Puppy_-_Green_eyes.jpg/960px-Poodle_Puppy_-_Green_eyes.jpg"
+    ];
     let currentPhotoIndex = 0;
 
-    fetch('https://dog.ceo/api/breed/poodle/images')
-      .then(r => r.json())
-      .then(data => {
-        if (!Array.isArray(data.message) || !data.message.length) return;
-        const photos = data.message;
-        const hero = document.getElementById('breedPhoto');
-        hero.src = photos[Math.floor(photos.length/2)] || photos[0];
-        hero.onload = () => { hero.style.display = 'block'; document.getElementById('breedEmoji').style.display = 'none'; };
-        const picks = [0,1,2,3,4,5].map(k => Math.floor((k + 0.5) * photos.length / 6)); // spread across Standard/Miniature/Toy
-        picks.forEach((index, i) => {
-          const el = document.getElementById('gp' + (i + 1));
-          const src = photos[index] || photos[i % photos.length] || photos[0];
-          if (el && src) { galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i)); }
-        });
-      }).catch(() => {});
+    (function () {
+      const hero = document.getElementById('breedPhoto');
+      if (hero) {
+        hero.referrerPolicy = 'no-referrer';
+        hero.onload = () => { hero.style.display = 'block'; const e = document.getElementById('breedEmoji'); if (e) e.style.display = 'none'; };
+        hero.src = heroPhoto;
+      }
+      galleryPhotos.forEach((src, i) => {
+        const el = document.getElementById('gp' + (i + 1));
+        if (el && src) { el.referrerPolicy = 'no-referrer'; el.src = src; el.addEventListener('click', () => openLightbox(i)); }
+      });
+    })();
 
     function openLightbox(index) { currentPhotoIndex = index; document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex]; document.getElementById('lightbox').classList.add('open'); }
     function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); }

@@ -125,6 +125,7 @@
             <img class="gallery-photo" id="gp5" alt="German Shepherd Dog photo 5" />
             <img class="gallery-photo" id="gp6" alt="German Shepherd Dog photo 6" />
           </div>
+          <p style="font-size:.8rem;color:#94a3b8;margin:14px 0 0">📷 Photos: Canarian (CC BY-SA 4.0) &amp; Pixabay contributors (CC0) · via <a href="https://commons.wikimedia.org/wiki/Category:German_Shepherd_Dog" target="_blank" rel="noopener nofollow">Wikimedia Commons</a></p>
         </div>
 
         <div class="breed-section">
@@ -485,30 +486,37 @@
     });
   </script>
   <script>
-    let galleryPhotos = [];
+    // Curated, verified Wikimedia Commons photos (clear, well-lit, full-body).
+    const heroPhoto = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/German_Shepherd_Dog_Alsatian_4.jpg/960px-German_Shepherd_Dog_Alsatian_4.jpg";
+    const galleryPhotos = [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/German-shepherd-4055031920.jpg/960px-German-shepherd-4055031920.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/German-shepherd-4040871920.jpg/960px-German-shepherd-4040871920.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Black-german-shepherd-29944091920.jpg/960px-Black-german-shepherd-29944091920.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/German_Shepherd_Dog_Alsatian_1.jpg/960px-German_Shepherd_Dog_Alsatian_1.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/German_Shepherd_Dog_Alsatian_2.jpg/960px-German_Shepherd_Dog_Alsatian_2.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/German-shepherd-4040871920._%282%29.jpg/960px-German-shepherd-4040871920._%282%29.jpg"
+    ];
     let currentPhotoIndex = 0;
 
-    fetch('https://dog.ceo/api/breed/german/shepherd/images')
-      .then(r => r.json())
-      .then(data => {
-        if (!Array.isArray(data.message) || !data.message.length) return;
-        const photos = data.message;
-        const hero = document.getElementById('breedPhoto');
-        hero.src = photos[2];
+    (function () {
+      const hero = document.getElementById('breedPhoto');
+      if (hero) {
+        hero.referrerPolicy = 'no-referrer';
         hero.onload = () => {
           hero.style.display = 'block';
-          document.getElementById('breedEmoji').style.display = 'none';
+          const e = document.getElementById('breedEmoji'); if (e) e.style.display = 'none';
         };
-        [5,10,18,25,33,40].forEach((idx, i) => {
-          const el = document.getElementById('gp' + (i + 1));
-          const src = photos[idx] || photos[i];
-          if (el && src) {
-            galleryPhotos.push(src);
-            el.src = src;
-            el.addEventListener('click', () => openLightbox(i));
-          }
-        });
-      }).catch(() => {});
+        hero.src = heroPhoto;
+      }
+      galleryPhotos.forEach((src, i) => {
+        const el = document.getElementById('gp' + (i + 1));
+        if (el && src) {
+          el.referrerPolicy = 'no-referrer';
+          el.src = src;
+          el.addEventListener('click', () => openLightbox(i));
+        }
+      });
+    })();
 
     function openLightbox(index) {
       currentPhotoIndex = index;
