@@ -247,6 +247,9 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  /* Bias the crop toward the top — a dog's head/face usually sits in the
+     upper-middle of a photo, so centering would cut faces or show only legs. */
+  object-position: 50% 28%;
   display: none;
 }
 
@@ -394,6 +397,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: 50% 28%;
   border-radius: 24px;
   display: none;
   position: absolute;
@@ -774,6 +778,7 @@
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
+  object-position: 50% 30%;
   border-radius: 12px;
   background: var(--light);
   display: block;
@@ -819,9 +824,11 @@
 .lightbox.open { display: flex; }
 
 .lightbox img {
-  width: min(90vw, 680px);
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
+  max-width: min(92vw, 900px);
+  max-height: 85vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;       /* show the FULL photo when enlarged — no cropping */
   border-radius: 16px;
   box-shadow: 0 24px 80px rgba(0,0,0,.6);
 }
