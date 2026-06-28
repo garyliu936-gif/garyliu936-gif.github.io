@@ -12,10 +12,10 @@
    ✅  Other pages update the moment anyone views the breeds page.
    ────────────────────────────────────────────────────────────────────────────── */
 (function () {
-  var FALLBACK_TOTAL    = 603;
-  var FALLBACK_PUREBRED = 412;
+  var FALLBACK_TOTAL    = 607;
+  var FALLBACK_PUREBRED = 416;
   var FALLBACK_HYBRID   = 191;
-  var FALLBACK_FCI      = 359;
+  var FALLBACK_FCI      = 360;
 
   document.addEventListener('DOMContentLoaded', function () {
     var isZh = document.documentElement.lang === 'zh-CN' || location.pathname.startsWith('/zh/');
