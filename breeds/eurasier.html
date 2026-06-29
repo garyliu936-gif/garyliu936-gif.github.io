@@ -428,21 +428,32 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
 
-    fetch('https://dog.ceo/api/breed/keeshond/images')
-      .then(r => r.json())
-      .then(data => {
-        if (!Array.isArray(data.message) || !data.message.length) return;
-        const photos = data.message;
-        const hero = document.getElementById('breedPhoto');
-        hero.src = photos[2] || photos[0];
-        hero.onload = () => { hero.style.display = 'block'; document.getElementById('breedEmoji').style.display = 'none'; };
-        const picks = [0, 3, 6, 9, 12, 15];
-        picks.forEach((index, i) => {
-          const el = document.getElementById('gp' + (i + 1));
-          const src = photos[index] || photos[i] || photos[0];
-          if (el && src) { galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i)); }
-        });
-      }).catch(() => {});
+    (function(){
+      const photos = [
+        "https://upload.wikimedia.org/wikipedia/commons/3/36/Eurasier_BailyWtatze.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Belina.jpg/960px-Belina.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/BIR_Grupp_5-_EURASIER%2C_EURO%E2%80%99Jou_Capaya_%2823866392679%29.jpg/960px-BIR_Grupp_5-_EURASIER%2C_EURO%E2%80%99Jou_Capaya_%2823866392679%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/%40kai.eurasier.jpg/960px-%40kai.eurasier.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Belina_-_Flickr_-_Stiller_Beobachter_%281%29.jpg/960px-Belina_-_Flickr_-_Stiller_Beobachter_%281%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/2016-07-13_09_09_45_-_Flickr_-_Stiller_Beobachter.jpg/960px-2016-07-13_09_09_45_-_Flickr_-_Stiller_Beobachter.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Belina_-_Flickr_-_Stiller_Beobachter_%282%29.jpg/960px-Belina_-_Flickr_-_Stiller_Beobachter_%282%29.jpg"
+      ];
+      const hero = document.getElementById('breedPhoto');
+      if (photos[0] && hero) {
+        hero.referrerPolicy = 'no-referrer';
+        hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; };
+        hero.onerror = () => { hero.style.display = 'none'; };
+        hero.src = photos[0];
+      }
+      const gal = photos.length > 1 ? photos.slice(1) : photos;
+      for (let i = 1; i <= 6; i++) {
+        const el = document.getElementById('gp' + i);
+        if (!el) continue;
+        const src = gal[i - 1];
+        if (src) { const idx = galleryPhotos.length; galleryPhotos.push(src); el.referrerPolicy = 'no-referrer'; el.onerror = () => { el.style.display = 'none'; }; el.src = src; el.addEventListener('click', () => openLightbox(idx)); }
+        else { el.style.display = 'none'; }
+      }
+    })();
 
     function openLightbox(index) { currentPhotoIndex = index; document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex]; document.getElementById('lightbox').classList.add('open'); }
     function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); }

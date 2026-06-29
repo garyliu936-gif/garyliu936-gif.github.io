@@ -361,7 +361,32 @@
   </script>
   <script>
     let galleryPhotos=[];let currentPhotoIndex=0;
-    fetch('https://dog.ceo/api/breed/dachshund/images').then(r=>r.json()).then(data=>{if(!Array.isArray(data.message)||!data.message.length)return;const photos=data.message;const hero=document.getElementById('breedPhoto');hero.src=photos[5]||photos[0];hero.onload=()=>{hero.style.display='block';document.getElementById('breedEmoji').style.display='none';};[0,5,10,15,20,25].forEach((index,i)=>{const el=document.getElementById('gp'+(i+1));const src=photos[index]||photos[i]||photos[0];if(el&&src){galleryPhotos.push(src);el.src=src;el.addEventListener('click',()=>openLightbox(i));}});}).catch(()=>{});
+    (function(){
+      const photos = [
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Alpejski_go%C5%84czy_kr%C3%B3tkono%C5%BCny_g99.jpg/1280px-Alpejski_go%C5%84czy_kr%C3%B3tkono%C5%BCny_g99.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Alpenl_Dachsbracke_w.jpg/960px-Alpenl_Dachsbracke_w.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Alpejski_go%C5%84czy_kr%C3%B3tkono%C5%BCny_g76.jpg/960px-Alpejski_go%C5%84czy_kr%C3%B3tkono%C5%BCny_g76.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Alpejski_go%C5%84czy_kr%C3%B3tkono%C5%BCny_g99.jpg/960px-Alpejski_go%C5%84czy_kr%C3%B3tkono%C5%BCny_g99.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Alpejski_go%C5%84czy_kr%C3%B3tkono%C5%BCny_g%C5%82owa_11.jpg/960px-Alpejski_go%C5%84czy_kr%C3%B3tkono%C5%BCny_g%C5%82owa_11.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Alpejski_go%C5%84czy_kr%C3%B3tkono%C5%BCny_g%C5%82owa_15.jpg/960px-Alpejski_go%C5%84czy_kr%C3%B3tkono%C5%BCny_g%C5%82owa_15.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/c/cb/Alpejski_go%C5%84czy_kr%C3%B3tkono%C5%BCny_LM.jpg"
+      ];
+      const hero = document.getElementById('breedPhoto');
+      if (photos[0] && hero) {
+        hero.referrerPolicy = 'no-referrer';
+        hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; };
+        hero.onerror = () => { hero.style.display = 'none'; };
+        hero.src = photos[0];
+      }
+      const gal = photos.length > 1 ? photos.slice(1) : photos;
+      for (let i = 1; i <= 6; i++) {
+        const el = document.getElementById('gp' + i);
+        if (!el) continue;
+        const src = gal[i - 1];
+        if (src) { const idx = galleryPhotos.length; galleryPhotos.push(src); el.referrerPolicy = 'no-referrer'; el.onerror = () => { el.style.display = 'none'; }; el.src = src; el.addEventListener('click', () => openLightbox(idx)); }
+        else { el.style.display = 'none'; }
+      }
+    })();
     function openLightbox(i){currentPhotoIndex=i;document.getElementById('lightboxImg').src=galleryPhotos[i];document.getElementById('lightbox').classList.add('open');}
     function closeLightbox(){document.getElementById('lightbox').classList.remove('open');}
     document.getElementById('lightboxClose').addEventListener('click',closeLightbox);

@@ -360,7 +360,32 @@
   </script>
   <script>
     let galleryPhotos=[];let currentPhotoIndex=0;
-    fetch('https://dog.ceo/api/breed/spaniel/cocker/images').then(r=>r.json()).then(data=>{if(!Array.isArray(data.message)||!data.message.length)return;const photos=data.message;const hero=document.getElementById('breedPhoto');hero.src=photos[2]||photos[0];hero.onload=()=>{hero.style.display='block';document.getElementById('breedEmoji').style.display='none';};[0,4,8,12,16,20].forEach((index,i)=>{const el=document.getElementById('gp'+(i+1));const src=photos[index]||photos[i]||photos[0];if(el&&src){galleryPhotos.push(src);el.src=src;el.addEventListener('click',()=>openLightbox(i));}});}).catch(()=>{});
+    (function(){
+      const photos = [
+        "https://upload.wikimedia.org/wikipedia/commons/f/f7/Frisianstaby.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Friese_Stabij.jpg/960px-Friese_Stabij.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/7/79/Dawgz.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/b/b2/Stabij.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Friesestabijs01.jpg/960px-Friesestabijs01.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/1/11/Beitskeenlobke.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Bubby_Stabyhoun.JPG/960px-Bubby_Stabyhoun.JPG"
+      ];
+      const hero = document.getElementById('breedPhoto');
+      if (photos[0] && hero) {
+        hero.referrerPolicy = 'no-referrer';
+        hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; };
+        hero.onerror = () => { hero.style.display = 'none'; };
+        hero.src = photos[0];
+      }
+      const gal = photos.length > 1 ? photos.slice(1) : photos;
+      for (let i = 1; i <= 6; i++) {
+        const el = document.getElementById('gp' + i);
+        if (!el) continue;
+        const src = gal[i - 1];
+        if (src) { const idx = galleryPhotos.length; galleryPhotos.push(src); el.referrerPolicy = 'no-referrer'; el.onerror = () => { el.style.display = 'none'; }; el.src = src; el.addEventListener('click', () => openLightbox(idx)); }
+        else { el.style.display = 'none'; }
+      }
+    })();
     function openLightbox(i){currentPhotoIndex=i;document.getElementById('lightboxImg').src=galleryPhotos[i];document.getElementById('lightbox').classList.add('open');}
     function closeLightbox(){document.getElementById('lightbox').classList.remove('open');}
     document.getElementById('lightboxClose').addEventListener('click',closeLightbox);

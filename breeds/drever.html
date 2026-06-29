@@ -360,7 +360,32 @@
   </script>
   <script>
     let galleryPhotos=[];let currentPhotoIndex=0;
-    fetch('https://dog.ceo/api/breed/hound/basset/images').then(r=>r.json()).then(data=>{if(!Array.isArray(data.message)||!data.message.length)return;const photos=data.message;const hero=document.getElementById('breedPhoto');hero.src=photos[4]||photos[0];hero.onload=()=>{hero.style.display='block';document.getElementById('breedEmoji').style.display='none';};[1,5,9,13,17,21].forEach((index,i)=>{const el=document.getElementById('gp'+(i+1));const src=photos[index]||photos[i]||photos[0];if(el&&src){galleryPhotos.push(src);el.src=src;el.addEventListener('click',()=>openLightbox(i));}});}).catch(()=>{});
+    (function(){
+      const photos = [
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Drever_NUCh_Tanjo.jpg/1280px-Drever_NUCh_Tanjo.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Drever_NUCh_Tanjo.jpg/960px-Drever_NUCh_Tanjo.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/6/67/Basset_Su%C3%A9dois.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Grupp_6_DREVER%2C_J_Team_Granaths_Akka_%2823661437073%29.jpg/960px-Grupp_6_DREVER%2C_J_Team_Granaths_Akka_%2823661437073%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/BIR_Grupp_6-_DREVER%2C_J_Team_Granaths_Akka_%2823607403173%29.jpg/960px-BIR_Grupp_6-_DREVER%2C_J_Team_Granaths_Akka_%2823607403173%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/DocFile_Drever.jpg/960px-DocFile_Drever.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Drevertri.jpg/960px-Drevertri.jpg"
+      ];
+      const hero = document.getElementById('breedPhoto');
+      if (photos[0] && hero) {
+        hero.referrerPolicy = 'no-referrer';
+        hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; };
+        hero.onerror = () => { hero.style.display = 'none'; };
+        hero.src = photos[0];
+      }
+      const gal = photos.length > 1 ? photos.slice(1) : photos;
+      for (let i = 1; i <= 6; i++) {
+        const el = document.getElementById('gp' + i);
+        if (!el) continue;
+        const src = gal[i - 1];
+        if (src) { const idx = galleryPhotos.length; galleryPhotos.push(src); el.referrerPolicy = 'no-referrer'; el.onerror = () => { el.style.display = 'none'; }; el.src = src; el.addEventListener('click', () => openLightbox(idx)); }
+        else { el.style.display = 'none'; }
+      }
+    })();
     function openLightbox(i){currentPhotoIndex=i;document.getElementById('lightboxImg').src=galleryPhotos[i];document.getElementById('lightbox').classList.add('open');}
     function closeLightbox(){document.getElementById('lightbox').classList.remove('open');}
     document.getElementById('lightboxClose').addEventListener('click',closeLightbox);

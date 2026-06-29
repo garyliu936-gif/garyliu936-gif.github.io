@@ -353,7 +353,32 @@
   </script>
   <script>
     let galleryPhotos=[];let currentPhotoIndex=0;
-    fetch('https://dog.ceo/api/breed/mastiff/images').then(r=>r.json()).then(data=>{if(!Array.isArray(data.message)||!data.message.length)return;const photos=data.message;const hero=document.getElementById('breedPhoto');hero.src=photos[3]||photos[0];hero.onload=()=>{hero.style.display='block';document.getElementById('breedEmoji').style.display='none';};[1,4,7,10,13,16].forEach((index,i)=>{const el=document.getElementById('gp'+(i+1));const src=photos[index]||photos[i]||photos[0];if(el&&src){galleryPhotos.push(src);el.src=src;el.addEventListener('click',()=>openLightbox(i));}});}).catch(()=>{});
+    (function(){
+      const photos = [
+        "https://upload.wikimedia.org/wikipedia/commons/5/50/Rafeiro_male.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/2/26/Rafeiro_do_Alentejo.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/20-month-old_female_Rafeiro_do_Alentejo.jpg/960px-20-month-old_female_Rafeiro_do_Alentejo.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/a/ac/Rafeiro_De_L%27Alentejo.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/RafeiroAlentejo-whitegrey1.jpg/960px-RafeiroAlentejo-whitegrey1.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/RafeiroAlentejo-whitegrey2.jpg/960px-RafeiroAlentejo-whitegrey2.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Alentejonk1.jpg/960px-Alentejonk1.jpg"
+      ];
+      const hero = document.getElementById('breedPhoto');
+      if (photos[0] && hero) {
+        hero.referrerPolicy = 'no-referrer';
+        hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; };
+        hero.onerror = () => { hero.style.display = 'none'; };
+        hero.src = photos[0];
+      }
+      const gal = photos.length > 1 ? photos.slice(1) : photos;
+      for (let i = 1; i <= 6; i++) {
+        const el = document.getElementById('gp' + i);
+        if (!el) continue;
+        const src = gal[i - 1];
+        if (src) { const idx = galleryPhotos.length; galleryPhotos.push(src); el.referrerPolicy = 'no-referrer'; el.onerror = () => { el.style.display = 'none'; }; el.src = src; el.addEventListener('click', () => openLightbox(idx)); }
+        else { el.style.display = 'none'; }
+      }
+    })();
     function openLightbox(i){currentPhotoIndex=i;document.getElementById('lightboxImg').src=galleryPhotos[i];document.getElementById('lightbox').classList.add('open');}
     function closeLightbox(){document.getElementById('lightbox').classList.remove('open');}
     document.getElementById('lightboxClose').addEventListener('click',closeLightbox);

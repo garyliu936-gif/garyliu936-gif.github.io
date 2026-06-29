@@ -297,6 +297,31 @@
   <script src="../js/main.js"></script>
   <script src="../js/breed-count.js?v=9"></script>
   <script>document.querySelectorAll('.breed-tab').forEach(tab=>{tab.addEventListener('click',()=>{document.querySelectorAll('.breed-tab').forEach(t=>t.classList.remove('active'));document.querySelectorAll('.breed-tab-panel').forEach(p=>p.classList.remove('active'));tab.classList.add('active');document.getElementById('tab-'+tab.dataset.tab).classList.add('active');document.querySelector('.breed-tabs-nav').scrollIntoView({behavior:'smooth',block:'nearest'});});});</script>
-  <script>let galleryPhotos=[];let currentPhotoIndex=0;fetch('https://dog.ceo/api/breed/hound/blood/images').then(r=>r.json()).then(data=>{if(!Array.isArray(data.message)||!data.message.length)return;const photos=data.message;const hero=document.getElementById('breedPhoto');hero.src=photos[0];hero.onload=()=>{hero.style.display='block';document.getElementById('breedEmoji').style.display='none';};[2,5,8,11,14,17].forEach((index,i)=>{const el=document.getElementById('gp'+(i+1));const src=photos[index]||photos[i]||photos[0];if(el&&src){galleryPhotos.push(src);el.src=src;el.addEventListener('click',()=>openLightbox(i));}});}).catch(()=>{});function openLightbox(i){currentPhotoIndex=i;document.getElementById('lightboxImg').src=galleryPhotos[i];document.getElementById('lightbox').classList.add('open');}function closeLightbox(){document.getElementById('lightbox').classList.remove('open');}document.getElementById('lightboxClose').addEventListener('click',closeLightbox);document.getElementById('lightboxPrev').addEventListener('click',(e)=>{e.stopPropagation();currentPhotoIndex=(currentPhotoIndex-1+galleryPhotos.length)%galleryPhotos.length;document.getElementById('lightboxImg').src=galleryPhotos[currentPhotoIndex];});document.getElementById('lightboxNext').addEventListener('click',(e)=>{e.stopPropagation();currentPhotoIndex=(currentPhotoIndex+1)%galleryPhotos.length;document.getElementById('lightboxImg').src=galleryPhotos[currentPhotoIndex];});document.getElementById('lightbox').addEventListener('click',(e)=>{if(e.target===e.currentTarget)closeLightbox();});document.addEventListener('keydown',(e)=>{if(!document.getElementById('lightbox').classList.contains('open'))return;if(e.key==='ArrowLeft'){currentPhotoIndex=(currentPhotoIndex-1+galleryPhotos.length)%galleryPhotos.length;document.getElementById('lightboxImg').src=galleryPhotos[currentPhotoIndex];}else if(e.key==='ArrowRight'){currentPhotoIndex=(currentPhotoIndex+1)%galleryPhotos.length;document.getElementById('lightboxImg').src=galleryPhotos[currentPhotoIndex];}else if(e.key==='Escape'){closeLightbox();}});</script>
+  <script>let galleryPhotos=[];let currentPhotoIndex=0;(function(){
+      const photos = [
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Maremmahound-brindle1.jpg/1280px-Maremmahound-brindle1.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Can_da_caccia_maremman_inta_Vall%C3%A2_de_Cich%C3%AA.jpg/960px-Can_da_caccia_maremman_inta_Vall%C3%A2_de_Cich%C3%AA.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Maremmahound-b%26t1.jpg/960px-Maremmahound-b%26t1.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Maremmahound-b%26t2.jpg/960px-Maremmahound-b%26t2.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Maremmahound-brindle1.jpg/960px-Maremmahound-brindle1.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Maremmahound-brindle2.jpg/960px-Maremmahound-brindle2.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Maremmahound-brindle4.jpg/960px-Maremmahound-brindle4.jpg"
+      ];
+      const hero = document.getElementById('breedPhoto');
+      if (photos[0] && hero) {
+        hero.referrerPolicy = 'no-referrer';
+        hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; };
+        hero.onerror = () => { hero.style.display = 'none'; };
+        hero.src = photos[0];
+      }
+      const gal = photos.length > 1 ? photos.slice(1) : photos;
+      for (let i = 1; i <= 6; i++) {
+        const el = document.getElementById('gp' + i);
+        if (!el) continue;
+        const src = gal[i - 1];
+        if (src) { const idx = galleryPhotos.length; galleryPhotos.push(src); el.referrerPolicy = 'no-referrer'; el.onerror = () => { el.style.display = 'none'; }; el.src = src; el.addEventListener('click', () => openLightbox(idx)); }
+        else { el.style.display = 'none'; }
+      }
+    })();function openLightbox(i){currentPhotoIndex=i;document.getElementById('lightboxImg').src=galleryPhotos[i];document.getElementById('lightbox').classList.add('open');}function closeLightbox(){document.getElementById('lightbox').classList.remove('open');}document.getElementById('lightboxClose').addEventListener('click',closeLightbox);document.getElementById('lightboxPrev').addEventListener('click',(e)=>{e.stopPropagation();currentPhotoIndex=(currentPhotoIndex-1+galleryPhotos.length)%galleryPhotos.length;document.getElementById('lightboxImg').src=galleryPhotos[currentPhotoIndex];});document.getElementById('lightboxNext').addEventListener('click',(e)=>{e.stopPropagation();currentPhotoIndex=(currentPhotoIndex+1)%galleryPhotos.length;document.getElementById('lightboxImg').src=galleryPhotos[currentPhotoIndex];});document.getElementById('lightbox').addEventListener('click',(e)=>{if(e.target===e.currentTarget)closeLightbox();});document.addEventListener('keydown',(e)=>{if(!document.getElementById('lightbox').classList.contains('open'))return;if(e.key==='ArrowLeft'){currentPhotoIndex=(currentPhotoIndex-1+galleryPhotos.length)%galleryPhotos.length;document.getElementById('lightboxImg').src=galleryPhotos[currentPhotoIndex];}else if(e.key==='ArrowRight'){currentPhotoIndex=(currentPhotoIndex+1)%galleryPhotos.length;document.getElementById('lightboxImg').src=galleryPhotos[currentPhotoIndex];}else if(e.key==='Escape'){closeLightbox();}});</script>
 </body>
 </html>

@@ -351,7 +351,32 @@
   </script>
   <script>
     let galleryPhotos=[];let currentPhotoIndex=0;
-    fetch('https://dog.ceo/api/breed/shiba/images').then(r=>r.json()).then(data=>{if(!Array.isArray(data.message)||!data.message.length)return;const photos=data.message;const hero=document.getElementById('breedPhoto');hero.src=photos[3]||photos[0];hero.onload=()=>{hero.style.display='block';document.getElementById('breedEmoji').style.display='none';};[0,5,10,15,20,25].forEach((index,i)=>{const el=document.getElementById('gp'+(i+1));const src=photos[index]||photos[i]||photos[0];if(el&&src){galleryPhotos.push(src);el.src=src;el.addEventListener('click',()=>openLightbox(i));}});}).catch(()=>{});
+    (function(){
+      const photos = [
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Satellite_image_of_Shikoku_in_April_2018.png/1280px-Satellite_image_of_Shikoku_in_April_2018.png",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Seto-Inland-Sea-Photo.jpg/960px-Seto-Inland-Sea-Photo.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/2018-07-08.Terra.MODIS.Westjapan.250m.jpg/960px-2018-07-08.Terra.MODIS.Westjapan.250m.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Chugoku-Region-Shikoku-Japan-ISS-Space.png/960px-Chugoku-Region-Shikoku-Japan-ISS-Space.png",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Kyushu-Japan-ISS-Space.png/960px-Kyushu-Japan-ISS-Space.png",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/ISS039-E-17919_-_View_of_Japan.jpg/960px-ISS039-E-17919_-_View_of_Japan.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/ISS039-E-17923_-_View_of_Japan.jpg/960px-ISS039-E-17923_-_View_of_Japan.jpg"
+      ];
+      const hero = document.getElementById('breedPhoto');
+      if (photos[0] && hero) {
+        hero.referrerPolicy = 'no-referrer';
+        hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; };
+        hero.onerror = () => { hero.style.display = 'none'; };
+        hero.src = photos[0];
+      }
+      const gal = photos.length > 1 ? photos.slice(1) : photos;
+      for (let i = 1; i <= 6; i++) {
+        const el = document.getElementById('gp' + i);
+        if (!el) continue;
+        const src = gal[i - 1];
+        if (src) { const idx = galleryPhotos.length; galleryPhotos.push(src); el.referrerPolicy = 'no-referrer'; el.onerror = () => { el.style.display = 'none'; }; el.src = src; el.addEventListener('click', () => openLightbox(idx)); }
+        else { el.style.display = 'none'; }
+      }
+    })();
     function openLightbox(i){currentPhotoIndex=i;document.getElementById('lightboxImg').src=galleryPhotos[i];document.getElementById('lightbox').classList.add('open');}
     function closeLightbox(){document.getElementById('lightbox').classList.remove('open');}
     document.getElementById('lightboxClose').addEventListener('click',closeLightbox);
