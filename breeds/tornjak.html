@@ -342,13 +342,32 @@
 
   <script>
   (function(){
-    fetch('https://dog.ceo/api/breed/pyrenees/images').then(function(r){return r.json();}).then(function(data){
-      if(!Array.isArray(data.message)||!data.message.length)return;
-      var photos=data.message, O=27%photos.length;
-      var hero=document.getElementById('breedPhoto');
-      if(hero){hero.src=photos[O]||photos[0];hero.onload=function(){hero.style.display="block";var e=document.getElementById("breedEmoji");if(e)e.style.display="none";};}
-      for(var i=0;i<6;i++){var el=document.getElementById("gp"+(i+1));if(!el)continue;var src=photos[(O+i*3)%photos.length];if(src)el.src=src;}
-    }).catch(function(){});
+    (function(){
+      const photos = [
+        "https://upload.wikimedia.org/wikipedia/commons/6/6f/Bosniantornjak.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Sheepdog_and_pups%2C_Bosnia_and_Herzegovina.jpg/960px-Sheepdog_and_pups%2C_Bosnia_and_Herzegovina.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/8/80/Bosnian_and_Herzegovinian_Shepherd_Dog_%28Tornjak%29_group.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/c/ce/Bosnian_and_Herzegovinian_-_Croatian_Shepherd_Dog_aka_Tornjak.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/e/ed/Berger_De_Bosnie-Herz%C3%A9govine_Et_De_Croatie.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Helsinki_6_Dec_2015_Tornjak_3.JPG/960px-Helsinki_6_Dec_2015_Tornjak_3.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/f/f6/Helsinki_6_Dec_2015_Tornjak_2.JPG"
+      ];
+      const hero = document.getElementById('breedPhoto');
+      if (photos[0] && hero) {
+        hero.referrerPolicy = 'no-referrer';
+        hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; };
+        hero.onerror = () => { hero.style.display = 'none'; };
+        hero.src = photos[0];
+      }
+      const gal = photos.length > 1 ? photos.slice(1) : photos;
+      for (let i = 1; i <= 6; i++) {
+        const el = document.getElementById('gp' + i);
+        if (!el) continue;
+        const src = gal[i - 1];
+        if (src) { const idx = galleryPhotos.length; galleryPhotos.push(src); el.referrerPolicy = 'no-referrer'; el.onerror = () => { el.style.display = 'none'; }; el.src = src; el.addEventListener('click', () => openLightbox(idx)); }
+        else { el.style.display = 'none'; }
+      }
+    })();
   })();
   </script>
 
