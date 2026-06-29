@@ -88,7 +88,7 @@
           <h2>🎬 Cavalier King Charles Spaniel Facts</h2>
           <p>Watch this video for a quick overview of the Cavalier King Charles Spaniel — one of the most beloved companion dogs in the world.</p>
           <div class="video-embed">
-            <iframe src="https://www.youtube.com/embed/qn2BgYA6WFA" title="Cavalier King Charles Spaniel Dogs 101" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/RX5Y93kSc6U" title="Cavalier King Charles Spaniel — AKC Meet the Breeds" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         </div>
 
@@ -123,6 +123,7 @@
             <img class="gallery-photo" id="gp5" alt="Cavalier King Charles Spaniel photo 5" />
             <img class="gallery-photo" id="gp6" alt="Cavalier King Charles Spaniel photo 6" />
           </div>
+          <p style="font-size:.8rem;color:#94a3b8;margin:14px 0 0">📷 Photos: various photographers (CC BY / CC BY-SA) · via <a href="https://commons.wikimedia.org/wiki/Category:Cavalier_King_Charles_Spaniel" target="_blank" rel="noopener nofollow">Wikimedia Commons</a></p>
         </div>
 
         <div class="breed-section">
@@ -404,24 +405,30 @@
     });
   </script>
   <script>
-    let galleryPhotos = [];
+    // Curated, verified Wikimedia Commons photos (clear, full-body; Blenheim, black & tan, tricolor).
+    const heroPhoto = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Betty_Verdure.Photo_Ph.BRIZARD.JPG/960px-Betty_Verdure.Photo_Ph.BRIZARD.JPG";
+    const galleryPhotos = [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Dog_In_The_Grass.jpg/960px-Dog_In_The_Grass.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/5/53/Olive_-_A_Black_and_Tan_Cavalier_King_Charles_Spaniel.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Cavalier_King_Charles_Spaniel_%2849687542022%29.jpg/960px-Cavalier_King_Charles_Spaniel_%2849687542022%29.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Cavalier_King_Charles_Spaniel_-_GCH_Forestcreek_Louisiana_Lagniappe_aka_Louie_7_%2816601877312%29.jpg/960px-Cavalier_King_Charles_Spaniel_-_GCH_Forestcreek_Louisiana_Lagniappe_aka_Louie_7_%2816601877312%29.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Cavalier_King_Charles_Spaniel_DSC_4621.jpg/960px-Cavalier_King_Charles_Spaniel_DSC_4621.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/BlenheimTn.jpg/960px-BlenheimTn.jpg"
+    ];
     let currentPhotoIndex = 0;
 
-    fetch('https://dog.ceo/api/breed/spaniel/blenheim/images')
-      .then(r => r.json())
-      .then(data => {
-        if (!Array.isArray(data.message) || !data.message.length) return;
-        const photos = data.message;
-        const hero = document.getElementById('breedPhoto');
-        hero.src = photos[2] || photos[0];
-        hero.onload = () => { hero.style.display = 'block'; document.getElementById('breedEmoji').style.display = 'none'; };
-        const picks = [5, 15, 25, 35, 45, 55];
-        picks.forEach((index, i) => {
-          const el = document.getElementById('gp' + (i + 1));
-          const src = photos[index] || photos[i % photos.length] || photos[0];
-          if (el && src) { galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i)); }
-        });
-      }).catch(() => {});
+    (function () {
+      const hero = document.getElementById('breedPhoto');
+      if (hero) {
+        hero.referrerPolicy = 'no-referrer';
+        hero.onload = () => { hero.style.display = 'block'; const e = document.getElementById('breedEmoji'); if (e) e.style.display = 'none'; };
+        hero.src = heroPhoto;
+      }
+      galleryPhotos.forEach((src, i) => {
+        const el = document.getElementById('gp' + (i + 1));
+        if (el && src) { el.referrerPolicy = 'no-referrer'; el.src = src; el.addEventListener('click', () => openLightbox(i)); }
+      });
+    })();
 
     function openLightbox(index) { currentPhotoIndex = index; document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex]; document.getElementById('lightbox').classList.add('open'); }
     function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); }

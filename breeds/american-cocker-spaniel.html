@@ -82,6 +82,15 @@
   <div class="container">
     <div class="breed-content-wrap">
       <div class="breed-main">
+
+        <div class="breed-section">
+  <h2>🎬 American Cocker Spaniel Facts</h2>
+  <p>Watch this video for a quick overview of the American Cocker Spaniel — see the breed in action before diving into the details below.</p>
+  <div class="video-embed">
+    <iframe src="https://www.youtube.com/embed/gY35bcRD6e4" title="American Cocker Spaniel — American Kennel Club" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</div>
+
         <nav class="breed-tabs-nav">
           <button class="breed-tab active" data-tab="profile">🐾 Profile</button>
           <button class="breed-tab" data-tab="diet">🍽️ Diet &amp; Feeding</button>
@@ -106,6 +115,7 @@
               <img class="gallery-photo" id="gp5" alt="Cocker Spaniel photo 5" />
               <img class="gallery-photo" id="gp6" alt="Cocker Spaniel photo 6" />
             </div>
+          <p style="font-size:.8rem;color:#94a3b8;margin:14px 0 0">📷 Photos: various photographers (CC BY / CC BY-SA / CC0) · via <a href="https://commons.wikimedia.org/wiki/Category:American Cocker Spaniel" target="_blank" rel="noopener nofollow">Wikimedia Commons</a></p>
           </div>
 
           <div class="breed-section">
@@ -190,8 +200,30 @@
   <script src="../js/breed-count.js?v=9"></script>
   <script>document.querySelectorAll('.breed-tab').forEach(tab=>{tab.addEventListener('click',()=>{document.querySelectorAll('.breed-tab').forEach(t=>t.classList.remove('active'));document.querySelectorAll('.breed-tab-panel').forEach(p=>p.classList.remove('active'));tab.classList.add('active');document.getElementById('tab-'+tab.dataset.tab).classList.add('active');document.querySelector('.breed-tabs-nav').scrollIntoView({behavior:'smooth',block:'nearest'});});});</script>
   <script>
-    let galleryPhotos=[];let currentPhotoIndex=0;
-    fetch('https://dog.ceo/api/breeds/list/all').then(r=>r.json()).then(data=>{const allBreeds=Object.keys(data.message);const searchBreed='american';const matchingBreed=allBreeds.find(b=>b.includes(searchBreed))||allBreeds[0];fetch(`https://dog.ceo/api/breed/${matchingBreed}/images`).then(r=>r.json()).then(data=>{if(!Array.isArray(data.message)||!data.message.length)return;const photos=data.message;const hero=document.getElementById('breedPhoto');hero.src=photos[2]||photos[0];hero.onload=()=>{hero.style.display='block';document.getElementById('breedEmoji').style.display='none';};[0,2,4,6,8,10].forEach((index,i)=>{const el=document.getElementById('gp'+(i+1));const src=photos[index]||photos[i]||photos[0];if(el&&src){galleryPhotos.push(src);el.src=src;el.addEventListener('click',()=>openLightbox(i));}});}).catch(()=>{});}).catch(()=>{});
+    // Curated, verified Wikimedia Commons photos (clear, well-lit, full-frame).
+    const heroPhoto = "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/American_Cocker_Spaniel_buff_portrait.jpg/960px-American_Cocker_Spaniel_buff_portrait.jpg";
+    const galleryPhotos = [
+      "https://upload.wikimedia.org/wikipedia/commons/a/aa/AmericanCockerSpaniel_wb.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/American_Cocker_in_Tallinn.JPG/960px-American_Cocker_in_Tallinn.JPG",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/American_Cocker_Spaniel_black_sitting.jpg/960px-American_Cocker_Spaniel_black_sitting.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/American_Cocker_Spaniel_portrait..jpg/960px-American_Cocker_Spaniel_portrait..jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/American_Cocker_Spaniel_agility.jpg/960px-American_Cocker_Spaniel_agility.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/American_Cocker_in_Tallinn_5.JPG/960px-American_Cocker_in_Tallinn_5.JPG"
+    ];
+    let currentPhotoIndex = 0;
+
+    (function () {
+      const hero = document.getElementById('breedPhoto');
+      if (hero) {
+        hero.referrerPolicy = 'no-referrer';
+        hero.onload = () => { hero.style.display = 'block'; const e = document.getElementById('breedEmoji'); if (e) e.style.display = 'none'; };
+        hero.src = heroPhoto;
+      }
+      galleryPhotos.forEach((src, i) => {
+        const el = document.getElementById('gp' + (i + 1));
+        if (el && src) { el.referrerPolicy = 'no-referrer'; el.src = src; el.addEventListener('click', () => openLightbox(i)); }
+      });
+    })();
     function openLightbox(i){currentPhotoIndex=i;document.getElementById('lightboxImg').src=galleryPhotos[i];document.getElementById('lightbox').classList.add('open');}
     function closeLightbox(){document.getElementById('lightbox').classList.remove('open');}
     document.getElementById('lightboxClose').addEventListener('click',closeLightbox);

@@ -88,7 +88,7 @@
           <h2>🎬 Siberian Husky Facts</h2>
           <p>Watch this video for a quick overview of the Siberian Husky — the beautiful, energetic, and famously stubborn breed that's become a social media sensation.</p>
           <div class="video-embed">
-            <iframe src="https://www.youtube.com/embed/3L8wN7Jt298" title="Siberian Husky Dogs 101" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/UHVDHWi5Fjo" title="Siberian Husky — American Kennel Club" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         </div>
 
@@ -125,6 +125,7 @@
             <img class="gallery-photo" id="gp5" alt="Siberian Husky photo 5" />
             <img class="gallery-photo" id="gp6" alt="Siberian Husky photo 6" />
           </div>
+          <p style="font-size:.8rem;color:#94a3b8;margin:14px 0 0">📷 Photos: various photographers (CC BY / CC BY-SA / CC0) · via <a href="https://commons.wikimedia.org/wiki/Category:Siberian_Husky" target="_blank" rel="noopener nofollow">Wikimedia Commons</a></p>
         </div>
 
         <div class="breed-section">
@@ -479,24 +480,30 @@
     });
   </script>
   <script>
-    let galleryPhotos = [];
+    // Curated, verified Wikimedia Commons photos (clear, well-lit, full-frame).
+    const heroPhoto = "https://upload.wikimedia.org/wikipedia/commons/4/4b/Siberian-husky-1291343_1920.jpg";
+    const galleryPhotos = [
+      "https://upload.wikimedia.org/wikipedia/commons/a/a3/Black-Magic-Big-Boy.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/6/6c/Anadyr.JPG",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Sled_dog_on_Svalbard_with_heterochromia.jpg/960px-Sled_dog_on_Svalbard_with_heterochromia.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Siberian_Husky_heterchromia_edit.jpg/960px-Siberian_Husky_heterchromia_edit.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Inzell_2017_Kat_A1_ZBYSZEK_Kunert_-9513.jpg/960px-Inzell_2017_Kat_A1_ZBYSZEK_Kunert_-9513.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Sled_dog_on_Svalbard_eager_to_go_on_a_hike.jpg/960px-Sled_dog_on_Svalbard_eager_to_go_on_a_hike.jpg"
+    ];
     let currentPhotoIndex = 0;
 
-    fetch('https://dog.ceo/api/breed/husky/images')
-      .then(r => r.json())
-      .then(data => {
-        if (!Array.isArray(data.message) || !data.message.length) return;
-        const photos = data.message;
-        const hero = document.getElementById('breedPhoto');
-        hero.src = photos[2] || photos[0];
-        hero.onload = () => { hero.style.display = 'block'; document.getElementById('breedEmoji').style.display = 'none'; };
-        const picks = [5, 15, 25, 35, 45, 55];
-        picks.forEach((index, i) => {
-          const el = document.getElementById('gp' + (i + 1));
-          const src = photos[index] || photos[i % photos.length] || photos[0];
-          if (el && src) { galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i)); }
-        });
-      }).catch(() => {});
+    (function () {
+      const hero = document.getElementById('breedPhoto');
+      if (hero) {
+        hero.referrerPolicy = 'no-referrer';
+        hero.onload = () => { hero.style.display = 'block'; const e = document.getElementById('breedEmoji'); if (e) e.style.display = 'none'; };
+        hero.src = heroPhoto;
+      }
+      galleryPhotos.forEach((src, i) => {
+        const el = document.getElementById('gp' + (i + 1));
+        if (el && src) { el.referrerPolicy = 'no-referrer'; el.src = src; el.addEventListener('click', () => openLightbox(i)); }
+      });
+    })();
 
     function openLightbox(index) { currentPhotoIndex = index; document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex]; document.getElementById('lightbox').classList.add('open'); }
     function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); }

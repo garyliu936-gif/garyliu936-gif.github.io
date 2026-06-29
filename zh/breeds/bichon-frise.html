@@ -82,6 +82,15 @@
   <div class="container">
     <div class="breed-content-wrap">
       <div class="breed-main">
+
+        <div class="breed-section">
+  <h2>🎬 比雄犬 趣闻</h2>
+  <p>观看视频快速了解比雄犬——在深入阅读详情之前，先看看这个犬种的实际表现。</p>
+  <div class="video-embed">
+    <iframe src="https://www.youtube.com/embed/ZREHdPZzmso" title="Bichon Frise — American Kennel Club" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</div>
+
         <nav class="breed-tabs-nav">
           <button class="breed-tab active" data-tab="profile">🐾 Profile</button>
           <button class="breed-tab" data-tab="diet">🍽️ Diet &amp; Feeding</button>
@@ -107,6 +116,7 @@
               <img class="gallery-photo" id="gp5" alt="Bichon Frise photo 5" />
               <img class="gallery-photo" id="gp6" alt="Bichon Frise photo 6" />
             </div>
+          <p style="font-size:.8rem;color:#94a3b8;margin:14px 0 0">📷 照片来自 <a href="https://commons.wikimedia.org/wiki/Category:Bichon Frisé" target="_blank" rel="noopener nofollow">Wikimedia Commons</a>（CC BY / CC BY-SA / CC0）</p>
           </div>
 
           <div class="breed-section">
@@ -216,8 +226,30 @@
   <script src="../../js/breed-count.js?v=9"></script>
   <script>document.querySelectorAll('.breed-tab').forEach(tab=>{tab.addEventListener('click',()=>{document.querySelectorAll('.breed-tab').forEach(t=>t.classList.remove('active'));document.querySelectorAll('.breed-tab-panel').forEach(p=>p.classList.remove('active'));tab.classList.add('active');document.getElementById('tab-'+tab.dataset.tab).classList.add('active');document.querySelector('.breed-tabs-nav').scrollIntoView({behavior:'smooth',block:'nearest'});});});</script>
   <script>
-    let galleryPhotos=[];let currentPhotoIndex=0;
-    fetch('https://dog.ceo/api/breeds/list/all').then(r=>r.json()).then(data=>{const allBreeds=Object.keys(data.message);const searchBreed='bichon';const matchingBreed=allBreeds.find(b=>b.includes(searchBreed))||allBreeds[0];fetch(`https://dog.ceo/api/breed/${matchingBreed}/images`).then(r=>r.json()).then(data=>{if(!Array.isArray(data.message)||!data.message.length)return;const photos=data.message;const hero=document.getElementById('breedPhoto');hero.src=photos[2]||photos[0];hero.onload=()=>{hero.style.display='block';document.getElementById('breedEmoji').style.display='none';};[0,2,4,6,8,10].forEach((index,i)=>{const el=document.getElementById('gp'+(i+1));const src=photos[index]||photos[i]||photos[0];if(el&&src){galleryPhotos.push(src);el.src=src;el.addEventListener('click',()=>openLightbox(i));}});}).catch(()=>{});}).catch(()=>{});
+    // Curated, verified Wikimedia Commons photos (clear, well-lit, full-frame).
+    const heroPhoto = "https://upload.wikimedia.org/wikipedia/commons/9/98/Bichon_Frise_red_background.jpg";
+    const galleryPhotos = [
+      "https://upload.wikimedia.org/wikipedia/commons/6/64/Bichon_Frise_600.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Bichon_Frise.jpg/960px-Bichon_Frise.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/16yearoldbichonfrise_%28cropped%29.jpg/960px-16yearoldbichonfrise_%28cropped%29.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/b/b5/Bichon_face.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Bichon_Frise_1.jpg/960px-Bichon_Frise_1.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/AG_Cody.jpg/960px-AG_Cody.jpg"
+    ];
+    let currentPhotoIndex = 0;
+
+    (function () {
+      const hero = document.getElementById('breedPhoto');
+      if (hero) {
+        hero.referrerPolicy = 'no-referrer';
+        hero.onload = () => { hero.style.display = 'block'; const e = document.getElementById('breedEmoji'); if (e) e.style.display = 'none'; };
+        hero.src = heroPhoto;
+      }
+      galleryPhotos.forEach((src, i) => {
+        const el = document.getElementById('gp' + (i + 1));
+        if (el && src) { el.referrerPolicy = 'no-referrer'; el.src = src; el.addEventListener('click', () => openLightbox(i)); }
+      });
+    })();
     function openLightbox(i){currentPhotoIndex=i;document.getElementById('lightboxImg').src=galleryPhotos[i];document.getElementById('lightbox').classList.add('open');}
     function closeLightbox(){document.getElementById('lightbox').classList.remove('open');}
     document.getElementById('lightboxClose').addEventListener('click',closeLightbox);

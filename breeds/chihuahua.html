@@ -88,7 +88,7 @@
           <h2>🎬 Chihuahua Facts</h2>
           <p>Watch this video for a quick overview of the Chihuahua — the world's smallest dog breed and a companion with more personality than most large dogs.</p>
           <div class="video-embed">
-            <iframe src="https://www.youtube.com/embed/mWIeCk4DFw0" title="Chihuahua Dogs 101" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/JlzkVNhuDGI" title="Chihuahua — American Kennel Club" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         </div>
 
@@ -123,6 +123,7 @@
             <img class="gallery-photo" id="gp5" alt="Chihuahua photo 5" />
             <img class="gallery-photo" id="gp6" alt="Chihuahua photo 6" />
           </div>
+          <p style="font-size:.8rem;color:#94a3b8;margin:14px 0 0">📷 Photos: various photographers (CC BY / CC BY-SA / CC0) · via <a href="https://commons.wikimedia.org/wiki/Category:Chihuahua_(dog)" target="_blank" rel="noopener nofollow">Wikimedia Commons</a></p>
         </div>
 
         <div class="breed-section">
@@ -404,24 +405,30 @@
     });
   </script>
   <script>
-    let galleryPhotos = [];
+    // Curated, verified Wikimedia Commons photos (clear, well-lit, full-frame).
+    const heroPhoto = "https://upload.wikimedia.org/wikipedia/commons/2/24/Babylone_3ans1.jpg";
+    const galleryPhotos = [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Chihuahua_top_model.jpg/960px-Chihuahua_top_model.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Chihuahua_long-haired_black_%26_tan.jpg/960px-Chihuahua_long-haired_black_%26_tan.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Alert_chihuahua_2.jpg/960px-Alert_chihuahua_2.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Alert_chihuahua.jpg/960px-Alert_chihuahua.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Teko_on_doorstep_%2826397608958%29.jpg/960px-Teko_on_doorstep_%2826397608958%29.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/3/32/Alertchihuahua.jpg"
+    ];
     let currentPhotoIndex = 0;
 
-    fetch('https://dog.ceo/api/breed/chihuahua/images')
-      .then(r => r.json())
-      .then(data => {
-        if (!Array.isArray(data.message) || !data.message.length) return;
-        const photos = data.message;
-        const hero = document.getElementById('breedPhoto');
-        hero.src = photos[2] || photos[0];
-        hero.onload = () => { hero.style.display = 'block'; document.getElementById('breedEmoji').style.display = 'none'; };
-        const picks = [5, 15, 25, 35, 45, 55];
-        picks.forEach((index, i) => {
-          const el = document.getElementById('gp' + (i + 1));
-          const src = photos[index] || photos[i % photos.length] || photos[0];
-          if (el && src) { galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i)); }
-        });
-      }).catch(() => {});
+    (function () {
+      const hero = document.getElementById('breedPhoto');
+      if (hero) {
+        hero.referrerPolicy = 'no-referrer';
+        hero.onload = () => { hero.style.display = 'block'; const e = document.getElementById('breedEmoji'); if (e) e.style.display = 'none'; };
+        hero.src = heroPhoto;
+      }
+      galleryPhotos.forEach((src, i) => {
+        const el = document.getElementById('gp' + (i + 1));
+        if (el && src) { el.referrerPolicy = 'no-referrer'; el.src = src; el.addEventListener('click', () => openLightbox(i)); }
+      });
+    })();
 
     function openLightbox(index) { currentPhotoIndex = index; document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex]; document.getElementById('lightbox').classList.add('open'); }
     function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); }

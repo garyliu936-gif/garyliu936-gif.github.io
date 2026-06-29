@@ -114,6 +114,7 @@
               <img class="gallery-photo" id="gp5" alt="Shetland Sheepdog photo 5" />
               <img class="gallery-photo" id="gp6" alt="Shetland Sheepdog photo 6" />
             </div>
+          <p style="font-size:.8rem;color:#94a3b8;margin:14px 0 0">📷 Photos: various photographers (CC BY / CC BY-SA / CC0) · via <a href="https://commons.wikimedia.org/wiki/Category:Shetland_Sheepdog" target="_blank" rel="noopener nofollow">Wikimedia Commons</a></p>
           </div>
 
           <div class="breed-section">
@@ -412,20 +413,30 @@
     <button class="lightbox-next" id="lightboxNext">&#9654;</button>
   </div>
   <script>
-    let galleryPhotos = [], currentPhotoIndex = 0;
-    fetch('https://dog.ceo/api/breed/sheepdog/shetland/images')
-      .then(r => r.json()).then(data => {
-        if (!Array.isArray(data.message) || !data.message.length) return;
-        const photos = data.message;
-        const hero = document.getElementById('breedPhoto');
-        hero.src = photos[2];
-        hero.onload = () => { hero.style.display = 'block'; document.getElementById('breedEmoji').style.display = 'none'; };
-        [5,10,18,25,33,40].forEach((idx,i) => {
-          const src = photos[idx] || photos[i];
-          const el = document.getElementById('gp' + (i+1));
-          if (el && src) { galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i)); }
-        });
-      }).catch(() => {});
+    // Curated, verified Wikimedia Commons photos (clear, well-lit, full-frame).
+    const heroPhoto = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Sheltie_Isle_of_Mull.jpg/960px-Sheltie_Isle_of_Mull.jpg";
+    const galleryPhotos = [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/SheltieBlueMerle1.jpg/960px-SheltieBlueMerle1.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/SheltieSable.jpg/960px-SheltieSable.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Fiona_the_Sheltie.jpg/960px-Fiona_the_Sheltie.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/12_week_old_Sheltie_pup.jpg/960px-12_week_old_Sheltie_pup.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Sheltie_color_brown_white.JPG/960px-Sheltie_color_brown_white.JPG",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Buttercup_the_Shetland_Sheepdog.jpg/960px-Buttercup_the_Shetland_Sheepdog.jpg"
+    ];
+    let currentPhotoIndex = 0;
+
+    (function () {
+      const hero = document.getElementById("breedPhoto");
+      if (hero) {
+        hero.referrerPolicy = "no-referrer";
+        hero.onload = () => { hero.style.display = "block"; const e = document.getElementById("breedEmoji"); if (e) e.style.display = "none"; };
+        hero.src = heroPhoto;
+      }
+      galleryPhotos.forEach((src, i) => {
+        const el = document.getElementById("gp" + (i + 1));
+        if (el && src) { el.referrerPolicy = "no-referrer"; el.src = src; el.addEventListener("click", () => openLightbox(i)); }
+      });
+    })();
     function openLightbox(i) { currentPhotoIndex = i; document.getElementById('lightboxImg').src = galleryPhotos[i]; document.getElementById('lightbox').classList.add('open'); }
     function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); }
     document.getElementById('lightboxClose').addEventListener('click', closeLightbox);

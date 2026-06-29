@@ -119,6 +119,7 @@
               <img class="gallery-photo" id="gp5" alt="Miniature American Shepherd photo 5" />
               <img class="gallery-photo" id="gp6" alt="Miniature American Shepherd photo 6" />
             </div>
+          <p style="font-size:.8rem;color:#94a3b8;margin:14px 0 0">📷 Photos: various photographers (CC BY / CC BY-SA / CC0) · via <a href="https://commons.wikimedia.org/wiki/Category:Miniature_American_Shepherd" target="_blank" rel="noopener nofollow">Wikimedia Commons</a></p>
           </div>
 
           <div class="breed-section">
@@ -468,24 +469,30 @@
     });
   </script>
   <script>
-    let galleryPhotos = [];
+    // Curated, verified Wikimedia Commons photos (clear, well-lit, full-frame).
+    const heroPhoto = "https://upload.wikimedia.org/wikipedia/commons/b/b5/Miniature-american-shepherd-energies.jpg";
+    const galleryPhotos = [
+      "https://upload.wikimedia.org/wikipedia/commons/5/5c/Miniature-american-shepherd-herding.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/d/de/Miniature_American_Shepherd_Migraine_Alert_Medical_Alert_Service_Dog_02.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/3/33/Miniature-american-shepherd-blue-eyes.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/2/28/Miniature-american-shepherd-eyes-brown.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/8/8d/Miniature-american-shepherd-red-tricolor.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/9/9a/Miniature_american_shepherd_blue-brown_eyes.jpg"
+    ];
     let currentPhotoIndex = 0;
 
-    fetch('https://dog.ceo/api/breed/australian/shepherd/images')
-      .then(r => r.json())
-      .then(data => {
-        if (!Array.isArray(data.message) || !data.message.length) return;
-        const photos = data.message;
-        const hero = document.getElementById('breedPhoto');
-        hero.src = photos[2] || photos[0];
-        hero.onload = () => { hero.style.display = 'block'; document.getElementById('breedEmoji').style.display = 'none'; };
-        const picks = [5, 15, 25, 35, 45, 55];
-        picks.forEach((index, i) => {
-          const el = document.getElementById('gp' + (i + 1));
-          const src = photos[index] || photos[i] || photos[0];
-          if (el && src) { galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i)); }
-        });
-      }).catch(() => {});
+    (function () {
+      const hero = document.getElementById('breedPhoto');
+      if (hero) {
+        hero.referrerPolicy = 'no-referrer';
+        hero.onload = () => { hero.style.display = 'block'; const e = document.getElementById('breedEmoji'); if (e) e.style.display = 'none'; };
+        hero.src = heroPhoto;
+      }
+      galleryPhotos.forEach((src, i) => {
+        const el = document.getElementById('gp' + (i + 1));
+        if (el && src) { el.referrerPolicy = 'no-referrer'; el.src = src; el.addEventListener('click', () => openLightbox(i)); }
+      });
+    })();
 
     function openLightbox(index) { currentPhotoIndex = index; document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex]; document.getElementById('lightbox').classList.add('open'); }
     function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); }
