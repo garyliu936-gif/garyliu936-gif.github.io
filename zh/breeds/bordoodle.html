@@ -126,9 +126,10 @@
             <img class="gallery-photo" id="gp2" alt="边牧贵宾混血犬照片 2" />
             <img class="gallery-photo" id="gp3" alt="边牧贵宾混血犬照片 3" />
             <img class="gallery-photo" id="gp4" alt="边牧贵宾混血犬照片 4" />
-            <img class="gallery-photo" id="gp5" alt="边牧贵宾混血犬照片 5" />
-            <img class="gallery-photo" id="gp6" alt="边牧贵宾混血犬照片 6" />
+            
+            
           </div>
+              <p style="font-size:.8rem;color:#94a3b8;margin:14px 0 0">📷 照片来自 <a href="https://commons.wikimedia.org/wiki/Category:Bordoodle" target="_blank" rel="noopener nofollow">Wikimedia Commons</a>（CC BY / CC BY-SA / CC0）</p>
         </div>
 
 
@@ -496,22 +497,13 @@
   <script>
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
-
-    fetch('https://dog.ceo/api/breed/collie/border/images')
-      .then(r => r.json())
-      .then(data => {
-        if (!Array.isArray(data.message) || !data.message.length) return;
-        const photos = data.message;
-        const hero = document.getElementById('breedPhoto');
-        hero.src = photos[2] || photos[0];
-        hero.onload = () => { hero.style.display = 'block'; document.getElementById('breedEmoji').style.display = 'none'; };
-        const picks = [5, 15, 25, 35, 45, 55];
-        picks.forEach((index, i) => {
-          const el = document.getElementById('gp' + (i + 1));
-          const src = photos[index] || photos[i] || photos[0];
-          if (el && src) { galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i)); }
-        });
-      }).catch(() => {});
+    (function () {
+      const heroPhoto = "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Bordoodle%2C_Australian.jpg/960px-Bordoodle%2C_Australian.jpg";
+      const photos = ["https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Bordoodle_Puppy.jpg/960px-Bordoodle_Puppy.jpg", "https://upload.wikimedia.org/wikipedia/commons/4/4f/Bordoodle.jpg", "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Black_and_white_bordoodle_puppy.jpg/960px-Black_and_white_bordoodle_puppy.jpg", "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Five_year_old_male_Bordoodle_%28Border_Collie_Poodle_mix%29.png/960px-Five_year_old_male_Bordoodle_%28Border_Collie_Poodle_mix%29.png"];
+      const hero = document.getElementById('breedPhoto');
+      if (hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const e = document.getElementById('breedEmoji'); if (e) e.style.display = 'none'; }; hero.src = heroPhoto; }
+      photos.forEach((src, i) => { const el = document.getElementById('gp' + (i + 1)); if (el && src) { el.referrerPolicy = 'no-referrer'; galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i)); } });
+    })();
 
     function openLightbox(index) { currentPhotoIndex = index; document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex]; document.getElementById('lightbox').classList.add('open'); }
     function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); }

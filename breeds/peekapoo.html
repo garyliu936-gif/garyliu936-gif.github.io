@@ -108,18 +108,6 @@
             <p>Peekapoos appeal to families and individuals looking for a dog that combines the best of two beloved breeds. Their hybrid nature can bring health benefits through genetic diversity, and their personality tends to be adaptable and affectionate when properly socialized from a young age. Their size makes them well-suited to apartment living.</p>
           </div>
 
-          <div class="breed-section">
-            <h2>📸 Photo Gallery</h2>
-            <p>Real Peekapoos — browse photos showcasing their look, size, and personality.</p>
-            <div class="breed-gallery" id="breedGallery">
-              <img class="gallery-photo" id="gp1" alt="Peekapoo photo 1" />
-              <img class="gallery-photo" id="gp2" alt="Peekapoo photo 2" />
-              <img class="gallery-photo" id="gp3" alt="Peekapoo photo 3" />
-              <img class="gallery-photo" id="gp4" alt="Peekapoo photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Peekapoo photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Peekapoo photo 6" />
-            </div>
-          </div>
 
           <div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
@@ -477,22 +465,7 @@
   <script>
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
-
-    fetch('https://dog.ceo/api/breed/pekinese/images')
-      .then(r => r.json())
-      .then(data => {
-        if (!Array.isArray(data.message) || !data.message.length) return;
-        const photos = data.message;
-        const hero = document.getElementById('breedPhoto');
-        hero.src = photos[2] || photos[0];
-        hero.onload = () => { hero.style.display = 'block'; document.getElementById('breedEmoji').style.display = 'none'; };
-        const picks = [5, 15, 25, 35, 45, 55];
-        picks.forEach((index, i) => {
-          const el = document.getElementById('gp' + (i + 1));
-          const src = photos[index] || photos[i] || photos[0];
-          if (el && src) { galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i)); }
-        });
-      }).catch(() => {});
+    (function () { const e = document.getElementById('breedEmoji'); if (e) e.style.display = ''; const h = document.getElementById('breedPhoto'); if (h) h.style.display = 'none'; })();
 
     function openLightbox(index) { currentPhotoIndex = index; document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex]; document.getElementById('lightbox').classList.add('open'); }
     function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); }
