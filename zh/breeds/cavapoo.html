@@ -144,6 +144,7 @@
             <img class="gallery-photo" id="gp5" alt="骑士贵宾混血犬照片 5" />
             <img class="gallery-photo" id="gp6" alt="骑士贵宾混血犬照片 6" />
           </div>
+          <p style="font-size:.8rem;color:#94a3b8;margin:14px 0 0">📷 照片来自 <a href="https://commons.wikimedia.org/wiki/Category:Cavapoo" target="_blank" rel="noopener nofollow">Wikimedia Commons</a>（CC BY / CC BY-SA / CC0）</p>
         </div>
 
 
@@ -437,20 +438,30 @@
     <button class="lightbox-next" id="lightboxNext">&#9654;</button>
   </div>
   <script>
-    let galleryPhotos = [], currentPhotoIndex = 0;
-    fetch('https://dog.ceo/api/breed/spaniel/cocker/images')
-      .then(r => r.json()).then(data => {
-        if (!Array.isArray(data.message) || !data.message.length) return;
-        const photos = data.message;
-        const hero = document.getElementById('breedPhoto');
-        hero.src = photos[2];
-        hero.onload = () => { hero.style.display='block'; document.getElementById('breedEmoji').style.display='none'; };
-        [5,10,18,25,33,40].forEach((idx,i) => {
-          const el = document.getElementById('gp'+(i+1));
-          const src = photos[idx]||photos[i];
-          if (el&&src) { galleryPhotos.push(src); el.src=src; el.addEventListener('click',()=>openLightbox(i)); }
-        });
-      }).catch(()=>{});
+    // Curated, verified Wikimedia Commons photos (clear, well-lit, full-frame).
+    const heroPhoto = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Cavoodle_Dog.jpg/1280px-Cavoodle_Dog.jpg";
+    const galleryPhotos = [
+      "https://upload.wikimedia.org/wikipedia/commons/3/3c/Hero.cavoodle.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Cavapoo_%2812015%29.jpg/1280px-Cavapoo_%2812015%29.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Cavoodle_Buffy.jpg/1280px-Cavoodle_Buffy.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Photo_-_Cavoodle_running.jpg/1280px-Photo_-_Cavoodle_running.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/5/5e/Ella_the_Cavapoo_puppy.jpeg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Cavapoo_dog_chasing_a_maltipoo_with_a_ball_%2811881%29.jpg/1280px-Cavapoo_dog_chasing_a_maltipoo_with_a_ball_%2811881%29.jpg"
+    ];
+    let currentPhotoIndex = 0;
+
+    (function () {
+      const hero = document.getElementById('breedPhoto');
+      if (hero) {
+        hero.referrerPolicy = 'no-referrer';
+        hero.onload = () => { hero.style.display = 'block'; const e = document.getElementById('breedEmoji'); if (e) e.style.display = 'none'; };
+        hero.src = heroPhoto;
+      }
+      galleryPhotos.forEach((src, i) => {
+        const el = document.getElementById('gp' + (i + 1));
+        if (el && src) { el.referrerPolicy = 'no-referrer'; el.src = src; el.addEventListener('click', () => openLightbox(i)); }
+      });
+    })();
     function openLightbox(i){ currentPhotoIndex=i; document.getElementById('lightboxImg').src=galleryPhotos[i]; document.getElementById('lightbox').classList.add('open'); }
     function closeLightbox(){ document.getElementById('lightbox').classList.remove('open'); }
     document.getElementById('lightboxClose').addEventListener('click',closeLightbox);

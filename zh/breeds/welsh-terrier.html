@@ -129,6 +129,7 @@
             <img class="gallery-photo" id="gp5" alt="威尔士梗照片 5" />
             <img class="gallery-photo" id="gp6" alt="威尔士梗照片 6" />
           </div>
+          <p style="font-size:.8rem;color:#94a3b8;margin:14px 0 0">📷 照片来自 <a href="https://commons.wikimedia.org/wiki/Category:Welsh Terrier" target="_blank" rel="noopener nofollow">Wikimedia Commons</a>（CC BY / CC BY-SA / CC0）</p>
         </div>
 
 
@@ -493,24 +494,30 @@
     });
   </script>
   <script>
-    let galleryPhotos = [];
+    // Curated, verified Wikimedia Commons photos (clear, well-lit, full-frame).
+    const heroPhoto = "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Welsh_Terrier_portrait.jpg/1280px-Welsh_Terrier_portrait.jpg";
+    const galleryPhotos = [
+      "https://upload.wikimedia.org/wikipedia/commons/1/1d/%D0%92%D0%B5%D0%BB%D1%8C%D1%88%D1%82%D0%B5%D1%80%D1%8C%D0%B5%D1%80_%D0%9A%D0%B5%D1%82%D1%87%D0%B5%D1%80_%D0%A2%D1%80%D0%B0%D0%B9%D0%B2_%D0%A0%D0%B0%D0%BC%D1%88%D1%82%D0%B0%D0%B9%D0%BD.jpeg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Terier_walijski_pies_2009_pl.jpg/1280px-Terier_walijski_pies_2009_pl.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Wystawa_ps%C3%B3w_Rybnik_terier_walijski_04.10.2009_pl.jpg/1280px-Wystawa_ps%C3%B3w_Rybnik_terier_walijski_04.10.2009_pl.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Welsh_Terrier_in_Tallinn.JPG/1280px-Welsh_Terrier_in_Tallinn.JPG",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Welsh_Terrier_%2874864823%29.jpg/1280px-Welsh_Terrier_%2874864823%29.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/3/38/Working_Title.jpg"
+    ];
     let currentPhotoIndex = 0;
 
-    fetch('https://dog.ceo/api/breed/terrier/welsh/images')
-      .then(r => r.json())
-      .then(data => {
-        if (!Array.isArray(data.message) || !data.message.length) return;
-        const photos = data.message;
-        const hero = document.getElementById('breedPhoto');
-        hero.src = photos[2] || photos[0];
-        hero.onload = () => { hero.style.display = 'block'; document.getElementById('breedEmoji').style.display = 'none'; };
-        const picks = [5, 15, 25, 35, 45, 55];
-        picks.forEach((index, i) => {
-          const el = document.getElementById('gp' + (i + 1));
-          const src = photos[index] || photos[i] || photos[0];
-          if (el && src) { galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i)); }
-        });
-      }).catch(() => {});
+    (function () {
+      const hero = document.getElementById('breedPhoto');
+      if (hero) {
+        hero.referrerPolicy = 'no-referrer';
+        hero.onload = () => { hero.style.display = 'block'; const e = document.getElementById('breedEmoji'); if (e) e.style.display = 'none'; };
+        hero.src = heroPhoto;
+      }
+      galleryPhotos.forEach((src, i) => {
+        const el = document.getElementById('gp' + (i + 1));
+        if (el && src) { el.referrerPolicy = 'no-referrer'; el.src = src; el.addEventListener('click', () => openLightbox(i)); }
+      });
+    })();
 
     function openLightbox(index) { currentPhotoIndex = index; document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex]; document.getElementById('lightbox').classList.add('open'); }
     function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); }
