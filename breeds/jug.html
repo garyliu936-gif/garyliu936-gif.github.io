@@ -62,7 +62,7 @@
       </div>
       <div class="breed-hero-layout">
         <div class="breed-hero-emoji" id="breedPhotoWrap">
-          <img class="breed-hero-real-photo" id="breedPhoto" alt="Jug" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Chloe_Jug_2011.jpg/960px-Chloe_Jug_2011.jpg" referrerpolicy="no-referrer" style="display:block" onload="var e=document.getElementById('breedEmoji');if(e)e.style.display='none'" onerror="this.style.display='none';var e=document.getElementById('breedEmoji');if(e)e.style.display=''" />
+          <img class="breed-hero-real-photo" id="breedPhoto" alt="Jug" />
           <span class="breed-emoji-fallback" id="breedEmoji">🐾</span>
         </div>
         <div class="breed-hero-text">
@@ -464,7 +464,7 @@
   <script>
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
-    (function () { const e = document.getElementById('breedEmoji'); if (e) e.style.display = ''; const h = document.getElementById('breedPhoto'); if (h) h.style.display = 'none'; })();
+    (function () { var hero = document.getElementById('breedPhoto'); if (hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = function(){ hero.style.display='block'; var e=document.getElementById('breedEmoji'); if(e) e.style.display='none'; }; hero.onerror = function(){ hero.style.display='none'; var e=document.getElementById('breedEmoji'); if(e) e.style.display=''; }; hero.src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Chloe_Jug_2011.jpg/960px-Chloe_Jug_2011.jpg"; } })();
 
     function openLightbox(index) { currentPhotoIndex = index; document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex]; document.getElementById('lightbox').classList.add('open'); }
     function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); }
