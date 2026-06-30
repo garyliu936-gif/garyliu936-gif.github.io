@@ -334,30 +334,12 @@
 
   <script>
   (function(){
-    (function(){
-      const photos = [
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/03030288_Deutsch_Stichelhaa.jpg/960px-03030288_Deutsch_Stichelhaa.jpg",
-        "https://upload.wikimedia.org/wikipedia/commons/0/02/Hiska_vom_Greifenhagen.jpg",
-        "https://upload.wikimedia.org/wikipedia/commons/1/1e/Chien_D_Arr%C3%AAt_Allemand_A_Poil_Raide.jpg",
-        "https://upload.wikimedia.org/wikipedia/commons/3/32/Sz%C3%A1lk%C3%A1ssz%C5%91r%C5%B1_n%C3%A9met_vizsla.jpg",
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Illustrirtes_Muster_Hunde-Buch%2C_page_72.jpg/960px-Illustrirtes_Muster_Hunde-Buch%2C_page_72.jpg"
-      ];
-      const hero = document.getElementById('breedPhoto');
-      if (photos[0] && hero) {
-        hero.referrerPolicy = 'no-referrer';
-        hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; };
-        hero.onerror = () => { hero.style.display = 'none'; };
-        hero.src = photos[0];
-      }
-      const gal = photos.length > 1 ? photos.slice(1) : photos;
-      for (let i = 1; i <= 6; i++) {
-        const el = document.getElementById('gp' + i);
-        if (!el) continue;
-        const src = gal[i - 1];
-        if (src) { const idx = galleryPhotos.length; galleryPhotos.push(src); el.referrerPolicy = 'no-referrer'; el.onerror = () => { el.style.display = 'none'; }; el.src = src; el.addEventListener('click', () => openLightbox(idx)); }
-        else { el.style.display = 'none'; }
-      }
-    })();
+    var photos=["https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/03030288_Deutsch_Stichelhaa.jpg/960px-03030288_Deutsch_Stichelhaa.jpg","https://upload.wikimedia.org/wikipedia/commons/0/02/Hiska_vom_Greifenhagen.jpg","https://upload.wikimedia.org/wikipedia/commons/1/1e/Chien_D_Arr%C3%AAt_Allemand_A_Poil_Raide.jpg","https://upload.wikimedia.org/wikipedia/commons/3/32/Sz%C3%A1lk%C3%A1ssz%C5%91r%C5%B1_n%C3%A9met_vizsla.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Illustrirtes_Muster_Hunde-Buch%2C_page_72.jpg/960px-Illustrirtes_Muster_Hunde-Buch%2C_page_72.jpg"];
+    var hero=document.getElementById('breedPhoto');
+    if(photos[0]&&hero){hero.referrerPolicy='no-referrer';hero.onload=function(){hero.style.display='block';var em=document.getElementById('breedEmoji');if(em)em.style.display='none';};hero.onerror=function(){hero.style.display='none';};hero.src=photos[0];}
+    var gp=(typeof galleryPhotos!=='undefined')?galleryPhotos:null;
+    var gal=photos.length>1?photos.slice(1):photos;
+    for(var i=1;i<=6;i++){(function(n){var el=document.getElementById('gp'+n);if(!el)return;var src=gal[n-1];if(src){el.referrerPolicy='no-referrer';el.onerror=function(){el.style.display='none';};el.src=src;if(gp&&typeof openLightbox==='function'){var idx=gp.length;gp.push(src);el.addEventListener('click',function(){openLightbox(idx);});}}else{el.style.display='none';}})(i);}
   })();
   </script>
 

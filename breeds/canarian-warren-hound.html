@@ -334,13 +334,12 @@
 
   <script>
   (function(){
-    fetch('https://dog.ceo/api/breed/hound/ibizan/images').then(function(r){return r.json();}).then(function(data){
-      if(!Array.isArray(data.message)||!data.message.length)return;
-      var photos=data.message, O=84%photos.length;
-      var hero=document.getElementById('breedPhoto');
-      if(hero){hero.src=photos[O]||photos[0];hero.onload=function(){hero.style.display="block";var e=document.getElementById("breedEmoji");if(e)e.style.display="none";};}
-      for(var i=0;i<6;i++){var el=document.getElementById("gp"+(i+1));if(!el)continue;var src=photos[(O+i*3)%photos.length];if(src)el.src=src;}
-    }).catch(function(){});
+    var photos=["https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Podenco_canario_hembra_%28cropped%29.jpg/1280px-Podenco_canario_hembra_%28cropped%29.jpg"];
+    var hero=document.getElementById('breedPhoto');
+    if(photos[0]&&hero){hero.referrerPolicy='no-referrer';hero.onload=function(){hero.style.display='block';var em=document.getElementById('breedEmoji');if(em)em.style.display='none';};hero.onerror=function(){hero.style.display='none';};hero.src=photos[0];}
+    var gp=(typeof galleryPhotos!=='undefined')?galleryPhotos:null;
+    var gal=photos.length>1?photos.slice(1):photos;
+    for(var i=1;i<=6;i++){(function(n){var el=document.getElementById('gp'+n);if(!el)return;var src=gal[n-1];if(src){el.referrerPolicy='no-referrer';el.onerror=function(){el.style.display='none';};el.src=src;if(gp&&typeof openLightbox==='function'){var idx=gp.length;gp.push(src);el.addEventListener('click',function(){openLightbox(idx);});}}else{el.style.display='none';}})(i);}
   })();
   </script>
 

@@ -351,32 +351,12 @@
 
   <script>
   (function(){
-    (function(){
-      const photos = [
-        "https://upload.wikimedia.org/wikipedia/commons/2/2b/West_Siberian_Laika.jpg",
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/West_Siberian_Laika_front.jpg/960px-West_Siberian_Laika_front.jpg",
-        "https://upload.wikimedia.org/wikipedia/commons/3/39/West_Siberian_Laika_-_Chara_Jr._FL_USA_-_at_work..JPG",
-        "https://upload.wikimedia.org/wikipedia/commons/f/f7/West_Siberian_Laika_Chara_Jr._FL_USA_-Hanti_type_of_head.JPG",
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/West_Siberian_Laika_-puppy_-_FL_USA.jpg/960px-West_Siberian_Laika_-puppy_-_FL_USA.jpg",
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/West_Siberian_Laika_-_Mansi_light_type_-_Zarya_FL_USA..JPG/960px-West_Siberian_Laika_-_Mansi_light_type_-_Zarya_FL_USA..JPG",
-        "https://upload.wikimedia.org/wikipedia/commons/7/7e/West_Siberian_Laika_-Zarya_-_FL_USA_-_Mansi_type_of_head.JPG"
-      ];
-      const hero = document.getElementById('breedPhoto');
-      if (photos[0] && hero) {
-        hero.referrerPolicy = 'no-referrer';
-        hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; };
-        hero.onerror = () => { hero.style.display = 'none'; };
-        hero.src = photos[0];
-      }
-      const gal = photos.length > 1 ? photos.slice(1) : photos;
-      for (let i = 1; i <= 6; i++) {
-        const el = document.getElementById('gp' + i);
-        if (!el) continue;
-        const src = gal[i - 1];
-        if (src) { const idx = galleryPhotos.length; galleryPhotos.push(src); el.referrerPolicy = 'no-referrer'; el.onerror = () => { el.style.display = 'none'; }; el.src = src; el.addEventListener('click', () => openLightbox(idx)); }
-        else { el.style.display = 'none'; }
-      }
-    })();
+    var photos=["https://upload.wikimedia.org/wikipedia/commons/2/2b/West_Siberian_Laika.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/West_Siberian_Laika_front.jpg/960px-West_Siberian_Laika_front.jpg","https://upload.wikimedia.org/wikipedia/commons/3/39/West_Siberian_Laika_-_Chara_Jr._FL_USA_-_at_work..JPG","https://upload.wikimedia.org/wikipedia/commons/f/f7/West_Siberian_Laika_Chara_Jr._FL_USA_-Hanti_type_of_head.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/West_Siberian_Laika_-puppy_-_FL_USA.jpg/960px-West_Siberian_Laika_-puppy_-_FL_USA.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/West_Siberian_Laika_-_Mansi_light_type_-_Zarya_FL_USA..JPG/960px-West_Siberian_Laika_-_Mansi_light_type_-_Zarya_FL_USA..JPG","https://upload.wikimedia.org/wikipedia/commons/7/7e/West_Siberian_Laika_-Zarya_-_FL_USA_-_Mansi_type_of_head.JPG"];
+    var hero=document.getElementById('breedPhoto');
+    if(photos[0]&&hero){hero.referrerPolicy='no-referrer';hero.onload=function(){hero.style.display='block';var em=document.getElementById('breedEmoji');if(em)em.style.display='none';};hero.onerror=function(){hero.style.display='none';};hero.src=photos[0];}
+    var gp=(typeof galleryPhotos!=='undefined')?galleryPhotos:null;
+    var gal=photos.length>1?photos.slice(1):photos;
+    for(var i=1;i<=6;i++){(function(n){var el=document.getElementById('gp'+n);if(!el)return;var src=gal[n-1];if(src){el.referrerPolicy='no-referrer';el.onerror=function(){el.style.display='none';};el.src=src;if(gp&&typeof openLightbox==='function'){var idx=gp.length;gp.push(src);el.addEventListener('click',function(){openLightbox(idx);});}}else{el.style.display='none';}})(i);}
   })();
   </script>
 

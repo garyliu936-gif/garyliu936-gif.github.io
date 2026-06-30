@@ -360,7 +360,32 @@
   </script>
   <script>
     let galleryPhotos=[];let currentPhotoIndex=0;
-    fetch('https://dog.ceo/api/breed/german/shepherd/images').then(r=>r.json()).then(data=>{if(!Array.isArray(data.message)||!data.message.length)return;const photos=data.message;const hero=document.getElementById('breedPhoto');hero.src=photos[5]||photos[0];hero.onload=()=>{hero.style.display='block';document.getElementById('breedEmoji').style.display='none';};[1,6,11,16,21,26].forEach((index,i)=>{const el=document.getElementById('gp'+(i+1));const src=photos[index]||photos[i]||photos[0];if(el&&src){galleryPhotos.push(src);el.src=src;el.addEventListener('click',()=>openLightbox(i));}});}).catch(()=>{});
+    (function(){
+      const photos = [
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/OREADY_KROSANDRA_%2814%29.JPG/1280px-OREADY_KROSANDRA_%2814%29.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Caezare_Chucky_od_Mal%C3%A9ho_Kos%C3%AD%C5%99e_%283%29.JPG/960px-Caezare_Chucky_od_Mal%C3%A9ho_Kos%C3%AD%C5%99e_%283%29.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Caezare_Chucky_od_Mal%C3%A9ho_Kos%C3%AD%C5%99e_%284%29.JPG/960px-Caezare_Chucky_od_Mal%C3%A9ho_Kos%C3%AD%C5%99e_%284%29.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Caezare_Chucky_od_Mal%C3%A9ho_Kos%C3%AD%C5%99e_%281%29.JPG/960px-Caezare_Chucky_od_Mal%C3%A9ho_Kos%C3%AD%C5%99e_%281%29.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Caezare_Chucky_od_Mal%C3%A9ho_Kos%C3%AD%C5%99e_%282%29.JPG/960px-Caezare_Chucky_od_Mal%C3%A9ho_Kos%C3%AD%C5%99e_%282%29.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/7/7d/Bohemian_Shepherd.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Bohemian_Shepherd_B%26T.jpg/960px-Bohemian_Shepherd_B%26T.jpg"
+      ];
+      const hero = document.getElementById('breedPhoto');
+      if (photos[0] && hero) {
+        hero.referrerPolicy = 'no-referrer';
+        hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; };
+        hero.onerror = () => { hero.style.display = 'none'; };
+        hero.src = photos[0];
+      }
+      const gal = photos.length > 1 ? photos.slice(1) : photos;
+      for (let i = 1; i <= 6; i++) {
+        const el = document.getElementById('gp' + i);
+        if (!el) continue;
+        const src = gal[i - 1];
+        if (src) { const idx = galleryPhotos.length; galleryPhotos.push(src); el.referrerPolicy = 'no-referrer'; el.onerror = () => { el.style.display = 'none'; }; el.src = src; el.addEventListener('click', () => openLightbox(idx)); }
+        else { el.style.display = 'none'; }
+      }
+    })();
     function openLightbox(i){currentPhotoIndex=i;document.getElementById('lightboxImg').src=galleryPhotos[i];document.getElementById('lightbox').classList.add('open');}
     function closeLightbox(){document.getElementById('lightbox').classList.remove('open');}
     document.getElementById('lightboxClose').addEventListener('click',closeLightbox);

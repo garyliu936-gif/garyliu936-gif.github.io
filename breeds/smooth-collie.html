@@ -365,7 +365,32 @@
   </script>
   <script>
     let galleryPhotos=[];let currentPhotoIndex=0;
-    fetch('https://dog.ceo/api/breed/collie/images').then(r=>r.json()).then(data=>{if(!Array.isArray(data.message)||!data.message.length)return;const photos=data.message;const hero=document.getElementById('breedPhoto');hero.src=photos[0];hero.onload=()=>{hero.style.display='block';document.getElementById('breedEmoji').style.display='none';};[2,4,6,8,10,12].forEach((index,i)=>{const el=document.getElementById('gp'+(i+1));const src=photos[index]||photos[i]||photos[0];if(el&&src){galleryPhotos.push(src);el.src=src;el.addEventListener('click',()=>openLightbox(i));}});}).catch(()=>{});
+    (function(){
+      const photos = [
+        "https://upload.wikimedia.org/wikipedia/commons/1/1c/SmoothCollie_TriColour.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Collie_ggt6.jpg/960px-Collie_ggt6.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Girl_asleep_with_her_smooth_Collie.JPG/960px-Girl_asleep_with_her_smooth_Collie.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/d/d1/Collie_%28smooth%29_from_1915.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/20080200-Hundchen_089.jpg/960px-20080200-Hundchen_089.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/8/83/Collie_A_Poil_Court.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Kennel_secrets_-_how_to_breed%2C_exhibit%2C_and_mannage_dogs_%281904%29_%2814750289966%29.jpg/960px-Kennel_secrets_-_how_to_breed%2C_exhibit%2C_and_mannage_dogs_%281904%29_%2814750289966%29.jpg"
+      ];
+      const hero = document.getElementById('breedPhoto');
+      if (photos[0] && hero) {
+        hero.referrerPolicy = 'no-referrer';
+        hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; };
+        hero.onerror = () => { hero.style.display = 'none'; };
+        hero.src = photos[0];
+      }
+      const gal = photos.length > 1 ? photos.slice(1) : photos;
+      for (let i = 1; i <= 6; i++) {
+        const el = document.getElementById('gp' + i);
+        if (!el) continue;
+        const src = gal[i - 1];
+        if (src) { const idx = galleryPhotos.length; galleryPhotos.push(src); el.referrerPolicy = 'no-referrer'; el.onerror = () => { el.style.display = 'none'; }; el.src = src; el.addEventListener('click', () => openLightbox(idx)); }
+        else { el.style.display = 'none'; }
+      }
+    })();
     function openLightbox(i){currentPhotoIndex=i;document.getElementById('lightboxImg').src=galleryPhotos[i];document.getElementById('lightbox').classList.add('open');}
     function closeLightbox(){document.getElementById('lightbox').classList.remove('open');}
     document.getElementById('lightboxClose').addEventListener('click',closeLightbox);
