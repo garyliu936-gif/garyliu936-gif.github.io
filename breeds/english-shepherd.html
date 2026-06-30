@@ -91,6 +91,18 @@
 
         <div class="breed-tab-panel active" id="tab-profile">
           <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real English Shepherd dogs — verified photos from Wikimedia Commons.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="English Shepherd photo 1" />
+              <img class="gallery-photo" id="gp2" alt="English Shepherd photo 2" />
+              <img class="gallery-photo" id="gp3" alt="English Shepherd photo 3" />
+              <img class="gallery-photo" id="gp4" alt="English Shepherd photo 4" />
+              <img class="gallery-photo" id="gp5" alt="English Shepherd photo 5" />
+              <img class="gallery-photo" id="gp6" alt="English Shepherd photo 6" />
+            </div>
+          </div>
+          <div class="breed-section">
             <h2>🐾 Overview</h2>
             <p>The English Shepherd is a traditional American farm dog descended from the working collies and shepherd dogs brought by British settlers. For generations it was the quintessential homestead "farm collie" — herding livestock, controlling vermin, guarding the property, and serving as a trusted family companion, all in one capable package.</p>
             <p>English Shepherds are intelligent, adaptable, and deeply bonded to their families. They are independent decision-makers with a calm, sensible temperament — less intense than a Border Collie but every bit as smart. They excel at farm work, dog sports, and family life, provided they get the daily exercise and mental engagement their busy minds need.</p>
@@ -314,6 +326,22 @@
         document.querySelector('.breed-tabs-nav').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       });
     });
+  </script>
+
+  <div class="lightbox" id="lightbox"><button class="lightbox-close" id="lightboxClose">✕</button><button class="lightbox-prev" id="lightboxPrev">◀</button><img id="lightboxImg" src="" alt="Enlarged English Shepherd photo" /><button class="lightbox-next" id="lightboxNext">▶</button></div>
+  <script>
+  (function(){
+    var g=["https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/English_Shepherd_Dogs.jpg/960px-English_Shepherd_Dogs.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Sable_English_Shepherd.jpg/960px-Sable_English_Shepherd.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/EnglishShepherdBeach.jpg/960px-EnglishShepherdBeach.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/English_Shepherd_in_Snow.JPG/960px-English_Shepherd_in_Snow.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Jo_%26_Becky_at_Sinca_Veche_2012.jpg/960px-Jo_%26_Becky_at_Sinca_Veche_2012.jpg","https://upload.wikimedia.org/wikipedia/commons/b/b7/Deacon_Adoption_pup.png"];var loaded=[];
+    for(var i=1;i<=6;i++){(function(n){var el=document.getElementById('gp'+n);if(!el)return;var src=g[n-1];if(src){el.referrerPolicy='no-referrer';el.onerror=function(){el.style.display='none';};el.src=src;loaded.push(src);var idx=loaded.length-1;el.addEventListener('click',function(){openLightbox(idx);});}else{el.style.display='none';}})(i);}
+    var ci=0,lb=document.getElementById('lightbox'),li=document.getElementById('lightboxImg');
+    function openLightbox(i){ci=i;li.src=loaded[i];lb.classList.add('open');}
+    function closeLb(){lb.classList.remove('open');}
+    document.getElementById('lightboxClose').addEventListener('click',closeLb);
+    document.getElementById('lightboxPrev').addEventListener('click',function(e){e.stopPropagation();ci=(ci-1+loaded.length)%loaded.length;li.src=loaded[ci];});
+    document.getElementById('lightboxNext').addEventListener('click',function(e){e.stopPropagation();ci=(ci+1)%loaded.length;li.src=loaded[ci];});
+    lb.addEventListener('click',function(e){if(e.target===e.currentTarget)closeLb();});
+    document.addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;if(e.key==='ArrowLeft'){ci=(ci-1+loaded.length)%loaded.length;li.src=loaded[ci];}else if(e.key==='ArrowRight'){ci=(ci+1)%loaded.length;li.src=loaded[ci];}else if(e.key==='Escape'){closeLb();}});
+  })();
   </script>
 </body>
 </html>

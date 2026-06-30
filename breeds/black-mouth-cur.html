@@ -91,6 +91,18 @@
 
         <div class="breed-tab-panel active" id="tab-profile">
           <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Black Mouth Cur dogs — verified photos from Wikimedia Commons.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Black Mouth Cur photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Black Mouth Cur photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Black Mouth Cur photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Black Mouth Cur photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Black Mouth Cur photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Black Mouth Cur photo 6" />
+            </div>
+          </div>
+          <div class="breed-section">
             <h2>🐾 Overview</h2>
             <p>The Black Mouth Cur is a rugged American working breed from the rural Southeast, prized by farmers and hunters for its versatility. A single dog might herd cattle in the morning, tree squirrels or bay wild hogs in the afternoon, and guard the family at night. Its name comes from the dark muzzle that many — though not all — of these dogs display.</p>
             <p>Hardworking, courageous, and devoted, the Black Mouth Cur is happiest with a job and a family to protect. They are intelligent and eager to please but carry strong drive and stamina, so they need active, engaged owners. Loyal and gentle with their own people — they were immortalized as the heroic dog in the classic novel and film "Old Yeller."</p>
@@ -314,6 +326,22 @@
         document.querySelector('.breed-tabs-nav').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       });
     });
+  </script>
+
+  <div class="lightbox" id="lightbox"><button class="lightbox-close" id="lightboxClose">✕</button><button class="lightbox-prev" id="lightboxPrev">◀</button><img id="lightboxImg" src="" alt="Enlarged Black Mouth Cur photo" /><button class="lightbox-next" id="lightboxNext">▶</button></div>
+  <script>
+  (function(){
+    var g=["https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/MurphysKassieBlackmouthAlabama.jpg/960px-MurphysKassieBlackmouthAlabama.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Murphys1TrackerAlabama.jpg/960px-Murphys1TrackerAlabama.jpg","https://upload.wikimedia.org/wikipedia/commons/c/c0/MurphyBlackmouthSouthPuppy2.jpg","https://upload.wikimedia.org/wikipedia/commons/3/3c/MurphysKassieBlackmouthAlabama2.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/BowdenDamico.JPG/960px-BowdenDamico.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/BlackMouthCurPortrait.jpg/960px-BlackMouthCurPortrait.jpg"];var loaded=[];
+    for(var i=1;i<=6;i++){(function(n){var el=document.getElementById('gp'+n);if(!el)return;var src=g[n-1];if(src){el.referrerPolicy='no-referrer';el.onerror=function(){el.style.display='none';};el.src=src;loaded.push(src);var idx=loaded.length-1;el.addEventListener('click',function(){openLightbox(idx);});}else{el.style.display='none';}})(i);}
+    var ci=0,lb=document.getElementById('lightbox'),li=document.getElementById('lightboxImg');
+    function openLightbox(i){ci=i;li.src=loaded[i];lb.classList.add('open');}
+    function closeLb(){lb.classList.remove('open');}
+    document.getElementById('lightboxClose').addEventListener('click',closeLb);
+    document.getElementById('lightboxPrev').addEventListener('click',function(e){e.stopPropagation();ci=(ci-1+loaded.length)%loaded.length;li.src=loaded[ci];});
+    document.getElementById('lightboxNext').addEventListener('click',function(e){e.stopPropagation();ci=(ci+1)%loaded.length;li.src=loaded[ci];});
+    lb.addEventListener('click',function(e){if(e.target===e.currentTarget)closeLb();});
+    document.addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;if(e.key==='ArrowLeft'){ci=(ci-1+loaded.length)%loaded.length;li.src=loaded[ci];}else if(e.key==='ArrowRight'){ci=(ci+1)%loaded.length;li.src=loaded[ci];}else if(e.key==='Escape'){closeLb();}});
+  })();
   </script>
 </body>
 </html>

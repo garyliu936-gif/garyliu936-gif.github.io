@@ -91,6 +91,16 @@
 
         <div class="breed-tab-panel active" id="tab-profile">
           <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Mountain Cur dogs — verified photos from Wikimedia Commons.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Mountain Cur photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Mountain Cur photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Mountain Cur photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Mountain Cur photo 4" />
+            </div>
+          </div>
+          <div class="breed-section">
             <h2>🐾 Overview</h2>
             <p>The Mountain Cur is a hardy American working dog that helped settlers survive in the Appalachian and Ohio Valley frontier. Pioneers relied on these dogs to tree game for food and fur, drive livestock, and guard isolated cabins. By the mid-20th century the breed nearly disappeared as families left the land, but a small group of dedicated breeders revived it starting in the 1950s.</p>
             <p>Built for stamina and grit, the Mountain Cur is courageous, intelligent, and intensely devoted to its work and family. It is a natural treeing dog with a strong prey drive and an independent mind. These are not couch dogs — they need an active, outdoorsy home with plenty of exercise and ideally a job, but reward the right owner with fierce loyalty.</p>
@@ -313,6 +323,22 @@
         document.querySelector('.breed-tabs-nav').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       });
     });
+  </script>
+
+  <div class="lightbox" id="lightbox"><button class="lightbox-close" id="lightboxClose">✕</button><button class="lightbox-prev" id="lightboxPrev">◀</button><img id="lightboxImg" src="" alt="Enlarged Mountain Cur photo" /><button class="lightbox-next" id="lightboxNext">▶</button></div>
+  <script>
+  (function(){
+    var g=["https://upload.wikimedia.org/wikipedia/commons/7/77/Mountain_View_Cur.jpg","https://upload.wikimedia.org/wikipedia/commons/a/a7/MountainCur.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Dog_at_rest%2C_leashed.jpg/960px-Dog_at_rest%2C_leashed.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Dog_at_rest.jpg/960px-Dog_at_rest.jpg"];var loaded=[];
+    for(var i=1;i<=4;i++){(function(n){var el=document.getElementById('gp'+n);if(!el)return;var src=g[n-1];if(src){el.referrerPolicy='no-referrer';el.onerror=function(){el.style.display='none';};el.src=src;loaded.push(src);var idx=loaded.length-1;el.addEventListener('click',function(){openLightbox(idx);});}else{el.style.display='none';}})(i);}
+    var ci=0,lb=document.getElementById('lightbox'),li=document.getElementById('lightboxImg');
+    function openLightbox(i){ci=i;li.src=loaded[i];lb.classList.add('open');}
+    function closeLb(){lb.classList.remove('open');}
+    document.getElementById('lightboxClose').addEventListener('click',closeLb);
+    document.getElementById('lightboxPrev').addEventListener('click',function(e){e.stopPropagation();ci=(ci-1+loaded.length)%loaded.length;li.src=loaded[ci];});
+    document.getElementById('lightboxNext').addEventListener('click',function(e){e.stopPropagation();ci=(ci+1)%loaded.length;li.src=loaded[ci];});
+    lb.addEventListener('click',function(e){if(e.target===e.currentTarget)closeLb();});
+    document.addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;if(e.key==='ArrowLeft'){ci=(ci-1+loaded.length)%loaded.length;li.src=loaded[ci];}else if(e.key==='ArrowRight'){ci=(ci+1)%loaded.length;li.src=loaded[ci];}else if(e.key==='Escape'){closeLb();}});
+  })();
   </script>
 </body>
 </html>

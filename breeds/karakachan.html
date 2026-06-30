@@ -91,6 +91,17 @@
 
         <div class="breed-tab-panel active" id="tab-profile">
           <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Karakachan (Bulgarian Shepherd) dogs — verified photos from Wikimedia Commons.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Karakachan (Bulgarian Shepherd) photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Karakachan (Bulgarian Shepherd) photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Karakachan (Bulgarian Shepherd) photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Karakachan (Bulgarian Shepherd) photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Karakachan (Bulgarian Shepherd) photo 5" />
+            </div>
+          </div>
+          <div class="breed-section">
             <h2>🐾 Overview</h2>
             <p>The Karakachan, also called the Bulgarian Shepherd Dog, is an ancient livestock-guardian breed from the mountains of Bulgaria, named after the Karakachan nomadic shepherds who preserved it. With roots stretching back to the dogs of the ancient Thracians, it has guarded sheep and goats from wolves and bears across the Balkans for centuries.</p>
             <p>Large, powerful, and independent, the Karakachan is calm and steady but fiercely protective of its flock and family. It bonds closely with the animals it guards and with its people, including children, while being naturally suspicious of strangers and predators. As a serious working guardian, it needs space, a job or territory, early socialization, and an experienced owner who understands livestock-guardian dogs.</p>
@@ -315,6 +326,22 @@
         document.querySelector('.breed-tabs-nav').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       });
     });
+  </script>
+
+  <div class="lightbox" id="lightbox"><button class="lightbox-close" id="lightboxClose">✕</button><button class="lightbox-prev" id="lightboxPrev">◀</button><img id="lightboxImg" src="" alt="Enlarged Karakachan (Bulgarian Shepherd) photo" /><button class="lightbox-next" id="lightboxNext">▶</button></div>
+  <script>
+  (function(){
+    var g=["https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Bok_6m.jpg/960px-Bok_6m.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Bulgarian-shepherd.jpg/960px-Bulgarian-shepherd.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Bulgarian_Shepherd_Dog.JPG/960px-Bulgarian_Shepherd_Dog.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/%D0%9E%D0%B3%D0%BD%D0%B0_%D0%A2%D0%B8%D1%87%D0%BE_%D0%95%D0%BB%D0%B8%D1%82.jpg/960px-%D0%9E%D0%B3%D0%BD%D0%B0_%D0%A2%D0%B8%D1%87%D0%BE_%D0%95%D0%BB%D0%B8%D1%82.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Owtscharka_Dschinie_%28cropped%29.JPG/960px-Owtscharka_Dschinie_%28cropped%29.JPG"];var loaded=[];
+    for(var i=1;i<=5;i++){(function(n){var el=document.getElementById('gp'+n);if(!el)return;var src=g[n-1];if(src){el.referrerPolicy='no-referrer';el.onerror=function(){el.style.display='none';};el.src=src;loaded.push(src);var idx=loaded.length-1;el.addEventListener('click',function(){openLightbox(idx);});}else{el.style.display='none';}})(i);}
+    var ci=0,lb=document.getElementById('lightbox'),li=document.getElementById('lightboxImg');
+    function openLightbox(i){ci=i;li.src=loaded[i];lb.classList.add('open');}
+    function closeLb(){lb.classList.remove('open');}
+    document.getElementById('lightboxClose').addEventListener('click',closeLb);
+    document.getElementById('lightboxPrev').addEventListener('click',function(e){e.stopPropagation();ci=(ci-1+loaded.length)%loaded.length;li.src=loaded[ci];});
+    document.getElementById('lightboxNext').addEventListener('click',function(e){e.stopPropagation();ci=(ci+1)%loaded.length;li.src=loaded[ci];});
+    lb.addEventListener('click',function(e){if(e.target===e.currentTarget)closeLb();});
+    document.addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;if(e.key==='ArrowLeft'){ci=(ci-1+loaded.length)%loaded.length;li.src=loaded[ci];}else if(e.key==='ArrowRight'){ci=(ci+1)%loaded.length;li.src=loaded[ci];}else if(e.key==='Escape'){closeLb();}});
+  })();
   </script>
 </body>
 </html>

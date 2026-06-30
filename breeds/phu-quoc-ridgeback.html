@@ -91,6 +91,18 @@
 
         <div class="breed-tab-panel active" id="tab-profile">
           <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Phu Quoc Ridgeback dogs — verified photos from Wikimedia Commons.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Phu Quoc Ridgeback photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Phu Quoc Ridgeback photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Phu Quoc Ridgeback photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Phu Quoc Ridgeback photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Phu Quoc Ridgeback photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Phu Quoc Ridgeback photo 6" />
+            </div>
+          </div>
+          <div class="breed-section">
             <h2>🐾 Overview</h2>
             <p>The Phú Quốc Ridgeback is a rare primitive dog from Phú Quốc Island off the southern coast of Vietnam. It is one of only three recognized ridgeback breeds in the world — alongside the Rhodesian and Thai Ridgebacks — distinguished by a ridge of hair growing in the opposite direction along its spine. Developed in island isolation, it became a versatile hunter and family guardian.</p>
             <p>Agile, athletic, and intelligent, the Phú Quốc Ridgeback is an exceptional jumper and a strong swimmer, with some dogs showing slightly webbed feet. It is devoted and protective of its family, alert toward strangers, and retains strong hunting instincts. Hardy and clean, it adapts well to active homes but needs plenty of exercise and mental stimulation to channel its energy.</p>
@@ -315,6 +327,22 @@
         document.querySelector('.breed-tabs-nav').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       });
     });
+  </script>
+
+  <div class="lightbox" id="lightbox"><button class="lightbox-close" id="lightboxClose">✕</button><button class="lightbox-prev" id="lightboxPrev">◀</button><img id="lightboxImg" src="" alt="Enlarged Phu Quoc Ridgeback photo" /><button class="lightbox-next" id="lightboxNext">▶</button></div>
+  <script>
+  (function(){
+    var g=["https://upload.wikimedia.org/wikipedia/commons/f/f5/Phu_Quoc_dog.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Phu-Quoc_Greyhound_from_1915.JPG/960px-Phu-Quoc_Greyhound_from_1915.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Phu_Quoc_Dog.JPG/960px-Phu_Quoc_Dog.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Phu_Quoc_ridgeback.jpg/960px-Phu_Quoc_ridgeback.jpg","https://upload.wikimedia.org/wikipedia/commons/2/21/Ph%C3%BA_Qu%E1%BB%91c_dog.JPG","https://upload.wikimedia.org/wikipedia/commons/a/a2/Ph%C3%BA_Qu%E1%BB%91c_dog_1.JPG"];var loaded=[];
+    for(var i=1;i<=6;i++){(function(n){var el=document.getElementById('gp'+n);if(!el)return;var src=g[n-1];if(src){el.referrerPolicy='no-referrer';el.onerror=function(){el.style.display='none';};el.src=src;loaded.push(src);var idx=loaded.length-1;el.addEventListener('click',function(){openLightbox(idx);});}else{el.style.display='none';}})(i);}
+    var ci=0,lb=document.getElementById('lightbox'),li=document.getElementById('lightboxImg');
+    function openLightbox(i){ci=i;li.src=loaded[i];lb.classList.add('open');}
+    function closeLb(){lb.classList.remove('open');}
+    document.getElementById('lightboxClose').addEventListener('click',closeLb);
+    document.getElementById('lightboxPrev').addEventListener('click',function(e){e.stopPropagation();ci=(ci-1+loaded.length)%loaded.length;li.src=loaded[ci];});
+    document.getElementById('lightboxNext').addEventListener('click',function(e){e.stopPropagation();ci=(ci+1)%loaded.length;li.src=loaded[ci];});
+    lb.addEventListener('click',function(e){if(e.target===e.currentTarget)closeLb();});
+    document.addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;if(e.key==='ArrowLeft'){ci=(ci-1+loaded.length)%loaded.length;li.src=loaded[ci];}else if(e.key==='ArrowRight'){ci=(ci+1)%loaded.length;li.src=loaded[ci];}else if(e.key==='Escape'){closeLb();}});
+  })();
   </script>
 </body>
 </html>

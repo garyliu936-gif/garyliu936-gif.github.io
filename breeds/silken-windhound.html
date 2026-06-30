@@ -91,6 +91,18 @@
 
         <div class="breed-tab-panel active" id="tab-profile">
           <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Silken Windhound dogs — verified photos from Wikimedia Commons.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Silken Windhound photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Silken Windhound photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Silken Windhound photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Silken Windhound photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Silken Windhound photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Silken Windhound photo 6" />
+            </div>
+          </div>
+          <div class="breed-section">
             <h2>🐾 Overview</h2>
             <p>The Silken Windhound is a relatively new American sighthound, developed in the 1980s and 90s by Francie Stull from Borzoi and Whippet-type lines. Her goal was an elegant, mid-sized sighthound with a beautiful silky coat, sound temperament, and excellent health. The breed was officially established with the founding of the International Silken Windhound Society (ISWS) in 1999.</p>
             <p>Silken Windhounds combine the grace and speed of a sighthound with a notably affectionate, people-oriented personality. They are gentle, intelligent, and more trainable than many sighthounds, excelling at lure coursing, agility, and as devoted family companions. Their flowing silky coat is surprisingly low-maintenance, and the breed is known for remarkable health and longevity, with many living well into their late teens.</p>
@@ -313,6 +325,22 @@
         document.querySelector('.breed-tabs-nav').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       });
     });
+  </script>
+
+  <div class="lightbox" id="lightbox"><button class="lightbox-close" id="lightboxClose">✕</button><button class="lightbox-prev" id="lightboxPrev">◀</button><img id="lightboxImg" src="" alt="Enlarged Silken Windhound photo" /><button class="lightbox-next" id="lightboxNext">▶</button></div>
+  <script>
+  (function(){
+    var g=["https://upload.wikimedia.org/wikipedia/commons/1/14/Silken_Windhound_Nobble_Stack_F.jpg","https://upload.wikimedia.org/wikipedia/commons/f/fb/Silken_Windhound_and_Borzoi_%28Kal_tyler%29.jpg","https://upload.wikimedia.org/wikipedia/commons/3/3c/Dita1yr1mo2x.jpg","https://upload.wikimedia.org/wikipedia/commons/e/ed/Kyra-stack-pillars.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/BOB_Silkenfest2003_Kristull_Rowan.jpg/960px-BOB_Silkenfest2003_Kristull_Rowan.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Camina_von_Senada.jpg/960px-Camina_von_Senada.jpg"];var loaded=[];
+    for(var i=1;i<=6;i++){(function(n){var el=document.getElementById('gp'+n);if(!el)return;var src=g[n-1];if(src){el.referrerPolicy='no-referrer';el.onerror=function(){el.style.display='none';};el.src=src;loaded.push(src);var idx=loaded.length-1;el.addEventListener('click',function(){openLightbox(idx);});}else{el.style.display='none';}})(i);}
+    var ci=0,lb=document.getElementById('lightbox'),li=document.getElementById('lightboxImg');
+    function openLightbox(i){ci=i;li.src=loaded[i];lb.classList.add('open');}
+    function closeLb(){lb.classList.remove('open');}
+    document.getElementById('lightboxClose').addEventListener('click',closeLb);
+    document.getElementById('lightboxPrev').addEventListener('click',function(e){e.stopPropagation();ci=(ci-1+loaded.length)%loaded.length;li.src=loaded[ci];});
+    document.getElementById('lightboxNext').addEventListener('click',function(e){e.stopPropagation();ci=(ci+1)%loaded.length;li.src=loaded[ci];});
+    lb.addEventListener('click',function(e){if(e.target===e.currentTarget)closeLb();});
+    document.addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;if(e.key==='ArrowLeft'){ci=(ci-1+loaded.length)%loaded.length;li.src=loaded[ci];}else if(e.key==='ArrowRight'){ci=(ci+1)%loaded.length;li.src=loaded[ci];}else if(e.key==='Escape'){closeLb();}});
+  })();
   </script>
 </body>
 </html>

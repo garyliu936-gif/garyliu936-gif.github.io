@@ -91,6 +91,16 @@
 
         <div class="breed-tab-panel active" id="tab-profile">
           <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real McNab Dog dogs — verified photos from Wikimedia Commons.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="McNab Dog photo 1" />
+              <img class="gallery-photo" id="gp2" alt="McNab Dog photo 2" />
+              <img class="gallery-photo" id="gp3" alt="McNab Dog photo 3" />
+              <img class="gallery-photo" id="gp4" alt="McNab Dog photo 4" />
+            </div>
+          </div>
+          <div class="breed-section">
             <h2>🐾 Overview</h2>
             <p>The McNab Dog (or McNab Shepherd) is an American herding breed developed in the late 1800s on the Mendocino County ranch of Scottish immigrant Alexander McNab. He crossed his imported Scotch Collies with local dogs to create a herder suited to California's hot, rugged ranchland — one that could work cattle and sheep tirelessly in heat that exhausted other breeds.</p>
             <p>Lean, athletic, and slick-coated, the McNab is built for stamina and agility. They are highly intelligent and intensely driven, with a strong but gentler herding style than the Border Collie. Devoted and eager to work, they make excellent ranch dogs and active companions, but their energy and need for a job make them a poor fit for sedentary homes.</p>
@@ -313,6 +323,22 @@
         document.querySelector('.breed-tabs-nav').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       });
     });
+  </script>
+
+  <div class="lightbox" id="lightbox"><button class="lightbox-close" id="lightboxClose">✕</button><button class="lightbox-prev" id="lightboxPrev">◀</button><img id="lightboxImg" src="" alt="Enlarged McNab Dog photo" /><button class="lightbox-next" id="lightboxNext">▶</button></div>
+  <script>
+  (function(){
+    var g=["https://upload.wikimedia.org/wikipedia/commons/d/dc/McNab_%28dog%29.jpg","https://upload.wikimedia.org/wikipedia/commons/9/9f/Red_and_White_McNab_Shepherds_Kye_Aila.jpg","https://upload.wikimedia.org/wikipedia/commons/9/9c/Tricolor_McNab_Shepherd.jpg","https://upload.wikimedia.org/wikipedia/commons/8/81/Black-and-White-McNab-Shepherd-Jasper.jpg"];var loaded=[];
+    for(var i=1;i<=4;i++){(function(n){var el=document.getElementById('gp'+n);if(!el)return;var src=g[n-1];if(src){el.referrerPolicy='no-referrer';el.onerror=function(){el.style.display='none';};el.src=src;loaded.push(src);var idx=loaded.length-1;el.addEventListener('click',function(){openLightbox(idx);});}else{el.style.display='none';}})(i);}
+    var ci=0,lb=document.getElementById('lightbox'),li=document.getElementById('lightboxImg');
+    function openLightbox(i){ci=i;li.src=loaded[i];lb.classList.add('open');}
+    function closeLb(){lb.classList.remove('open');}
+    document.getElementById('lightboxClose').addEventListener('click',closeLb);
+    document.getElementById('lightboxPrev').addEventListener('click',function(e){e.stopPropagation();ci=(ci-1+loaded.length)%loaded.length;li.src=loaded[ci];});
+    document.getElementById('lightboxNext').addEventListener('click',function(e){e.stopPropagation();ci=(ci+1)%loaded.length;li.src=loaded[ci];});
+    lb.addEventListener('click',function(e){if(e.target===e.currentTarget)closeLb();});
+    document.addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;if(e.key==='ArrowLeft'){ci=(ci-1+loaded.length)%loaded.length;li.src=loaded[ci];}else if(e.key==='ArrowRight'){ci=(ci+1)%loaded.length;li.src=loaded[ci];}else if(e.key==='Escape'){closeLb();}});
+  })();
   </script>
 </body>
 </html>

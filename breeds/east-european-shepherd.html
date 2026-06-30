@@ -91,6 +91,18 @@
 
         <div class="breed-tab-panel active" id="tab-profile">
           <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real East European Shepherd dogs — verified photos from Wikimedia Commons.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="East European Shepherd photo 1" />
+              <img class="gallery-photo" id="gp2" alt="East European Shepherd photo 2" />
+              <img class="gallery-photo" id="gp3" alt="East European Shepherd photo 3" />
+              <img class="gallery-photo" id="gp4" alt="East European Shepherd photo 4" />
+              <img class="gallery-photo" id="gp5" alt="East European Shepherd photo 5" />
+              <img class="gallery-photo" id="gp6" alt="East European Shepherd photo 6" />
+            </div>
+          </div>
+          <div class="breed-section">
             <h2>🐾 Overview</h2>
             <p>The East European Shepherd (Vostochno-Evropeyskaya Ovcharka, or VEO) is a Russian working breed developed in the Soviet Union from the 1930s onward, based on the German Shepherd. Soviet breeders selected for a larger, more robust dog able to withstand harsh climates and serve in military, police, and guard roles across the vast USSR.</p>
             <p>Taller and heavier-boned than the German Shepherd, with a straighter back and calmer disposition, the East European Shepherd is intelligent, confident, and intensely loyal. It is highly trainable and excels in protection, service, and working roles, while also being a steady, devoted family guardian. As a powerful working dog, it needs early socialization, consistent training, and plenty of physical and mental exercise.</p>
@@ -315,6 +327,22 @@
         document.querySelector('.breed-tabs-nav').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       });
     });
+  </script>
+
+  <div class="lightbox" id="lightbox"><button class="lightbox-close" id="lightboxClose">✕</button><button class="lightbox-prev" id="lightboxPrev">◀</button><img id="lightboxImg" src="" alt="Enlarged East European Shepherd photo" /><button class="lightbox-next" id="lightboxNext">▶</button></div>
+  <script>
+  (function(){
+    var g=["https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Owczarek_wschodnioeuropejski_MB_01.jpg/960px-Owczarek_wschodnioeuropejski_MB_01.jpg","https://upload.wikimedia.org/wikipedia/commons/a/ad/%D0%92%D0%BE%D1%81%D1%82%D0%BE%D1%87%D0%BD%D0%BE%D0%B5%D0%B2%D1%80%D0%BE%D0%BF%D0%B5%D0%B9%D1%81%D0%BA%D0%B0%D1%8F_%D0%BE%D0%B2%D1%87%D0%B0%D1%80%D0%BA%D0%B0_%D0%98%D0%9C%D0%9F%D0%95%D0%A0%D0%98%D0%AF.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/%D0%A4%D0%BB%D1%8D%D1%88_%D0%91%D0%BB%D1%8D%D0%BA_%D0%92%D0%BE%D0%BC_%D0%98%D1%81%D1%82%D1%85%D0%B0%D1%83%D1%81.jpg/960px-%D0%A4%D0%BB%D1%8D%D1%88_%D0%91%D0%BB%D1%8D%D0%BA_%D0%92%D0%BE%D0%BC_%D0%98%D1%81%D1%82%D1%85%D0%B0%D1%83%D1%81.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Kalyada_KR_2012_732.jpg/960px-Kalyada_KR_2012_732.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/East-European_Shepherd_in_Riga.JPG/960px-East-European_Shepherd_in_Riga.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/East-European_Shepherd_in_Riga_1.JPG/960px-East-European_Shepherd_in_Riga_1.JPG"];var loaded=[];
+    for(var i=1;i<=6;i++){(function(n){var el=document.getElementById('gp'+n);if(!el)return;var src=g[n-1];if(src){el.referrerPolicy='no-referrer';el.onerror=function(){el.style.display='none';};el.src=src;loaded.push(src);var idx=loaded.length-1;el.addEventListener('click',function(){openLightbox(idx);});}else{el.style.display='none';}})(i);}
+    var ci=0,lb=document.getElementById('lightbox'),li=document.getElementById('lightboxImg');
+    function openLightbox(i){ci=i;li.src=loaded[i];lb.classList.add('open');}
+    function closeLb(){lb.classList.remove('open');}
+    document.getElementById('lightboxClose').addEventListener('click',closeLb);
+    document.getElementById('lightboxPrev').addEventListener('click',function(e){e.stopPropagation();ci=(ci-1+loaded.length)%loaded.length;li.src=loaded[ci];});
+    document.getElementById('lightboxNext').addEventListener('click',function(e){e.stopPropagation();ci=(ci+1)%loaded.length;li.src=loaded[ci];});
+    lb.addEventListener('click',function(e){if(e.target===e.currentTarget)closeLb();});
+    document.addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;if(e.key==='ArrowLeft'){ci=(ci-1+loaded.length)%loaded.length;li.src=loaded[ci];}else if(e.key==='ArrowRight'){ci=(ci+1)%loaded.length;li.src=loaded[ci];}else if(e.key==='Escape'){closeLb();}});
+  })();
   </script>
 </body>
 </html>

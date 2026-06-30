@@ -91,6 +91,15 @@
 
         <div class="breed-tab-panel active" id="tab-profile">
           <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Teddy Roosevelt Terrier dogs — verified photos from Wikimedia Commons.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Teddy Roosevelt Terrier photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Teddy Roosevelt Terrier photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Teddy Roosevelt Terrier photo 3" />
+            </div>
+          </div>
+          <div class="breed-section">
             <h2>🐾 Overview</h2>
             <p>The Teddy Roosevelt Terrier is a short-legged, muscular American terrier closely related to the Rat Terrier, with which it shares ancestry from the farm ratting dogs of the 1800s. It is named in honor of President Theodore Roosevelt, an avid outdoorsman often associated with this type of working terrier. The breed was separated from the longer-legged Rat Terrier and recognized in its own right by the UKC in 1999.</p>
             <p>Compact and sturdy with a low-slung build, the "Teddy" is intelligent, lively, and affectionate. Bred to hunt rats and other vermin, it retains a strong prey drive and a confident, comical personality. They are devoted family companions that bond closely with their people, trainable and adaptable to homes of all sizes when given enough activity.</p>
@@ -313,6 +322,22 @@
         document.querySelector('.breed-tabs-nav').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       });
     });
+  </script>
+
+  <div class="lightbox" id="lightbox"><button class="lightbox-close" id="lightboxClose">✕</button><button class="lightbox-prev" id="lightboxPrev">◀</button><img id="lightboxImg" src="" alt="Enlarged Teddy Roosevelt Terrier photo" /><button class="lightbox-next" id="lightboxNext">▶</button></div>
+  <script>
+  (function(){
+    var g=["https://upload.wikimedia.org/wikipedia/commons/2/23/Teddy_Roosevelt_Terrier%2C_adult_male_-_20090714.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Theodore_Roosevelt_and_Family_-_24_August_1907.jpg/960px-Theodore_Roosevelt_and_Family_-_24_August_1907.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Adult_Male_Teddy_Roosevelt_Terrier.jpg/960px-Adult_Male_Teddy_Roosevelt_Terrier.jpg"];var loaded=[];
+    for(var i=1;i<=3;i++){(function(n){var el=document.getElementById('gp'+n);if(!el)return;var src=g[n-1];if(src){el.referrerPolicy='no-referrer';el.onerror=function(){el.style.display='none';};el.src=src;loaded.push(src);var idx=loaded.length-1;el.addEventListener('click',function(){openLightbox(idx);});}else{el.style.display='none';}})(i);}
+    var ci=0,lb=document.getElementById('lightbox'),li=document.getElementById('lightboxImg');
+    function openLightbox(i){ci=i;li.src=loaded[i];lb.classList.add('open');}
+    function closeLb(){lb.classList.remove('open');}
+    document.getElementById('lightboxClose').addEventListener('click',closeLb);
+    document.getElementById('lightboxPrev').addEventListener('click',function(e){e.stopPropagation();ci=(ci-1+loaded.length)%loaded.length;li.src=loaded[ci];});
+    document.getElementById('lightboxNext').addEventListener('click',function(e){e.stopPropagation();ci=(ci+1)%loaded.length;li.src=loaded[ci];});
+    lb.addEventListener('click',function(e){if(e.target===e.currentTarget)closeLb();});
+    document.addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;if(e.key==='ArrowLeft'){ci=(ci-1+loaded.length)%loaded.length;li.src=loaded[ci];}else if(e.key==='ArrowRight'){ci=(ci+1)%loaded.length;li.src=loaded[ci];}else if(e.key==='Escape'){closeLb();}});
+  })();
   </script>
 </body>
 </html>

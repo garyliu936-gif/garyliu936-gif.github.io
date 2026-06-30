@@ -91,6 +91,18 @@
 
         <div class="breed-tab-panel active" id="tab-profile">
           <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Seppala Siberian Sleddog dogs — verified photos from Wikimedia Commons.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Seppala Siberian Sleddog photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Seppala Siberian Sleddog photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Seppala Siberian Sleddog photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Seppala Siberian Sleddog photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Seppala Siberian Sleddog photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Seppala Siberian Sleddog photo 6" />
+            </div>
+          </div>
+          <div class="breed-section">
             <h2>🐾 Overview</h2>
             <p>The Seppala Siberian Sleddog is a working sled dog descended directly from the dogs of Leonhard Seppala, the legendary musher whose teams (including the famous Togo) carried diphtheria serum to Nome, Alaska, in the 1925 "Great Race of Mercy." While the show-bred Siberian Husky branched off toward conformation, the Seppala line was kept as a pure working dog focused on performance.</p>
             <p>Lighter and leggier than the typical Siberian Husky, the Seppala is built for endurance, speed, and an eager, biddable work ethic. They are intelligent, friendly, and intensely driven to run and pull. As working dogs they need enormous amounts of exercise and a job to do, thriving with mushers, skijorers, and very active owners rather than as sedentary house pets.</p>
@@ -315,6 +327,22 @@
         document.querySelector('.breed-tabs-nav').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       });
     });
+  </script>
+
+  <div class="lightbox" id="lightbox"><button class="lightbox-close" id="lightboxClose">✕</button><button class="lightbox-prev" id="lightboxPrev">◀</button><img id="lightboxImg" src="" alt="Enlarged Seppala Siberian Sleddog photo" /><button class="lightbox-next" id="lightboxNext">▶</button></div>
+  <script>
+  (function(){
+    var g=["https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Siberian_Husky_heterchromia_edit.jpg/960px-Siberian_Husky_heterchromia_edit.jpg","https://upload.wikimedia.org/wikipedia/commons/9/9c/Siberian_Husky_pho.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Keeshond_Siberian_Husky_crossbreed_puppy.jpg/960px-Keeshond_Siberian_Husky_crossbreed_puppy.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Juvenile_Siberian_Husky.jpg/960px-Juvenile_Siberian_Husky.jpg","https://upload.wikimedia.org/wikipedia/commons/9/9f/Cani_Siberian_husky_-_Nuvola.JPG","https://upload.wikimedia.org/wikipedia/commons/8/8c/Siberian_Husky_.jpg"];var loaded=[];
+    for(var i=1;i<=6;i++){(function(n){var el=document.getElementById('gp'+n);if(!el)return;var src=g[n-1];if(src){el.referrerPolicy='no-referrer';el.onerror=function(){el.style.display='none';};el.src=src;loaded.push(src);var idx=loaded.length-1;el.addEventListener('click',function(){openLightbox(idx);});}else{el.style.display='none';}})(i);}
+    var ci=0,lb=document.getElementById('lightbox'),li=document.getElementById('lightboxImg');
+    function openLightbox(i){ci=i;li.src=loaded[i];lb.classList.add('open');}
+    function closeLb(){lb.classList.remove('open');}
+    document.getElementById('lightboxClose').addEventListener('click',closeLb);
+    document.getElementById('lightboxPrev').addEventListener('click',function(e){e.stopPropagation();ci=(ci-1+loaded.length)%loaded.length;li.src=loaded[ci];});
+    document.getElementById('lightboxNext').addEventListener('click',function(e){e.stopPropagation();ci=(ci+1)%loaded.length;li.src=loaded[ci];});
+    lb.addEventListener('click',function(e){if(e.target===e.currentTarget)closeLb();});
+    document.addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;if(e.key==='ArrowLeft'){ci=(ci-1+loaded.length)%loaded.length;li.src=loaded[ci];}else if(e.key==='ArrowRight'){ci=(ci+1)%loaded.length;li.src=loaded[ci];}else if(e.key==='Escape'){closeLb();}});
+  })();
   </script>
 </body>
 </html>

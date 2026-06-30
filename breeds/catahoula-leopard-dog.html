@@ -91,6 +91,18 @@
 
         <div class="breed-tab-panel active" id="tab-profile">
           <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Catahoula Leopard Dog dogs — verified photos from Wikimedia Commons.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Catahoula Leopard Dog photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Catahoula Leopard Dog photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Catahoula Leopard Dog photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Catahoula Leopard Dog photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Catahoula Leopard Dog photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Catahoula Leopard Dog photo 6" />
+            </div>
+          </div>
+          <div class="breed-section">
             <h2>🐾 Overview</h2>
             <p>The Louisiana Catahoula Leopard Dog is America's only breed developed entirely in Louisiana, where it became the official state dog in 1979. Named for Catahoula Parish, it descends from local dogs crossed with breeds brought by Spanish and French settlers. For centuries it has been the all-purpose working dog of the bayou — herding cattle and hogs, hunting, and guarding.</p>
             <p>Catahoulas are famous for their dazzling appearance: marbled "leopard" merle coats and striking, sometimes ice-blue "glass" eyes. They are intelligent, intensely energetic, and independent — bred to make their own decisions while working livestock. This combination makes them rewarding but demanding; they need a confident owner, a real job, and substantial daily exercise to thrive.</p>
@@ -314,6 +326,22 @@
         document.querySelector('.breed-tabs-nav').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       });
     });
+  </script>
+
+  <div class="lightbox" id="lightbox"><button class="lightbox-close" id="lightboxClose">✕</button><button class="lightbox-prev" id="lightboxPrev">◀</button><img id="lightboxImg" src="" alt="Enlarged Catahoula Leopard Dog photo" /><button class="lightbox-next" id="lightboxNext">▶</button></div>
+  <script>
+  (function(){
+    var g=["https://upload.wikimedia.org/wikipedia/commons/9/9d/Blue_boy.jpg","https://upload.wikimedia.org/wikipedia/commons/7/78/Bo_-_a_Catahoula.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Black_Catahoula.jpg/960px-Black_Catahoula.jpg","https://upload.wikimedia.org/wikipedia/commons/1/18/Catahoula_Cur.jpg","https://upload.wikimedia.org/wikipedia/commons/3/3e/BlueMerleCatahoula.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Calypso_with_Sasquatch_Catahoulas.jpg/960px-Calypso_with_Sasquatch_Catahoulas.jpg"];var loaded=[];
+    for(var i=1;i<=6;i++){(function(n){var el=document.getElementById('gp'+n);if(!el)return;var src=g[n-1];if(src){el.referrerPolicy='no-referrer';el.onerror=function(){el.style.display='none';};el.src=src;loaded.push(src);var idx=loaded.length-1;el.addEventListener('click',function(){openLightbox(idx);});}else{el.style.display='none';}})(i);}
+    var ci=0,lb=document.getElementById('lightbox'),li=document.getElementById('lightboxImg');
+    function openLightbox(i){ci=i;li.src=loaded[i];lb.classList.add('open');}
+    function closeLb(){lb.classList.remove('open');}
+    document.getElementById('lightboxClose').addEventListener('click',closeLb);
+    document.getElementById('lightboxPrev').addEventListener('click',function(e){e.stopPropagation();ci=(ci-1+loaded.length)%loaded.length;li.src=loaded[ci];});
+    document.getElementById('lightboxNext').addEventListener('click',function(e){e.stopPropagation();ci=(ci+1)%loaded.length;li.src=loaded[ci];});
+    lb.addEventListener('click',function(e){if(e.target===e.currentTarget)closeLb();});
+    document.addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;if(e.key==='ArrowLeft'){ci=(ci-1+loaded.length)%loaded.length;li.src=loaded[ci];}else if(e.key==='ArrowRight'){ci=(ci+1)%loaded.length;li.src=loaded[ci];}else if(e.key==='Escape'){closeLb();}});
+  })();
   </script>
 </body>
 </html>

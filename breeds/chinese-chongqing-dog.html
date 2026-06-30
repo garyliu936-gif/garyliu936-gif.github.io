@@ -91,6 +91,18 @@
 
         <div class="breed-tab-panel active" id="tab-profile">
           <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Chinese Chongqing Dog dogs — verified photos from Wikimedia Commons.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Chinese Chongqing Dog photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Chinese Chongqing Dog photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Chinese Chongqing Dog photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Chinese Chongqing Dog photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Chinese Chongqing Dog photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Chinese Chongqing Dog photo 6" />
+            </div>
+          </div>
+          <div class="breed-section">
             <h2>🐾 Overview</h2>
             <p>The Chinese Chongqing Dog is an ancient and very rare breed from the Chongqing region of southwestern China, with a history stretching back roughly 2,000 years to the Han Dynasty — terracotta figures of similar dogs have been found in Han-era tombs. Traditionally used for hunting and guarding, it survived for centuries in rural China largely isolated from other breeds.</p>
             <p>Muscular and dignified, the Chongqing Dog has a distinctive look: a short to nearly hairless reddish-brown coat, a wrinkled face, an erect "bamboo" tail, and often a bluish-black tongue. It is brave, loyal, and naturally protective, bonding closely with its family while being aloof and wary of strangers. Numbers fell sharply in the 20th century, making it one of China's rarest native dogs today.</p>
@@ -315,6 +327,22 @@
         document.querySelector('.breed-tabs-nav').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       });
     });
+  </script>
+
+  <div class="lightbox" id="lightbox"><button class="lightbox-close" id="lightboxClose">✕</button><button class="lightbox-prev" id="lightboxPrev">◀</button><img id="lightboxImg" src="" alt="Enlarged Chinese Chongqing Dog photo" /><button class="lightbox-next" id="lightboxNext">▶</button></div>
+  <script>
+  (function(){
+    var g=["https://upload.wikimedia.org/wikipedia/commons/e/e4/Eastern_Han_pottery_dog_from_Pengshan.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Sichuan-chongqing%2C_han_orientali%2C_molosso%2C_II_sec%2C_02.JPG/960px-Sichuan-chongqing%2C_han_orientali%2C_molosso%2C_II_sec%2C_02.JPG","https://upload.wikimedia.org/wikipedia/commons/c/c3/Chinese_Chongqing_Dog_R%C3%BCde.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Chongqing-black1.jpg/960px-Chongqing-black1.jpg","https://upload.wikimedia.org/wikipedia/commons/2/2d/Chongqing-black3.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Chongqing-black2.jpg/960px-Chongqing-black2.jpg"];var loaded=[];
+    for(var i=1;i<=6;i++){(function(n){var el=document.getElementById('gp'+n);if(!el)return;var src=g[n-1];if(src){el.referrerPolicy='no-referrer';el.onerror=function(){el.style.display='none';};el.src=src;loaded.push(src);var idx=loaded.length-1;el.addEventListener('click',function(){openLightbox(idx);});}else{el.style.display='none';}})(i);}
+    var ci=0,lb=document.getElementById('lightbox'),li=document.getElementById('lightboxImg');
+    function openLightbox(i){ci=i;li.src=loaded[i];lb.classList.add('open');}
+    function closeLb(){lb.classList.remove('open');}
+    document.getElementById('lightboxClose').addEventListener('click',closeLb);
+    document.getElementById('lightboxPrev').addEventListener('click',function(e){e.stopPropagation();ci=(ci-1+loaded.length)%loaded.length;li.src=loaded[ci];});
+    document.getElementById('lightboxNext').addEventListener('click',function(e){e.stopPropagation();ci=(ci+1)%loaded.length;li.src=loaded[ci];});
+    lb.addEventListener('click',function(e){if(e.target===e.currentTarget)closeLb();});
+    document.addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;if(e.key==='ArrowLeft'){ci=(ci-1+loaded.length)%loaded.length;li.src=loaded[ci];}else if(e.key==='ArrowRight'){ci=(ci+1)%loaded.length;li.src=loaded[ci];}else if(e.key==='Escape'){closeLb();}});
+  })();
   </script>
 </body>
 </html>

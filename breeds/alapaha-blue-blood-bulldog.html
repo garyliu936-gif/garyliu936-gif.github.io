@@ -91,6 +91,18 @@
 
         <div class="breed-tab-panel active" id="tab-profile">
           <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Alapaha Blue Blood Bulldog dogs — verified photos from Wikimedia Commons.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Alapaha Blue Blood Bulldog photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Alapaha Blue Blood Bulldog photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Alapaha Blue Blood Bulldog photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Alapaha Blue Blood Bulldog photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Alapaha Blue Blood Bulldog photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Alapaha Blue Blood Bulldog photo 6" />
+            </div>
+          </div>
+          <div class="breed-section">
             <h2>🐾 Overview</h2>
             <p>The Alapaha Blue Blood Bulldog is a rare working bulldog from the Alapaha River region of southern Georgia. It was carefully preserved through the 20th century by the Lane family, who bred down from a beloved foundation dog to keep alive the old Southern plantation bulldog type used to guard property and manage livestock.</p>
             <p>Striking and athletic, the Alapaha typically shows a flashy white coat marked with patches of merle, brindle, or color, often with blue eyes. They are highly protective, intelligent, and devoted to their families — confident guardians that are gentle and loving at home but naturally suspicious of outsiders. Their strong territorial instincts mean they need an experienced owner committed to early socialization and training.</p>
@@ -314,6 +326,22 @@
         document.querySelector('.breed-tabs-nav').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       });
     });
+  </script>
+
+  <div class="lightbox" id="lightbox"><button class="lightbox-close" id="lightboxClose">✕</button><button class="lightbox-prev" id="lightboxPrev">◀</button><img id="lightboxImg" src="" alt="Enlarged Alapaha Blue Blood Bulldog photo" /><button class="lightbox-next" id="lightboxNext">▶</button></div>
+  <script>
+  (function(){
+    var g=["https://upload.wikimedia.org/wikipedia/commons/1/12/Alapahabulldog.jpg","https://upload.wikimedia.org/wikipedia/commons/a/a3/Alapaha_Blue-Blood_Bulldog.jpg","https://upload.wikimedia.org/wikipedia/commons/0/09/ALAPAHA_BLUE-BLOOD.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Alapaha_blue_blood_bulldog.JPG/960px-Alapaha_blue_blood_bulldog.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/FG%27s_Roxanne_%281%29.jpg/960px-FG%27s_Roxanne_%281%29.jpg","https://upload.wikimedia.org/wikipedia/commons/5/50/Diamond_St_Gypsy%2C_bulldog_puppy.jpg"];var loaded=[];
+    for(var i=1;i<=6;i++){(function(n){var el=document.getElementById('gp'+n);if(!el)return;var src=g[n-1];if(src){el.referrerPolicy='no-referrer';el.onerror=function(){el.style.display='none';};el.src=src;loaded.push(src);var idx=loaded.length-1;el.addEventListener('click',function(){openLightbox(idx);});}else{el.style.display='none';}})(i);}
+    var ci=0,lb=document.getElementById('lightbox'),li=document.getElementById('lightboxImg');
+    function openLightbox(i){ci=i;li.src=loaded[i];lb.classList.add('open');}
+    function closeLb(){lb.classList.remove('open');}
+    document.getElementById('lightboxClose').addEventListener('click',closeLb);
+    document.getElementById('lightboxPrev').addEventListener('click',function(e){e.stopPropagation();ci=(ci-1+loaded.length)%loaded.length;li.src=loaded[ci];});
+    document.getElementById('lightboxNext').addEventListener('click',function(e){e.stopPropagation();ci=(ci+1)%loaded.length;li.src=loaded[ci];});
+    lb.addEventListener('click',function(e){if(e.target===e.currentTarget)closeLb();});
+    document.addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;if(e.key==='ArrowLeft'){ci=(ci-1+loaded.length)%loaded.length;li.src=loaded[ci];}else if(e.key==='ArrowRight'){ci=(ci+1)%loaded.length;li.src=loaded[ci];}else if(e.key==='Escape'){closeLb();}});
+  })();
   </script>
 </body>
 </html>

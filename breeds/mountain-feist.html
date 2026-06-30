@@ -91,6 +91,18 @@
 
         <div class="breed-tab-panel active" id="tab-profile">
           <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Mountain Feist dogs — verified photos from Wikimedia Commons.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Mountain Feist photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Mountain Feist photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Mountain Feist photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Mountain Feist photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Mountain Feist photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Mountain Feist photo 6" />
+            </div>
+          </div>
+          <div class="breed-section">
             <h2>🐾 Overview</h2>
             <p>The Mountain Feist is a small, energetic American hunting dog bred for generations in the rural South and Appalachia to tree squirrels and other small game. "Feist" is an old term for a small, lively dog, and these compact hunters are exactly that — fast, fearless, and tenacious well beyond their size. They have been part of American country life since colonial times; even George Washington and Abraham Lincoln referenced feists.</p>
             <p>Mountain Feists are alert, intelligent, and devoted, combining a fierce hunting drive in the field with an affectionate, playful nature at home. They are quick learners and adaptable, fitting well into active families, though their energy and prey drive mean they need real exercise and stimulation. Low-maintenance and famously healthy, many live well into their teens.</p>
@@ -313,6 +325,22 @@
         document.querySelector('.breed-tabs-nav').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       });
     });
+  </script>
+
+  <div class="lightbox" id="lightbox"><button class="lightbox-close" id="lightboxClose">✕</button><button class="lightbox-prev" id="lightboxPrev">◀</button><img id="lightboxImg" src="" alt="Enlarged Mountain Feist photo" /><button class="lightbox-next" id="lightboxNext">▶</button></div>
+  <script>
+  (function(){
+    var g=["https://upload.wikimedia.org/wikipedia/commons/7/7b/0809bigun.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Richard_Feist_%26_Mathilde_Feist_-_Stolpersteine.jpg/960px-Richard_Feist_%26_Mathilde_Feist_-_Stolpersteine.jpg","https://upload.wikimedia.org/wikipedia/commons/6/68/Gray%27s_Prairie_Daisy.jpg","https://upload.wikimedia.org/wikipedia/commons/a/af/Reacci%C3%B3n_de_Feist-Benary.png","https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Feist_Coachella_2012_1.jpg/960px-Feist_Coachella_2012_1.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Feist_Coachella_2012_2.jpg/960px-Feist_Coachella_2012_2.jpg"];var loaded=[];
+    for(var i=1;i<=6;i++){(function(n){var el=document.getElementById('gp'+n);if(!el)return;var src=g[n-1];if(src){el.referrerPolicy='no-referrer';el.onerror=function(){el.style.display='none';};el.src=src;loaded.push(src);var idx=loaded.length-1;el.addEventListener('click',function(){openLightbox(idx);});}else{el.style.display='none';}})(i);}
+    var ci=0,lb=document.getElementById('lightbox'),li=document.getElementById('lightboxImg');
+    function openLightbox(i){ci=i;li.src=loaded[i];lb.classList.add('open');}
+    function closeLb(){lb.classList.remove('open');}
+    document.getElementById('lightboxClose').addEventListener('click',closeLb);
+    document.getElementById('lightboxPrev').addEventListener('click',function(e){e.stopPropagation();ci=(ci-1+loaded.length)%loaded.length;li.src=loaded[ci];});
+    document.getElementById('lightboxNext').addEventListener('click',function(e){e.stopPropagation();ci=(ci+1)%loaded.length;li.src=loaded[ci];});
+    lb.addEventListener('click',function(e){if(e.target===e.currentTarget)closeLb();});
+    document.addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;if(e.key==='ArrowLeft'){ci=(ci-1+loaded.length)%loaded.length;li.src=loaded[ci];}else if(e.key==='ArrowRight'){ci=(ci+1)%loaded.length;li.src=loaded[ci];}else if(e.key==='Escape'){closeLb();}});
+  })();
   </script>
 </body>
 </html>

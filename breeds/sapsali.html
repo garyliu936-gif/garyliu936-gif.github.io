@@ -91,6 +91,16 @@
 
         <div class="breed-tab-panel active" id="tab-profile">
           <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Sapsali dogs — verified photos from Wikimedia Commons.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Sapsali photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Sapsali photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Sapsali photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Sapsali photo 4" />
+            </div>
+          </div>
+          <div class="breed-section">
             <h2>🐾 Overview</h2>
             <p>The Sapsali (or Sapsaree) is a shaggy Korean breed steeped in folklore — its name roughly means "a dog that chases away evil spirits," and for centuries it was believed to ward off ghosts and bad luck. Long beloved in Korea, the breed was nearly wiped out during the Japanese occupation but was revived through a dedicated breeding program at Kyungpook National University.</p>
             <p>With a long, flowing coat that often covers the eyes, the Sapsali resembles a small lion or sheepdog. It is gentle, loyal, patient, and devoted to its family, with a calm and friendly temperament that makes it good with children. Intelligent but a little independent, it needs regular grooming to manage its abundant coat. Today it is honored as South Korea's Natural Monument No. 368.</p>
@@ -315,6 +325,22 @@
         document.querySelector('.breed-tabs-nav').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       });
     });
+  </script>
+
+  <div class="lightbox" id="lightbox"><button class="lightbox-close" id="lightboxClose">✕</button><button class="lightbox-prev" id="lightboxPrev">◀</button><img id="lightboxImg" src="" alt="Enlarged Sapsali photo" /><button class="lightbox-next" id="lightboxNext">▶</button></div>
+  <script>
+  (function(){
+    var g=["https://upload.wikimedia.org/wikipedia/commons/b/b9/Sapsali.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Korean_sapsali.jpg/960px-Korean_sapsali.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Look_alike_Sapsali.jpg/960px-Look_alike_Sapsali.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Look_alike_Sapsali_1.jpg/960px-Look_alike_Sapsali_1.jpg"];var loaded=[];
+    for(var i=1;i<=4;i++){(function(n){var el=document.getElementById('gp'+n);if(!el)return;var src=g[n-1];if(src){el.referrerPolicy='no-referrer';el.onerror=function(){el.style.display='none';};el.src=src;loaded.push(src);var idx=loaded.length-1;el.addEventListener('click',function(){openLightbox(idx);});}else{el.style.display='none';}})(i);}
+    var ci=0,lb=document.getElementById('lightbox'),li=document.getElementById('lightboxImg');
+    function openLightbox(i){ci=i;li.src=loaded[i];lb.classList.add('open');}
+    function closeLb(){lb.classList.remove('open');}
+    document.getElementById('lightboxClose').addEventListener('click',closeLb);
+    document.getElementById('lightboxPrev').addEventListener('click',function(e){e.stopPropagation();ci=(ci-1+loaded.length)%loaded.length;li.src=loaded[ci];});
+    document.getElementById('lightboxNext').addEventListener('click',function(e){e.stopPropagation();ci=(ci+1)%loaded.length;li.src=loaded[ci];});
+    lb.addEventListener('click',function(e){if(e.target===e.currentTarget)closeLb();});
+    document.addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;if(e.key==='ArrowLeft'){ci=(ci-1+loaded.length)%loaded.length;li.src=loaded[ci];}else if(e.key==='ArrowRight'){ci=(ci+1)%loaded.length;li.src=loaded[ci];}else if(e.key==='Escape'){closeLb();}});
+  })();
   </script>
 </body>
 </html>

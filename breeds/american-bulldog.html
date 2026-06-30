@@ -91,6 +91,18 @@
 
         <div class="breed-tab-panel active" id="tab-profile">
           <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real American Bulldog dogs — verified photos from Wikimedia Commons.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="American Bulldog photo 1" />
+              <img class="gallery-photo" id="gp2" alt="American Bulldog photo 2" />
+              <img class="gallery-photo" id="gp3" alt="American Bulldog photo 3" />
+              <img class="gallery-photo" id="gp4" alt="American Bulldog photo 4" />
+              <img class="gallery-photo" id="gp5" alt="American Bulldog photo 5" />
+              <img class="gallery-photo" id="gp6" alt="American Bulldog photo 6" />
+            </div>
+          </div>
+          <div class="breed-section">
             <h2>🐾 Overview</h2>
             <p>The American Bulldog is a powerful, athletic working dog descended from the Old English Bulldogs that English and Scots-Irish settlers brought to the American South. While the breed nearly vanished after World War II, dedicated breeders — most famously John D. Johnson and Alan Scott — revived it as a versatile farm dog used to catch feral hogs, drive cattle, and guard the homestead.</p>
             <p>Today the breed exists in two broad types: the heavier, more muscular "Johnson" (or Bully) type and the leaner, more agile "Scott" (Standard) type, plus many dogs in between. American Bulldogs are confident, intensely loyal, and deeply bonded to their families. They are best suited to experienced owners who can provide firm, consistent leadership, early socialization, and a real job to do.</p>
@@ -315,6 +327,22 @@
         document.querySelector('.breed-tabs-nav').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       });
     });
+  </script>
+
+  <div class="lightbox" id="lightbox"><button class="lightbox-close" id="lightboxClose">✕</button><button class="lightbox-prev" id="lightboxPrev">◀</button><img id="lightboxImg" src="" alt="Enlarged American Bulldog photo" /><button class="lightbox-next" id="lightboxNext">▶</button></div>
+  <script>
+  (function(){
+    var g=["https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/American_bulldog_bianca.jpg/960px-American_bulldog_bianca.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/American_bulldog_duke.JPG/960px-American_bulldog_duke.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Ambulldogsitting.jpg/960px-Ambulldogsitting.jpg","https://upload.wikimedia.org/wikipedia/commons/9/9b/American_Bulldog_Dixie.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Ally_Householder.jpg/960px-Ally_Householder.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/American_bulldog_%22Gino%22.jpg/960px-American_bulldog_%22Gino%22.jpg"];var loaded=[];
+    for(var i=1;i<=6;i++){(function(n){var el=document.getElementById('gp'+n);if(!el)return;var src=g[n-1];if(src){el.referrerPolicy='no-referrer';el.onerror=function(){el.style.display='none';};el.src=src;loaded.push(src);var idx=loaded.length-1;el.addEventListener('click',function(){openLightbox(idx);});}else{el.style.display='none';}})(i);}
+    var ci=0,lb=document.getElementById('lightbox'),li=document.getElementById('lightboxImg');
+    function openLightbox(i){ci=i;li.src=loaded[i];lb.classList.add('open');}
+    function closeLb(){lb.classList.remove('open');}
+    document.getElementById('lightboxClose').addEventListener('click',closeLb);
+    document.getElementById('lightboxPrev').addEventListener('click',function(e){e.stopPropagation();ci=(ci-1+loaded.length)%loaded.length;li.src=loaded[ci];});
+    document.getElementById('lightboxNext').addEventListener('click',function(e){e.stopPropagation();ci=(ci+1)%loaded.length;li.src=loaded[ci];});
+    lb.addEventListener('click',function(e){if(e.target===e.currentTarget)closeLb();});
+    document.addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;if(e.key==='ArrowLeft'){ci=(ci-1+loaded.length)%loaded.length;li.src=loaded[ci];}else if(e.key==='ArrowRight'){ci=(ci+1)%loaded.length;li.src=loaded[ci];}else if(e.key==='Escape'){closeLb();}});
+  })();
   </script>
 </body>
 </html>

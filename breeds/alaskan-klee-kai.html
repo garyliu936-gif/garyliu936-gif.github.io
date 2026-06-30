@@ -91,6 +91,18 @@
 
         <div class="breed-tab-panel active" id="tab-profile">
           <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Alaskan Klee Kai dogs — verified photos from Wikimedia Commons.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Alaskan Klee Kai photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Alaskan Klee Kai photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Alaskan Klee Kai photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Alaskan Klee Kai photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Alaskan Klee Kai photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Alaskan Klee Kai photo 6" />
+            </div>
+          </div>
+          <div class="breed-section">
             <h2>🐾 Overview</h2>
             <p>The Alaskan Klee Kai is a small Northern breed developed in Wasilla, Alaska, in the 1970s and 80s by Linda Spurlin, who wanted a companion-sized dog with the striking looks of an Alaskan Husky. "Klee Kai" comes from an Inuit term meaning "small dog." The result is an alert, agile, fox-like dog that looks like a husky in miniature.</p>
             <p>Klee Kai come in three sizes — Toy (under 13 in), Miniature (13–15 in), and Standard (15–17 in). They are highly intelligent, energetic, and intensely loyal to their family, but tend to be reserved or aloof with strangers. Early, ongoing socialization is essential. They thrive with active owners and make surprisingly good apartment dogs when their considerable mental and physical needs are met.</p>
@@ -315,6 +327,22 @@
         document.querySelector('.breed-tabs-nav').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       });
     });
+  </script>
+
+  <div class="lightbox" id="lightbox"><button class="lightbox-close" id="lightboxClose">✕</button><button class="lightbox-prev" id="lightboxPrev">◀</button><img id="lightboxImg" src="" alt="Enlarged Alaskan Klee Kai photo" /><button class="lightbox-next" id="lightboxNext">▶</button></div>
+  <script>
+  (function(){
+    var g=["https://upload.wikimedia.org/wikipedia/commons/6/68/Standard_Alaskan_Klee_Kai.jpg","https://upload.wikimedia.org/wikipedia/commons/b/b5/Echo-standard-male-akk-2007.jpg","https://upload.wikimedia.org/wikipedia/commons/2/2e/Kiskia-longhaired-akk-jan2008.jpg","https://upload.wikimedia.org/wikipedia/commons/b/b9/Redakk.jpg","https://upload.wikimedia.org/wikipedia/commons/9/9c/Bi-eyed-alaskan-kleekai.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Alaskankleekaiface.jpg/960px-Alaskankleekaiface.jpg"];var loaded=[];
+    for(var i=1;i<=6;i++){(function(n){var el=document.getElementById('gp'+n);if(!el)return;var src=g[n-1];if(src){el.referrerPolicy='no-referrer';el.onerror=function(){el.style.display='none';};el.src=src;loaded.push(src);var idx=loaded.length-1;el.addEventListener('click',function(){openLightbox(idx);});}else{el.style.display='none';}})(i);}
+    var ci=0,lb=document.getElementById('lightbox'),li=document.getElementById('lightboxImg');
+    function openLightbox(i){ci=i;li.src=loaded[i];lb.classList.add('open');}
+    function closeLb(){lb.classList.remove('open');}
+    document.getElementById('lightboxClose').addEventListener('click',closeLb);
+    document.getElementById('lightboxPrev').addEventListener('click',function(e){e.stopPropagation();ci=(ci-1+loaded.length)%loaded.length;li.src=loaded[ci];});
+    document.getElementById('lightboxNext').addEventListener('click',function(e){e.stopPropagation();ci=(ci+1)%loaded.length;li.src=loaded[ci];});
+    lb.addEventListener('click',function(e){if(e.target===e.currentTarget)closeLb();});
+    document.addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;if(e.key==='ArrowLeft'){ci=(ci-1+loaded.length)%loaded.length;li.src=loaded[ci];}else if(e.key==='ArrowRight'){ci=(ci+1)%loaded.length;li.src=loaded[ci];}else if(e.key==='Escape'){closeLb();}});
+  })();
   </script>
 </body>
 </html>

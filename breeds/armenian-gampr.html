@@ -91,6 +91,18 @@
 
         <div class="breed-tab-panel active" id="tab-profile">
           <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Armenian Gampr dogs — verified photos from Wikimedia Commons.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Armenian Gampr photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Armenian Gampr photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Armenian Gampr photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Armenian Gampr photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Armenian Gampr photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Armenian Gampr photo 6" />
+            </div>
+          </div>
+          <div class="breed-section">
             <h2>🐾 Overview</h2>
             <p>The Armenian Gampr is an ancient livestock-guardian landrace from the Armenian Highlands, where it has protected flocks from wolves and bears for thousands of years. Unlike modern standardized breeds, the Gampr remains a naturally selected aboriginal dog, valued for working ability and robust health rather than a fixed appearance.</p>
             <p>Large, powerful, and remarkably intelligent, the Gampr is an independent thinker bred to make its own decisions while guarding livestock far from human direction. It is devoted and gentle with its family and flock, including children, but naturally wary and protective toward threats. It needs space, a job or territory to watch over, early socialization, and an owner who respects its independent guardian nature.</p>
@@ -315,6 +327,22 @@
         document.querySelector('.breed-tabs-nav').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       });
     });
+  </script>
+
+  <div class="lightbox" id="lightbox"><button class="lightbox-close" id="lightboxClose">✕</button><button class="lightbox-prev" id="lightboxPrev">◀</button><img id="lightboxImg" src="" alt="Enlarged Armenian Gampr photo" /><button class="lightbox-next" id="lightboxNext">▶</button></div>
+  <script>
+  (function(){
+    var g=["https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Armenian_Gampr_05.jpg/960px-Armenian_Gampr_05.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Armenian_Gampr_03.jpg/960px-Armenian_Gampr_03.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Armenian_Gampr_2012.jpg/960px-Armenian_Gampr_2012.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Armenian_Gampr_2012_Pregnant.jpg/960px-Armenian_Gampr_2012_Pregnant.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Armenian_Gampr_2012_Female.jpg/960px-Armenian_Gampr_2012_Female.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Armenian_Gampr_2012_Pregnant_%2801%29.jpg/960px-Armenian_Gampr_2012_Pregnant_%2801%29.jpg"];var loaded=[];
+    for(var i=1;i<=6;i++){(function(n){var el=document.getElementById('gp'+n);if(!el)return;var src=g[n-1];if(src){el.referrerPolicy='no-referrer';el.onerror=function(){el.style.display='none';};el.src=src;loaded.push(src);var idx=loaded.length-1;el.addEventListener('click',function(){openLightbox(idx);});}else{el.style.display='none';}})(i);}
+    var ci=0,lb=document.getElementById('lightbox'),li=document.getElementById('lightboxImg');
+    function openLightbox(i){ci=i;li.src=loaded[i];lb.classList.add('open');}
+    function closeLb(){lb.classList.remove('open');}
+    document.getElementById('lightboxClose').addEventListener('click',closeLb);
+    document.getElementById('lightboxPrev').addEventListener('click',function(e){e.stopPropagation();ci=(ci-1+loaded.length)%loaded.length;li.src=loaded[ci];});
+    document.getElementById('lightboxNext').addEventListener('click',function(e){e.stopPropagation();ci=(ci+1)%loaded.length;li.src=loaded[ci];});
+    lb.addEventListener('click',function(e){if(e.target===e.currentTarget)closeLb();});
+    document.addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;if(e.key==='ArrowLeft'){ci=(ci-1+loaded.length)%loaded.length;li.src=loaded[ci];}else if(e.key==='ArrowRight'){ci=(ci+1)%loaded.length;li.src=loaded[ci];}else if(e.key==='Escape'){closeLb();}});
+  })();
   </script>
 </body>
 </html>

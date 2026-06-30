@@ -91,6 +91,18 @@
 
         <div class="breed-tab-panel active" id="tab-profile">
           <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Northern Inuit Dog dogs — verified photos from Wikimedia Commons.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Northern Inuit Dog photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Northern Inuit Dog photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Northern Inuit Dog photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Northern Inuit Dog photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Northern Inuit Dog photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Northern Inuit Dog photo 6" />
+            </div>
+          </div>
+          <div class="breed-section">
             <h2>🐾 Overview</h2>
             <p>The Northern Inuit Dog is a British breed developed in the 1980s to resemble a wolf while being a trainable domestic companion. It was created by blending Siberian Husky, Alaskan Malamute, and German Shepherd lines, and is the breed famously used to portray the direwolf pups in HBO's "Game of Thrones."</p>
             <p>Affectionate, intelligent, and pack-oriented, Northern Inuit Dogs form strong bonds with their families and do best in homes where they are not left alone for long periods. They are not a breed for beginners — they can be stubborn and require firm, patient training and plenty of exercise — but with the right owner they are gentle, loyal, and excellent with children.</p>
@@ -315,6 +327,22 @@
         document.querySelector('.breed-tabs-nav').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       });
     });
+  </script>
+
+  <div class="lightbox" id="lightbox"><button class="lightbox-close" id="lightboxClose">✕</button><button class="lightbox-prev" id="lightboxPrev">◀</button><img id="lightboxImg" src="" alt="Enlarged Northern Inuit Dog photo" /><button class="lightbox-next" id="lightboxNext">▶</button></div>
+  <script>
+  (function(){
+    var g=["https://upload.wikimedia.org/wikipedia/commons/a/a3/Kopek_the_Destroyer_Book_cover.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Northern_Inuit_Dog%2C_June_11_2009.jpg/960px-Northern_Inuit_Dog%2C_June_11_2009.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/NImaleandfemale.jpg/960px-NImaleandfemale.jpg","https://upload.wikimedia.org/wikipedia/commons/9/99/NImale.jpg","https://upload.wikimedia.org/wikipedia/commons/7/73/NIpups.jpg","https://upload.wikimedia.org/wikipedia/commons/0/0c/11753811_10101225345110983_834507971_n1.jpg"];var loaded=[];
+    for(var i=1;i<=6;i++){(function(n){var el=document.getElementById('gp'+n);if(!el)return;var src=g[n-1];if(src){el.referrerPolicy='no-referrer';el.onerror=function(){el.style.display='none';};el.src=src;loaded.push(src);var idx=loaded.length-1;el.addEventListener('click',function(){openLightbox(idx);});}else{el.style.display='none';}})(i);}
+    var ci=0,lb=document.getElementById('lightbox'),li=document.getElementById('lightboxImg');
+    function openLightbox(i){ci=i;li.src=loaded[i];lb.classList.add('open');}
+    function closeLb(){lb.classList.remove('open');}
+    document.getElementById('lightboxClose').addEventListener('click',closeLb);
+    document.getElementById('lightboxPrev').addEventListener('click',function(e){e.stopPropagation();ci=(ci-1+loaded.length)%loaded.length;li.src=loaded[ci];});
+    document.getElementById('lightboxNext').addEventListener('click',function(e){e.stopPropagation();ci=(ci+1)%loaded.length;li.src=loaded[ci];});
+    lb.addEventListener('click',function(e){if(e.target===e.currentTarget)closeLb();});
+    document.addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;if(e.key==='ArrowLeft'){ci=(ci-1+loaded.length)%loaded.length;li.src=loaded[ci];}else if(e.key==='ArrowRight'){ci=(ci+1)%loaded.length;li.src=loaded[ci];}else if(e.key==='Escape'){closeLb();}});
+  })();
   </script>
 </body>
 </html>

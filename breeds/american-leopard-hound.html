@@ -91,6 +91,18 @@
 
         <div class="breed-tab-panel active" id="tab-profile">
           <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real American Leopard Hound dogs — verified photos from Wikimedia Commons.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="American Leopard Hound photo 1" />
+              <img class="gallery-photo" id="gp2" alt="American Leopard Hound photo 2" />
+              <img class="gallery-photo" id="gp3" alt="American Leopard Hound photo 3" />
+              <img class="gallery-photo" id="gp4" alt="American Leopard Hound photo 4" />
+              <img class="gallery-photo" id="gp5" alt="American Leopard Hound photo 5" />
+              <img class="gallery-photo" id="gp6" alt="American Leopard Hound photo 6" />
+            </div>
+          </div>
+          <div class="breed-section">
             <h2>🐾 Overview</h2>
             <p>The American Leopard Hound is one of the oldest tree-hunting dog breeds in the United States, with roots tracing back to dogs brought by early settlers and possibly Spanish conquistadors. Long known as the "Leopard Cur," it was renamed to better reflect its hound heritage and was accepted into the AKC's Foundation Stock Service.</p>
             <p>Bred to track and tree game — from squirrels and raccoons to bobcats and bears — the American Leopard Hound is hardy, fast, and tireless, with an excellent nose and a strong, melodious bark. Many display an attractive spotted or merle "leopard" coat. At home they are affectionate, loyal, and good with children, but their high energy and hunting drive make them best suited to active or hunting households.</p>
@@ -313,6 +325,22 @@
         document.querySelector('.breed-tabs-nav').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       });
     });
+  </script>
+
+  <div class="lightbox" id="lightbox"><button class="lightbox-close" id="lightboxClose">✕</button><button class="lightbox-prev" id="lightboxPrev">◀</button><img id="lightboxImg" src="" alt="Enlarged American Leopard Hound photo" /><button class="lightbox-next" id="lightboxNext">▶</button></div>
+  <script>
+  (function(){
+    var g=["https://upload.wikimedia.org/wikipedia/commons/7/78/Lep2.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Louisiana_Cataholula_Leopard_Dog_-_Coahoma_Arkansas.JPG/960px-Louisiana_Cataholula_Leopard_Dog_-_Coahoma_Arkansas.JPG","https://upload.wikimedia.org/wikipedia/commons/0/06/02._Coahoma_Arkansas_Logan.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Catahoulaharlequin.jpg/960px-Catahoulaharlequin.jpg","https://upload.wikimedia.org/wikipedia/commons/8/8b/Catahoulahead.jpg","https://upload.wikimedia.org/wikipedia/commons/3/3e/Catahoulaheadmerle.jpg"];var loaded=[];
+    for(var i=1;i<=6;i++){(function(n){var el=document.getElementById('gp'+n);if(!el)return;var src=g[n-1];if(src){el.referrerPolicy='no-referrer';el.onerror=function(){el.style.display='none';};el.src=src;loaded.push(src);var idx=loaded.length-1;el.addEventListener('click',function(){openLightbox(idx);});}else{el.style.display='none';}})(i);}
+    var ci=0,lb=document.getElementById('lightbox'),li=document.getElementById('lightboxImg');
+    function openLightbox(i){ci=i;li.src=loaded[i];lb.classList.add('open');}
+    function closeLb(){lb.classList.remove('open');}
+    document.getElementById('lightboxClose').addEventListener('click',closeLb);
+    document.getElementById('lightboxPrev').addEventListener('click',function(e){e.stopPropagation();ci=(ci-1+loaded.length)%loaded.length;li.src=loaded[ci];});
+    document.getElementById('lightboxNext').addEventListener('click',function(e){e.stopPropagation();ci=(ci+1)%loaded.length;li.src=loaded[ci];});
+    lb.addEventListener('click',function(e){if(e.target===e.currentTarget)closeLb();});
+    document.addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;if(e.key==='ArrowLeft'){ci=(ci-1+loaded.length)%loaded.length;li.src=loaded[ci];}else if(e.key==='ArrowRight'){ci=(ci+1)%loaded.length;li.src=loaded[ci];}else if(e.key==='Escape'){closeLb();}});
+  })();
   </script>
 </body>
 </html>

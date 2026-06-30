@@ -91,6 +91,18 @@
 
         <div class="breed-tab-panel active" id="tab-profile">
           <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Tenterfield Terrier dogs — verified photos from Wikimedia Commons.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Tenterfield Terrier photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Tenterfield Terrier photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Tenterfield Terrier photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Tenterfield Terrier photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Tenterfield Terrier photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Tenterfield Terrier photo 6" />
+            </div>
+          </div>
+          <div class="breed-section">
             <h2>🐾 Overview</h2>
             <p>The Tenterfield Terrier is a small, energetic Australian terrier descended from the small working fox terriers that British settlers brought to Australia. Once known simply as the "Mini Fox Terrier," it was renamed in 1992 after the town of Tenterfield in New South Wales, linked to the famous "Tenterfield Saddler" George Woolnough.</p>
             <p>Compact, athletic, and bold, the Tenterfield Terrier was bred to hunt rats and other vermin on farms. It is intelligent, lively, and affectionate, making a devoted family companion that's far hardier and more low-maintenance than many toy breeds. With plenty of energy and a curious mind, it thrives on play, training, and active family life, and adapts well to homes of all sizes.</p>
@@ -315,6 +327,22 @@
         document.querySelector('.breed-tabs-nav').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       });
     });
+  </script>
+
+  <div class="lightbox" id="lightbox"><button class="lightbox-close" id="lightboxClose">✕</button><button class="lightbox-prev" id="lightboxPrev">◀</button><img id="lightboxImg" src="" alt="Enlarged Tenterfield Terrier photo" /><button class="lightbox-next" id="lightboxNext">▶</button></div>
+  <script>
+  (function(){
+    var g=["https://upload.wikimedia.org/wikipedia/commons/8/82/Tenterfield_in_tracking_trial.jpg","https://upload.wikimedia.org/wikipedia/commons/d/dd/TenterfieldTerrier.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Scooter_Tenterfield.jpg/960px-Scooter_Tenterfield.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Tenterfield_Terrier_Laying_Down.jpg/960px-Tenterfield_Terrier_Laying_Down.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Tenterfield_Terrier_01.jpg/960px-Tenterfield_Terrier_01.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Rosie_the_Champion_Tenterfield_Terrier.jpg/960px-Rosie_the_Champion_Tenterfield_Terrier.jpg"];var loaded=[];
+    for(var i=1;i<=6;i++){(function(n){var el=document.getElementById('gp'+n);if(!el)return;var src=g[n-1];if(src){el.referrerPolicy='no-referrer';el.onerror=function(){el.style.display='none';};el.src=src;loaded.push(src);var idx=loaded.length-1;el.addEventListener('click',function(){openLightbox(idx);});}else{el.style.display='none';}})(i);}
+    var ci=0,lb=document.getElementById('lightbox'),li=document.getElementById('lightboxImg');
+    function openLightbox(i){ci=i;li.src=loaded[i];lb.classList.add('open');}
+    function closeLb(){lb.classList.remove('open');}
+    document.getElementById('lightboxClose').addEventListener('click',closeLb);
+    document.getElementById('lightboxPrev').addEventListener('click',function(e){e.stopPropagation();ci=(ci-1+loaded.length)%loaded.length;li.src=loaded[ci];});
+    document.getElementById('lightboxNext').addEventListener('click',function(e){e.stopPropagation();ci=(ci+1)%loaded.length;li.src=loaded[ci];});
+    lb.addEventListener('click',function(e){if(e.target===e.currentTarget)closeLb();});
+    document.addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;if(e.key==='ArrowLeft'){ci=(ci-1+loaded.length)%loaded.length;li.src=loaded[ci];}else if(e.key==='ArrowRight'){ci=(ci+1)%loaded.length;li.src=loaded[ci];}else if(e.key==='Escape'){closeLb();}});
+  })();
   </script>
 </body>
 </html>

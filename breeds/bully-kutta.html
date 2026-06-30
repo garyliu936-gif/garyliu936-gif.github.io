@@ -91,6 +91,18 @@
 
         <div class="breed-tab-panel active" id="tab-profile">
           <div class="breed-section">
+            <h2>📸 Photo Gallery</h2>
+            <p>Real Bully Kutta dogs — verified photos from Wikimedia Commons.</p>
+            <div class="breed-gallery" id="breedGallery">
+              <img class="gallery-photo" id="gp1" alt="Bully Kutta photo 1" />
+              <img class="gallery-photo" id="gp2" alt="Bully Kutta photo 2" />
+              <img class="gallery-photo" id="gp3" alt="Bully Kutta photo 3" />
+              <img class="gallery-photo" id="gp4" alt="Bully Kutta photo 4" />
+              <img class="gallery-photo" id="gp5" alt="Bully Kutta photo 5" />
+              <img class="gallery-photo" id="gp6" alt="Bully Kutta photo 6" />
+            </div>
+          </div>
+          <div class="breed-section">
             <h2>🐾 Overview</h2>
             <p>The Bully Kutta — often called the "Pakistani Mastiff" — is a giant working guardian breed from the Indian subcontinent, especially the Punjab and Sindh regions of Pakistan and India. The name comes from the Urdu/Hindi words meaning "heavily wrinkled dog." Descended from ancient mastiff-type dogs, it has traditionally been used for guarding and as a working farm dog.</p>
             <p>Towering and immensely powerful, the Bully Kutta is intelligent, alert, and intensely loyal to its family, with strong territorial and protective instincts. This is very much a breed for experienced owners only: it requires extensive early socialization, firm and consistent training, space, and confident leadership. With the right handling it is devoted and watchful, but it is not suited to novice owners or homes with small children.</p>
@@ -315,6 +327,22 @@
         document.querySelector('.breed-tabs-nav').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       });
     });
+  </script>
+
+  <div class="lightbox" id="lightbox"><button class="lightbox-close" id="lightboxClose">✕</button><button class="lightbox-prev" id="lightboxPrev">◀</button><img id="lightboxImg" src="" alt="Enlarged Bully Kutta photo" /><button class="lightbox-next" id="lightboxNext">▶</button></div>
+  <script>
+  (function(){
+    var g=["https://upload.wikimedia.org/wikipedia/commons/a/a2/BullyKutta1.jpg","https://upload.wikimedia.org/wikipedia/commons/9/99/11_May_2010_-16_may_2010_029_edited.jpg","https://upload.wikimedia.org/wikipedia/commons/9/99/Bully_kutta_1.jpg","https://upload.wikimedia.org/wikipedia/commons/f/fd/Bully_kutta_2.jpg","https://upload.wikimedia.org/wikipedia/commons/c/c3/Bullykutta_oldtype.jpg","https://upload.wikimedia.org/wikipedia/commons/c/c9/1311160945_217646146_18-bully-kutta-for-sale-_%281%29.jpg"];var loaded=[];
+    for(var i=1;i<=6;i++){(function(n){var el=document.getElementById('gp'+n);if(!el)return;var src=g[n-1];if(src){el.referrerPolicy='no-referrer';el.onerror=function(){el.style.display='none';};el.src=src;loaded.push(src);var idx=loaded.length-1;el.addEventListener('click',function(){openLightbox(idx);});}else{el.style.display='none';}})(i);}
+    var ci=0,lb=document.getElementById('lightbox'),li=document.getElementById('lightboxImg');
+    function openLightbox(i){ci=i;li.src=loaded[i];lb.classList.add('open');}
+    function closeLb(){lb.classList.remove('open');}
+    document.getElementById('lightboxClose').addEventListener('click',closeLb);
+    document.getElementById('lightboxPrev').addEventListener('click',function(e){e.stopPropagation();ci=(ci-1+loaded.length)%loaded.length;li.src=loaded[ci];});
+    document.getElementById('lightboxNext').addEventListener('click',function(e){e.stopPropagation();ci=(ci+1)%loaded.length;li.src=loaded[ci];});
+    lb.addEventListener('click',function(e){if(e.target===e.currentTarget)closeLb();});
+    document.addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;if(e.key==='ArrowLeft'){ci=(ci-1+loaded.length)%loaded.length;li.src=loaded[ci];}else if(e.key==='ArrowRight'){ci=(ci+1)%loaded.length;li.src=loaded[ci];}else if(e.key==='Escape'){closeLb();}});
+  })();
   </script>
 </body>
 </html>
