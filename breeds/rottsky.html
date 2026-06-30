@@ -464,7 +464,11 @@
   <script>
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
-    (function () { const e = document.getElementById('breedEmoji'); if (e) e.style.display = ''; const h = document.getElementById('breedPhoto'); if (h) h.style.display = 'none'; })();
+    (function () {
+      const heroPhoto = "https://live.staticflickr.com/8327/28589537343_61801d5bc4_b.jpg";
+      const hero = document.getElementById('breedPhoto');
+      if (hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const e = document.getElementById('breedEmoji'); if (e) e.style.display = 'none'; }; hero.src = heroPhoto; }
+    })();
 
     function openLightbox(index) { currentPhotoIndex = index; document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex]; document.getElementById('lightbox').classList.add('open'); }
     function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); }

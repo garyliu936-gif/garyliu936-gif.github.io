@@ -437,8 +437,14 @@
     <button class="lightbox-next" id="lightboxNext">&#9654;</button>
   </div>
   <script>
-    let galleryPhotos = [], currentPhotoIndex = 0;
-    (function () { const e = document.getElementById('breedEmoji'); if (e) e.style.display = ''; const h = document.getElementById('breedPhoto'); if (h) h.style.display = 'none'; })();
+    let galleryPhotos = [];
+    let currentPhotoIndex = 0;
+    (function () {
+      const heroPhoto = "https://live.staticflickr.com/65535/53678482371_703f23e3b3_b.jpg";
+      const hero = document.getElementById('breedPhoto');
+      if (hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const e = document.getElementById('breedEmoji'); if (e) e.style.display = 'none'; }; hero.src = heroPhoto; }
+    })();
+
     function openLightbox(i){ currentPhotoIndex=i; document.getElementById('lightboxImg').src=galleryPhotos[i]; document.getElementById('lightbox').classList.add('open'); }
     function closeLightbox(){ document.getElementById('lightbox').classList.remove('open'); }
     document.getElementById('lightboxClose').addEventListener('click',closeLightbox);
