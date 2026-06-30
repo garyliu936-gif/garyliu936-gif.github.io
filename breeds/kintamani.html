@@ -351,7 +351,15 @@
 
   <script>
   (function(){
-    var photos=["https://upload.wikimedia.org/wikipedia/commons/0/0e/Kintamani.jpg"];
+    var photos=[
+        "https://upload.wikimedia.org/wikipedia/commons/0/0e/Kintamani.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Anjing_kintamani_di_Gunung_Batur%2C_Kintamani_MWD_12.jpg/960px-Anjing_kintamani_di_Gunung_Batur%2C_Kintamani_MWD_12.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Balinkintamani2.jpg/960px-Balinkintamani2.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Balinkintamani1.jpg/960px-Balinkintamani1.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Balinkintamani3.jpg/960px-Balinkintamani3.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Balinkintamani4.jpg/960px-Balinkintamani4.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Balinkintamani5.jpg/960px-Balinkintamani5.jpg"
+      ];
     var hero=document.getElementById('breedPhoto');
     if(photos[0]&&hero){hero.referrerPolicy='no-referrer';hero.onload=function(){hero.style.display='block';var em=document.getElementById('breedEmoji');if(em)em.style.display='none';};hero.onerror=function(){hero.style.display='none';};hero.src=photos[0];}
     var gp=(typeof galleryPhotos!=='undefined')?galleryPhotos:null;

@@ -334,7 +334,14 @@
 
   <script>
   (function(){
-    var photos=["https://upload.wikimedia.org/wikipedia/commons/d/da/%E0%B8%9A%E0%B8%B2%E0%B8%87%E0%B9%81%E0%B8%81%E0%B9%89%E0%B8%A7.jpg"];
+    var photos=[
+        "https://upload.wikimedia.org/wikipedia/commons/e/ec/Thai_Bangkaew_Dog.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/5/52/Thai_Bangkaew_Dog_1.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/b/be/Thai_Bangkaew_Dog_2.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/4/4e/Thai_Bangkaew_Dog_3.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/e/ed/Thai_Bangkaew_Dog_Puppies.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/b/bc/Bangkaew_De_Tha%C3%AFlande.jpg"
+      ];
     var hero=document.getElementById('breedPhoto');
     if(photos[0]&&hero){hero.referrerPolicy='no-referrer';hero.onload=function(){hero.style.display='block';var em=document.getElementById('breedEmoji');if(em)em.style.display='none';};hero.onerror=function(){hero.style.display='none';};hero.src=photos[0];}
     var gp=(typeof galleryPhotos!=='undefined')?galleryPhotos:null;

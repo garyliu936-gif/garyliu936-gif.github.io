@@ -334,7 +334,15 @@
 
   <script>
   (function(){
-    var photos=["https://upload.wikimedia.org/wikipedia/commons/5/56/BUKADAI_2.jpg"];
+    var photos=[
+        "https://upload.wikimedia.org/wikipedia/commons/5/56/BUKADAI_2.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Dog222.jpg/960px-Dog222.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/6/60/Baxter1B.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/b/ba/Ayaka.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/BUKADAI.JPG/960px-BUKADAI.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Bukadai.jpg/960px-Bukadai.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/BUKADAI_2.jpg/960px-BUKADAI_2.jpg"
+      ];
     var hero=document.getElementById('breedPhoto');
     if(photos[0]&&hero){hero.referrerPolicy='no-referrer';hero.onload=function(){hero.style.display='block';var em=document.getElementById('breedEmoji');if(em)em.style.display='none';};hero.onerror=function(){hero.style.display='none';};hero.src=photos[0];}
     var gp=(typeof galleryPhotos!=='undefined')?galleryPhotos:null;
