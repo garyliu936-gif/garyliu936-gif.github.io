@@ -116,8 +116,8 @@
               <img class="gallery-photo" id="gp2" alt="Puggle photo 2" />
               <img class="gallery-photo" id="gp3" alt="Puggle photo 3" />
               <img class="gallery-photo" id="gp4" alt="Puggle photo 4" />
-              <img class="gallery-photo" id="gp5" alt="Puggle photo 5" />
-              <img class="gallery-photo" id="gp6" alt="Puggle photo 6" />
+              
+              
             </div>
           </div>
 
@@ -470,22 +470,13 @@
   <script>
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
-
-    fetch('https://dog.ceo/api/breed/beagle/images')
-      .then(r => r.json())
-      .then(data => {
-        if (!Array.isArray(data.message) || !data.message.length) return;
-        const photos = data.message;
-        const hero = document.getElementById('breedPhoto');
-        hero.src = photos[2] || photos[0];
-        hero.onload = () => { hero.style.display = 'block'; document.getElementById('breedEmoji').style.display = 'none'; };
-        const picks = [5, 15, 25, 35, 45, 55];
-        picks.forEach((index, i) => {
-          const el = document.getElementById('gp' + (i + 1));
-          const src = photos[index] || photos[i] || photos[0];
-          if (el && src) { galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i)); }
-        });
-      }).catch(() => {});
+    (function () {
+      const heroPhoto = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/BraxtonPuggle-edit1.jpg/960px-BraxtonPuggle-edit1.jpg";
+      const gp = ["https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Puggle_puppy.jpg/960px-Puggle_puppy.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Puggle_puppy_6_weeks.JPG/960px-Puggle_puppy_6_weeks.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Puggle_puppy_%28cropped%29.jpg/960px-Puggle_puppy_%28cropped%29.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Puggle_image_boo_and_weezy_.jpg/960px-Puggle_image_boo_and_weezy_.jpg"];
+      const hero = document.getElementById('breedPhoto');
+      if (hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const e = document.getElementById('breedEmoji'); if (e) e.style.display = 'none'; }; hero.src = heroPhoto; }
+      gp.forEach((src, i) => { const el = document.getElementById('gp' + (i + 1)); if (el && src) { el.referrerPolicy = 'no-referrer'; el.src = src; galleryPhotos.push(src); el.addEventListener('click', () => openLightbox(i)); } });
+    })();
 
     function openLightbox(index) { currentPhotoIndex = index; document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex]; document.getElementById('lightbox').classList.add('open'); }
     function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); }

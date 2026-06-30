@@ -136,8 +136,8 @@
             <img class="gallery-photo" id="gp2" alt="Pomsky photo 2" />
             <img class="gallery-photo" id="gp3" alt="Pomsky photo 3" />
             <img class="gallery-photo" id="gp4" alt="Pomsky photo 4" />
-            <img class="gallery-photo" id="gp5" alt="Pomsky photo 5" />
-            <img class="gallery-photo" id="gp6" alt="Pomsky photo 6" />
+            
+            
           </div>
         </div>
 
@@ -443,19 +443,13 @@
   </div>
   <script>
     let galleryPhotos = [], currentPhotoIndex = 0;
-    fetch('https://dog.ceo/api/breed/husky/images')
-      .then(r => r.json()).then(data => {
-        if (!Array.isArray(data.message) || !data.message.length) return;
-        const photos = data.message;
-        const hero = document.getElementById('breedPhoto');
-        hero.src = photos[2];
-        hero.onload = () => { hero.style.display='block'; document.getElementById('breedEmoji').style.display='none'; };
-        [5,10,18,25,33,40].forEach((idx,i) => {
-          const el = document.getElementById('gp'+(i+1));
-          const src = photos[idx]||photos[i];
-          if (el&&src) { galleryPhotos.push(src); el.src=src; el.addEventListener('click',()=>openLightbox(i)); }
-        });
-      }).catch(()=>{});
+    (function () {
+      const heroPhoto = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Pomsky_dog_.jpg/960px-Pomsky_dog_.jpg";
+      const gp = ["https://upload.wikimedia.org/wikipedia/commons/8/81/Pomsky-puppy-bella-2-220x220.png","https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Pomsky_-_Gentbrugge_17-12-2019_13-52-013.jpg/960px-Pomsky_-_Gentbrugge_17-12-2019_13-52-013.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Pomeranian-Husky_mix_breed_known_as_a_%22Pomski%22_or_%22Pomsky%22_with_heterochromia._3_years_old..jpg/960px-Pomeranian-Husky_mix_breed_known_as_a_%22Pomski%22_or_%22Pomsky%22_with_heterochromia._3_years_old..jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Pomsky_Dog_Breed_-_Pomeranian_Husky_Mix.jpg/960px-Pomsky_Dog_Breed_-_Pomeranian_Husky_Mix.jpg"];
+      const hero = document.getElementById('breedPhoto');
+      if (hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const e = document.getElementById('breedEmoji'); if (e) e.style.display = 'none'; }; hero.src = heroPhoto; }
+      gp.forEach((src, i) => { const el = document.getElementById('gp' + (i + 1)); if (el && src) { el.referrerPolicy = 'no-referrer'; el.src = src; galleryPhotos.push(src); el.addEventListener('click', () => openLightbox(i)); } });
+    })();
     function openLightbox(i){ currentPhotoIndex=i; document.getElementById('lightboxImg').src=galleryPhotos[i]; document.getElementById('lightbox').classList.add('open'); }
     function closeLightbox(){ document.getElementById('lightbox').classList.remove('open'); }
     document.getElementById('lightboxClose').addEventListener('click',closeLightbox);

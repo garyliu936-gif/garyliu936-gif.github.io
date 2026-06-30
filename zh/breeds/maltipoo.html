@@ -142,7 +142,7 @@
             <img class="gallery-photo" id="gp3" alt="马耳他贵宾混血犬照片 3" />
             <img class="gallery-photo" id="gp4" alt="马耳他贵宾混血犬照片 4" />
             <img class="gallery-photo" id="gp5" alt="马耳他贵宾混血犬照片 5" />
-            <img class="gallery-photo" id="gp6" alt="马耳他贵宾混血犬照片 6" />
+            
           </div>
         </div>
 
@@ -438,19 +438,13 @@
   </div>
   <script>
     let galleryPhotos = [], currentPhotoIndex = 0;
-    fetch('https://dog.ceo/api/breed/maltese/images')
-      .then(r => r.json()).then(data => {
-        if (!Array.isArray(data.message) || !data.message.length) return;
-        const photos = data.message;
-        const hero = document.getElementById('breedPhoto');
-        hero.src = photos[2];
-        hero.onload = () => { hero.style.display='block'; document.getElementById('breedEmoji').style.display='none'; };
-        [5,10,18,25,33,40].forEach((idx,i) => {
-          const el = document.getElementById('gp'+(i+1));
-          const src = photos[idx]||photos[i];
-          if (el&&src) { galleryPhotos.push(src); el.src=src; el.addEventListener('click',()=>openLightbox(i)); }
-        });
-      }).catch(()=>{});
+    (function () {
+      const heroPhoto = "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Maltipoo_Dog_-_Poodle_Maltese_Mix_Breed.jpg/960px-Maltipoo_Dog_-_Poodle_Maltese_Mix_Breed.jpg";
+      const gp = ["https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Maltipoo_%2895574%29.jpg/960px-Maltipoo_%2895574%29.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Maltipoo_with_a_tennis_ball_%2811928%29.jpg/960px-Maltipoo_with_a_tennis_ball_%2811928%29.jpg","https://upload.wikimedia.org/wikipedia/commons/b/ba/Lily%2C_the_Maltipoo%2C_dressed_in_her_Halloween_costume..jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Maltipoo_Hagrid.jpg/960px-Maltipoo_Hagrid.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Maltipoo_dog_while_shaking_its_head_%2811999%29.jpg/960px-Maltipoo_dog_while_shaking_its_head_%2811999%29.jpg"];
+      const hero = document.getElementById('breedPhoto');
+      if (hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const e = document.getElementById('breedEmoji'); if (e) e.style.display = 'none'; }; hero.src = heroPhoto; }
+      gp.forEach((src, i) => { const el = document.getElementById('gp' + (i + 1)); if (el && src) { el.referrerPolicy = 'no-referrer'; el.src = src; galleryPhotos.push(src); el.addEventListener('click', () => openLightbox(i)); } });
+    })();
     function openLightbox(i){ currentPhotoIndex=i; document.getElementById('lightboxImg').src=galleryPhotos[i]; document.getElementById('lightbox').classList.add('open'); }
     function closeLightbox(){ document.getElementById('lightbox').classList.remove('open'); }
     document.getElementById('lightboxClose').addEventListener('click',closeLightbox);

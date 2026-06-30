@@ -129,19 +129,6 @@
         </div>
 
         <div class="breed-section">
-          <h2>📸 Photo Gallery</h2>
-          <p>Real Shorkies — coat types and colors vary widely depending on which parent's genes dominate.</p>
-          <div class="breed-gallery" id="breedGallery">
-            <img class="gallery-photo" id="gp1" alt="Shorkie photo 1" />
-            <img class="gallery-photo" id="gp2" alt="Shorkie photo 2" />
-            <img class="gallery-photo" id="gp3" alt="Shorkie photo 3" />
-            <img class="gallery-photo" id="gp4" alt="Shorkie photo 4" />
-            <img class="gallery-photo" id="gp5" alt="Shorkie photo 5" />
-            <img class="gallery-photo" id="gp6" alt="Shorkie photo 6" />
-          </div>
-        </div>
-
-        <div class="breed-section">
           <h2>😊 Temperament &amp; Personality</h2>
           <p>Shorkies have a wonderfully mixed temperament — the Shih Tzu brings warmth, gentleness, and a love of leisure, while the Yorkie contributes curiosity, alertness, and just enough terrier spunk to keep things interesting. The balance between these two parent temperaments can vary significantly, but most Shorkies land in a pleasant middle ground: affectionate but not fragile, playful but not exhausting.</p>
           <ul>
@@ -443,19 +430,7 @@
   </div>
   <script>
     let galleryPhotos = [], currentPhotoIndex = 0;
-    fetch('https://dog.ceo/api/breed/shihtzu/images')
-      .then(r => r.json()).then(data => {
-        if (!Array.isArray(data.message) || !data.message.length) return;
-        const photos = data.message;
-        const hero = document.getElementById('breedPhoto');
-        hero.src = photos[2];
-        hero.onload = () => { hero.style.display='block'; document.getElementById('breedEmoji').style.display='none'; };
-        [5,10,18,25,33,40].forEach((idx,i) => {
-          const el = document.getElementById('gp'+(i+1));
-          const src = photos[idx]||photos[i];
-          if (el&&src) { galleryPhotos.push(src); el.src=src; el.addEventListener('click',()=>openLightbox(i)); }
-        });
-      }).catch(()=>{});
+    (function () { const e = document.getElementById('breedEmoji'); if (e) e.style.display = ''; const h = document.getElementById('breedPhoto'); if (h) h.style.display = 'none'; })();
     function openLightbox(i){ currentPhotoIndex=i; document.getElementById('lightboxImg').src=galleryPhotos[i]; document.getElementById('lightbox').classList.add('open'); }
     function closeLightbox(){ document.getElementById('lightbox').classList.remove('open'); }
     document.getElementById('lightboxClose').addEventListener('click',closeLightbox);

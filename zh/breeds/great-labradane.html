@@ -342,22 +342,7 @@
   <script>
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
-
-    fetch('https://dog.ceo/api/breed/dane/great/images')
-      .then(r => r.json())
-      .then(data => {
-        if (!Array.isArray(data.message) || !data.message.length) return;
-        const photos = data.message;
-        const hero = document.getElementById('breedPhoto');
-        hero.src = photos[2] || photos[0];
-        hero.onload = () => { hero.style.display = 'block'; document.getElementById('breedEmoji').style.display = 'none'; };
-        const picks = [5, 15, 25, 35, 45, 55];
-        picks.forEach((index, i) => {
-          const el = document.getElementById('gp' + (i + 1));
-          const src = photos[index] || photos[i % photos.length] || photos[0];
-          if (el && src) { galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i)); }
-        });
-      }).catch(() => {});
+    (function () { const e = document.getElementById('breedEmoji'); if (e) e.style.display = ''; const h = document.getElementById('breedPhoto'); if (h) h.style.display = 'none'; })();
 
     function openLightbox(index) { currentPhotoIndex = index; document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex]; document.getElementById('lightbox').classList.add('open'); }
     function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); }

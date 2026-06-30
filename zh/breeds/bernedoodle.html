@@ -141,8 +141,8 @@
             <img class="gallery-photo" id="gp2" alt="伯恩山贵宾混血犬照片 2" />
             <img class="gallery-photo" id="gp3" alt="伯恩山贵宾混血犬照片 3" />
             <img class="gallery-photo" id="gp4" alt="伯恩山贵宾混血犬照片 4" />
-            <img class="gallery-photo" id="gp5" alt="伯恩山贵宾混血犬照片 5" />
-            <img class="gallery-photo" id="gp6" alt="伯恩山贵宾混血犬照片 6" />
+            
+            
           </div>
         </div>
 
@@ -438,19 +438,13 @@
   </div>
   <script>
     let galleryPhotos = [], currentPhotoIndex = 0;
-    fetch('https://dog.ceo/api/breed/mountain/bernese/images')
-      .then(r => r.json()).then(data => {
-        if (!Array.isArray(data.message) || !data.message.length) return;
-        const photos = data.message;
-        const hero = document.getElementById('breedPhoto');
-        hero.src = photos[2];
-        hero.onload = () => { hero.style.display='block'; document.getElementById('breedEmoji').style.display='none'; };
-        [5,10,18,25,33,40].forEach((idx,i) => {
-          const el = document.getElementById('gp'+(i+1));
-          const src = photos[idx]||photos[i];
-          if (el&&src) { galleryPhotos.push(src); el.src=src; el.addEventListener('click',()=>openLightbox(i)); }
-        });
-      }).catch(()=>{});
+    (function () {
+      const heroPhoto = "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Bernedoodle_Adolescent.jpg/960px-Bernedoodle_Adolescent.jpg";
+      const gp = ["https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Bernedoodle_Puppy.jpg/960px-Bernedoodle_Puppy.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Bernedoodle.jpg/960px-Bernedoodle.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Bernedoodle_de_taille_standard.jpg/960px-Bernedoodle_de_taille_standard.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Bernedoodle_Dog.jpg/960px-Bernedoodle_Dog.jpg"];
+      const hero = document.getElementById('breedPhoto');
+      if (hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const e = document.getElementById('breedEmoji'); if (e) e.style.display = 'none'; }; hero.src = heroPhoto; }
+      gp.forEach((src, i) => { const el = document.getElementById('gp' + (i + 1)); if (el && src) { el.referrerPolicy = 'no-referrer'; el.src = src; galleryPhotos.push(src); el.addEventListener('click', () => openLightbox(i)); } });
+    })();
     function openLightbox(i){ currentPhotoIndex=i; document.getElementById('lightboxImg').src=galleryPhotos[i]; document.getElementById('lightbox').classList.add('open'); }
     function closeLightbox(){ document.getElementById('lightbox').classList.remove('open'); }
     document.getElementById('lightboxClose').addEventListener('click',closeLightbox);
