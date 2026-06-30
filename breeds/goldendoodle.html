@@ -418,7 +418,7 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const heroPhoto = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Petite_Standard_Goldendoodle_Cream.jpg/960px-Petite_Standard_Goldendoodle_Cream.jpg";
+      const heroPhoto = "../images/Goldendoodle.png";
       const photos = ["https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Finnegan_the_Goldendoodle_having_fun_in_the_snow.jpg/960px-Finnegan_the_Goldendoodle_having_fun_in_the_snow.jpg", "https://upload.wikimedia.org/wikipedia/commons/7/7e/Goldendoodle_on_the_beach.jpg", "https://upload.wikimedia.org/wikipedia/commons/2/2a/Male_Goldendoodle_Sitting.jpg", "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Goldendoodle.jpg/960px-Goldendoodle.jpg", "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Goldendoodle_Puppy_Resting_ADGS-GD-6.jpg/960px-Goldendoodle_Puppy_Resting_ADGS-GD-6.jpg", "https://upload.wikimedia.org/wikipedia/commons/3/3d/Goldendoodle-On-Porch.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const e = document.getElementById('breedEmoji'); if (e) e.style.display = 'none'; }; hero.src = heroPhoto; }

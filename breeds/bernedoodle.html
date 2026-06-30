@@ -444,7 +444,7 @@
   <script>
     let galleryPhotos = [], currentPhotoIndex = 0;
     (function () {
-      const heroPhoto = "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Bernedoodle_Adolescent.jpg/960px-Bernedoodle_Adolescent.jpg";
+      const heroPhoto = "../images/Bernedoodle.png";
       const gp = ["https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Bernedoodle_Puppy.jpg/960px-Bernedoodle_Puppy.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Bernedoodle.jpg/960px-Bernedoodle.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Bernedoodle_de_taille_standard.jpg/960px-Bernedoodle_de_taille_standard.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Bernedoodle_Dog.jpg/960px-Bernedoodle_Dog.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const e = document.getElementById('breedEmoji'); if (e) e.style.display = 'none'; }; hero.src = heroPhoto; }
