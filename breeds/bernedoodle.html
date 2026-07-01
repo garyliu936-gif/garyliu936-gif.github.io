@@ -442,14 +442,14 @@
     <button class="lightbox-next" id="lightboxNext">&#9654;</button>
   </div>
   <script>
-    let galleryPhotos = [], currentPhotoIndex = 0;
+    let galleryPhotos = [];
+    let currentPhotoIndex = 0;
     (function () {
       const heroPhoto = "../images/hybrids/bernedoodle.png";
-      const gp = ["https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Bernedoodle_Puppy.jpg/960px-Bernedoodle_Puppy.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Bernedoodle.jpg/960px-Bernedoodle.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Bernedoodle_de_taille_standard.jpg/960px-Bernedoodle_de_taille_standard.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Bernedoodle_Dog.jpg/960px-Bernedoodle_Dog.jpg"];
       const hero = document.getElementById('breedPhoto');
-      if (hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const e = document.getElementById('breedEmoji'); if (e) e.style.display = 'none'; }; hero.src = heroPhoto; }
-      gp.forEach((src, i) => { const el = document.getElementById('gp' + (i + 1)); if (el && src) { el.referrerPolicy = 'no-referrer'; el.src = src; galleryPhotos.push(src); el.addEventListener('click', () => openLightbox(i)); } });
+      if (hero) { hero.onload = () => { hero.style.display = 'block'; const e = document.getElementById('breedEmoji'); if (e) e.style.display = 'none'; }; hero.src = heroPhoto; }
     })();
+
     function openLightbox(i){ currentPhotoIndex=i; document.getElementById('lightboxImg').src=galleryPhotos[i]; document.getElementById('lightbox').classList.add('open'); }
     function closeLightbox(){ document.getElementById('lightbox').classList.remove('open'); }
     document.getElementById('lightboxClose').addEventListener('click',closeLightbox);

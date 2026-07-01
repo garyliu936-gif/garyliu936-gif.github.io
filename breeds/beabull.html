@@ -465,9 +465,9 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const heroPhoto = "https://live.staticflickr.com/8013/7416395680_be0cf59151.jpg";
+      const heroPhoto = "../images/hybrids/beabull.png";
       const hero = document.getElementById('breedPhoto');
-      if (hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const e = document.getElementById('breedEmoji'); if (e) e.style.display = 'none'; }; hero.src = heroPhoto; }
+      if (hero) { hero.onload = () => { hero.style.display = 'block'; const e = document.getElementById('breedEmoji'); if (e) e.style.display = 'none'; }; hero.src = heroPhoto; }
     })();
 
     function openLightbox(index) { currentPhotoIndex = index; document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex]; document.getElementById('lightbox').classList.add('open'); }
