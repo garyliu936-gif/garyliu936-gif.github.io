@@ -470,7 +470,7 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const heroPhoto = "../images/Bordoodle.png";
+      const heroPhoto = "../images/hybrids/bordoodle.png";
       const photos = ["https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Bordoodle_Puppy.jpg/960px-Bordoodle_Puppy.jpg", "https://upload.wikimedia.org/wikipedia/commons/4/4f/Bordoodle.jpg", "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Black_and_white_bordoodle_puppy.jpg/960px-Black_and_white_bordoodle_puppy.jpg", "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Five_year_old_male_Bordoodle_%28Border_Collie_Poodle_mix%29.png/960px-Five_year_old_male_Bordoodle_%28Border_Collie_Poodle_mix%29.png"];
       const hero = document.getElementById('breedPhoto');
       if (hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const e = document.getElementById('breedEmoji'); if (e) e.style.display = 'none'; }; hero.src = heroPhoto; }

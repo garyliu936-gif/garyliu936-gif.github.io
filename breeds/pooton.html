@@ -62,7 +62,7 @@
       </div>
       <div class="breed-hero-layout">
         <div class="breed-hero-emoji" id="breedPhotoWrap">
-          <img class="breed-hero-real-photo" id="breedPhoto" src="../images/Pooton.png" alt="Pooton" referrerpolicy="no-referrer" style="display:block"/>
+          <img class="breed-hero-real-photo" id="breedPhoto" src="../images/hybrids/pooton.png" alt="Pooton" referrerpolicy="no-referrer" style="display:block"/>
           <span class="breed-emoji-fallback" id="breedEmoji">☁️</span>
         </div>
         <div class="breed-hero-text">
@@ -458,7 +458,11 @@
   <script>
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
-    (function(){var h=document.getElementById('breedPhoto'),e=document.getElementById('breedEmoji');if(h&&h.getAttribute('src')){if(e)e.style.display='none';h.style.display='block';h.onerror=function(){h.style.display='none';if(e)e.style.display='';};}else{if(e)e.style.display='';if(h)h.style.display='none';}})();
+    (function () {
+      const heroPhoto = "../images/hybrids/pooton.png";
+      const hero = document.getElementById('breedPhoto');
+      if (hero) { hero.onload = () => { hero.style.display = 'block'; const e = document.getElementById('breedEmoji'); if (e) e.style.display = 'none'; }; hero.src = heroPhoto; }
+    })();
 
     function openLightbox(index) { currentPhotoIndex = index; document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex]; document.getElementById('lightbox').classList.add('open'); }
     function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); }

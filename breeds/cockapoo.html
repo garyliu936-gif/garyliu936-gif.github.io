@@ -448,7 +448,7 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const heroPhoto = "../images/Cockapoo.png";
+      const heroPhoto = "../images/hybrids/cockapoo.png";
       const gp = ["https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Cockapoo_chocolate_otto.jpg/960px-Cockapoo_chocolate_otto.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Loki_-_Beautiful_Large_Cockapoo.jpg/960px-Loki_-_Beautiful_Large_Cockapoo.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Cocker_spaniel_poodle_crossbreed_-_cockapoo.jpg/960px-Cocker_spaniel_poodle_crossbreed_-_cockapoo.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/F1B_type_cockapoo_called_leonard_%28around_1_year_old%29.jpg/960px-F1B_type_cockapoo_called_leonard_%28around_1_year_old%29.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Leonard%2C_a_F1B_cockapoo_at_2_years_and_3_months.jpg/960px-Leonard%2C_a_F1B_cockapoo_at_2_years_and_3_months.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const e = document.getElementById('breedEmoji'); if (e) e.style.display = 'none'; }; hero.src = heroPhoto; }

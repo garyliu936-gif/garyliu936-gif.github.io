@@ -444,7 +444,7 @@
   <script>
     let galleryPhotos = [], currentPhotoIndex = 0;
     (function () {
-      const heroPhoto = "../images/Maltipoo.png";
+      const heroPhoto = "../images/hybrids/maltipoo.png";
       const gp = ["https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Maltipoo_%2895574%29.jpg/960px-Maltipoo_%2895574%29.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Maltipoo_with_a_tennis_ball_%2811928%29.jpg/960px-Maltipoo_with_a_tennis_ball_%2811928%29.jpg","https://upload.wikimedia.org/wikipedia/commons/b/ba/Lily%2C_the_Maltipoo%2C_dressed_in_her_Halloween_costume..jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Maltipoo_Hagrid.jpg/960px-Maltipoo_Hagrid.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Maltipoo_dog_while_shaking_its_head_%2811999%29.jpg/960px-Maltipoo_dog_while_shaking_its_head_%2811999%29.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const e = document.getElementById('breedEmoji'); if (e) e.style.display = 'none'; }; hero.src = heroPhoto; }
