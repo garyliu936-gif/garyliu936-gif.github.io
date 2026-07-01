@@ -62,7 +62,7 @@
       </div>
       <div class="breed-hero-layout">
         <div class="breed-hero-emoji" id="breedPhotoWrap">
-          <img class="breed-hero-real-photo" id="breedPhoto" src="../images/Kunming%20dog/KM%20dog1.jpg" alt="Kunming Wolfdog" referrerpolicy="no-referrer" style="display:block" onerror="this.style.display='none';var e=document.getElementById('breedEmoji');if(e)e.style.display=''"/><span class="breed-emoji-fallback" id="breedEmoji" style="display:none">🐕‍🦺</span>
+          <img class="breed-hero-real-photo" id="breedPhoto" src="../images/kunming-dog/km-dog1.jpg" alt="Kunming Wolfdog" referrerpolicy="no-referrer" style="display:block" onerror="this.style.display='none';var e=document.getElementById('breedEmoji');if(e)e.style.display=''"/><span class="breed-emoji-fallback" id="breedEmoji" style="display:none">🐕‍🦺</span>
         </div>
         <div class="breed-hero-text">
           <h1>Kunming Wolfdog</h1>
@@ -332,7 +332,7 @@
   <div class="lightbox" id="lightbox"><button class="lightbox-close" id="lightboxClose">✕</button><button class="lightbox-prev" id="lightboxPrev">◀</button><img id="lightboxImg" src="" alt="Enlarged Kunming Wolfdog photo" /><button class="lightbox-next" id="lightboxNext">▶</button></div>
   <script>
   (function(){
-    var g=["../images/Kunming%20dog/KM%20dog2.jpg","../images/Kunming%20dog/KM%20dog3.jpg","../images/Kunming%20dog/KM%20dog4.jpg","../images/Kunming%20dog/KM%20dog5.jpg","../images/Kunming%20dog/KM%20dog6.jpg"];var loaded=[];
+    var g=["../images/kunming-dog/km-dog2.jpg","../images/kunming-dog/km-dog3.jpg","../images/kunming-dog/km-dog4.jpg","../images/kunming-dog/km-dog5.jpg","../images/kunming-dog/km-dog6.jpg"];var loaded=[];
     for(var i=1;i<=6;i++){(function(n){var el=document.getElementById('gp'+n);if(!el)return;var src=g[n-1];if(src){el.onerror=function(){el.style.display='none';};el.src=src;loaded.push(src);var idx=loaded.length-1;el.addEventListener('click',function(){openLightbox(idx);});}else{el.style.display='none';}})(i);}
     var ci=0,lb=document.getElementById('lightbox'),li=document.getElementById('lightboxImg');
     function openLightbox(i){ci=i;li.src=loaded[i];lb.classList.add('open');}
