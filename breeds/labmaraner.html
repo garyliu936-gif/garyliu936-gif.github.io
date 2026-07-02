@@ -471,8 +471,8 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const heroPhoto = "https://upload.wikimedia.org/wikipedia/commons/f/f4/LABMARANER.jpg";
-      const gp = ["https://upload.wikimedia.org/wikipedia/commons/f/f4/LABMARANER.jpg"];
+      const heroPhoto = "../images/hybrids/labmaraner.png";
+      const gp = ["../images/hybrids/labmaraner.png"];
       const hero = document.getElementById('breedPhoto');
       if (hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const e = document.getElementById('breedEmoji'); if (e) e.style.display = 'none'; }; hero.src = heroPhoto; }
       gp.forEach((src, i) => { const el = document.getElementById('gp' + (i + 1)); if (el && src) { el.referrerPolicy = 'no-referrer'; el.src = src; galleryPhotos.push(src); el.addEventListener('click', () => openLightbox(i)); } });
