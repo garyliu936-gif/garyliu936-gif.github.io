@@ -334,7 +334,7 @@
 
   <script>
   (function(){
-    var photos=["https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Akita_black-and-white.jpg/960px-Akita_black-and-white.jpg","https://upload.wikimedia.org/wikipedia/commons/d/d5/Akita_Am%C3%A9ricain.jpg","https://upload.wikimedia.org/wikipedia/commons/6/63/Akita_Americano.jpeg","https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Akita_americano_a_pelo_lungo.jpg/960px-Akita_americano_a_pelo_lungo.jpg","https://upload.wikimedia.org/wikipedia/commons/a/aa/Akita_Americano_nero.jpg","https://upload.wikimedia.org/wikipedia/commons/7/78/Akita_Americano_e_Akita_Inu.jpg"];
+    var photos=["https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Akita_black-and-white.jpg/960px-Akita_black-and-white.jpg","https://upload.wikimedia.org/wikipedia/commons/d/d5/Akita_Am%C3%A9ricain.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Akita_americano_a_pelo_lungo.jpg/960px-Akita_americano_a_pelo_lungo.jpg","https://upload.wikimedia.org/wikipedia/commons/7/78/Akita_Americano_e_Akita_Inu.jpg"];
     var hero=document.getElementById('breedPhoto');
     if(photos[0]&&hero){hero.referrerPolicy='no-referrer';hero.onload=function(){hero.style.display='block';var em=document.getElementById('breedEmoji');if(em)em.style.display='none';};hero.onerror=function(){hero.style.display='none';};hero.src=photos[0];}
     var gp=(typeof galleryPhotos!=='undefined')?galleryPhotos:null;
