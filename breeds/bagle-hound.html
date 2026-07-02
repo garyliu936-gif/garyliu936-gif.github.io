@@ -46,4 +46,32 @@
   <script src="../js/main.js"></script>
   <script src="../js/breed-count.js?v=9"></script>
   <script>document.querySelectorAll('.breed-tab').forEach(t=>{t.addEventListener('click',()=>{document.querySelectorAll('.breed-tab').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.breed-tab-panel').forEach(p=>p.classList.remove('active'));t.classList.add('active');document.getElementById('tab-'+t.dataset.tab).classList.add('active');});});let gp=[],ci=0;(function(){var hp="../images/hybrids/bagle-hound.png";var ph=["../images/hybrids/bagle-hound.png"];var h=document.getElementById('breedPhoto');if(h){h.referrerPolicy='no-referrer';h.onload=function(){h.style.display='block';var e=document.getElementById('breedEmoji');if(e)e.style.display='none';};h.src=hp;}ph.forEach(function(s,i){var el=document.getElementById('gp'+(i+1));if(el&&s){el.referrerPolicy='no-referrer';el.src=s;gp.push(s);el.addEventListener('click',function(){ol(i);});}});})();function ol(i){ci=i;document.getElementById('lightboxImg').src=gp[i];document.getElementById('lightbox').classList.add('open');}function cl(){document.getElementById('lightbox').classList.remove('open');}document.getElementById('lightboxClose').addEventListener('click',cl);document.getElementById('lightboxPrev').addEventListener('click',e=>{e.stopPropagation();ci=(ci-1+gp.length)%gp.length;document.getElementById('lightboxImg').src=gp[ci];});document.getElementById('lightboxNext').addEventListener('click',e=>{e.stopPropagation();ci=(ci+1)%gp.length;document.getElementById('lightboxImg').src=gp[ci];});document.getElementById('lightbox').addEventListener('click',e=>{if(e.target===e.currentTarget)cl();});document.addEventListener('keydown',e=>{if(!document.getElementById('lightbox').classList.contains('open'))return;if(e.key==='ArrowLeft'){ci=(ci-1+gp.length)%gp.length;document.getElementById('lightboxImg').src=gp[ci];}else if(e.key==='ArrowRight'){ci=(ci+1)%gp.length;document.getElementById('lightboxImg').src=gp[ci];}else if(e.key==='Escape')cl();});</script>
+  <!-- lb-universal -->
+  <script>
+  (function(){
+    var lbList=[], lbIdx=0;
+    function vis(im){ var s=im.getAttribute('src'); return s && s.trim() && getComputedStyle(im).display!=='none'; }
+    function collect(){ lbList=[].slice.call(document.querySelectorAll('.gallery-photo')).filter(vis); }
+    function show(){ var im=document.getElementById('lightboxImg'); if(im&&lbList[lbIdx]) im.src=lbList[lbIdx].getAttribute('src'); }
+    function openBox(){ var lb=document.getElementById('lightbox'); if(lb) lb.classList.add('open'); }
+    window.openLightbox=function(i){ collect(); if(!lbList.length) return; lbIdx=Math.max(0,Math.min(i||0,lbList.length-1)); show(); openBox(); };
+    window.closeLightbox=function(){ var lb=document.getElementById('lightbox'); if(lb) lb.classList.remove('open'); };
+    window.lbNav=function(d){ if(!lbList.length) return; lbIdx=(lbIdx+d+lbList.length)%lbList.length; show(); };
+    document.addEventListener('click',function(e){
+      var t=e.target;
+      if(t&&t.classList&&t.classList.contains('gallery-photo')&&vis(t)){ collect(); var i=lbList.indexOf(t); if(i<0)i=0; lbIdx=i; show(); openBox(); }
+    });
+    document.addEventListener('keydown',function(e){
+      var lb=document.getElementById('lightbox'); if(!lb||!lb.classList.contains('open')) return;
+      if(e.key==='Escape') closeLightbox(); else if(e.key==='ArrowLeft') lbNav(-1); else if(e.key==='ArrowRight') lbNav(1);
+    });
+    function wire(){
+      var c=document.getElementById('lightboxClose'); if(c) c.addEventListener('click',function(e){e.stopPropagation();closeLightbox();});
+      var p=document.getElementById('lightboxPrev'); if(p) p.addEventListener('click',function(e){e.stopPropagation();lbNav(-1);});
+      var n=document.getElementById('lightboxNext'); if(n) n.addEventListener('click',function(e){e.stopPropagation();lbNav(1);});
+      var lb=document.getElementById('lightbox'); if(lb) lb.addEventListener('click',function(e){ if(e.target===lb) closeLightbox(); });
+    }
+    if(document.readyState!=='loading') wire(); else document.addEventListener('DOMContentLoaded',wire);
+  })();
+  </script>
 </body></html>

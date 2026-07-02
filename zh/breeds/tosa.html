@@ -368,5 +368,39 @@
     });
   })();
   </script>
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close">&#10005;</button>
+    <button class="lightbox-prev" id="lightboxPrev" aria-label="Previous">&#9664;</button>
+    <img id="lightboxImg" src="" alt="Enlarged photo" />
+    <button class="lightbox-next" id="lightboxNext" aria-label="Next">&#9654;</button>
+  </div>
+  <!-- lb-universal -->
+  <script>
+  (function(){
+    var lbList=[], lbIdx=0;
+    function vis(im){ var s=im.getAttribute('src'); return s && s.trim() && getComputedStyle(im).display!=='none'; }
+    function collect(){ lbList=[].slice.call(document.querySelectorAll('.gallery-photo')).filter(vis); }
+    function show(){ var im=document.getElementById('lightboxImg'); if(im&&lbList[lbIdx]) im.src=lbList[lbIdx].getAttribute('src'); }
+    function openBox(){ var lb=document.getElementById('lightbox'); if(lb) lb.classList.add('open'); }
+    window.openLightbox=function(i){ collect(); if(!lbList.length) return; lbIdx=Math.max(0,Math.min(i||0,lbList.length-1)); show(); openBox(); };
+    window.closeLightbox=function(){ var lb=document.getElementById('lightbox'); if(lb) lb.classList.remove('open'); };
+    window.lbNav=function(d){ if(!lbList.length) return; lbIdx=(lbIdx+d+lbList.length)%lbList.length; show(); };
+    document.addEventListener('click',function(e){
+      var t=e.target;
+      if(t&&t.classList&&t.classList.contains('gallery-photo')&&vis(t)){ collect(); var i=lbList.indexOf(t); if(i<0)i=0; lbIdx=i; show(); openBox(); }
+    });
+    document.addEventListener('keydown',function(e){
+      var lb=document.getElementById('lightbox'); if(!lb||!lb.classList.contains('open')) return;
+      if(e.key==='Escape') closeLightbox(); else if(e.key==='ArrowLeft') lbNav(-1); else if(e.key==='ArrowRight') lbNav(1);
+    });
+    function wire(){
+      var c=document.getElementById('lightboxClose'); if(c) c.addEventListener('click',function(e){e.stopPropagation();closeLightbox();});
+      var p=document.getElementById('lightboxPrev'); if(p) p.addEventListener('click',function(e){e.stopPropagation();lbNav(-1);});
+      var n=document.getElementById('lightboxNext'); if(n) n.addEventListener('click',function(e){e.stopPropagation();lbNav(1);});
+      var lb=document.getElementById('lightbox'); if(lb) lb.addEventListener('click',function(e){ if(e.target===lb) closeLightbox(); });
+    }
+    if(document.readyState!=='loading') wire(); else document.addEventListener('DOMContentLoaded',wire);
+  })();
+  </script>
 </body>
 </html>
