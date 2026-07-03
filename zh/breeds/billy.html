@@ -193,8 +193,8 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const e = document.getElementById('breedEmoji'); if (e) e.style.display = '';
-      const h = document.getElementById('breedPhoto'); if (h) h.style.display = 'none';
+      const hero = document.getElementById('breedPhoto'); if (hero) hero.style.display = 'none';
+      const em = document.getElementById('breedEmoji'); if (em) em.style.display = '';
       for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (el) el.style.display = 'none'; }
       const g = document.getElementById('breedGallery'); if (g) g.style.display = 'none';
     })();

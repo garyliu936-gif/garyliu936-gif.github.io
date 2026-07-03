@@ -297,8 +297,16 @@
   </script>
   <div class="lightbox" id="lightbox"><button class="lightbox-close" id="lightboxClose">✕</button><button class="lightbox-prev" id="lightboxPrev">&#9664;</button><img id="lightboxImg" src="" alt=""><button class="lightbox-next" id="lightboxNext">&#9654;</button></div>
   <script>
-    let galleryPhotos=[],currentPhotoIndex=0;
-    fetch('https://dog.ceo/api/breed/weimaraner/images').then(r=>r.json()).then(data=>{const photos=data.message;const hero=document.getElementById('breedPhoto');hero.src=photos[2];hero.onload=()=>{hero.style.display='block';document.getElementById('breedEmoji').style.display='none';};[5,10,18,25,33,40].forEach((idx,i)=>{const src=photos[idx]||photos[i];const el=document.getElementById('gp'+(i+1));if(el&&src){galleryPhotos.push(src);el.src=src;el.addEventListener('click',()=>openLightbox(i));}});}).catch(()=>{});
+    let galleryPhotos = [];
+    let currentPhotoIndex = 0;
+    (function () {
+      const photos = ["https://images.dog.ceo/breeds/weimaraner/n02092339_3837.jpg"];
+      const hero = document.getElementById('breedPhoto');
+      if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
+      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (el) el.style.display = 'none'; }
+      const g = document.getElementById('breedGallery'); if (g) g.style.display = 'none';
+    })();
+
     function openLightbox(i){currentPhotoIndex=i;document.getElementById('lightboxImg').src=galleryPhotos[i];document.getElementById('lightbox').classList.add('open');}
     function closeLightbox(){document.getElementById('lightbox').classList.remove('open');}
     document.getElementById('lightboxClose').addEventListener('click',closeLightbox);
