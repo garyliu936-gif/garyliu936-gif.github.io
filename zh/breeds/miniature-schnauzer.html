@@ -474,11 +474,11 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/schnauzer-miniature/n02097047_6701.jpg"];
+      const photos = ["https://images.dog.ceo/breeds/schnauzer-miniature/n02097047_6701.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Miniature_Schnauzer_on_grass%2C_Short_Summer_Cut_%28Named_%22Fox%22_or_%22Mr._Sir%22%29.jpg/960px-Miniature_Schnauzer_on_grass%2C_Short_Summer_Cut_%28Named_%22Fox%22_or_%22Mr._Sir%22%29.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Miniature_Schnauzer_salt_%26_pepper_%28cropped%29.jpg/960px-Miniature_Schnauzer_salt_%26_pepper_%28cropped%29.jpg","https://upload.wikimedia.org/wikipedia/commons/9/90/Black-and-silver_miniature_schnauzer.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Bram_Zwergschnauzer.JPG/960px-Bram_Zwergschnauzer.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Cindy_the_schnauzer.jpg/960px-Cindy_the_schnauzer.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/C%26M_Miniature_Schnauzers.jpg/960px-C%26M_Miniature_Schnauzers.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
-      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (el) el.style.display = 'none'; }
-      const g = document.getElementById('breedGallery'); if (g) g.style.display = 'none';
+      const gal = photos.slice(1);
+      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (!el) continue; const src = gal[i - 1]; if (src) { el.referrerPolicy = 'no-referrer'; el.style.display = ''; galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i - 1)); } else { el.style.display = 'none'; } }
     })();
 
     function openLightbox(index) {

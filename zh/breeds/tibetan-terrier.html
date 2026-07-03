@@ -496,11 +496,11 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/terrier-tibetan/n02097474_1859.jpg"];
+      const photos = ["https://images.dog.ceo/breeds/terrier-tibetan/n02097474_1859.jpg","https://upload.wikimedia.org/wikipedia/en/thumb/8/89/TibetanTerrier.jpg/960px-TibetanTerrier.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/8_year_old_male_Tibetan_Terrier.jpg/960px-8_year_old_male_Tibetan_Terrier.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Tibet_Terrier_Bennie_%28cropped%29.jpg/960px-Tibet_Terrier_Bennie_%28cropped%29.jpg","https://upload.wikimedia.org/wikipedia/commons/f/f9/Tibetan-terrier-Blue-Blossom-Guldborg-Denmark.jpg","https://upload.wikimedia.org/wikipedia/commons/7/77/TibetanTerrier-Dali-3.jpg","https://upload.wikimedia.org/wikipedia/commons/b/b0/TibetanTerrier-Dali.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
-      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (el) el.style.display = 'none'; }
-      const g = document.getElementById('breedGallery'); if (g) g.style.display = 'none';
+      const gal = photos.slice(1);
+      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (!el) continue; const src = gal[i - 1]; if (src) { el.referrerPolicy = 'no-referrer'; el.style.display = ''; galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i - 1)); } else { el.style.display = 'none'; } }
     })();
 
     function openLightbox(index) { currentPhotoIndex = index; document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex]; document.getElementById('lightbox').classList.add('open'); }

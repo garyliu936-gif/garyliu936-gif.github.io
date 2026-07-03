@@ -503,11 +503,11 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/shihtzu/n02086240_6911.jpg"];
+      const photos = ["https://images.dog.ceo/breeds/shihtzu/n02086240_6911.jpg","https://upload.wikimedia.org/wikipedia/commons/4/49/Black_and_White_Shih_Tzu.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Pebbles_the_unique_alpha_Shih_Tzu.jpg/960px-Pebbles_the_unique_alpha_Shih_Tzu.jpg","https://upload.wikimedia.org/wikipedia/commons/7/7c/Shih-Tzu.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Shih-tzu-Fibi.jpg/960px-Shih-tzu-Fibi.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Shih_Tzu_-_Brachycephalie_-_Qualzucht.jpg/960px-Shih_Tzu_-_Brachycephalie_-_Qualzucht.jpg","https://upload.wikimedia.org/wikipedia/commons/6/64/Shih_Tzu_-_Star_of_Buddha.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
-      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (el) el.style.display = 'none'; }
-      const g = document.getElementById('breedGallery'); if (g) g.style.display = 'none';
+      const gal = photos.slice(1);
+      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (!el) continue; const src = gal[i - 1]; if (src) { el.referrerPolicy = 'no-referrer'; el.style.display = ''; galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i - 1)); } else { el.style.display = 'none'; } }
     })();
 
     function openLightbox(index) { currentPhotoIndex = index; document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex]; document.getElementById('lightbox').classList.add('open'); }

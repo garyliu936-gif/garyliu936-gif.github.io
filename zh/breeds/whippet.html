@@ -480,11 +480,11 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/whippet/n02091134_15360.jpg"];
+      const photos = ["https://images.dog.ceo/breeds/whippet/n02091134_15360.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Brindle_and_white_whippet_puppy.jpg/960px-Brindle_and_white_whippet_puppy.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Fireworks_Whippets.jpg/960px-Fireworks_Whippets.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Whippet_2018_6.jpg/960px-Whippet_2018_6.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Anakin_Whippet.jpg/960px-Anakin_Whippet.jpg","https://upload.wikimedia.org/wikipedia/commons/d/da/Peperina-Whippet.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Maverick_the_Whippet..jpg/960px-Maverick_the_Whippet..jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
-      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (el) el.style.display = 'none'; }
-      const g = document.getElementById('breedGallery'); if (g) g.style.display = 'none';
+      const gal = photos.slice(1);
+      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (!el) continue; const src = gal[i - 1]; if (src) { el.referrerPolicy = 'no-referrer'; el.style.display = ''; galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i - 1)); } else { el.style.display = 'none'; } }
     })();
 
     function openLightbox(index) { currentPhotoIndex = index; document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex]; document.getElementById('lightbox').classList.add('open'); }

@@ -472,11 +472,11 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/wolfhound-irish/n02090721_3999.jpg"];
+      const photos = ["https://images.dog.ceo/breeds/wolfhound-irish/n02090721_3999.jpg","https://upload.wikimedia.org/wikipedia/commons/d/da/%282%29_Irish_Wolfhound_4.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/An_Irish_greyhound_standing_in_a_mountainous_landscape._Etch_Wellcome_V0020959.jpg/960px-An_Irish_greyhound_standing_in_a_mountainous_landscape._Etch_Wellcome_V0020959.jpg","https://upload.wikimedia.org/wikipedia/commons/b/b1/Chiot_Irish_Wolfhound.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Drew_-_Irish_Wolfhound_%2821137096806%29.jpg/960px-Drew_-_Irish_Wolfhound_%2821137096806%29.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Irish_Guards%27_Mascot_-_Leitrim_Boy_%28cropped%29.jpg/960px-Irish_Guards%27_Mascot_-_Leitrim_Boy_%28cropped%29.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Irish_Wolfhound_-_Ulster_Museum.JPG/960px-Irish_Wolfhound_-_Ulster_Museum.JPG"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
-      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (el) el.style.display = 'none'; }
-      const g = document.getElementById('breedGallery'); if (g) g.style.display = 'none';
+      const gal = photos.slice(1);
+      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (!el) continue; const src = gal[i - 1]; if (src) { el.referrerPolicy = 'no-referrer'; el.style.display = ''; galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i - 1)); } else { el.style.display = 'none'; } }
     })();
 
     function openLightbox(index) { currentPhotoIndex = index; document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex]; document.getElementById('lightbox').classList.add('open'); }

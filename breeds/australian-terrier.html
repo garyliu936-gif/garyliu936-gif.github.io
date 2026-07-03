@@ -353,11 +353,11 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/terrier-australian/n02096294_720.jpg"];
+      const photos = ["https://images.dog.ceo/breeds/terrier-australian/n02096294_720.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Australian_Terrier_-_Puppy.jpg/960px-Australian_Terrier_-_Puppy.jpg","https://upload.wikimedia.org/wikipedia/commons/b/b6/Australian_Terrier_adult_male.jpg","https://upload.wikimedia.org/wikipedia/commons/4/44/Young_Male_Australian_Terrier.jpg","https://upload.wikimedia.org/wikipedia/commons/1/13/Australian_terrier.jpg","https://upload.wikimedia.org/wikipedia/commons/9/94/Australian_Terrier2.jpg","https://upload.wikimedia.org/wikipedia/commons/a/a1/Australian_Terrier_Image_001.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
-      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (el) el.style.display = 'none'; }
-      const g = document.getElementById('breedGallery'); if (g) g.style.display = 'none';
+      const gal = photos.slice(1);
+      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (!el) continue; const src = gal[i - 1]; if (src) { el.referrerPolicy = 'no-referrer'; el.style.display = ''; galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i - 1)); } else { el.style.display = 'none'; } }
     })();
 
     function openLightbox(index) { currentPhotoIndex = index; document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex]; document.getElementById('lightbox').classList.add('open'); }

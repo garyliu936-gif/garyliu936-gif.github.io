@@ -497,11 +497,11 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/hound-english/n02089973_612.jpg"];
+      const photos = ["https://images.dog.ceo/breeds/hound-english/n02089973_612.jpg","https://upload.wikimedia.org/wikipedia/commons/4/44/English_Foxhound_portrait.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/English_Foxhounds%2C_Cheshire_Game_and_Country_Fair_2014_1.jpg/960px-English_Foxhounds%2C_Cheshire_Game_and_Country_Fair_2014_1.jpg","https://upload.wikimedia.org/wikipedia/commons/f/fc/English_Foxhound.jpg","https://upload.wikimedia.org/wikipedia/commons/9/95/Foxhound_1.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/English_Foxhounds%2C_Cheshire_Game_and_Country_Fair_2014.jpg/960px-English_Foxhounds%2C_Cheshire_Game_and_Country_Fair_2014.jpg","https://upload.wikimedia.org/wikipedia/commons/9/9b/Foxhound_Anglais.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
-      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (el) el.style.display = 'none'; }
-      const g = document.getElementById('breedGallery'); if (g) g.style.display = 'none';
+      const gal = photos.slice(1);
+      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (!el) continue; const src = gal[i - 1]; if (src) { el.referrerPolicy = 'no-referrer'; el.style.display = ''; galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i - 1)); } else { el.style.display = 'none'; } }
     })();
 
     function openLightbox(index) { currentPhotoIndex = index; document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex]; document.getElementById('lightbox').classList.add('open'); }

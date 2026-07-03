@@ -496,11 +496,11 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/bouvier/n02106382_2763.jpg"];
+      const photos = ["https://images.dog.ceo/breeds/bouvier/n02106382_2763.jpg","https://upload.wikimedia.org/wikipedia/commons/7/7f/Bouvier.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Bouvier2.JPG/960px-Bouvier2.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Bouvier_des_Fiandres038.JPG/960px-Bouvier_des_Fiandres038.JPG","https://upload.wikimedia.org/wikipedia/commons/6/63/Bouvier_des_Flandres.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Bouvier_des_Flandres034.JPG/960px-Bouvier_des_Flandres034.JPG"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
-      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (el) el.style.display = 'none'; }
-      const g = document.getElementById('breedGallery'); if (g) g.style.display = 'none';
+      const gal = photos.slice(1);
+      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (!el) continue; const src = gal[i - 1]; if (src) { el.referrerPolicy = 'no-referrer'; el.style.display = ''; galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i - 1)); } else { el.style.display = 'none'; } }
     })();
 
     function openLightbox(index) { currentPhotoIndex = index; document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex]; document.getElementById('lightbox').classList.add('open'); }

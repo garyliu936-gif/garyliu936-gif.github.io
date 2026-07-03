@@ -411,11 +411,11 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/hound-basset/n02088238_12974.jpg"];
+      const photos = ["https://images.dog.ceo/breeds/hound-basset/n02088238_12974.jpg","https://upload.wikimedia.org/wikipedia/commons/c/cf/BassetHound_profil.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Basset_Hound_with_Baby.jpg/960px-Basset_Hound_with_Baby.jpg","https://upload.wikimedia.org/wikipedia/commons/9/99/Basset_hound_history.jpg","https://upload.wikimedia.org/wikipedia/commons/8/87/Bvdb-bassethound1.jpg","https://upload.wikimedia.org/wikipedia/commons/d/da/Cherry_eye%2C_a_common_eye_condition_for_basset_hounds_.jpg","https://upload.wikimedia.org/wikipedia/commons/b/ba/Duo_de_basset-hound.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
-      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (el) el.style.display = 'none'; }
-      const g = document.getElementById('breedGallery'); if (g) g.style.display = 'none';
+      const gal = photos.slice(1);
+      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (!el) continue; const src = gal[i - 1]; if (src) { el.referrerPolicy = 'no-referrer'; el.style.display = ''; galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i - 1)); } else { el.style.display = 'none'; } }
     })();
 
     function openLightbox(i){currentPhotoIndex=i;document.getElementById('lightboxImg').src=galleryPhotos[i];document.getElementById('lightbox').classList.add('open');}

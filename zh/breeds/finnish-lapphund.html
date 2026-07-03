@@ -393,11 +393,11 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/finnish-lapphund/img_3801.jpg"];
+      const photos = ["https://images.dog.ceo/breeds/finnish-lapphund/img_3801.jpg","https://upload.wikimedia.org/wikipedia/commons/a/a6/Finnish_Lapphund_Glenchess_Revontuli.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Finnish_Lapphund_Oskar.jpg/960px-Finnish_Lapphund_Oskar.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Finnish_lapphund_Elbereth_Norppa_1.jpg/960px-Finnish_lapphund_Elbereth_Norppa_1.jpg","https://upload.wikimedia.org/wikipedia/commons/c/c5/Finnish_lapphund_Pirmese_Allu.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Kvelp_av_finsk_lapphund.jpg/960px-Kvelp_av_finsk_lapphund.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
-      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (el) el.style.display = 'none'; }
-      const g = document.getElementById('breedGallery'); if (g) g.style.display = 'none';
+      const gal = photos.slice(1);
+      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (!el) continue; const src = gal[i - 1]; if (src) { el.referrerPolicy = 'no-referrer'; el.style.display = ''; galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i - 1)); } else { el.style.display = 'none'; } }
     })();
 
     function openLightbox(index) { currentPhotoIndex = index; document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex]; document.getElementById('lightbox').classList.add('open'); }

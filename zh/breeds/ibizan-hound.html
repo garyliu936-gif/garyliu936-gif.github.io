@@ -496,11 +496,11 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/hound-ibizan/n02091244_1025.jpg"];
+      const photos = ["https://images.dog.ceo/breeds/hound-ibizan/n02091244_1025.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Ibizan_Hound.jpg/960px-Ibizan_Hound.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Podenco_d%27Ibiza.jpg/960px-Podenco_d%27Ibiza.jpg","https://upload.wikimedia.org/wikipedia/commons/7/71/Ibizan_hound_picture.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Ibizan_Hound_Wire_in_Riga_1.JPG/960px-Ibizan_Hound_Wire_in_Riga_1.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Ibizan_Hound_Wire_in_Riga_2.JPG/960px-Ibizan_Hound_Wire_in_Riga_2.JPG","https://upload.wikimedia.org/wikipedia/commons/c/ca/Podenco_D%27Ibiza.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
-      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (el) el.style.display = 'none'; }
-      const g = document.getElementById('breedGallery'); if (g) g.style.display = 'none';
+      const gal = photos.slice(1);
+      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (!el) continue; const src = gal[i - 1]; if (src) { el.referrerPolicy = 'no-referrer'; el.style.display = ''; galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i - 1)); } else { el.style.display = 'none'; } }
     })();
 
     function openLightbox(index) { currentPhotoIndex = index; document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex]; document.getElementById('lightbox').classList.add('open'); }

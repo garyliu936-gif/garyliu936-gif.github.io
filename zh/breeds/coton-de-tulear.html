@@ -496,11 +496,11 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://upload.wikimedia.org/wikipedia/commons/e/e5/Coton_de_Tular_2.jpg"];
+      const photos = ["https://upload.wikimedia.org/wikipedia/commons/e/e5/Coton_de_Tular_2.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/CotonDeTulearFullCoat.jpg/960px-CotonDeTulearFullCoat.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Coton_De_Tulear_1Y_Old.jpg/960px-Coton_De_Tulear_1Y_Old.jpg","https://upload.wikimedia.org/wikipedia/commons/b/bd/Coton_de_Tular_1.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Coton_de_Tulear_188.jpg/960px-Coton_de_Tulear_188.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Coton_de_Tulear_Merlin.jpg/960px-Coton_de_Tulear_Merlin.jpg","https://upload.wikimedia.org/wikipedia/commons/5/5a/Coton_de_Tulear_puppy.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
-      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (el) el.style.display = 'none'; }
-      const g = document.getElementById('breedGallery'); if (g) g.style.display = 'none';
+      const gal = photos.slice(1);
+      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (!el) continue; const src = gal[i - 1]; if (src) { el.referrerPolicy = 'no-referrer'; el.style.display = ''; galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i - 1)); } else { el.style.display = 'none'; } }
     })();
 
     function openLightbox(index) { currentPhotoIndex = index; document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex]; document.getElementById('lightbox').classList.add('open'); }

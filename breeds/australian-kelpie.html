@@ -193,11 +193,11 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/kelpie/n02105412_3693.jpg"];
+      const photos = ["https://images.dog.ceo/breeds/kelpie/n02105412_3693.jpg","https://upload.wikimedia.org/wikipedia/commons/7/75/Hilu_the_Australian_Kelpie_dog.jpg","https://upload.wikimedia.org/wikipedia/commons/b/bb/Kelpie_walking_across_the_backs_of_sheep.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Shorthorn_heifers_%26_kelpies.jpg/960px-Shorthorn_heifers_%26_kelpies.jpg","https://upload.wikimedia.org/wikipedia/commons/d/d1/Australien_Kelpie.jpg","https://upload.wikimedia.org/wikipedia/commons/2/2e/Agility_kelpie.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Australian_Kelpie-_Yirr-ma_Bashyr_of_the_Two_Chestnuts.jpg/960px-Australian_Kelpie-_Yirr-ma_Bashyr_of_the_Two_Chestnuts.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
-      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (el) el.style.display = 'none'; }
-      const g = document.getElementById('breedGallery'); if (g) g.style.display = 'none';
+      const gal = photos.slice(1);
+      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (!el) continue; const src = gal[i - 1]; if (src) { el.referrerPolicy = 'no-referrer'; el.style.display = ''; galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i - 1)); } else { el.style.display = 'none'; } }
     })();
 
     function openLightbox(i){currentPhotoIndex=i;document.getElementById('lightboxImg').src=galleryPhotos[i];document.getElementById('lightbox').classList.add('open');}

@@ -441,11 +441,11 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/malamute/n02110063_938.jpg"];
+      const photos = ["https://images.dog.ceo/breeds/malamute/n02110063_938.jpg","https://upload.wikimedia.org/wikipedia/commons/9/9f/Alaskan_Malamute.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Alaskan_malamut_465.jpg/960px-Alaskan_malamut_465.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Puppy_Alaskan_Malamute.jpg/960px-Puppy_Alaskan_Malamute.jpg","https://upload.wikimedia.org/wikipedia/commons/c/c4/Red-White_Alaskan_Malamute_female.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Alaska_Malamut_Huendin.JPG/960px-Alaska_Malamut_Huendin.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Alaskan_malamute.jpg/960px-Alaskan_malamute.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
-      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (el) el.style.display = 'none'; }
-      const g = document.getElementById('breedGallery'); if (g) g.style.display = 'none';
+      const gal = photos.slice(1);
+      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (!el) continue; const src = gal[i - 1]; if (src) { el.referrerPolicy = 'no-referrer'; el.style.display = ''; galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i - 1)); } else { el.style.display = 'none'; } }
     })();
 
     function openLightbox(index) { currentPhotoIndex = index; document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex]; document.getElementById('lightbox').classList.add('open'); }

@@ -441,11 +441,11 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/ridgeback-rhodesian/n02087394_9698.jpg"];
+      const photos = ["https://images.dog.ceo/breeds/ridgeback-rhodesian/n02087394_9698.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Big_rhodesian_male_IMG_6830.JPG/960px-Big_rhodesian_male_IMG_6830.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Carl_Friedrich_Schulz_-_Rhodesian_Ridgeback.jpg/960px-Carl_Friedrich_Schulz_-_Rhodesian_Ridgeback.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Male_Rhodesian_ridgeback_IMG_6800.JPG/960px-Male_Rhodesian_ridgeback_IMG_6800.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/RhodesianRidgebackFemale1year.jpg/960px-RhodesianRidgebackFemale1year.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Rhodesian_Ridgeback_4500.JPG/960px-Rhodesian_Ridgeback_4500.JPG","https://upload.wikimedia.org/wikipedia/commons/1/19/Rhodesian_Ridgeback_double_swirl.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
-      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (el) el.style.display = 'none'; }
-      const g = document.getElementById('breedGallery'); if (g) g.style.display = 'none';
+      const gal = photos.slice(1);
+      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (!el) continue; const src = gal[i - 1]; if (src) { el.referrerPolicy = 'no-referrer'; el.style.display = ''; galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i - 1)); } else { el.style.display = 'none'; } }
     })();
 
     function openLightbox(index) { currentPhotoIndex = index; document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex]; document.getElementById('lightbox').classList.add('open'); }

@@ -496,11 +496,11 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/schipperke/n02104365_8156.jpg"];
+      const photos = ["https://images.dog.ceo/breeds/schipperke/n02104365_8156.jpg","https://upload.wikimedia.org/wikipedia/commons/5/58/Schipperke0001.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Schipperke_Puppy_Daisy_12-weeks_2015-07-27.jpg/960px-Schipperke_Puppy_Daisy_12-weeks_2015-07-27.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Schipperke_gismo_12.jpg/960px-Schipperke_gismo_12.jpg","https://upload.wikimedia.org/wikipedia/commons/b/bc/Schipperke.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/G%C5%82owa_gismo_-_schipperke.jpg/960px-G%C5%82owa_gismo_-_schipperke.jpg","https://upload.wikimedia.org/wikipedia/commons/1/19/Schipperke_-_bitch.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
-      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (el) el.style.display = 'none'; }
-      const g = document.getElementById('breedGallery'); if (g) g.style.display = 'none';
+      const gal = photos.slice(1);
+      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (!el) continue; const src = gal[i - 1]; if (src) { el.referrerPolicy = 'no-referrer'; el.style.display = ''; galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i - 1)); } else { el.style.display = 'none'; } }
     })();
 
     function openLightbox(index) { currentPhotoIndex = index; document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex]; document.getElementById('lightbox').classList.add('open'); }

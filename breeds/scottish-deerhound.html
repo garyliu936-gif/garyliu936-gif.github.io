@@ -334,11 +334,11 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/deerhound-scottish/n02092002_6735.jpg"];
+      const photos = ["https://images.dog.ceo/breeds/deerhound-scottish/n02092002_6735.jpg","https://upload.wikimedia.org/wikipedia/commons/1/16/Deerhoundy_w_biegu.jpg","https://upload.wikimedia.org/wikipedia/commons/5/50/Scottish-deerhound-dog-large.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Scottish_Deerhound_grey_2.jpg/960px-Scottish_Deerhound_grey_2.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Deerhound_305.jpg/960px-Deerhound_305.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Scottish_Deerhound_grey_1.jpg/960px-Scottish_Deerhound_grey_1.jpg","https://upload.wikimedia.org/wikipedia/commons/7/71/A_deerhound_quartet_by_the_Kyle_of_Durness_-_geograph.org.uk_-_2414216.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
-      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (el) el.style.display = 'none'; }
-      const g = document.getElementById('breedGallery'); if (g) g.style.display = 'none';
+      const gal = photos.slice(1);
+      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (!el) continue; const src = gal[i - 1]; if (src) { el.referrerPolicy = 'no-referrer'; el.style.display = ''; galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i - 1)); } else { el.style.display = 'none'; } }
     })();
 
     function openLightbox(index) { currentPhotoIndex = index; document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex]; document.getElementById('lightbox').classList.add('open'); }

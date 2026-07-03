@@ -300,11 +300,11 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/weimaraner/n02092339_3837.jpg"];
+      const photos = ["https://images.dog.ceo/breeds/weimaraner/n02092339_3837.jpg","https://upload.wikimedia.org/wikipedia/commons/8/89/Tara_de_la_Legende_de_Faublas%2C_a_long-haired_female_Weimaraner_%282005%29.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Weimaraner_Freika-2.jpg/960px-Weimaraner_Freika-2.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Blue_Weimaraner.jpg/960px-Blue_Weimaraner.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Blue_Weimaraner_cropped.jpg/960px-Blue_Weimaraner_cropped.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Freya_die_Weimaraner-H%C3%BCndin.jpg/960px-Freya_die_Weimaraner-H%C3%BCndin.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Ein_Weimaraner_auf_der_Lauer.jpg/960px-Ein_Weimaraner_auf_der_Lauer.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
-      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (el) el.style.display = 'none'; }
-      const g = document.getElementById('breedGallery'); if (g) g.style.display = 'none';
+      const gal = photos.slice(1);
+      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (!el) continue; const src = gal[i - 1]; if (src) { el.referrerPolicy = 'no-referrer'; el.style.display = ''; galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i - 1)); } else { el.style.display = 'none'; } }
     })();
 
     function openLightbox(i){currentPhotoIndex=i;document.getElementById('lightboxImg').src=galleryPhotos[i];document.getElementById('lightbox').classList.add('open');}

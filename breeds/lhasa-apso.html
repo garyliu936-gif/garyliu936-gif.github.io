@@ -439,11 +439,11 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://upload.wikimedia.org/wikipedia/commons/8/81/Lhasa_apso_macho.jpg"];
+      const photos = ["https://upload.wikimedia.org/wikipedia/commons/8/81/Lhasa_apso_macho.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Lhasa_Apso_golden.jpg/960px-Lhasa_Apso_golden.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Lhasa_Apso_sable.jpg/960px-Lhasa_Apso_sable.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Grupp_9%2C_LHASA_APSO%2C_DK_JV-13_DK_V-14_DK_V-15_NO_UCH_NO_V-15_SE_UCH_Chic_Choix_Some_Like_It_Chic_%2824014621720%29.jpg/960px-Grupp_9%2C_LHASA_APSO%2C_DK_JV-13_DK_V-14_DK_V-15_NO_UCH_NO_V-15_SE_UCH_Chic_Choix_Some_Like_It_Chic_%2824014621720%29.jpg","https://upload.wikimedia.org/wikipedia/commons/c/c4/Lhasa_Apso_2.jpg","https://upload.wikimedia.org/wikipedia/commons/f/ff/Lhasa_apso.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Lhasa_apso_portret.jpg/960px-Lhasa_apso_portret.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
-      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (el) el.style.display = 'none'; }
-      const g = document.getElementById('breedGallery'); if (g) g.style.display = 'none';
+      const gal = photos.slice(1);
+      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (!el) continue; const src = gal[i - 1]; if (src) { el.referrerPolicy = 'no-referrer'; el.style.display = ''; galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i - 1)); } else { el.style.display = 'none'; } }
     })();
 
     function openLightbox(index) { currentPhotoIndex = index; document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex]; document.getElementById('lightbox').classList.add('open'); }

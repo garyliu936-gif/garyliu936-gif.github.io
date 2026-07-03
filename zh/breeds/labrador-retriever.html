@@ -567,11 +567,11 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/labrador/n02099712_4913.jpg"];
+      const photos = ["https://images.dog.ceo/breeds/labrador/n02099712_4913.jpg","https://upload.wikimedia.org/wikipedia/commons/3/33/3labradorcols.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/George_Digweed%27s_labrador.jpg/960px-George_Digweed%27s_labrador.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Labrador_Retriever_chocolate_Hershey_sit_%28cropped%29.jpg/960px-Labrador_Retriever_chocolate_Hershey_sit_%28cropped%29.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Labrador_on_Quantock_%282175262184%29.jpg/960px-Labrador_on_Quantock_%282175262184%29.jpg","https://upload.wikimedia.org/wikipedia/commons/8/83/Labrador_retriever_bulaj1.jpg","https://upload.wikimedia.org/wikipedia/commons/f/f7/Ben_of_Hyde_%28retrieving_trout%29.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
-      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (el) el.style.display = 'none'; }
-      const g = document.getElementById('breedGallery'); if (g) g.style.display = 'none';
+      const gal = photos.slice(1);
+      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (!el) continue; const src = gal[i - 1]; if (src) { el.referrerPolicy = 'no-referrer'; el.style.display = ''; galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i - 1)); } else { el.style.display = 'none'; } }
     })();
 
     function openLightbox(index) {

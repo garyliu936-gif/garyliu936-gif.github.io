@@ -470,11 +470,11 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/eskimo/n02109961_16095.jpg"];
+      const photos = ["https://images.dog.ceo/breeds/eskimo/n02109961_16095.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/American_Eskimo_Dog_%28Puppy%29.jpg/960px-American_Eskimo_Dog_%28Puppy%29.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/American_Eskimo_Dog_1.jpg/960px-American_Eskimo_Dog_1.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/American_Eskimo_Dog_portrait.jpg/960px-American_Eskimo_Dog_portrait.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/American_Eskimo_Dog.jpg/960px-American_Eskimo_Dog.jpg","https://upload.wikimedia.org/wikipedia/commons/9/9c/American_Eskimo.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/American-Eskimo-dog.jpg/960px-American-Eskimo-dog.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
-      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (el) el.style.display = 'none'; }
-      const g = document.getElementById('breedGallery'); if (g) g.style.display = 'none';
+      const gal = photos.slice(1);
+      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (!el) continue; const src = gal[i - 1]; if (src) { el.referrerPolicy = 'no-referrer'; el.style.display = ''; galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i - 1)); } else { el.style.display = 'none'; } }
     })();
 
     function openLightbox(index) { currentPhotoIndex = index; document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex]; document.getElementById('lightbox').classList.add('open'); }

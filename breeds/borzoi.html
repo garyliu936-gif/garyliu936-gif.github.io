@@ -470,11 +470,11 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/borzoi/n02090622_7111.jpg"];
+      const photos = ["https://images.dog.ceo/breeds/borzoi/n02090622_7111.jpg","https://upload.wikimedia.org/wikipedia/commons/7/7a/Black_and_white_borzoi.jpg","https://upload.wikimedia.org/wikipedia/commons/8/83/Borzo_by_a_Chair-George_Hare.jpg","https://upload.wikimedia.org/wikipedia/commons/a/ad/Borzoi_600.jpg","https://upload.wikimedia.org/wikipedia/commons/b/be/Borzoi_portrait_Flickr.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Borzoi_red_%26_white.jpg/960px-Borzoi_red_%26_white.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Brindle_Borzoi.jpg/960px-Brindle_Borzoi.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
-      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (el) el.style.display = 'none'; }
-      const g = document.getElementById('breedGallery'); if (g) g.style.display = 'none';
+      const gal = photos.slice(1);
+      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (!el) continue; const src = gal[i - 1]; if (src) { el.referrerPolicy = 'no-referrer'; el.style.display = ''; galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i - 1)); } else { el.style.display = 'none'; } }
     })();
 
     function openLightbox(index) { currentPhotoIndex = index; document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex]; document.getElementById('lightbox').classList.add('open'); }

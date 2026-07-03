@@ -292,11 +292,11 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Dingo_%28Canis_lupus_dingo%29_Kakadu_2.jpg/960px-Dingo_%28Canis_lupus_dingo%29_Kakadu_2.jpg"];
+      const photos = ["https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Dingo_%28Canis_lupus_dingo%29_Kakadu_2.jpg/960px-Dingo_%28Canis_lupus_dingo%29_Kakadu_2.jpg","https://upload.wikimedia.org/wikipedia/commons/9/98/Dingo_walking.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Australian_Dingo_%E2%80%93_Canis_familiaris_dingo%2C_Taronga_ZOO%2C_Sydney.jpg/960px-Australian_Dingo_%E2%80%93_Canis_familiaris_dingo%2C_Taronga_ZOO%2C_Sydney.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Canis_lupus_dingo%2C_Fraser_Island.jpg/960px-Canis_lupus_dingo%2C_Fraser_Island.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Canis_lupus_dingo_2.jpg/960px-Canis_lupus_dingo_2.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Dingo_Fraser_Is.jpg/960px-Dingo_Fraser_Is.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Dingo_of_Fraser_Island-20170215-092336.jpg/960px-Dingo_of_Fraser_Island-20170215-092336.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
-      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (el) el.style.display = 'none'; }
-      const g = document.getElementById('breedGallery'); if (g) g.style.display = 'none';
+      const gal = photos.slice(1);
+      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (!el) continue; const src = gal[i - 1]; if (src) { el.referrerPolicy = 'no-referrer'; el.style.display = ''; galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i - 1)); } else { el.style.display = 'none'; } }
     })();
 
     function openLightbox(i){ currentPhotoIndex=i; document.getElementById('lightboxImg').src=galleryPhotos[i]; document.getElementById('lightbox').classList.add('open'); }

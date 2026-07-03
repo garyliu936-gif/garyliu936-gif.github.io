@@ -193,11 +193,11 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Ratonero_bodeguero_andaluz_en_carrera.jpg/960px-Ratonero_bodeguero_andaluz_en_carrera.jpg"];
+      const photos = ["https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Ratonero_bodeguero_andaluz_en_carrera.jpg/960px-Ratonero_bodeguero_andaluz_en_carrera.jpg","https://upload.wikimedia.org/wikipedia/commons/0/0e/Ratonero_Bodeguero_Andaluz.jpg","https://upload.wikimedia.org/wikipedia/commons/c/cb/Ratonero_bodeguero_andal%C3%BAz.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Bodeguero_young.jpg/960px-Bodeguero_young.jpg","https://upload.wikimedia.org/wikipedia/commons/a/a7/Ratonero_bodeguero_andaluz_aka_Andalusian_Mouse-hunting_Dog_2.JPG","https://upload.wikimedia.org/wikipedia/commons/c/c0/Ratonero_bodeguero_andaluz_aka_Andalusian_Mouse-hunting_Dog_1.JPG","https://upload.wikimedia.org/wikipedia/commons/f/f9/2_Ratonero_Bodeguero_Andaluz.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
-      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (el) el.style.display = 'none'; }
-      const g = document.getElementById('breedGallery'); if (g) g.style.display = 'none';
+      const gal = photos.slice(1);
+      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (!el) continue; const src = gal[i - 1]; if (src) { el.referrerPolicy = 'no-referrer'; el.style.display = ''; galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i - 1)); } else { el.style.display = 'none'; } }
     })();
 
     function openLightbox(i){currentPhotoIndex=i;document.getElementById('lightboxImg').src=galleryPhotos[i];document.getElementById('lightbox').classList.add('open');}

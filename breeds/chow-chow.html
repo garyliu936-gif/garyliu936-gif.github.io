@@ -472,11 +472,11 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/chow/n02112137_16109.jpg"];
+      const photos = ["https://images.dog.ceo/breeds/chow/n02112137_16109.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/01_Chow_Chow.jpg/960px-01_Chow_Chow.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/02_-_Chow-chow.jpg/960px-02_-_Chow-chow.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/03_Bokeh_the_Chow.jpg/960px-03_Bokeh_the_Chow.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Chow-chow_in_Tallinn.JPG/960px-Chow-chow_in_Tallinn.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/ChowChow1.jpg/960px-ChowChow1.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/ChowChow2Szczecin.jpg/960px-ChowChow2Szczecin.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
-      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (el) el.style.display = 'none'; }
-      const g = document.getElementById('breedGallery'); if (g) g.style.display = 'none';
+      const gal = photos.slice(1);
+      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (!el) continue; const src = gal[i - 1]; if (src) { el.referrerPolicy = 'no-referrer'; el.style.display = ''; galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i - 1)); } else { el.style.display = 'none'; } }
     })();
 
     function openLightbox(index) { currentPhotoIndex = index; document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex]; document.getElementById('lightbox').classList.add('open'); }

@@ -369,11 +369,11 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Jack_Russell_Terrier_1.jpg/960px-Jack_Russell_Terrier_1.jpg"];
+      const photos = ["https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Jack_Russell_Terrier_1.jpg/960px-Jack_Russell_Terrier_1.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Jack_Russell_terrier_puppy.jpg/960px-Jack_Russell_terrier_puppy.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Jack_Russell_Terrier_on_a_lead_standing_in_a_lake.jpg/960px-Jack_Russell_Terrier_on_a_lead_standing_in_a_lake.jpg","https://upload.wikimedia.org/wikipedia/commons/3/3f/Jack_Russell_Jolly_Dogs_Smartie.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Broken_Coated_Jack_Russell_Terrier.jpg/960px-Broken_Coated_Jack_Russell_Terrier.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Gizmo_the_Jack_Russell.jpg/960px-Gizmo_the_Jack_Russell.jpg","https://upload.wikimedia.org/wikipedia/commons/b/b4/JackRussellJump_wb.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
-      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (el) el.style.display = 'none'; }
-      const g = document.getElementById('breedGallery'); if (g) g.style.display = 'none';
+      const gal = photos.slice(1);
+      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (!el) continue; const src = gal[i - 1]; if (src) { el.referrerPolicy = 'no-referrer'; el.style.display = ''; galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i - 1)); } else { el.style.display = 'none'; } }
     })();
 
     function openLightbox(i){currentPhotoIndex=i;document.getElementById('lightboxImg').src=galleryPhotos[i];document.getElementById('lightbox').classList.add('open');}

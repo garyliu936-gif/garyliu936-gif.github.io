@@ -496,11 +496,11 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/spaniel-irish/n02102973_356.jpg"];
+      const photos = ["https://images.dog.ceo/breeds/spaniel-irish/n02102973_356.jpg","https://upload.wikimedia.org/wikipedia/en/thumb/b/b9/Chesapeake_retriever%2C_curly-coated_retriever%2C_and_Irish_water_spaniel_dogs_hunting.jpg/960px-Chesapeake_retriever%2C_curly-coated_retriever%2C_and_Irish_water_spaniel_dogs_hunting.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Ierse_Water_Spaniel.jpg/960px-Ierse_Water_Spaniel.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Irlandzki_spaniel_wodny_676.jpg/960px-Irlandzki_spaniel_wodny_676.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/PSM_V40_D254_The_irish_water_spaniel_champion_shaun.jpg/960px-PSM_V40_D254_The_irish_water_spaniel_champion_shaun.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Water_dog_and_retrievers.jpg/960px-Water_dog_and_retrievers.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Irish_Water_Spaniel_BDL.jpg/960px-Irish_Water_Spaniel_BDL.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
-      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (el) el.style.display = 'none'; }
-      const g = document.getElementById('breedGallery'); if (g) g.style.display = 'none';
+      const gal = photos.slice(1);
+      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (!el) continue; const src = gal[i - 1]; if (src) { el.referrerPolicy = 'no-referrer'; el.style.display = ''; galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i - 1)); } else { el.style.display = 'none'; } }
     })();
 
     function openLightbox(index) { currentPhotoIndex = index; document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex]; document.getElementById('lightbox').classList.add('open'); }

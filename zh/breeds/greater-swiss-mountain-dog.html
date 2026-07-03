@@ -497,11 +497,11 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/mountain-swiss/n02107574_1249.jpg"];
+      const photos = ["https://images.dog.ceo/breeds/mountain-swiss/n02107574_1249.jpg","https://upload.wikimedia.org/wikipedia/commons/a/a2/Blue_greater_swiss.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Greater_Swiss_Mountain_Dog_2018.jpg/960px-Greater_Swiss_Mountain_Dog_2018.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Greater_Swiss_Mountain_Dog_at_Larz_Anderson_Park.jpg/960px-Greater_Swiss_Mountain_Dog_at_Larz_Anderson_Park.jpg","https://upload.wikimedia.org/wikipedia/commons/b/be/Red_greater_swiss.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Swissy.JPG/960px-Swissy.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Swissy_sleep.JPG/960px-Swissy_sleep.JPG"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
-      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (el) el.style.display = 'none'; }
-      const g = document.getElementById('breedGallery'); if (g) g.style.display = 'none';
+      const gal = photos.slice(1);
+      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (!el) continue; const src = gal[i - 1]; if (src) { el.referrerPolicy = 'no-referrer'; el.style.display = ''; galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i - 1)); } else { el.style.display = 'none'; } }
     })();
 
     function openLightbox(index) { currentPhotoIndex = index; document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex]; document.getElementById('lightbox').classList.add('open'); }

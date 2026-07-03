@@ -496,11 +496,11 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/spaniel-japanese/n02085782_2886.jpg"];
+      const photos = ["https://images.dog.ceo/breeds/spaniel-japanese/n02085782_2886.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Chin_posing.jpg/960px-Chin_posing.jpg","https://upload.wikimedia.org/wikipedia/commons/c/cd/Japanese_Chin_adult.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Japanese_Chin_portrait.jpg/960px-Japanese_Chin_portrait.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Japanese_Chin_red.jpg/960px-Japanese_Chin_red.jpg","https://upload.wikimedia.org/wikipedia/commons/c/c8/Japanes_chin_adult.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Japanese_Chin_Dog_001.jpg/960px-Japanese_Chin_Dog_001.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
-      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (el) el.style.display = 'none'; }
-      const g = document.getElementById('breedGallery'); if (g) g.style.display = 'none';
+      const gal = photos.slice(1);
+      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (!el) continue; const src = gal[i - 1]; if (src) { el.referrerPolicy = 'no-referrer'; el.style.display = ''; galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i - 1)); } else { el.style.display = 'none'; } }
     })();
 
     function openLightbox(index) { currentPhotoIndex = index; document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex]; document.getElementById('lightbox').classList.add('open'); }

@@ -480,11 +480,11 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/stbernard/n02109525_6693.jpg"];
+      const photos = ["https://images.dog.ceo/breeds/stbernard/n02109525_6693.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/A_young_St._Bernard_dog_-_Shanu_playing_on_snow.jpg/960px-A_young_St._Bernard_dog_-_Shanu_playing_on_snow.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Hospice_du_Grand_Saint-Bernard%2C_Gustav_N%C3%BCnnicke_03.jpg/960px-Hospice_du_Grand_Saint-Bernard%2C_Gustav_N%C3%BCnnicke_03.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Saint_Bernard_dog._%E2%80%9CCanis_lupus_familiaris%E2%80%9D.jpg/960px-Saint_Bernard_dog._%E2%80%9CCanis_lupus_familiaris%E2%80%9D.jpg","https://upload.wikimedia.org/wikipedia/commons/f/fa/Saint_Bernardhund.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Santo_Stefano_d%27Aveto-statua_san_bernardo_di_mentone_ad_Ascona.jpg/960px-Santo_Stefano_d%27Aveto-statua_san_bernardo_di_mentone_ad_Ascona.jpg","https://upload.wikimedia.org/wikipedia/commons/3/3a/St._Bernards_-_To_The_Rescue_by_John_Emms_%28artist%29.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
-      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (el) el.style.display = 'none'; }
-      const g = document.getElementById('breedGallery'); if (g) g.style.display = 'none';
+      const gal = photos.slice(1);
+      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (!el) continue; const src = gal[i - 1]; if (src) { el.referrerPolicy = 'no-referrer'; el.style.display = ''; galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i - 1)); } else { el.style.display = 'none'; } }
     })();
 
     function openLightbox(index) { currentPhotoIndex = index; document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex]; document.getElementById('lightbox').classList.add('open'); }

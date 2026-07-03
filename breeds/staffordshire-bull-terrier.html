@@ -472,11 +472,11 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/bullterrier-staffordshire/n02093256_1275.jpg"];
+      const photos = ["https://images.dog.ceo/breeds/bullterrier-staffordshire/n02093256_1275.jpg","https://upload.wikimedia.org/wikipedia/commons/f/fd/19th_bulldog_and_two_bullterriers.jpg","https://upload.wikimedia.org/wikipedia/commons/7/74/Benjamin_Marshall_-_Dustman_-_Bulldog_and_Terrier_Mix.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Brindle_%26_white_Staffordshire_Bull_Terrier_%28AKA_Essie%29.jpg/960px-Brindle_%26_white_Staffordshire_Bull_Terrier_%28AKA_Essie%29.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Fawn_Staffordshire_bull_terrier.jpg/960px-Fawn_Staffordshire_bull_terrier.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/J.M._Crossland_-_Staffordshire_bull_terrier_belonging_to_the_Rev._John_Gower_-_Google_Art_Project.jpg/960px-J.M._Crossland_-_Staffordshire_bull_terrier_belonging_to_the_Rev._John_Gower_-_Google_Art_Project.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/StaffBull.JPG/960px-StaffBull.JPG"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
-      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (el) el.style.display = 'none'; }
-      const g = document.getElementById('breedGallery'); if (g) g.style.display = 'none';
+      const gal = photos.slice(1);
+      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (!el) continue; const src = gal[i - 1]; if (src) { el.referrerPolicy = 'no-referrer'; el.style.display = ''; galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i - 1)); } else { el.style.display = 'none'; } }
     })();
 
     function openLightbox(index) { currentPhotoIndex = index; document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex]; document.getElementById('lightbox').classList.add('open'); }

@@ -472,11 +472,11 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Stablemaster%27s_NORTHERN_HOPE%28Poznan2006%29.jpg/960px-Stablemaster%27s_NORTHERN_HOPE%28Poznan2006%29.jpg"];
+      const photos = ["https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Stablemaster%27s_NORTHERN_HOPE%28Poznan2006%29.jpg/960px-Stablemaster%27s_NORTHERN_HOPE%28Poznan2006%29.jpg","https://upload.wikimedia.org/wikipedia/commons/d/dd/Bvdb-riesen_schnauzer.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Sznaucer_olbrzym_i_sznaucer_%C5%9Bredni_copy.jpg/960px-Sznaucer_olbrzym_i_sznaucer_%C5%9Bredni_copy.jpg","https://upload.wikimedia.org/wikipedia/commons/0/0c/RiesenschnauzerAgility.jpg","https://upload.wikimedia.org/wikipedia/commons/d/d9/Frajer_Frenkie_Goldest_Danubius.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/DocFile_Riiseni.jpg/960px-DocFile_Riiseni.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Grupp_2_RIESENSCHNAUZER%2C_SVART%2C_Herr_Riesen_Jacqueline_Bisset_%2824205778041%29.jpg/960px-Grupp_2_RIESENSCHNAUZER%2C_SVART%2C_Herr_Riesen_Jacqueline_Bisset_%2824205778041%29.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
-      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (el) el.style.display = 'none'; }
-      const g = document.getElementById('breedGallery'); if (g) g.style.display = 'none';
+      const gal = photos.slice(1);
+      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (!el) continue; const src = gal[i - 1]; if (src) { el.referrerPolicy = 'no-referrer'; el.style.display = ''; galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i - 1)); } else { el.style.display = 'none'; } }
     })();
 
     function openLightbox(index) { currentPhotoIndex = index; document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex]; document.getElementById('lightbox').classList.add('open'); }
