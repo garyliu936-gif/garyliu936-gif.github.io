@@ -342,9 +342,11 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const heroPhoto = "../../images/hybrids/borzoi-poodle.png";
+      const photos = ["../../images/hybrids/borzoi-poodle.png","../../images/hybrids/borzoi-poodle-2.png","../../images/hybrids/borzoi-poodle-3.png"];
       const hero = document.getElementById('breedPhoto');
-      if (hero) { hero.onload = () => { hero.style.display = 'block'; const e = document.getElementById('breedEmoji'); if (e) e.style.display = 'none'; }; hero.src = heroPhoto; }
+      if (photos[0] && hero) { hero.onload = () => { hero.style.display = 'block'; const e = document.getElementById('breedEmoji'); if (e) e.style.display = 'none'; }; hero.src = photos[0]; }
+      const gal = photos.slice(1);
+      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (!el) continue; const src = gal[i - 1]; if (src) { galleryPhotos.push(src); el.src = src; el.style.display = ''; el.addEventListener('click', () => openLightbox(i - 1)); } else { el.style.display = 'none'; } }
     })();
 
     function openLightbox(index) { currentPhotoIndex = index; document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex]; document.getElementById('lightbox').classList.add('open'); }
