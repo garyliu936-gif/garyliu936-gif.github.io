@@ -193,10 +193,11 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const hero = document.getElementById('breedPhoto'); if (hero) hero.style.display = 'none';
-      const em = document.getElementById('breedEmoji'); if (em) em.style.display = '';
-      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (el) el.style.display = 'none'; }
-      const g = document.getElementById('breedGallery'); if (g) g.style.display = 'none';
+      const photos = ["../../images/purebreds/arigeois.png","../../images/purebreds/arigeois-2.png","../../images/purebreds/arigeois-3.png"];
+      const hero = document.getElementById('breedPhoto');
+      if (photos[0] && hero) { hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
+      const gal = photos.slice(1);
+      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (!el) continue; const src = gal[i - 1]; if (src) { el.style.display = ''; galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i - 1)); } else { el.style.display = 'none'; } }
     })();
 
     function openLightbox(i){currentPhotoIndex=i;document.getElementById('lightboxImg').src=galleryPhotos[i];document.getElementById('lightbox').classList.add('open');}
