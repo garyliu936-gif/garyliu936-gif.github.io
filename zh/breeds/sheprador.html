@@ -122,7 +122,7 @@
           <h2>📸 德牧拉布拉多混血犬照片集</h2>
           <p>浏览德牧拉布拉多混血犬的真实照片，欣赏它的外形、体型与个性。</p>
           <div class="breed-gallery" id="breedGallery">
-            <img class="gallery-photo" id="gp1" alt="德牧拉布拉多混血犬照片 1" />
+            <img class="gallery-photo" id="gp1" alt="德牧拉布拉多混血犬照片 1" /><img class="gallery-photo" id="gp2" alt="德牧拉布拉多混血犬照片 2" /><img class="gallery-photo" id="gp3" alt="德牧拉布拉多混血犬照片 3" />
             
             
             
@@ -496,8 +496,8 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const heroPhoto = "https://upload.wikimedia.org/wikipedia/commons/2/2b/Sheprador_Jasper.jpg";
-      const gp = ["https://upload.wikimedia.org/wikipedia/commons/2/2b/Sheprador_Jasper.jpg"];
+      const heroPhoto = "../../images/hybrids/sheprador.png";
+      const gp = ["../../images/hybrids/sheprador.png", "../../images/hybrids/sheprador-2.png", "../../images/hybrids/sheprador-3.png"];
       const hero = document.getElementById('breedPhoto');
       if (hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const e = document.getElementById('breedEmoji'); if (e) e.style.display = 'none'; }; hero.src = heroPhoto; }
       gp.forEach((src, i) => { const el = document.getElementById('gp' + (i + 1)); if (el && src) { el.referrerPolicy = 'no-referrer'; el.src = src; galleryPhotos.push(src); el.addEventListener('click', () => openLightbox(i)); } });
