@@ -407,7 +407,7 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/doberman/n02107142_17111.jpg","https://upload.wikimedia.org/wikipedia/commons/e/ed/Doberman_Pinscher_Portrait.jpg","https://upload.wikimedia.org/wikipedia/commons/0/07/Doberman_Pinschers_black_and_blue.jpg","https://upload.wikimedia.org/wikipedia/commons/5/53/Doberman_blue%2C_purebred_CKC.JPG","https://upload.wikimedia.org/wikipedia/commons/c/c2/Dobermann_Black_and_Tan_%22Vito%22.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Dobermann_handling.jpg/960px-Dobermann_handling.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Dobermannwurf.jpg/960px-Dobermannwurf.jpg"];
+      const photos = ["https://upload.wikimedia.org/wikipedia/commons/e/ed/Doberman_Pinscher_Portrait.jpg","https://upload.wikimedia.org/wikipedia/commons/0/07/Doberman_Pinschers_black_and_blue.jpg","https://upload.wikimedia.org/wikipedia/commons/5/53/Doberman_blue%2C_purebred_CKC.JPG","https://upload.wikimedia.org/wikipedia/commons/c/c2/Dobermann_Black_and_Tan_%22Vito%22.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Dobermann_handling.jpg/1280px-Dobermann_handling.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Dobermannwurf.jpg/1280px-Dobermannwurf.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
       const gal = photos.slice(1);

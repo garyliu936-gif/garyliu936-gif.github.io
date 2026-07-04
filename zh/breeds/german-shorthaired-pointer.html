@@ -474,7 +474,7 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://upload.wikimedia.org/wikipedia/commons/0/00/German_Shorthaired_Pointer_portrait.jpg"];
+      const photos = ["https://upload.wikimedia.org/wikipedia/commons/3/38/Duitse_staande_korthaar_10-10-2.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Etzel_vom_Th%C3%BCringer_Zipfel.jpg/1280px-Etzel_vom_Th%C3%BCringer_Zipfel.jpg","https://upload.wikimedia.org/wikipedia/commons/9/97/Metsosuon_kennel_1.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
       const gal = photos.slice(1);

@@ -469,7 +469,7 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/pomeranian/n02112018_612.jpg","https://upload.wikimedia.org/wikipedia/commons/c/ca/Pomeranian.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Pomeranian.jpg/960px-Pomeranian.jpg","https://upload.wikimedia.org/wikipedia/commons/e/ed/Pomeranian_Thank_You.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Pomeranian_orange-sable_Coco.jpg/960px-Pomeranian_orange-sable_Coco.jpg","https://upload.wikimedia.org/wikipedia/commons/2/2b/Pomeranian_orange_sable_600.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Tanpomeranian.jpg/960px-Tanpomeranian.jpg"];
+      const photos = ["https://upload.wikimedia.org/wikipedia/commons/a/ad/Black-tan-pom.jpg","https://upload.wikimedia.org/wikipedia/commons/d/de/Chocolate-pom.jpg","https://upload.wikimedia.org/wikipedia/commons/c/ca/Pomeranian.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Pomeranian.jpg/1280px-Pomeranian.jpg","https://upload.wikimedia.org/wikipedia/commons/e/ed/Pomeranian_Thank_You.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Pomeranian_orange-sable_Coco.jpg/1280px-Pomeranian_orange-sable_Coco.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
       const gal = photos.slice(1);

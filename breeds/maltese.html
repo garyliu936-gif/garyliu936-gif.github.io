@@ -407,7 +407,7 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/maltese/n02085936_11744.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/1AKC_Maltese_Dog_Show_2011.jpg/960px-1AKC_Maltese_Dog_Show_2011.jpg","https://upload.wikimedia.org/wikipedia/commons/9/94/Maltese_600.jpg"];
+      const photos = ["https://upload.wikimedia.org/wikipedia/commons/e/ee/1AKC_Maltese_Dog_Show_2011.jpg","https://upload.wikimedia.org/wikipedia/commons/9/94/Maltese_600.jpg","https://upload.wikimedia.org/wikipedia/commons/f/f2/Lucy_McElhiney.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
       const gal = photos.slice(1);
