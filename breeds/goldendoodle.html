@@ -419,7 +419,7 @@
     let currentPhotoIndex = 0;
     (function () {
       const heroPhoto = "../images/hybrids/goldendoodle.png";
-      const photos = ["https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Golden_Doodle_Standing_%28HD%29.jpg/1280px-Golden_Doodle_Standing_%28HD%29.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Goldendoodle.jpg/1280px-Goldendoodle.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Snowy_goldendoodle.JPG/1280px-Snowy_goldendoodle.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/MiltonHighRes-5.jpg/1280px-MiltonHighRes-5.jpg"];
+      const photos = ["https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Golden_Doodle_Standing_%28HD%29.jpg/1280px-Golden_Doodle_Standing_%28HD%29.jpg", "../images/hybrids/goldendoodle.png", "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Goldendoodle.jpg/1280px-Goldendoodle.jpg", "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Snowy_goldendoodle.JPG/1280px-Snowy_goldendoodle.JPG", "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/MiltonHighRes-5.jpg/1280px-MiltonHighRes-5.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const e = document.getElementById('breedEmoji'); if (e) e.style.display = 'none'; }; hero.src = heroPhoto; }
       photos.forEach((src, i) => { const el = document.getElementById('gp' + (i + 1)); if (el && src) { el.referrerPolicy = 'no-referrer'; galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i)); } });

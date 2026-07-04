@@ -443,6 +443,9 @@
       const heroPhoto = "https://live.staticflickr.com/65535/53678482371_703f23e3b3_b.jpg";
       const hero = document.getElementById('breedPhoto');
       if (hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const e = document.getElementById('breedEmoji'); if (e) e.style.display = 'none'; }; hero.src = heroPhoto; }
+    
+      const gp = ["../../images/hybrids/shorkie.png"];
+      gp.forEach((src,i)=>{ const el=document.getElementById('gp'+(i+1)); if(el&&src){ el.referrerPolicy='no-referrer'; el.src=src; galleryPhotos.push(src); el.addEventListener('click',()=>openLightbox(i)); } });
     })();
 
     function openLightbox(i){ currentPhotoIndex=i; document.getElementById('lightboxImg').src=galleryPhotos[i]; document.getElementById('lightbox').classList.add('open'); }
