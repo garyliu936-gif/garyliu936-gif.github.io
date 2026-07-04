@@ -290,7 +290,21 @@
   </script>
   <script>
     let galleryPhotos=[];let currentPhotoIndex=0;
-    fetch('https://dog.ceo/api/breed/spaniel/cocker/images').then(r=>r.json()).then(data=>{if(!Array.isArray(data.message)||!data.message.length)return;const photos=data.message;const hero=document.getElementById('breedPhoto');hero.src=photos[3]||photos[0];hero.onload=()=>{hero.style.display='block';document.getElementById('breedEmoji').style.display='none';};[1,5,9,13,17,21].forEach((index,i)=>{const el=document.getElementById('gp'+(i+1));const src=photos[index]||photos[i]||photos[0];if(el&&src){galleryPhotos.push(src);el.src=src;el.addEventListener('click',()=>openLightbox(i));}});}).catch(()=>{});
+    (function () {
+      const photos = [
+        "https://upload.wikimedia.org/wikipedia/commons/4/48/Kleiner_M%C3%BCnsterl%C3%A4nder.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Canis_-_VTdJ.JPG/960px-Canis_-_VTdJ.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Kleiner_Muensterlaender.jpg/960px-Kleiner_Muensterlaender.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/1/16/Kleinemunsterlander.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/6/6a/Kleiner_Munsterlander_edit.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/e/e8/Heidewachtel.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/2/29/Floris_jelle_kim_von_beers_freunde.jpg"
+      ];
+      const hero = document.getElementById('breedPhoto');
+      if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
+      const gal = photos.slice(1);
+      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (!el) continue; const src = gal[i - 1]; if (src) { el.referrerPolicy = 'no-referrer'; el.style.display = ''; galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i - 1)); } else { el.style.display = 'none'; } }
+    })();
     function openLightbox(i){currentPhotoIndex=i;document.getElementById('lightboxImg').src=galleryPhotos[i];document.getElementById('lightbox').classList.add('open');}
     function closeLightbox(){document.getElementById('lightbox').classList.remove('open');}
     document.getElementById('lightboxClose').addEventListener('click',closeLightbox);

@@ -340,7 +340,21 @@
   </script>
   <script>
     let galleryPhotos=[];let currentPhotoIndex=0;
-    fetch('https://dog.ceo/api/breed/newfoundland/images').then(r=>r.json()).then(data=>{if(!Array.isArray(data.message)||!data.message.length)return;const photos=data.message;const hero=document.getElementById('breedPhoto');hero.src=photos[0];hero.onload=()=>{hero.style.display='block';document.getElementById('breedEmoji').style.display='none';};[0,2,4,6,8,10].forEach((index,i)=>{const el=document.getElementById('gp'+(i+1));const src=photos[index]||photos[0];if(el&&src){galleryPhotos.push(src);el.src=src;el.addEventListener('click',()=>openLightbox(i));}});}).catch(()=>{});
+    (function () {
+      const photos = [
+        "https://upload.wikimedia.org/wikipedia/commons/0/04/Landseer.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/b/b3/Intrepid_dream_des_pandas_des_terres_rouges.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Al25102008.jpg/960px-Al25102008.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/B%26W_Nfld.jpg/960px-B%26W_Nfld.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/AbbyMaus2.JPG/960px-AbbyMaus2.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Doglandseer.jpg/960px-Doglandseer.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Des_pandas_des_terres_rouges.jpg/960px-Des_pandas_des_terres_rouges.jpg"
+      ];
+      const hero = document.getElementById('breedPhoto');
+      if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
+      const gal = photos.slice(1);
+      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (!el) continue; const src = gal[i - 1]; if (src) { el.referrerPolicy = 'no-referrer'; el.style.display = ''; galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i - 1)); } else { el.style.display = 'none'; } }
+    })();
     function openLightbox(i){currentPhotoIndex=i;document.getElementById('lightboxImg').src=galleryPhotos[i];document.getElementById('lightbox').classList.add('open');}
     function closeLightbox(){document.getElementById('lightbox').classList.remove('open');}
     document.getElementById('lightboxClose').addEventListener('click',closeLightbox);

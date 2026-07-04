@@ -339,7 +339,21 @@
   </script>
   <script>
     let galleryPhotos=[];let currentPhotoIndex=0;
-    fetch('https://dog.ceo/api/breed/pyrenees/images').then(r=>r.json()).then(data=>{if(!Array.isArray(data.message)||!data.message.length)return;const photos=data.message;const hero=document.getElementById('breedPhoto');hero.src=photos[0];hero.onload=()=>{hero.style.display='block';document.getElementById('breedEmoji').style.display='none';};[0,2,4,6,8,10].forEach((index,i)=>{const el=document.getElementById('gp'+(i+1));const src=photos[index]||photos[0];if(el&&src){galleryPhotos.push(src);el.src=src;el.addEventListener('click',()=>openLightbox(i));}});}).catch(()=>{});
+    (function () {
+      const photos = [
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Pastore_Maremmano-Abruzzese%2C_young_dog_%28cropped%29.jpg/1280px-Pastore_Maremmano-Abruzzese%2C_young_dog_%28cropped%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Cane_da_pastore_Maremmano-Abruzzese.jpg/960px-Cane_da_pastore_Maremmano-Abruzzese.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/e/e5/Abruzzese_Herder.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/8/82/Cane_Pastore_Abruzzese_Abruzzo.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Brando_Maremma_Sheepdog.jpg/960px-Brando_Maremma_Sheepdog.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Creda-Ovcar-DolenjaVasSenadole.JPG/960px-Creda-Ovcar-DolenjaVasSenadole.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Cane_da_Pastore_Maremmano_Abruzzese.jpg/960px-Cane_da_Pastore_Maremmano_Abruzzese.jpg"
+      ];
+      const hero = document.getElementById('breedPhoto');
+      if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
+      const gal = photos.slice(1);
+      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (!el) continue; const src = gal[i - 1]; if (src) { el.referrerPolicy = 'no-referrer'; el.style.display = ''; galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i - 1)); } else { el.style.display = 'none'; } }
+    })();
     function openLightbox(i){currentPhotoIndex=i;document.getElementById('lightboxImg').src=galleryPhotos[i];document.getElementById('lightbox').classList.add('open');}
     function closeLightbox(){document.getElementById('lightbox').classList.remove('open');}
     document.getElementById('lightboxClose').addEventListener('click',closeLightbox);

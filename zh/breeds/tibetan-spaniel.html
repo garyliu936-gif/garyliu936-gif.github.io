@@ -411,21 +411,21 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
 
-    fetch('https://dog.ceo/api/breed/lhasa/images')
-      .then(r => r.json())
-      .then(data => {
-        if (!Array.isArray(data.message) || !data.message.length) return;
-        const photos = data.message;
-        const hero = document.getElementById('breedPhoto');
-        hero.src = photos[2] || photos[0];
-        hero.onload = () => { hero.style.display = 'block'; document.getElementById('breedEmoji').style.display = 'none'; };
-        const picks = [5, 15, 25, 35, 45, 55];
-        picks.forEach((index, i) => {
-          const el = document.getElementById('gp' + (i + 1));
-          const src = photos[index] || photos[i] || photos[0];
-          if (el && src) { galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i)); }
-        });
-      }).catch(() => {});
+    (function () {
+      const photos = [
+        "https://upload.wikimedia.org/wikipedia/commons/3/38/Tibetansk_spaniel.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/121_2103.JPG/960px-121_2103.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/8/83/Bundesarchiv_Bild_135-S-13-24-11%2C_Tibetexpedition%2C_M%C3%B6nch_mit_Hund.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/9/9b/Buddy_on_the_deck.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/5/5a/1899_tibetan_spaniels.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/b/b2/Forest_fleurs_Evita_Tiara.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/6/65/Epagneul_Tib%C3%A9tain.jpg"
+      ];
+      const hero = document.getElementById('breedPhoto');
+      if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
+      const gal = photos.slice(1);
+      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (!el) continue; const src = gal[i - 1]; if (src) { el.referrerPolicy = 'no-referrer'; el.style.display = ''; galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i - 1)); } else { el.style.display = 'none'; } }
+    })();
 
     function openLightbox(index) { currentPhotoIndex = index; document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex]; document.getElementById('lightbox').classList.add('open'); }
     function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); }

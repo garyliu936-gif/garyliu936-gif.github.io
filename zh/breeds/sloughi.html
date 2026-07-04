@@ -496,21 +496,21 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
 
-    fetch('https://dog.ceo/api/breed/hound/afghan/images')
-      .then(r => r.json())
-      .then(data => {
-        if (!Array.isArray(data.message) || !data.message.length) return;
-        const photos = data.message;
-        const hero = document.getElementById('breedPhoto');
-        hero.src = photos[2] || photos[0];
-        hero.onload = () => { hero.style.display = 'block'; document.getElementById('breedEmoji').style.display = 'none'; };
-        const picks = [5, 15, 25, 35, 45, 55];
-        picks.forEach((index, i) => {
-          const el = document.getElementById('gp' + (i + 1));
-          const src = photos[index] || photos[i] || photos[0];
-          if (el && src) { galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i)); }
-        });
-      }).catch(() => {});
+    (function () {
+      const photos = [
+        "https://upload.wikimedia.org/wikipedia/commons/f/f5/Sloughi_male.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Rabbit_hunter.jpg/960px-Rabbit_hunter.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/0/08/Arabian_Greyhound_from_1915.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Kanni-Spark.JPG/960px-Kanni-Spark.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Rabbit_hunter_cutted.jpg/960px-Rabbit_hunter_cutted.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Djebel_Mahanajim_rotsandfarbener_Sloughi_R%C3%BCde.JPG/960px-Djebel_Mahanajim_rotsandfarbener_Sloughi_R%C3%BCde.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Sloughi_2_Koira_2013.JPG/960px-Sloughi_2_Koira_2013.JPG"
+      ];
+      const hero = document.getElementById('breedPhoto');
+      if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
+      const gal = photos.slice(1);
+      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (!el) continue; const src = gal[i - 1]; if (src) { el.referrerPolicy = 'no-referrer'; el.style.display = ''; galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i - 1)); } else { el.style.display = 'none'; } }
+    })();
 
     function openLightbox(index) { currentPhotoIndex = index; document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex]; document.getElementById('lightbox').classList.add('open'); }
     function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); }

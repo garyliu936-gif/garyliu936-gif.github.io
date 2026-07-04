@@ -496,21 +496,21 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
 
-    fetch('https://dog.ceo/api/breed/terrier/yorkshire/images')
-      .then(r => r.json())
-      .then(data => {
-        if (!Array.isArray(data.message) || !data.message.length) return;
-        const photos = data.message;
-        const hero = document.getElementById('breedPhoto');
-        hero.src = photos[2] || photos[0];
-        hero.onload = () => { hero.style.display = 'block'; document.getElementById('breedEmoji').style.display = 'none'; };
-        const picks = [5, 15, 25, 35, 45, 55];
-        picks.forEach((index, i) => {
-          const el = document.getElementById('gp' + (i + 1));
-          const src = photos[index] || photos[i] || photos[0];
-          if (el && src) { galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i)); }
-        });
-      }).catch(() => {});
+    (function () {
+      const photos = [
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/BiewerH%C3%BCndin.jpg/1280px-BiewerH%C3%BCndin.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Biewer_Terrier.jpg/960px-Biewer_Terrier.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Biewer_Terier.jpg/960px-Biewer_Terier.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Biewer_yorkshire_terrier.jpg/960px-Biewer_yorkshire_terrier.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Biewer_Yorkie.jpg/960px-Biewer_Yorkie.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Biewer_Yorkshire.jpg/960px-Biewer_Yorkshire.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/d/dd/Biewer1.jpg"
+      ];
+      const hero = document.getElementById('breedPhoto');
+      if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
+      const gal = photos.slice(1);
+      for (let i = 1; i <= 6; i++) { const el = document.getElementById('gp' + i); if (!el) continue; const src = gal[i - 1]; if (src) { el.referrerPolicy = 'no-referrer'; el.style.display = ''; galleryPhotos.push(src); el.src = src; el.addEventListener('click', () => openLightbox(i - 1)); } else { el.style.display = 'none'; } }
+    })();
 
     function openLightbox(index) { currentPhotoIndex = index; document.getElementById('lightboxImg').src = galleryPhotos[currentPhotoIndex]; document.getElementById('lightbox').classList.add('open'); }
     function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); }
