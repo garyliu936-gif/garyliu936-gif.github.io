@@ -336,13 +336,19 @@
 
   <script>
   (function(){
-    fetch('https://dog.ceo/api/breed/mastiff/english/images').then(function(r){return r.json();}).then(function(data){
-      if(!Array.isArray(data.message)||!data.message.length)return;
-      var photos=data.message, O=38%photos.length;
-      var hero=document.getElementById('breedPhoto');
-      if(hero){hero.src=photos[O]||photos[0];hero.onload=function(){hero.style.display="block";var e=document.getElementById("breedEmoji");if(e)e.style.display="none";};}
-      for(var i=0;i<6;i++){var el=document.getElementById("gp"+(i+1));if(!el)continue;var src=photos[(O+i*3)%photos.length];if(src)el.src=src;}
-    }).catch(function(){});
+    var photos = [
+        "https://upload.wikimedia.org/wikipedia/commons/5/56/BUKADAI_2.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Dog222.jpg/960px-Dog222.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/6/60/Baxter1B.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/b/ba/Ayaka.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/BUKADAI.JPG/960px-BUKADAI.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Bukadai.jpg/960px-Bukadai.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/BUKADAI_2.jpg/960px-BUKADAI_2.jpg"
+      ];
+    var hero=document.getElementById('breedPhoto');
+    if(photos[0]&&hero){hero.referrerPolicy='no-referrer';hero.onload=function(){hero.style.display='block';var e=document.getElementById('breedEmoji');if(e)e.style.display='none';};hero.onerror=function(){hero.style.display='none';};hero.src=photos[0];}
+    var gal=photos.slice(1);
+    for(var i=1;i<=6;i++){(function(n){var el=document.getElementById('gp'+n);if(!el)return;var src=gal[n-1];if(src){el.referrerPolicy='no-referrer';el.onerror=function(){el.style.display='none';};el.src=src;el.style.display='';el.addEventListener('click',function(){if(typeof openLightbox==='function')openLightbox(n-1);});}else{el.style.display='none';}})(i);}
   })();
   </script>
 

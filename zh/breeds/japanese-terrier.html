@@ -351,13 +351,11 @@
 
   <script>
   (function(){
-    fetch('https://dog.ceo/api/breed/terrier/toy/images').then(function(r){return r.json();}).then(function(data){
-      if(!Array.isArray(data.message)||!data.message.length)return;
-      var photos=data.message, O=73%photos.length;
-      var hero=document.getElementById('breedPhoto');
-      if(hero){hero.src=photos[O]||photos[0];hero.onload=function(){hero.style.display="block";var e=document.getElementById("breedEmoji");if(e)e.style.display="none";};}
-      for(var i=0;i<6;i++){var el=document.getElementById("gp"+(i+1));if(!el)continue;var src=photos[(O+i*3)%photos.length];if(src)el.src=src;}
-    }).catch(function(){});
+    var photos = ["https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Japanese_Terrier_22.04.2012_2pl.jpg/1280px-Japanese_Terrier_22.04.2012_2pl.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Japanese_Terrier2.jpg/960px-Japanese_Terrier2.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Japanese_terrier_Keru.jpg/960px-Japanese_terrier_Keru.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Japanese_Terrier_22.04.2012_1pl.jpg/960px-Japanese_Terrier_22.04.2012_1pl.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Japanese_Terrier_22.04.2012_2pl.jpg/960px-Japanese_Terrier_22.04.2012_2pl.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Japanese_Terrier_22.04.2012_3pl.jpg/960px-Japanese_Terrier_22.04.2012_3pl.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Japanese_Terrier_22.04.2012_4pl.jpg/960px-Japanese_Terrier_22.04.2012_4pl.jpg"];
+    var hero=document.getElementById('breedPhoto');
+    if(photos[0]&&hero){hero.referrerPolicy='no-referrer';hero.onload=function(){hero.style.display='block';var e=document.getElementById('breedEmoji');if(e)e.style.display='none';};hero.onerror=function(){hero.style.display='none';};hero.src=photos[0];}
+    var gal=photos.slice(1);
+    for(var i=1;i<=6;i++){(function(n){var el=document.getElementById('gp'+n);if(!el)return;var src=gal[n-1];if(src){el.referrerPolicy='no-referrer';el.onerror=function(){el.style.display='none';};el.src=src;el.style.display='';el.addEventListener('click',function(){if(typeof openLightbox==='function')openLightbox(n-1);});}else{el.style.display='none';}})(i);}
   })();
   </script>
 

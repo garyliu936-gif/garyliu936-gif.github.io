@@ -347,13 +347,11 @@
 
   <script>
   (function(){
-    fetch('https://dog.ceo/api/breed/pyrenees/images').then(function(r){return r.json();}).then(function(data){
-      if(!Array.isArray(data.message)||!data.message.length)return;
-      var photos=data.message, O=28%photos.length;
-      var hero=document.getElementById('breedPhoto');
-      if(hero){hero.src=photos[O]||photos[0];hero.onload=function(){hero.style.display="block";var e=document.getElementById("breedEmoji");if(e)e.style.display="none";};}
-      for(var i=0;i<6;i++){var el=document.getElementById("gp"+(i+1));if(!el)continue;var src=photos[(O+i*3)%photos.length];if(src)el.src=src;}
-    }).catch(function(){});
+    var photos = ["https://upload.wikimedia.org/wikipedia/commons/f/fb/Podhalaner_Sven_Fischer.jpg","https://upload.wikimedia.org/wikipedia/commons/5/5b/Owczarek_podhala%C5%84ski_592.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Poland_sheepdog.jpg/960px-Poland_sheepdog.jpg","https://upload.wikimedia.org/wikipedia/commons/7/7e/Owczarek_podhala%C5%84ski_g%C5%82owaa_pl.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Owczarek_podhala%C5%84ski_pl.jpg/960px-Owczarek_podhala%C5%84ski_pl.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Owczarekk_podhala%C5%84ski_pl.jpg/960px-Owczarekk_podhala%C5%84ski_pl.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Hunting_with_a_rifle_Mauser_98.JPG/960px-Hunting_with_a_rifle_Mauser_98.JPG"];
+    var hero=document.getElementById('breedPhoto');
+    if(photos[0]&&hero){hero.referrerPolicy='no-referrer';hero.onload=function(){hero.style.display='block';var e=document.getElementById('breedEmoji');if(e)e.style.display='none';};hero.onerror=function(){hero.style.display='none';};hero.src=photos[0];}
+    var gal=photos.slice(1);
+    for(var i=1;i<=6;i++){(function(n){var el=document.getElementById('gp'+n);if(!el)return;var src=gal[n-1];if(src){el.referrerPolicy='no-referrer';el.onerror=function(){el.style.display='none';};el.src=src;el.style.display='';el.addEventListener('click',function(){if(typeof openLightbox==='function')openLightbox(n-1);});}else{el.style.display='none';}})(i);}
   })();
   </script>
 
