@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Dog photo placeholder">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e8f5f3"/>
+      <stop offset="1" stop-color="#d5ece8"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#bg)"/>
+  <g fill="#0d9488" opacity="0.55" transform="translate(200 128)">
+    <ellipse cx="0" cy="24" rx="34" ry="27"/>
+    <ellipse cx="-30" cy="-20" rx="11" ry="15"/>
+    <ellipse cx="-11" cy="-33" rx="11" ry="15"/>
+    <ellipse cx="12" cy="-33" rx="11" ry="15"/>
+    <ellipse cx="31" cy="-20" rx="11" ry="15"/>
+  </g>
+  <text x="200" y="212" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="600" fill="#0d9488" opacity="0.75">Photo coming soon</text>
+</svg>
