@@ -514,5 +514,9 @@
       else if (e.key === 'Escape') { closeLightbox(); }
     });
   </script>
+
+<script>/* gallery-guard: fill first slot from hero, hide empty slots */
+(function(){var g=document.getElementById("breedGallery");if(!g)return;var imgs=[].slice.call(g.querySelectorAll(".gallery-photo"));var hero=document.getElementById("breedPhoto");var hs=hero?(hero.getAttribute("src")||hero.src):"";var shown=0;imgs.forEach(function(im,idx){var s=im.getAttribute("src");if(s&&s.trim()){shown++;return;}if(idx===0&&hs&&hs.trim()){im.referrerPolicy="no-referrer";im.src=hs;shown++;try{if(typeof galleryPhotos!=="undefined"&&typeof openLightbox==="function"){var gi=galleryPhotos.length;galleryPhotos.push(hs);im.addEventListener("click",function(){openLightbox(gi);});}}catch(e){}}else{im.style.display="none";}});if(shown===0){var sec=g.closest(".breed-section");(sec||g).style.display="none";}})();
+</script>
 </body>
 </html>
