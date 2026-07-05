@@ -83,13 +83,7 @@
     <div class="breed-content-wrap">
       <div class="breed-main">
 
-        <div class="breed-section">
-          <h2>🎬 Dalmadoodle Facts</h2>
-          <p>Watch this video for a quick overview of the Dalmadoodle — see the breed in action before diving into the details below.</p>
-          <div class="video-embed">
-            <iframe src="https://www.youtube.com/embed/2o4rdoFa1vk" title="Dalmadoodle — Poodle parent breed (AKC)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          </div>
-        </div>
+        
 
         <nav class="breed-tabs-nav">
           <button class="breed-tab active" data-tab="profile">🐾 Profile</button>
@@ -108,7 +102,7 @@
             <p>Dalmadoodles appeal to families and individuals looking for a dog that combines the best of two beloved breeds. Their hybrid nature can bring health benefits through genetic diversity, and their personality tends to be adaptable and affectionate when properly socialized from a young age. They do best with access to outdoor space and an active daily routine.</p>
           </div>
 
-          <div class="breed-section">
+          <div class="breed-section"><h2>📸 Photo Gallery</h2><p>Real Dalmadoodles — browse photos showcasing their look, size, and personality.</p><div class="breed-gallery" id="breedGallery"><img class="gallery-photo" id="gp1" alt="Dalmadoodle photo 1" /><img class="gallery-photo" id="gp2" alt="Dalmadoodle photo 2" /><img class="gallery-photo" id="gp3" alt="Dalmadoodle photo 3" /><img class="gallery-photo" id="gp4" alt="Dalmadoodle photo 4" /><img class="gallery-photo" id="gp5" alt="Dalmadoodle photo 5" /><img class="gallery-photo" id="gp6" alt="Dalmadoodle photo 6" /></div></div><div class="breed-section">
             <h2>😊 Temperament &amp; Personality</h2>
             <p>Dalmadoodles are known for being sociable and adaptable. They form deep bonds with their families and thrive on consistent human connection. Personality can vary depending on which parent's traits dominate, so meeting the specific dog before adopting is always a smart move.</p>
             <ul>
@@ -483,5 +477,8 @@
       else if (e.key === 'Escape') { closeLightbox(); }
     });
   </script>
+<script>/* gallery-guard */
+(function(){function run(){try{var g=document.getElementById("breedGallery");if(!g)return;var imgs=[].slice.call(g.querySelectorAll(".gallery-photo"));if(!imgs.length)return;imgs.forEach(function(im){im.onerror=function(){this.style.display="none"};var s=im.getAttribute("src");if(!s||!s.trim()||(im.complete&&im.naturalWidth===0))im.style.display="none";});var shown=0;imgs.forEach(function(im){var s=im.getAttribute("src");if(s&&s.trim()&&getComputedStyle(im).display!=="none"&&!(im.complete&&im.naturalWidth===0))shown++;});if(shown>0)return;var hero=document.getElementById("breedPhoto");var heroOk=hero&&hero.getAttribute("src")&&hero.complete&&hero.naturalWidth>0&&getComputedStyle(hero).display!=="none";if(heroOk){var hs=hero.getAttribute("src")||hero.src;var f=imgs[0];f.referrerPolicy="no-referrer";f.style.display="";f.src=hs;try{if(typeof galleryPhotos!=="undefined"&&typeof openLightbox==="function"){var gi=galleryPhotos.length;galleryPhotos.push(hs);f.addEventListener("click",function(){openLightbox(gi);});}}catch(e){}for(var i=1;i<imgs.length;i++)imgs[i].style.display="none";}else{var sec=g.closest(".breed-section");(sec||g).style.display="none";}}catch(e){}}if(document.readyState==="complete")run();else window.addEventListener("load",run);})();
+</script>
 </body>
 </html>

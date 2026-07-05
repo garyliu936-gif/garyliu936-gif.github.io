@@ -153,7 +153,7 @@
         <!-- ── Purebred cards (AKC 2025 top 4) ── -->
         <a href="/breeds/french-bulldog.html" class="featured-card" data-type="purebred">
           <div class="featured-img" data-api="bulldog/french">
-            <img class="featured-real-photo" alt="French Bulldog" />
+            <img class="featured-real-photo" alt="French Bulldog"  src="https://upload.wikimedia.org/wikipedia/commons/2/2b/900-French-Bulldog-l.jpg" referrerpolicy="no-referrer" style="display:block" onerror="this.style.display='none'" />
             <span class="featured-emoji">🐶</span>
             <span class="featured-type-badge badge-purebred">Purebred</span>
           </div>
@@ -167,7 +167,7 @@
 
         <a href="/breeds/labrador-retriever.html" class="featured-card" data-type="purebred">
           <div class="featured-img" data-api="labrador">
-            <img class="featured-real-photo" alt="Labrador Retriever" />
+            <img class="featured-real-photo" alt="Labrador Retriever"  src="https://images.dog.ceo/breeds/labrador/n02099712_4913.jpg" referrerpolicy="no-referrer" style="display:block" onerror="this.style.display='none'" />
             <span class="featured-emoji">🦮</span>
             <span class="featured-type-badge badge-purebred">Purebred</span>
           </div>
@@ -181,7 +181,7 @@
 
         <a href="/breeds/golden-retriever.html" class="featured-card" data-type="purebred">
           <div class="featured-img" data-api="retriever/golden">
-            <img class="featured-real-photo" alt="Golden Retriever" />
+            <img class="featured-real-photo" alt="Golden Retriever"  src="https://images.dog.ceo/breeds/retriever-golden/joey_20210802_223302.jpg" referrerpolicy="no-referrer" style="display:block" onerror="this.style.display='none'" />
             <span class="featured-emoji">🐕</span>
             <span class="featured-type-badge badge-purebred">Purebred</span>
           </div>
@@ -195,7 +195,7 @@
 
         <a href="/breeds/german-shepherd.html" class="featured-card" data-type="purebred">
           <div class="featured-img" data-api="german/shepherd">
-            <img class="featured-real-photo" alt="German Shepherd" />
+            <img class="featured-real-photo" alt="German Shepherd"  src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/German_Shepherd_Dog_Alsatian_4.jpg/960px-German_Shepherd_Dog_Alsatian_4.jpg" referrerpolicy="no-referrer" style="display:block" onerror="this.style.display='none'" />
             <span class="featured-emoji">🐕‍🦺</span>
             <span class="featured-type-badge badge-purebred">Purebred</span>
           </div>
@@ -210,7 +210,7 @@
         <!-- ── Hybrid cards (top 4 designer breeds) ── -->
         <a href="/breeds/goldendoodle.html" class="featured-card" data-type="hybrid">
           <div class="featured-img" data-api="retriever/golden">
-            <img class="featured-real-photo" alt="Goldendoodle" />
+            <img class="featured-real-photo" alt="Goldendoodle"  src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Golden_Doodle_Standing_%28HD%29.jpg/1280px-Golden_Doodle_Standing_%28HD%29.jpg" referrerpolicy="no-referrer" style="display:block" onerror="this.style.display='none'" />
             <span class="featured-emoji">🌟</span>
             <span class="featured-type-badge badge-hybrid">Hybrid</span>
           </div>
@@ -224,7 +224,7 @@
 
         <a href="/breeds/labradoodle.html" class="featured-card" data-type="hybrid">
           <div class="featured-img" data-api="labrador">
-            <img class="featured-real-photo" alt="Labradoodle" />
+            <img class="featured-real-photo" alt="Labradoodle"  src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Labradoodle_am_Strand.jpg/960px-Labradoodle_am_Strand.jpg" referrerpolicy="no-referrer" style="display:block" onerror="this.style.display='none'" />
             <span class="featured-emoji">🐾</span>
             <span class="featured-type-badge badge-hybrid">Hybrid</span>
           </div>
@@ -238,7 +238,7 @@
 
         <a href="/breeds/bernedoodle.html" class="featured-card" data-type="hybrid">
           <div class="featured-img" data-api="mountain/bernese">
-            <img class="featured-real-photo" alt="Bernedoodle" />
+            <img class="featured-real-photo" alt="Bernedoodle"  src="images/hybrids/bernedoodle.png" referrerpolicy="no-referrer" style="display:block" onerror="this.style.display='none'" />
             <span class="featured-emoji">🐻</span>
             <span class="featured-type-badge badge-hybrid">Hybrid</span>
           </div>
@@ -252,7 +252,7 @@
 
         <a href="/breeds/cockapoo.html" class="featured-card" data-type="hybrid">
           <div class="featured-img" data-api="spaniel/cocker">
-            <img class="featured-real-photo" alt="Cockapoo" />
+            <img class="featured-real-photo" alt="Cockapoo"  src="images/hybrids/cockapoo.png" referrerpolicy="no-referrer" style="display:block" onerror="this.style.display='none'" />
             <span class="featured-emoji">🌸</span>
             <span class="featured-type-badge badge-hybrid">Hybrid</span>
           </div>
@@ -429,62 +429,6 @@
 
   <script src="js/main.js"></script>
   <script src="/js/breed-count.js?v=9"></script>
-  <script>
-    // Load real breed photos on the homepage
-    document.querySelectorAll('.featured-img[data-api]').forEach(wrap => {
-      const api = wrap.dataset.api;
-      const img = wrap.querySelector('.featured-real-photo');
-      const emoji = wrap.querySelector('.featured-emoji');
-      const card = wrap.closest('a.featured-card');
-      const slug = (card ? (card.getAttribute('href') || api) : api).replace(/.*\//, '').replace(/\.html$/, '');
-      let hash = 0; for (let i = 0; i < slug.length; i++) hash = (hash * 31 + slug.charCodeAt(i)) >>> 0;
-      fetch(`https://dog.ceo/api/breed/${api}/images`)
-        .then(r => r.json())
-        .then(data => {
-          if (!Array.isArray(data.message) || !data.message.length) return;
-          const photos = data.message;
-          img.src = photos[hash % photos.length];   // per-card pick so shared breeds differ
-          img.onload = () => {
-            img.style.display = 'block';
-            if (emoji) emoji.style.display = 'none';
-          };
-        }).catch(() => {});
-    });
-
-    // Featured breeds category filter tabs
-    document.querySelectorAll('.breed-tab').forEach(tab => {
-      tab.addEventListener('click', () => {
-        document.querySelectorAll('.breed-tab').forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-        const filter = tab.dataset.filter;
-        document.querySelectorAll('#featuredGrid .featured-card').forEach(card => {
-          if (filter === 'all' || card.dataset.type === filter) {
-            card.style.display = '';
-          } else {
-            card.style.display = 'none';
-          }
-        });
-      });
-    });
-
-    // Explore All Topics tab switcher
-    document.querySelectorAll('.topic-tab-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.topic-tab-btn').forEach(b => b.classList.remove('active'));
-        document.querySelectorAll('.topic-tab-panel').forEach(p => p.classList.remove('active'));
-        btn.classList.add('active');
-        document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
-      });
-    });
-
-    function handleSearch() {
-      const q = document.getElementById('homeSearch').value.trim().toLowerCase();
-      if (q) window.location.href = `/breeds/index.html?search=${encodeURIComponent(q)}`;
-    }
-
-    document.getElementById('homeSearch').addEventListener('keydown', e => {
-      if (e.key === 'Enter') handleSearch();
-    });
-  </script>
+  <!-- featured photos hardcoded -->
 </body>
 </html>
