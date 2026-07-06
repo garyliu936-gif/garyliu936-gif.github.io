@@ -152,7 +152,7 @@
 
         <a href="/zh/breeds/french-bulldog.html" class="featured-card" data-type="purebred">
           <div class="featured-img" data-api="bulldog/french">
-            <img class="featured-real-photo" alt="法国斗牛犬" />
+            <img class="featured-real-photo" alt="法国斗牛犬"  src="https://upload.wikimedia.org/wikipedia/commons/2/2b/900-French-Bulldog-l.jpg" referrerpolicy="no-referrer" style="display:block" onerror="this.style.display='none'" />
             <span class="featured-emoji">🐶</span>
             <span class="featured-type-badge badge-purebred">纯种犬</span>
           </div>
@@ -166,7 +166,7 @@
 
         <a href="/zh/breeds/labrador-retriever.html" class="featured-card" data-type="purebred">
           <div class="featured-img" data-api="labrador">
-            <img class="featured-real-photo" alt="拉布拉多寻回犬" />
+            <img class="featured-real-photo" alt="拉布拉多寻回犬"  src="https://images.dog.ceo/breeds/labrador/n02099712_4913.jpg" referrerpolicy="no-referrer" style="display:block" onerror="this.style.display='none'" />
             <span class="featured-emoji">🦮</span>
             <span class="featured-type-badge badge-purebred">纯种犬</span>
           </div>
@@ -180,7 +180,7 @@
 
         <a href="/zh/breeds/golden-retriever.html" class="featured-card" data-type="purebred">
           <div class="featured-img" data-api="retriever/golden">
-            <img class="featured-real-photo" alt="金毛寻回犬" />
+            <img class="featured-real-photo" alt="金毛寻回犬"  src="https://images.dog.ceo/breeds/retriever-golden/joey_20210802_223302.jpg" referrerpolicy="no-referrer" style="display:block" onerror="this.style.display='none'" />
             <span class="featured-emoji">🐕</span>
             <span class="featured-type-badge badge-purebred">纯种犬</span>
           </div>
@@ -194,7 +194,7 @@
 
         <a href="/zh/breeds/german-shepherd.html" class="featured-card" data-type="purebred">
           <div class="featured-img" data-api="german/shepherd">
-            <img class="featured-real-photo" alt="德国牧羊犬" />
+            <img class="featured-real-photo" alt="德国牧羊犬"  src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/German_Shepherd_Dog_Alsatian_4.jpg/960px-German_Shepherd_Dog_Alsatian_4.jpg" referrerpolicy="no-referrer" style="display:block" onerror="this.style.display='none'" />
             <span class="featured-emoji">🐕‍🦺</span>
             <span class="featured-type-badge badge-purebred">纯种犬</span>
           </div>
@@ -208,7 +208,7 @@
 
         <a href="/zh/breeds/goldendoodle.html" class="featured-card" data-type="hybrid">
           <div class="featured-img" data-api="retriever/golden">
-            <img class="featured-real-photo" alt="黄金贵宾犬" />
+            <img class="featured-real-photo" alt="黄金贵宾犬"  src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Golden_Doodle_Standing_%28HD%29.jpg/1280px-Golden_Doodle_Standing_%28HD%29.jpg" referrerpolicy="no-referrer" style="display:block" onerror="this.style.display='none'" />
             <span class="featured-emoji">🌟</span>
             <span class="featured-type-badge badge-hybrid">混血犬</span>
           </div>
@@ -222,7 +222,7 @@
 
         <a href="/zh/breeds/labradoodle.html" class="featured-card" data-type="hybrid">
           <div class="featured-img" data-api="labrador">
-            <img class="featured-real-photo" alt="拉布拉多贵宾犬" />
+            <img class="featured-real-photo" alt="拉布拉多贵宾犬"  src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Labradoodle_am_Strand.jpg/960px-Labradoodle_am_Strand.jpg" referrerpolicy="no-referrer" style="display:block" onerror="this.style.display='none'" />
             <span class="featured-emoji">🐾</span>
             <span class="featured-type-badge badge-hybrid">混血犬</span>
           </div>
@@ -236,7 +236,7 @@
 
         <a href="/zh/breeds/bernedoodle.html" class="featured-card" data-type="hybrid">
           <div class="featured-img" data-api="mountain/bernese">
-            <img class="featured-real-photo" alt="伯恩贵宾犬" />
+            <img class="featured-real-photo" alt="伯恩贵宾犬"  src="../images/hybrids/bernedoodle.png" referrerpolicy="no-referrer" style="display:block" onerror="this.style.display='none'" />
             <span class="featured-emoji">🐻</span>
             <span class="featured-type-badge badge-hybrid">混血犬</span>
           </div>
@@ -250,7 +250,7 @@
 
         <a href="/zh/breeds/cockapoo.html" class="featured-card" data-type="hybrid">
           <div class="featured-img" data-api="spaniel/cocker">
-            <img class="featured-real-photo" alt="可卡贵宾犬" />
+            <img class="featured-real-photo" alt="可卡贵宾犬"  src="../images/hybrids/cockapoo.png" referrerpolicy="no-referrer" style="display:block" onerror="this.style.display='none'" />
             <span class="featured-emoji">🌸</span>
             <span class="featured-type-badge badge-hybrid">混血犬</span>
           </div>
@@ -428,26 +428,7 @@
   <script src="/js/main.js"></script>
   <script src="/js/breed-count.js?v=9"></script>
   <script>
-    // Load real breed photos
-    document.querySelectorAll('.featured-img[data-api]').forEach(wrap => {
-      const api = wrap.dataset.api;
-      const img = wrap.querySelector('.featured-real-photo');
-      const emoji = wrap.querySelector('.featured-emoji');
-      const card = wrap.closest('a.featured-card');
-      const slug = (card ? (card.getAttribute('href') || api) : api).replace(/.*\//, '').replace(/\.html$/, '');
-      let hash = 0; for (let i = 0; i < slug.length; i++) hash = (hash * 31 + slug.charCodeAt(i)) >>> 0;
-      fetch(`https://dog.ceo/api/breed/${api}/images`)
-        .then(r => r.json())
-        .then(data => {
-          if (!Array.isArray(data.message) || !data.message.length) return;
-          const photos = data.message;
-          img.src = photos[hash % photos.length];   // per-card pick so shared breeds differ
-          img.onload = () => {
-            img.style.display = 'block';
-            if (emoji) emoji.style.display = 'none';
-          };
-        }).catch(() => {});
-    });
+    // featured photos hardcoded
 
     // Featured breeds filter tabs
     document.querySelectorAll('.breed-tab').forEach(tab => {
