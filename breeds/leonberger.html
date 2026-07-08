@@ -471,7 +471,7 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/leonberg/n02111129_976.jpg","https://upload.wikimedia.org/wikipedia/commons/d/dd/Leonberger-Moyra-of-Usquebaugh.jpg","https://upload.wikimedia.org/wikipedia/commons/7/76/Leonberger_male.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Sand-coloured_Leonberger.jpg/960px-Sand-coloured_Leonberger.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Leonberger_g%C5%82owa40tt.jpg/960px-Leonberger_g%C5%82owa40tt.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Leonberger_dog_001.jpg/960px-Leonberger_dog_001.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Leonberger_%28full%29.JPG/960px-Leonberger_%28full%29.JPG"];
+      const photos = ["https://upload.wikimedia.org/wikipedia/commons/d/dd/Leonberger-Moyra-of-Usquebaugh.jpg","https://upload.wikimedia.org/wikipedia/commons/7/76/Leonberger_male.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Sand-coloured_Leonberger.jpg/1280px-Sand-coloured_Leonberger.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
       const gal = photos.slice(1);

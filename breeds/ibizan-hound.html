@@ -471,7 +471,7 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/hound-ibizan/n02091244_1025.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Ibizan_Hound.jpg/960px-Ibizan_Hound.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Podenco_d%27Ibiza.jpg/960px-Podenco_d%27Ibiza.jpg","https://upload.wikimedia.org/wikipedia/commons/7/71/Ibizan_hound_picture.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Ibizan_Hound_Wire_in_Riga_1.JPG/960px-Ibizan_Hound_Wire_in_Riga_1.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Ibizan_Hound_Wire_in_Riga_2.JPG/960px-Ibizan_Hound_Wire_in_Riga_2.JPG","https://upload.wikimedia.org/wikipedia/commons/c/ca/Podenco_D%27Ibiza.jpg"];
+      const photos = ["https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/AdemasAout2021.ret.jpg/1280px-AdemasAout2021.ret.jpg","https://upload.wikimedia.org/wikipedia/commons/b/b2/Femelle_Podenco_Ibicenco.jpg","https://upload.wikimedia.org/wikipedia/commons/e/ef/Podenco_z_ibizy_645.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
       const gal = photos.slice(1);

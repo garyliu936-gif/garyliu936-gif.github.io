@@ -353,7 +353,7 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/terrier-kerryblue/n02093859_1120.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Kerry_Blue_Terrier.jpg/960px-Kerry_Blue_Terrier.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Kerry_Blue_Terrier_Kelly_with_Russell.JPG/960px-Kerry_Blue_Terrier_Kelly_with_Russell.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Kerry_blue_terier_540.jpg/960px-Kerry_blue_terier_540.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Kerry_blue_terier_541.jpg/960px-Kerry_blue_terier_541.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Kerry_blue_terier_545.jpg/960px-Kerry_blue_terier_545.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Kerry_blue_terier_g%C5%82owa_d66.jpg/960px-Kerry_blue_terier_g%C5%82owa_d66.jpg"];
+      const photos = ["https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Kerry_Blue_Terrier.jpg/1280px-Kerry_Blue_Terrier.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Kerry_Blue_Terrier_Kelly_with_Russell.JPG/1280px-Kerry_Blue_Terrier_Kelly_with_Russell.JPG"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
       const gal = photos.slice(1);

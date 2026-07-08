@@ -496,7 +496,7 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/pointer-german/n02100236_396.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/German_Wirehaired_Pointer_2011.jpg/960px-German_Wirehaired_Pointer_2011.jpg","https://upload.wikimedia.org/wikipedia/commons/2/28/German_Wirehaired_Pointer_Portrait.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/German_Wirehaired_Pointer_Sola.jpg/960px-German_Wirehaired_Pointer_Sola.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/German_Wirehaired_Pointer_%283891466029%29.jpg/960px-German_Wirehaired_Pointer_%283891466029%29.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/AKC_German_Wirehaired_Pointer_Dog_Show_2013.jpg/960px-AKC_German_Wirehaired_Pointer_Dog_Show_2013.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/German_Wirehaired_Pointer_Azart_look%2C_head_shape.jpg/960px-German_Wirehaired_Pointer_Azart_look%2C_head_shape.jpg"];
+      const photos = ["https://upload.wikimedia.org/wikipedia/commons/2/25/Dan_vom_hardenberg_%28cropped%29.jpg","https://upload.wikimedia.org/wikipedia/commons/9/95/Dr%C3%B3tsz%C5%91r%C5%B1_n%C3%A9met_vizsla_%28cropped%29.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
       const gal = photos.slice(1);

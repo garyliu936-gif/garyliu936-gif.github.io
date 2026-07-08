@@ -496,7 +496,7 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/entlebucher/n02108000_387.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Entlebucher.jpg/960px-Entlebucher.jpg","https://upload.wikimedia.org/wikipedia/commons/3/37/EntlebucherBall2_wb.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Entlebucher_sennenhund_at_11_months.jpg/960px-Entlebucher_sennenhund_at_11_months.jpg","https://upload.wikimedia.org/wikipedia/commons/d/d1/Entlebucher_sennenhond.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Entlebucher_Mountain_Dog_-_GCH_Larry_Of_Brunswick_aka_Larry_4_%2815982640293%29.jpg/960px-Entlebucher_Mountain_Dog_-_GCH_Larry_Of_Brunswick_aka_Larry_4_%2815982640293%29.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Entlebucher_Mountain_Dog_-_GCH_Larry_Of_Brunswick_aka_Larry_1_%2816602413595%29.jpg/960px-Entlebucher_Mountain_Dog_-_GCH_Larry_Of_Brunswick_aka_Larry_1_%2816602413595%29.jpg"];
+      const photos = ["https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Entlebucher.jpg/1280px-Entlebucher.jpg","https://upload.wikimedia.org/wikipedia/commons/3/37/EntlebucherBall2_wb.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Entlebucher_sennenhund_at_11_months.jpg/1280px-Entlebucher_sennenhund_at_11_months.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
       const gal = photos.slice(1);

@@ -496,7 +496,7 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/redbone/n02090379_3291.jpg","https://upload.wikimedia.org/wikipedia/commons/4/4f/23c92fa46639529f64d8a343faf7004f--national-dog-show-redbone-coonhound.jpg","https://upload.wikimedia.org/wikipedia/commons/b/b2/Adolescent_Redbone_Coonhound_in_the_snow.jpg","https://upload.wikimedia.org/wikipedia/commons/8/8b/Redbone-coonhound-detail.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Redbone_Coonhound.jpg/960px-Redbone_Coonhound.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Redbone_Coonhound_image.jpg/960px-Redbone_Coonhound_image.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Redbone_Coonhound_Image_2.jpg/960px-Redbone_Coonhound_Image_2.jpg"];
+      const photos = ["https://upload.wikimedia.org/wikipedia/commons/4/4f/23c92fa46639529f64d8a343faf7004f--national-dog-show-redbone-coonhound.jpg","https://upload.wikimedia.org/wikipedia/commons/b/b2/Adolescent_Redbone_Coonhound_in_the_snow.jpg","https://upload.wikimedia.org/wikipedia/commons/8/8b/Redbone-coonhound-detail.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
       const gal = photos.slice(1);

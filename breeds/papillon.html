@@ -472,7 +472,7 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/papillon/n02086910_9000.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Outdoor_Continental_Toy_Spaniel_Papillon.jpeg/960px-Outdoor_Continental_Toy_Spaniel_Papillon.jpeg","https://upload.wikimedia.org/wikipedia/commons/0/06/RileyPapillon_%28cropped%29.JPG"];
+      const photos = ["https://upload.wikimedia.org/wikipedia/commons/7/7d/Outdoor_Continental_Toy_Spaniel_Papillon.jpeg","https://upload.wikimedia.org/wikipedia/commons/0/06/RileyPapillon_%28cropped%29.JPG"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
       const gal = photos.slice(1);

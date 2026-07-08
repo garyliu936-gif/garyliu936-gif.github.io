@@ -471,7 +471,7 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/terrier-fox/n02095314_227.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/01_Wire_Fox_terrier.jpg/960px-01_Wire_Fox_terrier.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Wire_Fox_Terrier.jpg/960px-Wire_Fox_Terrier.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Wire_fox_terrier_portrait_01.jpg/960px-Wire_fox_terrier_portrait_01.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Wire_fox_terrier_portrait_03.jpg/960px-Wire_fox_terrier_portrait_03.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Wire_fox_terrier_portrait_04.jpg/960px-Wire_fox_terrier_portrait_04.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Wire_fox_terrier_eye_closeup.jpg/960px-Wire_fox_terrier_eye_closeup.jpg"];
+      const photos = ["https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/01_Wire_Fox_terrier.jpg/1280px-01_Wire_Fox_terrier.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Wire_Fox_Terrier.jpg/1280px-Wire_Fox_Terrier.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
       const gal = photos.slice(1);

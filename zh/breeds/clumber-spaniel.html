@@ -496,7 +496,7 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/clumber/n02101556_7986.jpg","https://upload.wikimedia.org/wikipedia/commons/4/42/107._Clumber_Spaniel.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Clumber_Spaniel.jpg/960px-Clumber_Spaniel.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Clumber_Spaniel_on_Grass.jpg/960px-Clumber_Spaniel_on_Grass.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Clumber_spaniel_rybnik_kamien_pppl.jpg/960px-Clumber_spaniel_rybnik_kamien_pppl.jpg","https://upload.wikimedia.org/wikipedia/commons/0/01/Clumber_spaniel_trufla_756.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Clumber_spaniel_767.jpg/960px-Clumber_spaniel_767.jpg"];
+      const photos = ["https://upload.wikimedia.org/wikipedia/commons/4/42/107._Clumber_Spaniel.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Clumber_Spaniel.jpg/1280px-Clumber_Spaniel.jpg","https://upload.wikimedia.org/wikipedia/commons/d/d6/Clumber_Spaniel_on_Grass.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Clumber_spaniel_rybnik_kamien_pppl.jpg/1280px-Clumber_spaniel_rybnik_kamien_pppl.jpg","https://upload.wikimedia.org/wikipedia/commons/0/01/Clumber_spaniel_trufla_756.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
       const gal = photos.slice(1);

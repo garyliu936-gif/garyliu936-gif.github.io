@@ -472,7 +472,7 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/pekinese/n02086079_15842.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/1AKC_Pekingese_Dog_Show_2011.jpg/960px-1AKC_Pekingese_Dog_Show_2011.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Cotton_the_Pekingese.jpg/960px-Cotton_the_Pekingese.jpg","https://upload.wikimedia.org/wikipedia/commons/e/ed/Pekingese1904.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Pekingese_Image_002.jpg/960px-Pekingese_Image_002.jpg","https://upload.wikimedia.org/wikipedia/commons/e/e7/Pekingese_Moletai_May_2014.jpg"];
+      const photos = ["https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/1AKC_Pekingese_Dog_Show_2011.jpg/1280px-1AKC_Pekingese_Dog_Show_2011.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Cotton_the_Pekingese.jpg/1280px-Cotton_the_Pekingese.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Pekingese_Image_002.jpg/1280px-Pekingese_Image_002.jpg","https://upload.wikimedia.org/wikipedia/commons/e/e7/Pekingese_Moletai_May_2014.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
       const gal = photos.slice(1);

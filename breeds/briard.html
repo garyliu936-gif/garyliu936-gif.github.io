@@ -471,7 +471,7 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/briard/n02105251_8384.jpg","https://upload.wikimedia.org/wikipedia/commons/7/78/Aramis-briard.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Briard_fauve.JPG/960px-Briard_fauve.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Briards.jpg/960px-Briards.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Flevobriards.jpeg/960px-Flevobriards.jpeg","https://upload.wikimedia.org/wikipedia/commons/b/b3/Briard_600.jpg","https://upload.wikimedia.org/wikipedia/commons/7/7c/Briard3_wb.jpg"];
+      const photos = ["https://upload.wikimedia.org/wikipedia/commons/7/78/Aramis-briard.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Briard_fauve.JPG/1280px-Briard_fauve.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Briards.jpg/1280px-Briards.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Flevobriards.jpeg/1280px-Flevobriards.jpeg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
       const gal = photos.slice(1);

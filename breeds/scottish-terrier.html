@@ -439,7 +439,7 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/terrier-scottish/n02097298_15174.jpg","https://upload.wikimedia.org/wikipedia/commons/f/f9/076._Scotch_Terrier.JPG","https://upload.wikimedia.org/wikipedia/commons/d/da/3scottish_terriers.jpg","https://upload.wikimedia.org/wikipedia/commons/8/8b/ScottishTerrierShortCoat.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Scottish_Koira_2013.JPG/960px-Scottish_Koira_2013.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Scottish_Terrier_Photo_of_Face.jpg/960px-Scottish_Terrier_Photo_of_Face.jpg","https://upload.wikimedia.org/wikipedia/commons/6/68/Scottish_Terrier_Sire.jpg"];
+      const photos = ["https://upload.wikimedia.org/wikipedia/commons/f/f9/076._Scotch_Terrier.JPG","https://upload.wikimedia.org/wikipedia/commons/d/da/3scottish_terriers.jpg","https://upload.wikimedia.org/wikipedia/commons/8/8b/ScottishTerrierShortCoat.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Scottish_Koira_2013.JPG/1280px-Scottish_Koira_2013.JPG","https://upload.wikimedia.org/wikipedia/commons/0/07/Scottish_Terrier_Photo_of_Face.jpg","https://upload.wikimedia.org/wikipedia/commons/6/68/Scottish_Terrier_Sire.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
       const gal = photos.slice(1);

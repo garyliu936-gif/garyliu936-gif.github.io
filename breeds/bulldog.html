@@ -483,7 +483,7 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/bulldog-english/murphy.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Clyde_The_Bulldog.jpg/960px-Clyde_The_Bulldog.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Female_English_Bulldog.jpg/960px-Female_English_Bulldog.jpg","https://upload.wikimedia.org/wikipedia/commons/2/2f/Philip_Reinagle_-_Bulldog.jpg","https://upload.wikimedia.org/wikipedia/commons/a/a3/Whitebulldog.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/7_Monate_alte_englische_Bulldogge_Lady.jpg/960px-7_Monate_alte_englische_Bulldogge_Lady.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Bulldog_180.JPG/960px-Bulldog_180.JPG"];
+      const photos = ["https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Clyde_The_Bulldog.jpg/1280px-Clyde_The_Bulldog.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Female_English_Bulldog.jpg/1280px-Female_English_Bulldog.jpg","https://upload.wikimedia.org/wikipedia/commons/2/2f/Philip_Reinagle_-_Bulldog.jpg","https://upload.wikimedia.org/wikipedia/commons/a/a3/Whitebulldog.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
       const gal = photos.slice(1);

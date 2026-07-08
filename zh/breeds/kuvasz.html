@@ -496,7 +496,7 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/kuvasz/n02104029_2328.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Kilenchetes_kuvaszk%C3%B6ly%C3%B6k.jpg/960px-Kilenchetes_kuvaszk%C3%B6ly%C3%B6k.jpg","https://upload.wikimedia.org/wikipedia/commons/7/76/Kuvasz_named_Kan.jpg","https://upload.wikimedia.org/wikipedia/commons/9/9d/2-kuvasz.jpg","https://upload.wikimedia.org/wikipedia/commons/3/3d/Kuvasz%2C_Hungary.jpg","https://upload.wikimedia.org/wikipedia/commons/6/6e/Kuvaszdog.jpg","https://upload.wikimedia.org/wikipedia/commons/a/a8/Kuvasz_Prince_Beethoven_Premiacao.jpg"];
+      const photos = ["https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Kilenchetes_kuvaszk%C3%B6ly%C3%B6k.jpg/1280px-Kilenchetes_kuvaszk%C3%B6ly%C3%B6k.jpg","https://upload.wikimedia.org/wikipedia/commons/7/76/Kuvasz_named_Kan.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
       const gal = photos.slice(1);

@@ -496,7 +496,7 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/basenji/n02110806_4179.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Basenji%2C_Bronco.jpg/960px-Basenji%2C_Bronco.jpg","https://upload.wikimedia.org/wikipedia/commons/c/c5/Basenji_Profile_%28loosercrop%29.jpg","https://upload.wikimedia.org/wikipedia/commons/5/5a/Basenji_pair_edit.jpg","https://upload.wikimedia.org/wikipedia/commons/6/64/Basenjis_Charly_e_Bravo_a_sette_mesi.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Billy_Basenji.jpg/960px-Billy_Basenji.jpg","https://upload.wikimedia.org/wikipedia/commons/1/13/Gaia_Basenji.jpg"];
+      const photos = ["https://upload.wikimedia.org/wikipedia/commons/f/f9/Basenji%2C_Bronco.jpg","https://upload.wikimedia.org/wikipedia/commons/c/c5/Basenji_Profile_%28loosercrop%29.jpg","https://upload.wikimedia.org/wikipedia/commons/5/5a/Basenji_pair_edit.jpg","https://upload.wikimedia.org/wikipedia/commons/6/64/Basenjis_Charly_e_Bravo_a_sette_mesi.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Billy_Basenji.jpg/1280px-Billy_Basenji.jpg","https://upload.wikimedia.org/wikipedia/commons/1/13/Gaia_Basenji.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
       const gal = photos.slice(1);

@@ -496,7 +496,7 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/coonhound/n02089078_4098.jpg","https://upload.wikimedia.org/wikipedia/commons/8/88/Black_%26_Tan_Coonhound_2.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Black_and_Tan_Coonhound.jpg/960px-Black_and_Tan_Coonhound.jpg","https://upload.wikimedia.org/wikipedia/commons/b/b8/Black_And_Tan_Coonhound_Fond_Blanc.jpg","https://upload.wikimedia.org/wikipedia/commons/5/53/Black_%26_Tan_Coonhound_1.JPG","https://upload.wikimedia.org/wikipedia/commons/3/34/Black_%26_Tan_Coonhound_3.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Black_And_Tan_Coonhound.jpg/960px-Black_And_Tan_Coonhound.jpg"];
+      const photos = ["https://upload.wikimedia.org/wikipedia/commons/8/88/Black_%26_Tan_Coonhound_2.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Black_and_Tan_Coonhound.jpg/1280px-Black_and_Tan_Coonhound.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
       const gal = photos.slice(1);

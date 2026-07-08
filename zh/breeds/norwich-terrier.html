@@ -497,7 +497,7 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/terrier-norwich/n02094258_125.jpg","https://upload.wikimedia.org/wikipedia/commons/6/65/A_Norwich_Terrier.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Norwich_Terrier1.JPG/960px-Norwich_Terrier1.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Norwich_Terrier2.jpg/960px-Norwich_Terrier2.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Norwich_terier_670.jpg/960px-Norwich_terier_670.jpg","https://upload.wikimedia.org/wikipedia/commons/d/db/Norwichterrier.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Norwich_terrier_545.jpg/960px-Norwich_terrier_545.jpg"];
+      const photos = ["https://upload.wikimedia.org/wikipedia/commons/6/65/A_Norwich_Terrier.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Norwich_Terrier1.JPG/1280px-Norwich_Terrier1.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Norwich_Terrier2.jpg/1280px-Norwich_Terrier2.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Norwich_terier_670.jpg/1280px-Norwich_terier_670.jpg","https://upload.wikimedia.org/wikipedia/commons/d/db/Norwichterrier.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
       const gal = photos.slice(1);

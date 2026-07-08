@@ -470,7 +470,7 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/borzoi/n02090622_7111.jpg","https://upload.wikimedia.org/wikipedia/commons/7/7a/Black_and_white_borzoi.jpg","https://upload.wikimedia.org/wikipedia/commons/8/83/Borzo_by_a_Chair-George_Hare.jpg","https://upload.wikimedia.org/wikipedia/commons/a/ad/Borzoi_600.jpg","https://upload.wikimedia.org/wikipedia/commons/b/be/Borzoi_portrait_Flickr.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Borzoi_red_%26_white.jpg/960px-Borzoi_red_%26_white.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Brindle_Borzoi.jpg/960px-Brindle_Borzoi.jpg"];
+      const photos = ["https://upload.wikimedia.org/wikipedia/commons/7/7a/Black_and_white_borzoi.jpg","https://upload.wikimedia.org/wikipedia/commons/8/83/Borzo_by_a_Chair-George_Hare.jpg","https://upload.wikimedia.org/wikipedia/commons/a/ad/Borzoi_600.jpg","https://upload.wikimedia.org/wikipedia/commons/b/be/Borzoi_portrait_Flickr.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Borzoi_red_%26_white.jpg/1280px-Borzoi_red_%26_white.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Brindle_Borzoi.jpg/1280px-Brindle_Borzoi.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
       const gal = photos.slice(1);

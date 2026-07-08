@@ -471,7 +471,7 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/hound-walker/n02089867_180.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/BlackjackTreeing.jpg/960px-BlackjackTreeing.jpg","https://upload.wikimedia.org/wikipedia/commons/4/46/Treeing-walker-coonhound-standing.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Treeing_walker_coonhound.jpg/960px-Treeing_walker_coonhound.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Treeing_walker_coonhound_sitting_on_a_chair.jpg/960px-Treeing_walker_coonhound_sitting_on_a_chair.jpg","https://upload.wikimedia.org/wikipedia/commons/2/2a/Treeing_Walker_Coonhound.jpg","https://upload.wikimedia.org/wikipedia/commons/5/5f/Treeing_Walker_Coonhound_Pup.jpg"];
+      const photos = ["https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/BlackjackTreeing.jpg/1280px-BlackjackTreeing.jpg","https://upload.wikimedia.org/wikipedia/commons/4/46/Treeing-walker-coonhound-standing.jpg","https://upload.wikimedia.org/wikipedia/commons/0/0c/Treeing_walker_coonhound.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Treeing_walker_coonhound_sitting_on_a_chair.jpg/1280px-Treeing_walker_coonhound_sitting_on_a_chair.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
       const gal = photos.slice(1);

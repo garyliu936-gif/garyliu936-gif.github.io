@@ -404,7 +404,7 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/terrier-lakeland/n02095570_201.jpg","https://upload.wikimedia.org/wikipedia/commons/6/6c/Grizzle_and_tan_lakeland_terrier.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Hughie_-_Lakeland_Terrier.jpg/960px-Hughie_-_Lakeland_Terrier.jpg","https://upload.wikimedia.org/wikipedia/commons/7/78/Lakeland_Terrier.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Lakeland_terrier_045.jpg/960px-Lakeland_terrier_045.jpg","https://upload.wikimedia.org/wikipedia/commons/9/97/Lakeland_Terrier_Flickr.jpg","https://upload.wikimedia.org/wikipedia/commons/b/b4/Lakeland_Terrier2.jpg"];
+      const photos = ["https://upload.wikimedia.org/wikipedia/commons/6/6c/Grizzle_and_tan_lakeland_terrier.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Hughie_-_Lakeland_Terrier.jpg/1280px-Hughie_-_Lakeland_Terrier.jpg","https://upload.wikimedia.org/wikipedia/commons/7/78/Lakeland_Terrier.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
       const gal = photos.slice(1);

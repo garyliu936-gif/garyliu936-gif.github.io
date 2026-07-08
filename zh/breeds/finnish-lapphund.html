@@ -393,7 +393,7 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/finnish-lapphund/img_3801.jpg","https://upload.wikimedia.org/wikipedia/commons/a/a6/Finnish_Lapphund_Glenchess_Revontuli.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Finnish_Lapphund_Oskar.jpg/960px-Finnish_Lapphund_Oskar.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Finnish_lapphund_Elbereth_Norppa_1.jpg/960px-Finnish_lapphund_Elbereth_Norppa_1.jpg","https://upload.wikimedia.org/wikipedia/commons/c/c5/Finnish_lapphund_Pirmese_Allu.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Kvelp_av_finsk_lapphund.jpg/960px-Kvelp_av_finsk_lapphund.jpg"];
+      const photos = ["https://upload.wikimedia.org/wikipedia/commons/a/a6/Finnish_Lapphund_Glenchess_Revontuli.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Finnish_Lapphund_Oskar.jpg/1280px-Finnish_Lapphund_Oskar.jpg","https://upload.wikimedia.org/wikipedia/commons/3/32/Finnish_lapphund_Elbereth_Norppa_1.jpg","https://upload.wikimedia.org/wikipedia/commons/c/c5/Finnish_lapphund_Pirmese_Allu.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Kvelp_av_finsk_lapphund.jpg/1280px-Kvelp_av_finsk_lapphund.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
       const gal = photos.slice(1);

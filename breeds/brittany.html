@@ -472,7 +472,7 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/spaniel-brittany/n02101388_348.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Black_and_White_French_Brittany.jpg/960px-Black_and_White_French_Brittany.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Brittany_Spaniel.jpg/960px-Brittany_Spaniel.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Brittany_Spaniel_standing.jpg/960px-Brittany_Spaniel_standing.jpg"];
+      const photos = ["https://upload.wikimedia.org/wikipedia/commons/f/f8/Black_and_White_French_Brittany.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Brittany_Spaniel.jpg/1280px-Brittany_Spaniel.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Brittany_Spaniel_standing.jpg/1280px-Brittany_Spaniel_standing.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
       const gal = photos.slice(1);

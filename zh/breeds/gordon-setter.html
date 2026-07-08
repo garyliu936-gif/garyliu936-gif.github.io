@@ -496,7 +496,7 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/setter-gordon/n02101006_1814.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Gordon_Setter.JPG/960px-Gordon_Setter.JPG","https://upload.wikimedia.org/wikipedia/commons/8/80/Gordon_Setter_Teef.jpg","https://upload.wikimedia.org/wikipedia/commons/5/50/Gordon_setter.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Nike_the_Gordon_Setter_%2818_June_2005%29.jpg/960px-Nike_the_Gordon_Setter_%2818_June_2005%29.jpg","https://upload.wikimedia.org/wikipedia/commons/8/8d/SeterSzkockiGordon.jpg","https://upload.wikimedia.org/wikipedia/commons/2/2d/SeterSzkockiGordon2.jpg"];
+      const photos = ["https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Gordon_Setter.JPG/1280px-Gordon_Setter.JPG","https://upload.wikimedia.org/wikipedia/commons/8/80/Gordon_Setter_Teef.jpg","https://upload.wikimedia.org/wikipedia/commons/5/50/Gordon_setter.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Nike_the_Gordon_Setter_%2818_June_2005%29.jpg/1280px-Nike_the_Gordon_Setter_%2818_June_2005%29.jpg","https://upload.wikimedia.org/wikipedia/commons/8/8d/SeterSzkockiGordon.jpg","https://upload.wikimedia.org/wikipedia/commons/2/2d/SeterSzkockiGordon2.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
       const gal = photos.slice(1);

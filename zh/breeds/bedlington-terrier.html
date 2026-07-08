@@ -404,7 +404,7 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/terrier-bedlington/n02093647_1495.jpg","https://upload.wikimedia.org/wikipedia/commons/e/ed/Agility_bedlington.jpg","https://upload.wikimedia.org/wikipedia/commons/d/d0/Bedlington_Terriers.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Bedlington_terrier.jpeg/960px-Bedlington_terrier.jpeg","https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Doug_the_Bedlington.jpg/960px-Doug_the_Bedlington.jpg","https://upload.wikimedia.org/wikipedia/commons/a/a3/Shaw_Bedlington_Dandie_Dinmont.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Bedlington_terrier_234.jpg/960px-Bedlington_terrier_234.jpg"];
+      const photos = ["https://upload.wikimedia.org/wikipedia/commons/e/ed/Agility_bedlington.jpg","https://upload.wikimedia.org/wikipedia/commons/d/d0/Bedlington_Terriers.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Bedlington_terrier.jpeg/1280px-Bedlington_terrier.jpeg","https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Doug_the_Bedlington.jpg/1280px-Doug_the_Bedlington.jpg","https://upload.wikimedia.org/wikipedia/commons/a/a3/Shaw_Bedlington_Dandie_Dinmont.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
       const gal = photos.slice(1);

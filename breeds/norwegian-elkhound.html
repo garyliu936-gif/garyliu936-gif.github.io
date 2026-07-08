@@ -471,7 +471,7 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/elkhound-norwegian/n02091467_2179.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Elkhound2020_%28cropped%29.jpg/960px-Elkhound2020_%28cropped%29.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Norwegian_Elkhound_1.jpg/960px-Norwegian_Elkhound_1.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Norwegian_Elkhound_in_California.jpg/960px-Norwegian_Elkhound_in_California.jpg","https://upload.wikimedia.org/wikipedia/commons/d/d4/Norwegian_Elkhound.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/BlackNorwegianElkhound.jpg/960px-BlackNorwegianElkhound.jpg","https://upload.wikimedia.org/wikipedia/commons/2/2d/Norwegian_Elkhound_%28female%29.JPG"];
+      const photos = ["https://upload.wikimedia.org/wikipedia/commons/3/32/Elkhound2020_%28cropped%29.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Norwegian_Elkhound_1.jpg/1280px-Norwegian_Elkhound_1.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Norwegian_Elkhound_in_California.jpg/1280px-Norwegian_Elkhound_in_California.jpg","https://upload.wikimedia.org/wikipedia/commons/f/f0/Norwegian_elkhound_head.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
       const gal = photos.slice(1);

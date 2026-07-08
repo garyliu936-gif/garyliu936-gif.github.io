@@ -472,7 +472,7 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/groenendael/n02105056_6614.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/04_-_Belgian_shepherd_dog_varieties_-_Groenendael%2CTervuren%2C_Malinois%2C_Laekenois.jpg/960px-04_-_Belgian_shepherd_dog_varieties_-_Groenendael%2CTervuren%2C_Malinois%2C_Laekenois.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Mini_Poodle_Pup_Belgian_Malinois_Mysore_Apr23_R16_07313.jpg/960px-Mini_Poodle_Pup_Belgian_Malinois_Mysore_Apr23_R16_07313.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Belgian_Malinois_at_10_weeks_photo_Don_Ramey_Logan.jpg/960px-Belgian_Malinois_at_10_weeks_photo_Don_Ramey_Logan.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Belgian_Malinois_Puppy.jpg/960px-Belgian_Malinois_Puppy.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Belgian_Malinois_01.jpg/960px-Belgian_Malinois_01.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Belgian_Groenendael_2.jpg/960px-Belgian_Groenendael_2.jpg"];
+      const photos = ["https://upload.wikimedia.org/wikipedia/commons/2/2f/04_-_Belgian_shepherd_dog_varieties_-_Groenendael%2CTervuren%2C_Malinois%2C_Laekenois.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
       const gal = photos.slice(1);

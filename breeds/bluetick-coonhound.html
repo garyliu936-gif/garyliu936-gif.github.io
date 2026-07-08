@@ -471,7 +471,7 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/bluetick/n02088632_2965.jpg","https://upload.wikimedia.org/wikipedia/commons/d/d6/BluetickCoonhound.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/BluetickCoonhound2.jpg/960px-BluetickCoonhound2.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/BluetickCoonhoundDog.jpg/960px-BluetickCoonhoundDog.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Bluetick_Coonhound.jpg/960px-Bluetick_Coonhound.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Bluetick_Coonhound-9-Ch-CCH-Cedar_Creek_Fleurdelis_Howlinforyou_02_%2815965170443%29.jpg/960px-Bluetick_Coonhound-9-Ch-CCH-Cedar_Creek_Fleurdelis_Howlinforyou_02_%2815965170443%29.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Bluetick_Coonhound-9-Ch-CCH-Cedar_Creek_Fleurdelis_Howlinforyou_01_%2816584261442%29.jpg/960px-Bluetick_Coonhound-9-Ch-CCH-Cedar_Creek_Fleurdelis_Howlinforyou_01_%2816584261442%29.jpg"];
+      const photos = ["https://upload.wikimedia.org/wikipedia/commons/d/d6/BluetickCoonhound.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/BluetickCoonhound2.jpg/1280px-BluetickCoonhound2.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
       const gal = photos.slice(1);

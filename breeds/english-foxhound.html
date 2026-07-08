@@ -471,7 +471,7 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/hound-english/n02089973_612.jpg","https://upload.wikimedia.org/wikipedia/commons/4/44/English_Foxhound_portrait.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/English_Foxhounds%2C_Cheshire_Game_and_Country_Fair_2014_1.jpg/960px-English_Foxhounds%2C_Cheshire_Game_and_Country_Fair_2014_1.jpg","https://upload.wikimedia.org/wikipedia/commons/f/fc/English_Foxhound.jpg","https://upload.wikimedia.org/wikipedia/commons/9/95/Foxhound_1.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/English_Foxhounds%2C_Cheshire_Game_and_Country_Fair_2014.jpg/960px-English_Foxhounds%2C_Cheshire_Game_and_Country_Fair_2014.jpg","https://upload.wikimedia.org/wikipedia/commons/9/9b/Foxhound_Anglais.jpg"];
+      const photos = ["https://upload.wikimedia.org/wikipedia/commons/4/44/English_Foxhound_portrait.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/English_Foxhounds%2C_Cheshire_Game_and_Country_Fair_2014_1.jpg/1280px-English_Foxhounds%2C_Cheshire_Game_and_Country_Fair_2014_1.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
       const gal = photos.slice(1);

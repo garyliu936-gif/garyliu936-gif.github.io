@@ -411,7 +411,7 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/terrier-australian/n02096294_720.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Australian_Terrier_-_Puppy.jpg/960px-Australian_Terrier_-_Puppy.jpg","https://upload.wikimedia.org/wikipedia/commons/b/b6/Australian_Terrier_adult_male.jpg","https://upload.wikimedia.org/wikipedia/commons/4/44/Young_Male_Australian_Terrier.jpg","https://upload.wikimedia.org/wikipedia/commons/1/13/Australian_terrier.jpg","https://upload.wikimedia.org/wikipedia/commons/9/94/Australian_Terrier2.jpg","https://upload.wikimedia.org/wikipedia/commons/a/a1/Australian_Terrier_Image_001.jpg"];
+      const photos = ["https://upload.wikimedia.org/wikipedia/commons/c/ce/Australian_Terrier_-_Puppy.jpg","https://upload.wikimedia.org/wikipedia/commons/b/b6/Australian_Terrier_adult_male.jpg","https://upload.wikimedia.org/wikipedia/commons/4/44/Young_Male_Australian_Terrier.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
       const gal = photos.slice(1);

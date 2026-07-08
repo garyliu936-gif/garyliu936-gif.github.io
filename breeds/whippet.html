@@ -441,7 +441,7 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/whippet/n02091134_15360.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Brindle_and_white_whippet_puppy.jpg/960px-Brindle_and_white_whippet_puppy.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Fireworks_Whippets.jpg/960px-Fireworks_Whippets.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Whippet_2018_6.jpg/960px-Whippet_2018_6.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Anakin_Whippet.jpg/960px-Anakin_Whippet.jpg","https://upload.wikimedia.org/wikipedia/commons/d/da/Peperina-Whippet.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Maverick_the_Whippet..jpg/960px-Maverick_the_Whippet..jpg"];
+      const photos = ["https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Brindle_and_white_whippet_puppy.jpg/1280px-Brindle_and_white_whippet_puppy.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Fireworks_Whippets.jpg/1280px-Fireworks_Whippets.jpg","https://upload.wikimedia.org/wikipedia/commons/9/94/MyostatinMutantWhippet.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Whippet_2018_6.jpg/1280px-Whippet_2018_6.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
       const gal = photos.slice(1);

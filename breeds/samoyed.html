@@ -439,7 +439,7 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/samoyed/n02111889_3471.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Little_Lucy_Samoyed.jpg/960px-Little_Lucy_Samoyed.jpg","https://upload.wikimedia.org/wikipedia/commons/8/8b/Samoyed-and-teddy-bear.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Samoyed_MoMo.jpg/960px-Samoyed_MoMo.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Samoyed_dog_two_year_old_female_dllu.jpg/960px-Samoyed_dog_two_year_old_female_dllu.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Samoyed_puppy.jpg/960px-Samoyed_puppy.jpg"];
+      const photos = ["https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Little_Lucy_Samoyed.jpg/1280px-Little_Lucy_Samoyed.jpg","https://upload.wikimedia.org/wikipedia/commons/8/8b/Samoyed-and-teddy-bear.jpg","https://upload.wikimedia.org/wikipedia/commons/8/80/Samoyed_MoMo.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Samoyed_dog_two_year_old_female_dllu.jpg/1280px-Samoyed_dog_two_year_old_female_dllu.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Samoyed_puppy.jpg/1280px-Samoyed_puppy.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
       const gal = photos.slice(1);

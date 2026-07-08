@@ -334,7 +334,7 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/deerhound-scottish/n02092002_6735.jpg","https://upload.wikimedia.org/wikipedia/commons/1/16/Deerhoundy_w_biegu.jpg","https://upload.wikimedia.org/wikipedia/commons/5/50/Scottish-deerhound-dog-large.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Scottish_Deerhound_grey_2.jpg/960px-Scottish_Deerhound_grey_2.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Deerhound_305.jpg/960px-Deerhound_305.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Scottish_Deerhound_grey_1.jpg/960px-Scottish_Deerhound_grey_1.jpg","https://upload.wikimedia.org/wikipedia/commons/7/71/A_deerhound_quartet_by_the_Kyle_of_Durness_-_geograph.org.uk_-_2414216.jpg"];
+      const photos = ["https://upload.wikimedia.org/wikipedia/commons/1/16/Deerhoundy_w_biegu.jpg","https://upload.wikimedia.org/wikipedia/commons/5/50/Scottish-deerhound-dog-large.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
       const gal = photos.slice(1);

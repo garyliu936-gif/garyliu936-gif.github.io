@@ -308,7 +308,7 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/vizsla/n02100583_10425.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Magyar_Vizsla.jpg/960px-Magyar_Vizsla.jpg","https://upload.wikimedia.org/wikipedia/commons/1/19/Vizsla-profile.jpg","https://upload.wikimedia.org/wikipedia/commons/1/18/Vizsla.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Vizsla_puppy_with_toy.jpg/960px-Vizsla_puppy_with_toy.jpg","https://upload.wikimedia.org/wikipedia/commons/8/8e/Vizsla_r%C3%A1h%C3%BAz_a_vadra.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Vizslacoldweather.jpg/960px-Vizslacoldweather.jpg"];
+      const photos = ["https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Magyar_Vizsla.jpg/1280px-Magyar_Vizsla.jpg","https://upload.wikimedia.org/wikipedia/commons/1/19/Vizsla-profile.jpg","https://upload.wikimedia.org/wikipedia/commons/1/18/Vizsla.jpg","https://upload.wikimedia.org/wikipedia/commons/a/a5/Vizsla_puppies_cage.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Vizsla_puppy_with_toy.jpg/1280px-Vizsla_puppy_with_toy.jpg","https://upload.wikimedia.org/wikipedia/commons/8/8e/Vizsla_r%C3%A1h%C3%BAz_a_vadra.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
       const gal = photos.slice(1);

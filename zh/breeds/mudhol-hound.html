@@ -292,7 +292,7 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/mudhol-indian/Indian-Mudhol.jpg","https://upload.wikimedia.org/wikipedia/commons/2/2b/Caravan_hound_Closeupfire.jpg","https://upload.wikimedia.org/wikipedia/commons/0/06/Caravan_hound_Dolly1.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Pashmi_Hound.JPG/960px-Pashmi_Hound.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Pashmi_Hound_%28cropped%29.JPG/960px-Pashmi_Hound_%28cropped%29.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Mudhol_Hound_at_Bombay_Presidency_Kennel_Club_Dog_Show.jpg/960px-Mudhol_Hound_at_Bombay_Presidency_Kennel_Club_Dog_Show.jpg","https://upload.wikimedia.org/wikipedia/commons/b/b5/Mudhol_Hound_dog_in_bangalore.jpg"];
+      const photos = ["https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Head_Pashmi_Dog_Show_2026_Ooty_May26_A7CR_10742.jpg/1280px-Head_Pashmi_Dog_Show_2026_Ooty_May26_A7CR_10742.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
       const gal = photos.slice(1);

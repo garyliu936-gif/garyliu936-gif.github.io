@@ -471,7 +471,7 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/spaniel-sussex/n02102480_3108.jpg","https://upload.wikimedia.org/wikipedia/commons/a/a4/108._Sussex_Spaniel.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Sussex_spaniel_276.jpg/960px-Sussex_spaniel_276.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Sussex_spaniel_t43.jpg/960px-Sussex_spaniel_t43.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Sussex_spaniels_at_dog_show.jpg/960px-Sussex_spaniels_at_dog_show.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Sussex-Spaniel_BDL.jpg/960px-Sussex-Spaniel_BDL.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/BIR_Grupp_8-_SUSSEX_SPANIEL%2C_Marquell_Replay_%2823904083019%29.jpg/960px-BIR_Grupp_8-_SUSSEX_SPANIEL%2C_Marquell_Replay_%2823904083019%29.jpg"];
+      const photos = ["https://upload.wikimedia.org/wikipedia/commons/a/a4/108._Sussex_Spaniel.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Sussex_spaniel_276.jpg/1280px-Sussex_spaniel_276.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Sussex_spaniel_t43.jpg/1280px-Sussex_spaniel_t43.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
       const gal = photos.slice(1);

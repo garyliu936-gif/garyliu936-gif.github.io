@@ -471,7 +471,7 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/buhund-norwegian/hakon1.jpg","https://upload.wikimedia.org/wikipedia/commons/3/3a/Black_Buhund_dogs.jpg","https://upload.wikimedia.org/wikipedia/commons/3/3b/Norwegian_Buhund_600.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Norwegian_Buhund_-_GCH_Jotunn_Bella_Binna_3_%2816395077067%29.jpg/960px-Norwegian_Buhund_-_GCH_Jotunn_Bella_Binna_3_%2816395077067%29.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Norwegian_Buhund_-_GCH_Jotunn_Bella_Binna_7_%2816415341730%29.jpg/960px-Norwegian_Buhund_-_GCH_Jotunn_Bella_Binna_7_%2816415341730%29.jpg","https://upload.wikimedia.org/wikipedia/commons/d/da/Norwegian_Buhund.jpg","https://upload.wikimedia.org/wikipedia/commons/1/19/Norsk_buhund.jpg"];
+      const photos = ["https://upload.wikimedia.org/wikipedia/commons/3/3a/Black_Buhund_dogs.jpg","https://upload.wikimedia.org/wikipedia/commons/3/3b/Norwegian_Buhund_600.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
       const gal = photos.slice(1);

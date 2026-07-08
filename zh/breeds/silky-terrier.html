@@ -496,7 +496,7 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://images.dog.ceo/breeds/terrier-silky/n02097658_2012.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/02_Australian_Silky_Terrier%2C_Zack%2C_spring_2012.jpg/960px-02_Australian_Silky_Terrier%2C_Zack%2C_spring_2012.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Australian-Silky-Terrier-ofsilkysdream.JPG/960px-Australian-Silky-Terrier-ofsilkysdream.JPG","https://upload.wikimedia.org/wikipedia/commons/a/af/Australian_Silky_Terrier_Alana_Of_Silky%27s_Dream.jpg","https://upload.wikimedia.org/wikipedia/commons/3/38/Silkyterrier125.jpg"];
+      const photos = ["https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/02_Australian_Silky_Terrier%2C_Zack%2C_spring_2012.jpg/1280px-02_Australian_Silky_Terrier%2C_Zack%2C_spring_2012.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Australian-Silky-Terrier-ofsilkysdream.JPG/1280px-Australian-Silky-Terrier-ofsilkysdream.JPG","https://upload.wikimedia.org/wikipedia/commons/a/af/Australian_Silky_Terrier_Alana_Of_Silky%27s_Dream.jpg","https://upload.wikimedia.org/wikipedia/commons/3/38/Silkyterrier125.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
       const gal = photos.slice(1);
