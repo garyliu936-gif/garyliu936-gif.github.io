@@ -503,7 +503,7 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://upload.wikimedia.org/wikipedia/commons/7/76/4-beagles.jpg","https://upload.wikimedia.org/wikipedia/commons/9/92/Beagle-Farben.jpg","https://upload.wikimedia.org/wikipedia/commons/c/c8/BeagleNiniJule.jpg","https://upload.wikimedia.org/wikipedia/commons/5/55/Beagle_600.jpg","https://upload.wikimedia.org/wikipedia/commons/4/40/Beagle_745.jpg","https://upload.wikimedia.org/wikipedia/commons/d/de/Beagle_Upsy.jpg"];
+      const photos = ["https://upload.wikimedia.org/wikipedia/commons/5/55/Beagle_600.jpg","https://upload.wikimedia.org/wikipedia/commons/9/92/Beagle-Farben.jpg","https://upload.wikimedia.org/wikipedia/commons/c/c8/BeagleNiniJule.jpg","https://upload.wikimedia.org/wikipedia/commons/4/40/Beagle_745.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
       const gal = photos.slice(1);

@@ -471,7 +471,7 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://upload.wikimedia.org/wikipedia/commons/a/a4/108._Sussex_Spaniel.JPG","https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Sussex_spaniel_276.jpg/1280px-Sussex_spaniel_276.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Sussex_spaniel_t43.jpg/1280px-Sussex_spaniel_t43.jpg"];
+      const photos = ["https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Sussex_spaniel_t43.jpg/1280px-Sussex_spaniel_t43.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Sussex_spaniel_276.jpg/1280px-Sussex_spaniel_276.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
       const gal = photos.slice(1);

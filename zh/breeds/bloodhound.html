@@ -480,7 +480,7 @@
     let galleryPhotos = [];
     let currentPhotoIndex = 0;
     (function () {
-      const photos = ["https://upload.wikimedia.org/wikipedia/commons/9/94/BloodhoundGesner2.jpg","https://upload.wikimedia.org/wikipedia/commons/3/30/Bloodhound_2.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Bloodhound_423.jpg/1280px-Bloodhound_423.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Bloodhound_Erland22.jpg/1280px-Bloodhound_Erland22.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Bloodhound_Trials_Alton_2008.jpg/1280px-Bloodhound_Trials_Alton_2008.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Bloodhound_black_and_tan.jpg/1280px-Bloodhound_black_and_tan.jpg"];
+      const photos = ["https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Bloodhound_423.jpg/1280px-Bloodhound_423.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Bloodhound_black_and_tan.jpg/1280px-Bloodhound_black_and_tan.jpg","https://upload.wikimedia.org/wikipedia/commons/3/30/Bloodhound_2.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Bloodhound_Erland22.jpg/1280px-Bloodhound_Erland22.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Bloodhound_Trials_Alton_2008.jpg/1280px-Bloodhound_Trials_Alton_2008.jpg"];
       const hero = document.getElementById('breedPhoto');
       if (photos[0] && hero) { hero.referrerPolicy = 'no-referrer'; hero.onload = () => { hero.style.display = 'block'; const em = document.getElementById('breedEmoji'); if (em) em.style.display = 'none'; }; hero.onerror = () => { hero.style.display = 'none'; }; hero.src = photos[0]; }
       const gal = photos.slice(1);
