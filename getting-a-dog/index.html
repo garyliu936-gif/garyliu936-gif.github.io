@@ -45,7 +45,7 @@
         <span class="logo-text">All<span class="logo-dog">Dog</span><span class="logo-accent">Facts</span></span>
       </a>
       <ul class="nav-links" id="navLinks">
-        <li><a href="/index.html">Home</a></li>
+        <li><a href="/index.html">Home</a></li><li><a href="/dog-facts/index.html">Dog Facts</a></li>
         <li><a href="/breeds/index.html">Dog Breeds</a></li>
         <li><a href="/getting-a-dog/index.html" style="color:var(--teal)">Getting a Dog</a></li>
         <li><a href="/training/index.html">Training</a></li>
@@ -320,6 +320,8 @@
         <p>Everything you need to know about dogs — all in one place.</p>
       </div>
       <div class="topic-tab-bar">
+        <button class="topic-tab-btn" data-tab="facts"><span class="ttb-icon">📚</span><span class="ttb-label">Dog Facts</span></button>
+        
         <button class="topic-tab-btn" data-tab="breeds"><span class="ttb-icon">🐕</span><span class="ttb-label">Dog Breeds</span></button>
         <button class="topic-tab-btn active" data-tab="getting"><span class="ttb-icon">🐣</span><span class="ttb-label">Getting a Dog</span></button>
         <button class="topic-tab-btn" data-tab="training"><span class="ttb-icon">🎓</span><span class="ttb-label">Training</span></button>
@@ -328,6 +330,17 @@
         <button class="topic-tab-btn" data-tab="grooming"><span class="ttb-icon">✂️</span><span class="ttb-label">Grooming</span></button>
       </div>
       <div class="topic-tab-panels">
+        <div class="topic-tab-panel" id="tab-facts">
+          <div class="ttp-left ttp-bg-facts">📚</div>
+          <div class="ttp-right">
+            <span class="ttp-tag">Dog Facts</span>
+            <h3>Stories Worth Sharing</h3>
+            <p>Ancient history, legendary dogs, mythology, busted myths, and world records — the fascinating side of dogs beyond breed guides and care tips.</p>
+            <div class="ttp-highlights"><span class="ttp-highlight">🐺 15,000 years of history</span><span class="ttp-highlight">🏅 Legendary dogs</span><span class="ttp-highlight">🏆 World records</span></div>
+            <div class="ttp-cta"><a href="/dog-facts/index.html" class="btn btn-primary">Explore Dog Facts →</a></div>
+          </div>
+        </div>
+        
         <div class="topic-tab-panel" id="tab-breeds">
           <div class="ttp-left ttp-bg-breeds">🐕</div>
           <div class="ttp-right">

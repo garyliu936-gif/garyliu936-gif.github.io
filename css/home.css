@@ -407,6 +407,7 @@
 .ttp-bg-nutrition{ background: linear-gradient(135deg, #fef9c3 0%, #fed7aa 100%); }
 .ttp-bg-getting  { background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%); }
 .ttp-bg-grooming { background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%); }
+.ttp-bg-facts    { background: linear-gradient(135deg, #f3e8ff 0%, #fbcfe8 100%); }
 
 .ttp-right {
   flex: 1;

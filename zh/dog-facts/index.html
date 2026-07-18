@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-C8QDN9HH5F"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-C8QDN9HH5F');</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>狗狗趣闻 — 历史、传奇、名犬与趣味知识 | AllDogFacts</title>
+  <meta name="description" content="探索狗狗的奇妙世界——远古历史、传奇名犬、破解迷思、世界纪录、神话传说，以及你一定想分享给朋友的趣味冷知识。" />
+  <meta name="keywords" content="狗狗趣闻, 狗的历史, 名犬, 狗狗冷知识, 狗狗迷思, 狗与神话, 狗狗世界纪录" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/section-index.css" />
+  <link rel="stylesheet" href="../css/dog-facts.css" />
+  <script>localStorage.setItem('adf-lang','zh');</script>
+  <!-- SEO:auto -->
+  <link rel="canonical" href="https://alldogfacts.com/zh/dog-facts/" />
+  <link rel="alternate" hreflang="en" href="https://alldogfacts.com/dog-facts/" />
+  <link rel="alternate" hreflang="zh-CN" href="https://alldogfacts.com/zh/dog-facts/" />
+  <link rel="alternate" hreflang="x-default" href="https://alldogfacts.com/dog-facts/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="AllDogFacts" />
+  <meta property="og:title" content="狗狗趣闻 — 历史、传奇、名犬与趣味知识 | AllDogFacts" />
+  <meta property="og:description" content="探索狗狗的奇妙世界——远古历史、传奇名犬、破解迷思、世界纪录、神话传说，以及你一定想分享给朋友的趣味冷知识。" />
+  <meta property="og:url" content="https://alldogfacts.com/zh/dog-facts/" />
+  <meta property="og:image" content="https://alldogfacts.com/images/lab-grass.jpg" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="狗狗趣闻 — 历史、传奇、名犬与趣味知识 | AllDogFacts" />
+  <meta name="twitter:description" content="探索狗狗的奇妙世界——远古历史、传奇名犬、破解迷思、世界纪录、神话传说，以及你一定想分享给朋友的趣味冷知识。" />
+  <meta name="twitter:image" content="https://alldogfacts.com/images/lab-grass.jpg" />
+</head>
+<body>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="/zh/index.html" class="nav-logo">
+        <span class="logo-paw">🐾</span>
+        <span class="logo-text">All<span class="logo-dog">Dog</span><span class="logo-accent">Facts</span></span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/zh/index.html">首页</a></li>
+        <li><a href="/zh/dog-facts/index.html" style="color:var(--teal)">狗狗趣闻</a></li>
+        <li><a href="/zh/breeds/index.html">犬种大全</a></li>
+        <li><a href="/zh/getting-a-dog/index.html">养狗入门</a></li>
+        <li><a href="/zh/training/index.html">训练指南</a></li>
+        <li><a href="/zh/health/index.html">健康</a></li>
+        <li><a href="/zh/nutrition/index.html">营养</a></li>
+        <li><a href="/zh/grooming/index.html">美容护理</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div style="background:#0d9488;color:#fff;text-align:center;padding:8px 16px;font-size:.85rem">
+    🌐 您正在浏览中文版 · <a href="/dog-facts/index.html" style="color:#ccfbf1;text-decoration:underline">切换至英文版</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="si-hero" style="background:linear-gradient(135deg,#0f172a 0%,#3b1f5c 100%)">
+    <div class="container">
+      <div class="si-hero-tag">故事、历史与冷知识</div>
+      <h1>狗狗<br /><span class="hero-highlight">趣闻</span></h1>
+      <p>远古起源、传奇名犬、破解迷思、世界纪录，以及犬类世界中最不可思议的真实故事——尽在这里。</p>
+      <div class="si-search-wrap">
+        <input type="text" id="dfSearch" placeholder="搜索内容...（例如：历史、迷思、纪录）" />
+      </div>
+    </div>
+  </section>
+
+  <!-- FILTER BAR -->
+  <div class="si-filter-bar">
+    <div class="container">
+      <div class="si-filter-row">
+        <span class="si-filter-label">主题：</span>
+        <div class="si-chips" id="dfTopicChips">
+          <button class="si-chip active" data-filter="topic" data-value="all">全部内容</button>
+          <button class="si-chip" data-filter="topic" data-value="history">历史与起源</button>
+          <button class="si-chip" data-filter="topic" data-value="famous">名犬故事</button>
+          <button class="si-chip" data-filter="topic" data-value="culture">神话与文化</button>
+          <button class="si-chip" data-filter="topic" data-value="science">迷思与科学</button>
+          <button class="si-chip" data-filter="topic" data-value="records">世界纪录</button>
+        </div>
+        <span class="si-results-count" id="dfCount">6篇文章</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ARTICLE CARDS -->
+  <section class="si-section">
+    <div class="container">
+      <div class="si-grid" id="dfGrid">
+
+        <a href="/zh/dog-facts/dog-history-and-legends.html" class="gi-card" data-topic="history" data-name="狗的历史 起源 野狼 驯化 远古 传说">
+          <div class="gi-card-top">
+            <span>🐺</span>
+            <span class="gi-start">从这里开始</span>
+            <span class="gi-topic tc-teal">历史与起源</span>
+          </div>
+          <div class="gi-card-body">
+            <h3>狗狗的传奇历史：从远古野狼到人类挚友</h3>
+            <p>超过1.5万年的相伴岁月——野狼如何演化成今天忠诚可爱的狗狗，以及随之流传下来的古老传说。</p>
+          </div>
+          <div class="gi-card-footer">阅读全文 <span>→</span></div>
+        </a>
+
+        <a href="/zh/dog-facts/famous-dogs-in-history.html" class="gi-card" data-topic="famous" data-name="名犬 历史 英雄 忠犬八公 巴尔托 莱卡">
+          <div class="gi-card-top">
+            <span>🏅</span>
+            <span class="gi-topic tc-amber">名犬故事</span>
+          </div>
+          <div class="gi-card-body">
+            <h3>传奇名犬：改变历史的英雄与偶像</h3>
+            <p>从忠犬八公长达十年的守候，到莱卡的太空之旅——那些真实存在、成为传奇的狗狗故事。</p>
+          </div>
+          <div class="gi-card-footer">认识这些传奇 <span>→</span></div>
+        </a>
+
+        <a href="/zh/dog-facts/fun-dog-facts.html" class="gi-card" data-topic="science" data-name="狗狗冷知识 趣味 感官 嗅觉 做梦">
+          <div class="gi-card-top">
+            <span>🎉</span>
+            <span class="gi-start">最受欢迎</span>
+            <span class="gi-topic tc-blue">迷思与科学</span>
+          </div>
+          <div class="gi-card-body">
+            <h3>50个令人惊叹的狗狗趣味冷知识</h3>
+            <p>湿润的鼻子、会做梦的大脑、3亿个嗅觉receptor，以及狗狗歪头背后的真正原因——每个爱狗人都该知道的冷知识。</p>
+          </div>
+          <div class="gi-card-footer">获取冷知识 <span>→</span></div>
+        </a>
+
+        <a href="/zh/dog-facts/dog-myths-busted.html" class="gi-card" data-topic="science" data-name="狗狗迷思 破解 错误 一岁等于七岁 摇尾巴">
+          <div class="gi-card-top">
+            <span>🔍</span>
+            <span class="gi-topic tc-blue">迷思与科学</span>
+          </div>
+          <div class="gi-card-body">
+            <h3>12个你还在相信的狗狗迷思（其实都错了）</h3>
+            <p>"狗的一年等于人的七年""摇尾巴就是开心""狗是色盲"——统统都不对。这里是真正的科学解释。</p>
+          </div>
+          <div class="gi-card-footer">破解迷思 <span>→</span></div>
+        </a>
+
+        <a href="/zh/dog-facts/dogs-in-mythology-and-culture.html" class="gi-card" data-topic="culture" data-name="狗与神话 文化 阿努比斯 刻耳柏洛斯 埃及 希腊">
+          <div class="gi-card-top">
+            <span>🏛️</span>
+            <span class="gi-topic tc-purple">神话与文化</span>
+          </div>
+          <div class="gi-card-body">
+            <h3>狗狗与神话：守护神、看门犬与传说</h3>
+            <p>阿努比斯、刻耳柏洛斯、北欧神话中的狼——古代各文明如何崇拜、敬畏并尊重狗狗。</p>
+          </div>
+          <div class="gi-card-footer">探索神话故事 <span>→</span></div>
+        </a>
+
+        <a href="/zh/dog-facts/dog-world-records.html" class="gi-card" data-topic="records" data-name="狗狗世界纪录 最大 最小 最长寿 最快">
+          <div class="gi-card-top">
+            <span>🏆</span>
+            <span class="gi-topic tc-green">世界纪录</span>
+          </div>
+          <div class="gi-card-body">
+            <h3>狗狗世界纪录：最大、最小、最长寿与最快</h3>
+            <p>认识有史以来最高的狗、最长寿的狗，以及跑得最快的犬种——这些经过认证的纪录保持者背后的故事。</p>
+          </div>
+          <div class="gi-card-footer">查看纪录 <span>→</span></div>
+        </a>
+
+        <div class="si-no-results" id="dfNoResults">
+          <div class="nr-emoji">🐾</div>
+          <p>没有找到匹配的内容，请尝试其他关键词或浏览全部内容。</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- DID YOU KNOW -->
+  <section class="did-you-know">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">快速冷知识</span>
+        <h2>你知道吗？</h2>
+        <p>先来几条开胃小知识——完整的故事只需点击一下。</p>
+      </div>
+      <div class="facts-grid">
+        <div class="fact-card">
+          <span class="fact-num">15,000</span>
+          <p>年前，狗成为人类驯化的第一种动物——比猫、牛或马都要早得多。</p>
+        </div>
+        <div class="fact-card">
+          <span class="fact-num">3亿</span>
+          <p>狗鼻子里的嗅觉受体数量，而人类只有约600万——狗几乎能"嗅"到时间的流逝。</p>
+        </div>
+        <div class="fact-card">
+          <span class="fact-num">29岁</span>
+          <p>又5个月——经过认证的史上最长寿的狗Bobi的年龄。</p>
+        </div>
+        <div class="fact-card">
+          <span class="fact-num">#1</span>
+          <p>太空旅行者：莫斯科流浪犬莱卡，在1957年成为首个进入地球轨道的生物。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPLORE ALL TOPICS -->
+  <section class="all-topics-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">All<span class="st-dog">Dog</span>Facts</span>
+        <h2>探索全部主题</h2>
+        <p>关于狗狗你需要知道的一切——尽在这里。</p>
+      </div>
+      <div class="topic-tab-bar">
+        <button class="topic-tab-btn active" data-tab="facts"><span class="ttb-icon">📚</span><span class="ttb-label">狗狗趣闻</span></button>
+        <button class="topic-tab-btn" data-tab="breeds"><span class="ttb-icon">🐕</span><span class="ttb-label">犬种大全</span></button>
+        <button class="topic-tab-btn" data-tab="getting"><span class="ttb-icon">🐣</span><span class="ttb-label">养狗入门</span></button>
+        <button class="topic-tab-btn" data-tab="training"><span class="ttb-icon">🎓</span><span class="ttb-label">训练指南</span></button>
+        <button class="topic-tab-btn" data-tab="health"><span class="ttb-icon">🏥</span><span class="ttb-label">健康</span></button>
+        <button class="topic-tab-btn" data-tab="nutrition"><span class="ttb-icon">🍽️</span><span class="ttb-label">营养</span></button>
+        <button class="topic-tab-btn" data-tab="grooming"><span class="ttb-icon">✂️</span><span class="ttb-label">美容护理</span></button>
+      </div>
+      <div class="topic-tab-panels">
+        <div class="topic-tab-panel active" id="tab-facts">
+          <div class="ttp-left ttp-bg-facts">📚</div>
+          <div class="ttp-right">
+            <span class="ttp-tag">狗狗趣闻</span>
+            <h3>值得分享的故事</h3>
+            <p>远古历史、传奇名犬、神话传说、破解迷思与世界纪录——超越犬种指南与养护知识的、关于狗狗最迷人的一面。</p>
+            <div class="ttp-highlights"><span class="ttp-highlight">🐺 1.5万年历史</span><span class="ttp-highlight">🏅 传奇名犬</span><span class="ttp-highlight">🏆 世界纪录</span></div>
+            <div class="ttp-cta"><a href="/zh/dog-facts/index.html" class="btn btn-primary">探索狗狗趣闻 →</a></div>
+          </div>
+        </div>
+        <div class="topic-tab-panel" id="tab-breeds">
+          <div class="ttp-left ttp-bg-breeds">🐕</div>
+          <div class="ttp-right">
+            <span class="ttp-tag">犬种大全</span>
+            <h3>寻找您的完美犬种</h3>
+            <p class="js-breed-desc">收录607个犬种资料——416个纯种犬和191个混血犬。涵盖性格、体型、运动需求、美容、健康问题和养育费用。</p>
+            <div class="ttp-highlights"><span class="ttp-highlight js-purebred-count">🏆 416个纯种犬</span><span class="ttp-highlight js-hybrid-count">🌟 191个混血犬</span><span class="ttp-highlight">📊 AKC 2025排名</span></div>
+            <div class="ttp-cta"><a href="/zh/breeds/index.html" class="btn btn-primary">浏览全部607个犬种 →</a></div>
+          </div>
+        </div>
+        <div class="topic-tab-panel" id="tab-getting">
+          <div class="ttp-left ttp-bg-getting">🐣</div>
+          <div class="ttp-right">
+            <span class="ttp-tag">养狗入门</span>
+            <h3>从第一天就做对</h3>
+            <p>找到您的完美犬种、了解真实费用、选择领养还是购买、做好家庭准备。包含互动犬种匹配测验。</p>
+            <div class="ttp-highlights"><span class="ttp-highlight">🎯 犬种匹配测验</span><span class="ttp-highlight">💰 真实费用分析</span><span class="ttp-highlight">🏠 领养还是购买</span></div>
+            <div class="ttp-cta"><a href="/zh/getting-a-dog/index.html" class="btn btn-primary">探索养狗入门 →</a></div>
+          </div>
+        </div>
+        <div class="topic-tab-panel" id="tab-training">
+          <div class="ttp-left ttp-bg-training">🎓</div>
+          <div class="ttp-right">
+            <span class="ttp-tag">训练指南</span>
+            <h3>任何犬、任何年龄都可以训练</h3>
+            <p>从基础口令到行为问题矫正的逐步指南——适合从新手到高级养狗人。</p>
+            <div class="ttp-highlights"><span class="ttp-highlight">📖 基础口令</span><span class="ttp-highlight">🐕 幼犬训练</span><span class="ttp-highlight">🚶 牵绳与召回</span></div>
+            <div class="ttp-cta"><a href="/zh/training/index.html" class="btn btn-primary">探索训练指南 →</a></div>
+          </div>
+        </div>
+        <div class="topic-tab-panel" id="tab-health">
+          <div class="ttp-left ttp-bg-health">🏥</div>
+          <div class="ttp-right">
+            <span class="ttp-tag">健康与症状</span>
+            <h3>及早发现问题</h3>
+            <p>常见疾病、症状真正含义、疫苗接种时间表、牙齿护理和老年犬指南——让您知道何时采取行动、何时放心。</p>
+            <div class="ttp-highlights"><span class="ttp-highlight">🩺 症状指南</span><span class="ttp-highlight">💉 疫苗时间表</span><span class="ttp-highlight">🐾 老年犬护理</span></div>
+            <div class="ttp-cta"><a href="/zh/health/index.html" class="btn btn-primary">探索健康指南 →</a></div>
+          </div>
+        </div>
+        <div class="topic-tab-panel" id="tab-nutrition">
+          <div class="ttp-left ttp-bg-nutrition">🍽️</div>
+          <div class="ttp-right">
+            <span class="ttp-tag">营养与饮食</span>
+            <h3>科学喂养</h3>
+            <p>喂食量、按年龄和体型推荐最佳食品、干粮与生骨肉与湿粮的对比、对狗狗有毒的食物，以及实用的零食和补充剂建议。</p>
+            <div class="ttp-highlights"><span class="ttp-highlight">📏 按体型和年龄喂食</span><span class="ttp-highlight">☠️ 有毒食物清单</span><span class="ttp-highlight">🧪 生骨肉与干粮之争</span></div>
+            <div class="ttp-cta"><a href="/zh/nutrition/index.html" class="btn btn-primary">探索营养指南 →</a></div>
+          </div>
+        </div>
+        <div class="topic-tab-panel" id="tab-grooming">
+          <div class="ttp-left ttp-bg-grooming">✂️</div>
+          <div class="ttp-right">
+            <span class="ttp-tag">美容护理</span>
+            <h3>保持最佳状态</h3>
+            <p>洗澡、梳毛、剪指甲、耳朵护理和控制掉毛——适用于各种毛发类型的指南，以及何时需要专业美容师。</p>
+            <div class="ttp-highlights"><span class="ttp-highlight">🪮 全部6种毛发类型</span><span class="ttp-highlight">💅 指甲与耳朵护理</span><span class="ttp-highlight">✨ 掉毛控制</span></div>
+            <div class="ttp-cta"><a href="/zh/grooming/index.html" class="btn btn-primary">探索美容指南 →</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="nav-logo"><span class="logo-paw">🐾</span><span class="logo-text">All<span class="logo-dog">Dog</span><span class="logo-accent">Facts</span></span></div>
+          <p>为爱狗人士提供的免费深度百科全书。</p>
+        </div>
+        <div class="footer-col">
+          <h4>狗狗趣闻</h4>
+          <ul>
+            <li><a href="/zh/dog-facts/dog-history-and-legends.html">历史与起源</a></li>
+            <li><a href="/zh/dog-facts/famous-dogs-in-history.html">名犬故事</a></li>
+            <li><a href="/zh/dog-facts/fun-dog-facts.html">趣味冷知识</a></li>
+            <li><a href="/zh/dog-facts/index.html">全部趣闻 →</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>犬种大全</h4>
+          <ul>
+            <li><a href="/zh/breeds/labrador-retriever.html">拉布拉多寻回犬</a></li>
+            <li><a href="/zh/breeds/golden-retriever.html">金毛寻回犬</a></li>
+            <li><a href="/zh/breeds/french-bulldog.html">法国斗牛犬</a></li>
+            <li><a href="/zh/breeds/index.html">全部犬种 →</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>更多主题</h4>
+          <ul>
+            <li><a href="/zh/getting-a-dog/index.html">养狗入门</a></li>
+            <li><a href="/zh/training/index.html">训练指南</a></li>
+            <li><a href="/zh/health/index.html">健康</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 AllDogFacts — 完整犬类百科全书。保留所有权利。</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/breed-count.js?v=9"></script>
+  <script>
+    const dfSearch = document.getElementById('dfSearch');
+    const dfFilters = { topic: 'all' };
+
+    dfSearch.addEventListener('input', filterDf);
+
+    document.querySelectorAll('#dfTopicChips .si-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        dfFilters.topic = chip.dataset.value;
+        chip.closest('.si-chips').querySelectorAll('.si-chip').forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        filterDf();
+      });
+    });
+
+    function filterDf() {
+      const q = dfSearch.value.toLowerCase().trim();
+      const cards = document.querySelectorAll('#dfGrid .gi-card');
+      let visible = 0;
+      cards.forEach(card => {
+        const topic = card.dataset.topic || '';
+        const name  = card.dataset.name  || '';
+        const matchTopic = dfFilters.topic === 'all' || topic === dfFilters.topic;
+        const matchSearch = !q || name.includes(q);
+        if (matchTopic && matchSearch) { card.classList.remove('hidden'); visible++; }
+        else card.classList.add('hidden');
+      });
+      document.getElementById('dfCount').textContent = `${visible}篇文章`;
+      document.getElementById('dfNoResults').classList.toggle('show', visible === 0);
+    }
+    filterDf();
+
+    document.querySelectorAll('.topic-tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.topic-tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.topic-tab-panel').forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

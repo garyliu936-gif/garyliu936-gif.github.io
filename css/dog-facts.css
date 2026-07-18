@@ -1,0 +1,45 @@
+/* Dog Facts hub — trivia strip (mirrors home page "Did You Know" styling) */
+.did-you-know {
+  padding: 100px 0;
+  background: var(--dark);
+}
+
+.did-you-know .section-tag { background: rgba(255,255,255,.1); color: rgba(255,255,255,.92); }
+.did-you-know .section-header h2 { color: var(--white); }
+.did-you-know .section-header p { color: rgba(255,255,255,.7); }
+
+.facts-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.fact-card {
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 18px;
+  padding: 28px 24px;
+  text-align: center;
+}
+
+.fact-num {
+  display: block;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--teal-light);
+  margin-bottom: 12px;
+}
+
+.fact-card p {
+  font-size: .87rem;
+  color: rgba(255,255,255,.88);
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .facts-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .facts-grid { grid-template-columns: 1fr; }
+}
