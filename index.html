@@ -471,7 +471,7 @@
     });
     function handleSearch() {
       var s = document.getElementById('homeSearch'); if(!s) return; var q = s.value.trim();
-      if (q) window.location.href = '/breeds/index.html?search=' + encodeURIComponent(q);
+      if (q) window.location.href = '/search/?q=' + encodeURIComponent(q);
     }
     (function(){var s=document.getElementById('homeSearch'); if(s) s.addEventListener('keydown', function(e){ if (e.key === 'Enter') handleSearch(); });})();
   </script>

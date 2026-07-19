@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-C8QDN9HH5F"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-C8QDN9HH5F');</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>搜索 AllDogFacts — 犬种、训练、健康、营养及更多</title>
+  <meta name="description" content="搜索AllDogFacts全站内容——607个犬种、训练指南、健康话题、营养建议、美容护理，以及犬界大观文章，一站式查找。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="/css/section-index.css" />
+  <script>localStorage.setItem('adf-lang','zh');</script>
+  <!-- SEO:auto -->
+  <link rel="canonical" href="https://alldogfacts.com/zh/search/" />
+  <link rel="alternate" hreflang="en" href="https://alldogfacts.com/search/" />
+  <link rel="alternate" hreflang="zh-CN" href="https://alldogfacts.com/zh/search/" />
+  <link rel="alternate" hreflang="x-default" href="https://alldogfacts.com/search/" />
+  <meta name="robots" content="noindex,follow" />
+</head>
+<body>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="/zh/index.html" class="nav-logo">
+        <span class="logo-paw">🐾</span>
+        <span class="logo-text">All<span class="logo-dog">Dog</span><span class="logo-accent">Facts</span></span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/zh/index.html">首页</a></li>
+        <li><a href="/zh/dog-facts/">犬界大观</a></li>
+        <li><a href="/zh/breeds/">犬种大全</a></li>
+        <li><a href="/zh/getting-a-dog/">养狗入门</a></li>
+        <li><a href="/zh/training/">训练指南</a></li>
+        <li><a href="/zh/health/">健康</a></li>
+        <li><a href="/zh/nutrition/">营养</a></li>
+        <li><a href="/zh/grooming/">美容护理</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div style="background:#0d9488;color:#fff;text-align:center;padding:8px 16px;font-size:.85rem">
+    🌐 您正在浏览中文版 · <a href="/search/" style="color:#ccfbf1;text-decoration:underline">切换至英文版</a>
+  </div>
+
+  <section class="si-hero" style="background:linear-gradient(135deg,#0f172a 0%,#3b1f5c 100%)">
+    <div class="container">
+      <div class="si-hero-tag">全站搜索</div>
+      <h1>搜索<br /><span class="hero-highlight">AllDogFacts</span></h1>
+      <p>607个犬种、训练指南、健康话题、营养建议、美容护理，以及犬界大观——全部内容一站式搜索。</p>
+      <div class="si-search-wrap">
+        <input type="text" id="siteSearch" placeholder="搜索犬种、费用、疫苗、掉毛、迷思..." autofocus />
+      </div>
+    </div>
+  </section>
+
+  <div class="si-filter-bar">
+    <div class="container">
+      <div class="si-filter-row">
+        <span class="si-filter-label">分类：</span>
+        <div class="si-chips" id="catChips">
+          <button class="si-chip active" data-cat="all">全部结果</button>
+          <button class="si-chip" data-cat="breed">犬种</button>
+          <button class="si-chip" data-cat="training">训练指南</button>
+          <button class="si-chip" data-cat="health">健康</button>
+          <button class="si-chip" data-cat="nutrition">营养</button>
+          <button class="si-chip" data-cat="grooming">美容护理</button>
+          <button class="si-chip" data-cat="getting-a-dog">养狗入门</button>
+          <button class="si-chip" data-cat="dog-facts">犬界大观</button>
+        </div>
+        <span class="si-results-count" id="resultCount"></span>
+      </div>
+    </div>
+  </div>
+
+  <section class="si-section">
+    <div class="container">
+      <div class="si-grid" id="resultsGrid"></div>
+      <div class="si-no-results" id="emptyState">
+        <div class="nr-emoji">🐾</div>
+        <p id="emptyMsg">在上方输入关键词，搜索全站内容。</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="nav-logo"><span class="logo-paw">🐾</span><span class="logo-text">All<span class="logo-dog">Dog</span><span class="logo-accent">Facts</span></span></div>
+          <p>为爱狗人士提供的免费深度百科全书。</p>
+        </div>
+        <div class="footer-col">
+          <h4>犬种大全</h4>
+          <ul>
+            <li><a href="/zh/breeds/labrador-retriever.html">拉布拉多寻回犬</a></li>
+            <li><a href="/zh/breeds/golden-retriever.html">金毛寻回犬</a></li>
+            <li><a href="/zh/breeds/french-bulldog.html">法国斗牛犬</a></li>
+            <li><a href="/zh/breeds/">全部犬种 →</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>更多主题</h4>
+          <ul>
+            <li><a href="/zh/getting-a-dog/">养狗入门</a></li>
+            <li><a href="/zh/training/">训练指南</a></li>
+            <li><a href="/zh/health/">健康与症状</a></li>
+            <li><a href="/zh/dog-facts/">犬界大观</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 AllDogFacts. 保留所有权利。</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script>
+    const CAT_LABEL = {
+      breed: '犬种', training: '训练指南', health: '健康',
+      nutrition: '营养', grooming: '美容护理', 'getting-a-dog': '养狗入门', 'dog-facts': '犬界大观'
+    };
+    const CAT_COLOR = {
+      breed: 'tc-teal', training: 'tc-blue', health: 'tc-red',
+      nutrition: 'tc-orange', grooming: 'tc-pink', 'getting-a-dog': 'tc-purple', 'dog-facts': 'tc-amber'
+    };
+    const CAT_ICON = {
+      breed: '🐕', training: '🎓', health: '🏥',
+      nutrition: '🍽️', grooming: '✂️', 'getting-a-dog': '🐣', 'dog-facts': '📚'
+    };
+
+    let INDEX = [];
+    let activeCat = 'all';
+
+    fetch('/zh/search-index.json').then(r => r.json()).then(data => {
+      INDEX = data;
+      const params = new URLSearchParams(window.location.search);
+      const q = params.get('q') || '';
+      document.getElementById('siteSearch').value = q;
+      runSearch(q);
+    }).catch(() => {
+      document.getElementById('emptyMsg').textContent = '搜索功能暂时不可用，请稍后再试。';
+    });
+
+    function score(entry, words) {
+      const title = entry.title.toLowerCase();
+      const desc = entry.desc.toLowerCase();
+      const catLabel = (CAT_LABEL[entry.cat] || '').toLowerCase();
+      let s = 0;
+      for (const w of words) {
+        if (!w) continue;
+        if (title === w) s += 20;
+        else if (title.startsWith(w)) s += 12;
+        else if (title.includes(w)) s += 8;
+        if (catLabel.includes(w)) s += 5;
+        if (desc.includes(w)) s += 2;
+      }
+      return s;
+    }
+
+    function tokenize(q) {
+      // Chinese has no spaces; split on whitespace for mixed EN/ZH queries,
+      // and also fall back to the whole trimmed string as a single token.
+      const bySpace = q.split(/\s+/).filter(Boolean);
+      return bySpace.length ? bySpace : [q];
+    }
+
+    function runSearch(q) {
+      const qTrim = q.trim().toLowerCase();
+      const words = qTrim ? tokenize(qTrim) : [];
+      let results;
+      if (!words.length) {
+        results = [];
+      } else {
+        results = INDEX
+          .map(entry => ({ entry, s: score(entry, words) }))
+          .filter(r => r.s > 0)
+          .sort((a, b) => b.s - a.s)
+          .map(r => r.entry);
+      }
+      renderResults(results, qTrim);
+    }
+
+    function renderResults(results, q) {
+      const filtered = activeCat === 'all' ? results : results.filter(r => r.cat === activeCat);
+      const grid = document.getElementById('resultsGrid');
+      const empty = document.getElementById('emptyState');
+      const count = document.getElementById('resultCount');
+
+      if (!q) {
+        grid.innerHTML = '';
+        empty.classList.add('show');
+        document.getElementById('emptyMsg').textContent = '在上方输入关键词，搜索全站内容。';
+        count.textContent = '';
+        return;
+      }
+      if (!filtered.length) {
+        grid.innerHTML = '';
+        empty.classList.add('show');
+        document.getElementById('emptyMsg').textContent = '没有找到与"' + q + '"匹配的内容，请尝试其他关键词。';
+        count.textContent = '0个结果';
+        return;
+      }
+      empty.classList.remove('show');
+      count.textContent = filtered.length + '个结果';
+      const shown = filtered.slice(0, 60);
+      grid.innerHTML = shown.map(r => `
+        <a href="${r.url}" class="gi-card">
+          <div class="gi-card-top">
+            <span>${CAT_ICON[r.cat] || '🐾'}</span>
+            <span class="gi-topic ${CAT_COLOR[r.cat] || 'tc-teal'}">${CAT_LABEL[r.cat] || r.cat}</span>
+          </div>
+          <div class="gi-card-body">
+            <h3>${escapeHtml(r.title)}</h3>
+            <p>${escapeHtml(r.desc)}</p>
+          </div>
+          <div class="gi-card-footer">查看 <span>→</span></div>
+        </a>`).join('');
+    }
+
+    function escapeHtml(s) {
+      return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
+    document.getElementById('siteSearch').addEventListener('input', e => runSearch(e.target.value));
+    document.querySelectorAll('#catChips .si-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        activeCat = chip.dataset.cat;
+        document.querySelectorAll('#catChips .si-chip').forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        runSearch(document.getElementById('siteSearch').value);
+      });
+    });
+  </script>
+</body>
+</html>

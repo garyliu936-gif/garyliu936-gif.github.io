@@ -611,6 +611,7 @@
   <script src="../../js/breed-count.js?v=9"></script>
   <script>
     const trSearch = document.getElementById('trSearch');
+    trSearch.addEventListener('keydown', e => { if (e.key === 'Enter' && trSearch.value.trim()) window.location.href = '/zh/search/?q=' + encodeURIComponent(trSearch.value.trim()); });
     const trFilters = { topic: 'all', level: 'all' };
 
     trSearch.addEventListener('input', filterTr);

@@ -3763,6 +3763,7 @@
     // Search
     const searchInput = document.getElementById('breedSearch');
     searchInput.addEventListener('input', filterBreeds);
+    searchInput.addEventListener('keydown', e => { if (e.key === 'Enter' && searchInput.value.trim()) window.location.href = '/search/?q=' + encodeURIComponent(searchInput.value.trim()); });
 
     // Filter state
     const filters = { size: 'all', energy: 'all', type: 'all', kids: 'all', fci: 'all' };

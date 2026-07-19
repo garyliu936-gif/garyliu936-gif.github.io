@@ -530,6 +530,7 @@
   <script src="../js/breed-count.js?v=9"></script>
   <script>
     const hlSearch = document.getElementById('hlSearch');
+    hlSearch.addEventListener('keydown', e => { if (e.key === 'Enter' && hlSearch.value.trim()) window.location.href = '/search/?q=' + encodeURIComponent(hlSearch.value.trim()); });
     const hlFilters = { topic: 'all' };
 
     hlSearch.addEventListener('input', filterHl);

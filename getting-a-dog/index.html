@@ -451,6 +451,7 @@
   <script>
     // ── GUIDE CARD FILTER ─────────────────────────────────────
     const gadSearch = document.getElementById('gadSearch');
+    gadSearch.addEventListener('keydown', e => { if (e.key === 'Enter' && gadSearch.value.trim()) window.location.href = '/search/?q=' + encodeURIComponent(gadSearch.value.trim()); });
     const gadFilters = { topic: 'all' };
 
     gadSearch.addEventListener('input', filterGad);

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-C8QDN9HH5F"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-C8QDN9HH5F');</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Search AllDogFacts — Breeds, Training, Health, Nutrition & More</title>
+  <meta name="description" content="Search across all of AllDogFacts — 607 dog breeds, training guides, health topics, nutrition advice, grooming tips, and Dog Facts articles, all in one place." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="/css/section-index.css" />
+  <!-- SEO:auto -->
+  <link rel="canonical" href="https://alldogfacts.com/search/" />
+  <link rel="alternate" hreflang="en" href="https://alldogfacts.com/search/" />
+  <link rel="alternate" hreflang="zh-CN" href="https://alldogfacts.com/zh/search/" />
+  <link rel="alternate" hreflang="x-default" href="https://alldogfacts.com/search/" />
+  <meta name="robots" content="noindex,follow" />
+</head>
+<body>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="/index.html" class="nav-logo">
+        <span class="logo-paw">🐾</span>
+        <span class="logo-text">All<span class="logo-dog">Dog</span><span class="logo-accent">Facts</span></span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/dog-facts/">Dog Facts</a></li>
+        <li><a href="/breeds/">Dog Breeds</a></li>
+        <li><a href="/getting-a-dog/">Getting a Dog</a></li>
+        <li><a href="/training/">Training</a></li>
+        <li><a href="/health/">Health</a></li>
+        <li><a href="/nutrition/">Nutrition</a></li>
+        <li><a href="/grooming/">Grooming</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <section class="si-hero" style="background:linear-gradient(135deg,#0f172a 0%,#3b1f5c 100%)">
+    <div class="container">
+      <div class="si-hero-tag">Search the Whole Site</div>
+      <h1>Search<br /><span class="hero-highlight">AllDogFacts</span></h1>
+      <p>607 breeds, training guides, health topics, nutrition advice, grooming tips, and Dog Facts — all in one search.</p>
+      <div class="si-search-wrap">
+        <input type="text" id="siteSearch" placeholder="Search breeds, cost, vaccines, shedding, myths..." autofocus />
+      </div>
+    </div>
+  </section>
+
+  <div class="si-filter-bar">
+    <div class="container">
+      <div class="si-filter-row">
+        <span class="si-filter-label">Category:</span>
+        <div class="si-chips" id="catChips">
+          <button class="si-chip active" data-cat="all">All Results</button>
+          <button class="si-chip" data-cat="breed">Dog Breeds</button>
+          <button class="si-chip" data-cat="training">Training</button>
+          <button class="si-chip" data-cat="health">Health</button>
+          <button class="si-chip" data-cat="nutrition">Nutrition</button>
+          <button class="si-chip" data-cat="grooming">Grooming</button>
+          <button class="si-chip" data-cat="getting-a-dog">Getting a Dog</button>
+          <button class="si-chip" data-cat="dog-facts">Dog Facts</button>
+        </div>
+        <span class="si-results-count" id="resultCount"></span>
+      </div>
+    </div>
+  </div>
+
+  <section class="si-section">
+    <div class="container">
+      <div class="si-grid" id="resultsGrid"></div>
+      <div class="si-no-results" id="emptyState">
+        <div class="nr-emoji">🐾</div>
+        <p id="emptyMsg">Start typing above to search the entire site.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="nav-logo"><span class="logo-paw">🐾</span><span class="logo-text">All<span class="logo-dog">Dog</span><span class="logo-accent">Facts</span></span></div>
+          <p>A free, in-depth encyclopedia for dog owners and lovers.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Dog Breeds</h4>
+          <ul>
+            <li><a href="/breeds/labrador-retriever.html">Labrador Retriever</a></li>
+            <li><a href="/breeds/golden-retriever.html">Golden Retriever</a></li>
+            <li><a href="/breeds/french-bulldog.html">French Bulldog</a></li>
+            <li><a href="/breeds/">All Breeds →</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Topics</h4>
+          <ul>
+            <li><a href="/getting-a-dog/">Getting a Dog</a></li>
+            <li><a href="/training/">Training</a></li>
+            <li><a href="/health/">Health & Symptoms</a></li>
+            <li><a href="/dog-facts/">Dog Facts</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 AllDogFacts — The Complete Dog Encyclopedia. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script>
+    const CAT_LABEL = {
+      breed: 'Dog Breed', training: 'Training', health: 'Health',
+      nutrition: 'Nutrition', grooming: 'Grooming', 'getting-a-dog': 'Getting a Dog', 'dog-facts': 'Dog Facts'
+    };
+    const CAT_COLOR = {
+      breed: 'tc-teal', training: 'tc-blue', health: 'tc-red',
+      nutrition: 'tc-orange', grooming: 'tc-pink', 'getting-a-dog': 'tc-purple', 'dog-facts': 'tc-amber'
+    };
+    const CAT_ICON = {
+      breed: '🐕', training: '🎓', health: '🏥',
+      nutrition: '🍽️', grooming: '✂️', 'getting-a-dog': '🐣', 'dog-facts': '📚'
+    };
+
+    let INDEX = [];
+    let activeCat = 'all';
+
+    fetch('/search-index.json').then(r => r.json()).then(data => {
+      INDEX = data;
+      const params = new URLSearchParams(window.location.search);
+      const q = params.get('q') || '';
+      document.getElementById('siteSearch').value = q;
+      runSearch(q);
+    }).catch(() => {
+      document.getElementById('emptyMsg').textContent = 'Search is temporarily unavailable. Please try again later.';
+    });
+
+    function score(entry, words) {
+      const title = entry.title.toLowerCase();
+      const desc = entry.desc.toLowerCase();
+      const catLabel = (CAT_LABEL[entry.cat] || '').toLowerCase();
+      let s = 0;
+      for (const w of words) {
+        if (!w) continue;
+        if (title === w) s += 20;
+        else if (title.startsWith(w)) s += 12;
+        else if (title.includes(w)) s += 8;
+        if (catLabel.includes(w)) s += 5;
+        if (desc.includes(w)) s += 2;
+      }
+      return s;
+    }
+
+    function runSearch(q) {
+      const qTrim = q.trim().toLowerCase();
+      const words = qTrim.split(/\s+/).filter(Boolean);
+      let results;
+      if (!words.length) {
+        results = [];
+      } else {
+        results = INDEX
+          .map(entry => ({ entry, s: score(entry, words) }))
+          .filter(r => r.s > 0)
+          .sort((a, b) => b.s - a.s)
+          .map(r => r.entry);
+      }
+      renderResults(results, qTrim);
+    }
+
+    function renderResults(results, q) {
+      const filtered = activeCat === 'all' ? results : results.filter(r => r.cat === activeCat);
+      const grid = document.getElementById('resultsGrid');
+      const empty = document.getElementById('emptyState');
+      const count = document.getElementById('resultCount');
+
+      if (!q) {
+        grid.innerHTML = '';
+        empty.classList.add('show');
+        document.getElementById('emptyMsg').textContent = 'Start typing above to search the entire site.';
+        count.textContent = '';
+        return;
+      }
+      if (!filtered.length) {
+        grid.innerHTML = '';
+        empty.classList.add('show');
+        document.getElementById('emptyMsg').textContent = 'No results for "' + q + '". Try a different keyword.';
+        count.textContent = '0 results';
+        return;
+      }
+      empty.classList.remove('show');
+      count.textContent = filtered.length + ' result' + (filtered.length !== 1 ? 's' : '');
+      const shown = filtered.slice(0, 60);
+      grid.innerHTML = shown.map(r => `
+        <a href="${r.url}" class="gi-card">
+          <div class="gi-card-top">
+            <span>${CAT_ICON[r.cat] || '🐾'}</span>
+            <span class="gi-topic ${CAT_COLOR[r.cat] || 'tc-teal'}">${CAT_LABEL[r.cat] || r.cat}</span>
+          </div>
+          <div class="gi-card-body">
+            <h3>${escapeHtml(r.title)}</h3>
+            <p>${escapeHtml(r.desc)}</p>
+          </div>
+          <div class="gi-card-footer">View <span>→</span></div>
+        </a>`).join('');
+    }
+
+    function escapeHtml(s) {
+      return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
+    document.getElementById('siteSearch').addEventListener('input', e => runSearch(e.target.value));
+    document.querySelectorAll('#catChips .si-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        activeCat = chip.dataset.cat;
+        document.querySelectorAll('#catChips .si-chip').forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        runSearch(document.getElementById('siteSearch').value);
+      });
+    });
+  </script>
+</body>
+</html>

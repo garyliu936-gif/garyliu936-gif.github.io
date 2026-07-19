@@ -547,6 +547,7 @@
   <script src="../../js/breed-count.js?v=9"></script>
   <script>
     const grSearch = document.getElementById('grSearch');
+    grSearch.addEventListener('keydown', e => { if (e.key === 'Enter' && grSearch.value.trim()) window.location.href = '/zh/search/?q=' + encodeURIComponent(grSearch.value.trim()); });
     const grFilters = { topic: 'all' };
 
     grSearch.addEventListener('input', filterGr);

@@ -478,6 +478,7 @@
   <script src="../js/breed-count.js?v=9"></script>
   <script>
     const dfSearch = document.getElementById('dfSearch');
+    dfSearch.addEventListener('keydown', e => { if (e.key === 'Enter' && dfSearch.value.trim()) window.location.href = '/search/?q=' + encodeURIComponent(dfSearch.value.trim()); });
     const dfFilters = { topic: 'all' };
 
     dfSearch.addEventListener('input', filterDf);

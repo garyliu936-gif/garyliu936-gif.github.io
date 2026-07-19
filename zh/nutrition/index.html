@@ -434,6 +434,7 @@
   <script src="../../js/breed-count.js?v=9"></script>
   <script>
     const nuSearch = document.getElementById('nuSearch');
+    nuSearch.addEventListener('keydown', e => { if (e.key === 'Enter' && nuSearch.value.trim()) window.location.href = '/zh/search/?q=' + encodeURIComponent(nuSearch.value.trim()); });
     const nuFilters = { topic: 'all' };
 
     nuSearch.addEventListener('input', filterNu);

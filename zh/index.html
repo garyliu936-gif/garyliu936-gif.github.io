@@ -474,7 +474,7 @@
 
     function handleSearch() {
       const q = document.getElementById('homeSearch').value.trim().toLowerCase();
-      if (q) window.location.href = `/zh/breeds/index.html?search=${encodeURIComponent(q)}`;
+      if (q) window.location.href = `/zh/search/?q=${encodeURIComponent(q)}`;
     }
 
     document.getElementById('homeSearch').addEventListener('keydown', e => {
