@@ -233,7 +233,9 @@
 .ga-hl-card span { font-size: .82rem; color: #64748b; }
 
 /* ── SIDEBAR ─────────────────────────────────────────────── */
-.ga-sidebar { position: sticky; top: 88px; }
+@media(min-width:901px) {
+  .ga-sidebar { position: sticky; top: 88px; }
+}
 .ga-scard {
   background: #fff;
   border-radius: 14px;
