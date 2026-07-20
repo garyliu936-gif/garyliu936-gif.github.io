@@ -41,26 +41,40 @@
   max-width: 480px;
   margin: 0 auto;
   position: relative;
+  display: flex;
+  align-items: center;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 8px 32px rgba(0,0,0,.25);
 }
 .si-search-wrap input {
+  flex: 1;
   width: 100%;
-  padding: 15px 50px 15px 20px;
-  border-radius: 14px;
+  padding: 15px 8px 15px 20px;
+  border-radius: 14px 0 0 14px;
   border: none;
   font-family: 'Inter', sans-serif;
   font-size: .97rem;
   color: #0f172a;
-  background: #fff;
-  box-shadow: 0 8px 32px rgba(0,0,0,.25);
+  background: transparent;
   outline: none;
 }
-.si-search-wrap::after {
-  content: '🔍';
-  position: absolute;
-  right: 18px; top: 50%;
-  transform: translateY(-50%);
-  pointer-events: none;
+.si-search-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-right: 6px;
+  flex-shrink: 0;
+  border: none;
+  border-radius: 10px;
+  background: var(--teal);
+  color: #fff;
+  cursor: pointer;
+  transition: background .18s;
 }
+.si-search-btn:hover { background: var(--teal-dark); }
 
 /* ── FILTER BAR ───────────────────────────────────────────── */
 .si-filter-bar {

@@ -1,3 +1,25 @@
+// Sitewide search — inject nav icon that opens the search page directly
+(function () {
+  const navContainer = document.querySelector('.nav-container');
+  if (!navContainer) return;
+  const isZhPage = document.documentElement.lang === 'zh-CN' || location.pathname.startsWith('/zh/');
+  const PAW_ICON = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="7"></circle><line x1="20.5" y1="20.5" x2="15" y2="15"></line><circle cx="10" cy="11.6" r="1.7" fill="currentColor" stroke="none"></circle><circle cx="7.1" cy="8.6" r="1" fill="currentColor" stroke="none"></circle><circle cx="10" cy="7.1" r="1" fill="currentColor" stroke="none"></circle><circle cx="12.9" cy="8.6" r="1" fill="currentColor" stroke="none"></circle></svg>';
+
+  const searchBtn = document.createElement('button');
+  searchBtn.id = 'navSearchBtn';
+  searchBtn.className = 'nav-search-btn';
+  searchBtn.type = 'button';
+  searchBtn.setAttribute('aria-label', isZhPage ? '搜索' : 'Search');
+  searchBtn.innerHTML = PAW_ICON;
+  const hamburgerAnchor = navContainer.querySelector('.hamburger');
+  if (hamburgerAnchor) navContainer.insertBefore(searchBtn, hamburgerAnchor);
+  else navContainer.appendChild(searchBtn);
+
+  searchBtn.addEventListener('click', function () {
+    window.location.href = isZhPage ? '/zh/search/' : '/search/';
+  });
+})();
+
 // Language switcher — inject toggle + load i18n.js
 (function () {
   const navContainer = document.querySelector('.nav-container');

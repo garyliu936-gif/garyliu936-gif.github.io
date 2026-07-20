@@ -10,6 +10,9 @@
     gtag('config', 'G-C8QDN9HH5F');
   </script>
   <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>狗狗训练指南——口令、幼犬技巧与行为指南 | AllDogFacts</title>
   <meta name="description" content="完整的狗狗训练指南——基础口令、幼犬训练、牵绳礼仪、笼子训练及行为问题矫正。免费逐步指南。" />
@@ -68,9 +71,6 @@
       <div class="si-hero-tag">免费逐步指南</div>
       <h1>狗狗<br /><span class="hero-highlight">训练</span></h1>
       <p>从基础口令到高级技能——为幼犬、新犬以及有坏习惯的狗狗提供逐步指南。全程正向强化训练。</p>
-      <div class="si-search-wrap">
-        <input type="text" id="trSearch" placeholder="搜索指南...（如 坐下、牵绳、吠叫）" />
-      </div>
     </div>
   </section>
 
@@ -507,9 +507,9 @@
           <div class="ttp-right">
             <span class="ttp-tag">犬种大全</span>
             <h3>寻找您的完美犬种</h3>
-            <p class="js-breed-desc">收录607个犬种资料——416个纯种犬和191个混血犬。涵盖性格、体型、运动需求、美容、健康问题和养育费用。</p>
-            <div class="ttp-highlights"><span class="ttp-highlight js-purebred-count">🏆 416个纯种犬</span><span class="ttp-highlight js-hybrid-count">🌟 191个混血犬</span><span class="ttp-highlight">📊 AKC 2025排名</span></div>
-            <div class="ttp-cta"><a href="/zh/breeds/" class="btn btn-primary">浏览全部607个犬种 →</a></div>
+            <p class="js-breed-desc">收录608个犬种资料——417个纯种犬和191个混血犬。涵盖性格、体型、运动需求、美容、健康问题和养育费用。</p>
+            <div class="ttp-highlights"><span class="ttp-highlight js-purebred-count">🏆 417个纯种犬</span><span class="ttp-highlight js-hybrid-count">🌟 191个混血犬</span><span class="ttp-highlight">📊 AKC 2025排名</span></div>
+            <div class="ttp-cta"><a href="/zh/breeds/" class="btn btn-primary">浏览全部608个犬种 →</a></div>
           </div>
         </div>
         <div class="topic-tab-panel" id="tab-getting">
@@ -610,11 +610,7 @@
   <script src="../../js/main.js"></script>
   <script src="../../js/breed-count.js?v=9"></script>
   <script>
-    const trSearch = document.getElementById('trSearch');
-    trSearch.addEventListener('keydown', e => { if (e.key === 'Enter' && trSearch.value.trim()) window.location.href = '/zh/search/?q=' + encodeURIComponent(trSearch.value.trim()); });
     const trFilters = { topic: 'all', level: 'all' };
-
-    trSearch.addEventListener('input', filterTr);
 
     document.querySelectorAll('#trTopicChips .si-chip').forEach(chip => {
       chip.addEventListener('click', () => {
@@ -634,17 +630,14 @@
     });
 
     function filterTr() {
-      const q = trSearch.value.toLowerCase().trim();
       const cards = document.querySelectorAll('#trGrid .gi-card');
       let visible = 0;
       cards.forEach(card => {
         const topic = card.dataset.topic || '';
         const level = card.dataset.level || '';
-        const name  = card.dataset.name  || '';
         const matchTopic  = trFilters.topic === 'all' || topic === trFilters.topic;
         const matchLevel  = trFilters.level === 'all' || level === trFilters.level;
-        const matchSearch = !q || name.includes(q);
-        if (matchTopic && matchLevel && matchSearch) { card.classList.remove('hidden'); visible++; }
+        if (matchTopic && matchLevel) { card.classList.remove('hidden'); visible++; }
         else card.classList.add('hidden');
       });
       document.getElementById('trCount').textContent = `${visible} guide${visible !== 1 ? 's' : ''}`;

@@ -10,6 +10,9 @@
     gtag('config', 'G-C8QDN9HH5F');
   </script>
   <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>狗狗营养——喂食指南、狗粮选择与饮食建议 | AllDogFacts</title>
   <meta name="description" content="完整的狗狗营养指南——按犬种和年龄的喂食指南、优质狗粮选择、有毒食物及零食推荐。" />
@@ -68,9 +71,6 @@
       <div class="si-hero-tag">循证喂食建议</div>
       <h1>狗狗<br /><span class="hero-highlight">营养</span></h1>
       <p>从幼犬喂食到老年犬特殊饮食——了解您的狗狗真正需要什么营养，避开常见饮食误区。</p>
-      <div class="si-search-wrap">
-        <input type="text" id="nuSearch" placeholder="搜索指南...（如 狗粮、喂食、零食）" />
-      </div>
     </div>
   </section>
 
@@ -330,9 +330,9 @@
           <div class="ttp-right">
             <span class="ttp-tag">犬种大全</span>
             <h3>寻找您的完美犬种</h3>
-            <p class="js-breed-desc">收录607个犬种资料——416个纯种犬和191个混血犬。涵盖性格、体型、运动需求、美容、健康问题和养育费用。</p>
-            <div class="ttp-highlights"><span class="ttp-highlight js-purebred-count">🏆 416个纯种犬</span><span class="ttp-highlight js-hybrid-count">🌟 191个混血犬</span><span class="ttp-highlight">📊 AKC 2025排名</span></div>
-            <div class="ttp-cta"><a href="/zh/breeds/" class="btn btn-primary">浏览全部607个犬种 →</a></div>
+            <p class="js-breed-desc">收录608个犬种资料——417个纯种犬和191个混血犬。涵盖性格、体型、运动需求、美容、健康问题和养育费用。</p>
+            <div class="ttp-highlights"><span class="ttp-highlight js-purebred-count">🏆 417个纯种犬</span><span class="ttp-highlight js-hybrid-count">🌟 191个混血犬</span><span class="ttp-highlight">📊 AKC 2025排名</span></div>
+            <div class="ttp-cta"><a href="/zh/breeds/" class="btn btn-primary">浏览全部608个犬种 →</a></div>
           </div>
         </div>
         <div class="topic-tab-panel" id="tab-getting">
@@ -433,11 +433,7 @@
   <script src="../../js/main.js"></script>
   <script src="../../js/breed-count.js?v=9"></script>
   <script>
-    const nuSearch = document.getElementById('nuSearch');
-    nuSearch.addEventListener('keydown', e => { if (e.key === 'Enter' && nuSearch.value.trim()) window.location.href = '/zh/search/?q=' + encodeURIComponent(nuSearch.value.trim()); });
     const nuFilters = { topic: 'all' };
-
-    nuSearch.addEventListener('input', filterNu);
 
     document.querySelectorAll('#nuTopicChips .si-chip').forEach(chip => {
       chip.addEventListener('click', () => {
@@ -449,15 +445,12 @@
     });
 
     function filterNu() {
-      const q = nuSearch.value.toLowerCase().trim();
       const cards = document.querySelectorAll('#nuGrid .gi-card');
       let visible = 0;
       cards.forEach(card => {
         const topic = card.dataset.topic || '';
-        const name  = card.dataset.name  || '';
         const matchTopic  = nuFilters.topic === 'all' || topic === nuFilters.topic;
-        const matchSearch = !q || name.includes(q);
-        if (matchTopic && matchSearch) { card.classList.remove('hidden'); visible++; }
+        if (matchTopic) { card.classList.remove('hidden'); visible++; }
         else card.classList.add('hidden');
       });
       document.getElementById('nuCount').textContent = `${visible} guide${visible !== 1 ? 's' : ''}`;

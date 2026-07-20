@@ -10,6 +10,9 @@
     gtag('config', 'G-C8QDN9HH5F');
   </script>
   <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Getting a Dog — Complete First-Time Owner Guide | AllDogFacts</title>
   <meta name="description" content="Everything you need to know before getting a dog. Find your perfect breed, learn the real costs, adoption vs breeder, how to prepare your home, and more." />
@@ -63,9 +66,6 @@
       <div class="si-hero-tag">Complete Owner Guide</div>
       <h1>Getting a<br /><span class="hero-highlight">Dog</span></h1>
       <p>Find your perfect breed, understand the real costs, choose adoption or a breeder, and prepare your home — all in one place.</p>
-      <div class="si-search-wrap">
-        <input type="text" id="gadSearch" placeholder="Search guides... (e.g. cost, breed, puppy)" />
-      </div>
     </div>
   </section>
 
@@ -346,9 +346,9 @@
           <div class="ttp-right">
             <span class="ttp-tag">Dog Breeds</span>
             <h3>Find Your Perfect Breed</h3>
-            <p class="js-breed-desc">Profiles for 607 breeds — 416 purebreds and 191 designer hybrids. Covers temperament, size, exercise needs, grooming, health issues, and cost to own.</p>
+            <p class="js-breed-desc">Profiles for 608 breeds — 417 purebreds and 191 designer hybrids. Covers temperament, size, exercise needs, grooming, health issues, and cost to own.</p>
             <div class="ttp-highlights"><span class="ttp-highlight js-purebred-count">🏆 380 purebred breeds</span><span class="ttp-highlight js-hybrid-count">🌟 191 hybrid breeds</span><span class="ttp-highlight">📊 AKC 2025 ranked</span></div>
-            <div class="ttp-cta"><a href="/breeds/" class="btn btn-primary js-breed-btn">Browse All 607 breeds →</a></div>
+            <div class="ttp-cta"><a href="/breeds/" class="btn btn-primary js-breed-btn">Browse All 608 breeds →</a></div>
           </div>
         </div>
         <div class="topic-tab-panel active" id="tab-getting">
@@ -450,11 +450,7 @@
   <script src="../js/breed-count.js?v=9"></script>
   <script>
     // ── GUIDE CARD FILTER ─────────────────────────────────────
-    const gadSearch = document.getElementById('gadSearch');
-    gadSearch.addEventListener('keydown', e => { if (e.key === 'Enter' && gadSearch.value.trim()) window.location.href = '/search/?q=' + encodeURIComponent(gadSearch.value.trim()); });
     const gadFilters = { topic: 'all' };
-
-    gadSearch.addEventListener('input', filterGad);
 
     document.querySelectorAll('#topicChips .si-chip').forEach(chip => {
       chip.addEventListener('click', () => {
@@ -466,15 +462,12 @@
     });
 
     function filterGad() {
-      const q = gadSearch.value.toLowerCase().trim();
       const cards = document.querySelectorAll('#gadGrid .gi-card');
       let visible = 0;
       cards.forEach(card => {
         const topic = card.dataset.topic || '';
-        const name  = card.dataset.name  || '';
         const matchTopic = gadFilters.topic === 'all' || topic === gadFilters.topic;
-        const matchSearch = !q || name.includes(q);
-        if (matchTopic && matchSearch) { card.classList.remove('hidden'); visible++; }
+        if (matchTopic) { card.classList.remove('hidden'); visible++; }
         else card.classList.add('hidden');
       });
       document.getElementById('gadCount').textContent = `${visible} guide${visible !== 1 ? 's' : ''}`;

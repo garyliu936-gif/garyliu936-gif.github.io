@@ -226,6 +226,23 @@ img { max-width: 100%; display: block; }
 .lang-icon { font-size: .9rem; }
 @media (max-width: 768px) { .lang-toggle { padding: 4px 10px; font-size: .75rem; } }
 
+/* Nav search icon */
+.nav-search-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border: none;
+  border-radius: 50%;
+  background: var(--teal-light);
+  color: var(--teal);
+  cursor: pointer;
+  transition: background .2s, color .2s, transform .15s;
+}
+.nav-search-btn:hover { background: var(--teal); color: #fff; transform: scale(1.06); }
+
 .hamburger {
   display: none;
   flex-direction: column;

@@ -4,6 +4,9 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-C8QDN9HH5F"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-C8QDN9HH5F');</script>
   <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>犬界大观 — 历史、传奇、名犬与趣味知识 | AllDogFacts</title>
   <meta name="description" content="探索狗狗的奇妙世界——历史起源、传奇英雄、战犬故事、世界纪录、神话传说、经典电影，以及工作犬职业与趣味知识测验。" />
@@ -63,9 +66,6 @@
       <div class="si-hero-tag">故事、历史与冷知识</div>
       <h1>犬界<br /><span class="hero-highlight">大观</span></h1>
       <p>远古起源、传奇英雄、世界纪录、神话传说、经典电影，以及犬类世界中最不可思议的真实故事——尽在这里。</p>
-      <div class="si-search-wrap">
-        <input type="text" id="dfSearch" placeholder="搜索内容...（例如：历史、迷思、纪录）" />
-      </div>
     </div>
   </section>
 
@@ -373,9 +373,9 @@
           <div class="ttp-right">
             <span class="ttp-tag">犬种大全</span>
             <h3>寻找您的完美犬种</h3>
-            <p class="js-breed-desc">收录607个犬种资料——416个纯种犬和191个混血犬。涵盖性格、体型、运动需求、美容、健康问题和养育费用。</p>
-            <div class="ttp-highlights"><span class="ttp-highlight js-purebred-count">🏆 416个纯种犬</span><span class="ttp-highlight js-hybrid-count">🌟 191个混血犬</span><span class="ttp-highlight">📊 AKC 2025排名</span></div>
-            <div class="ttp-cta"><a href="/zh/breeds/" class="btn btn-primary">浏览全部607个犬种 →</a></div>
+            <p class="js-breed-desc">收录608个犬种资料——417个纯种犬和191个混血犬。涵盖性格、体型、运动需求、美容、健康问题和养育费用。</p>
+            <div class="ttp-highlights"><span class="ttp-highlight js-purebred-count">🏆 417个纯种犬</span><span class="ttp-highlight js-hybrid-count">🌟 191个混血犬</span><span class="ttp-highlight">📊 AKC 2025排名</span></div>
+            <div class="ttp-cta"><a href="/zh/breeds/" class="btn btn-primary">浏览全部608个犬种 →</a></div>
           </div>
         </div>
         <div class="topic-tab-panel" id="tab-getting">
@@ -476,11 +476,7 @@
   <script src="../../js/main.js"></script>
   <script src="../../js/breed-count.js?v=9"></script>
   <script>
-    const dfSearch = document.getElementById('dfSearch');
-    dfSearch.addEventListener('keydown', e => { if (e.key === 'Enter' && dfSearch.value.trim()) window.location.href = '/zh/search/?q=' + encodeURIComponent(dfSearch.value.trim()); });
     const dfFilters = { topic: 'all' };
-
-    dfSearch.addEventListener('input', filterDf);
 
     document.querySelectorAll('#dfTopicChips .si-chip').forEach(chip => {
       chip.addEventListener('click', () => {
@@ -492,15 +488,12 @@
     });
 
     function filterDf() {
-      const q = dfSearch.value.toLowerCase().trim();
       const cards = document.querySelectorAll('#dfGrid .gi-card');
       let visible = 0;
       cards.forEach(card => {
         const topic = card.dataset.topic || '';
-        const name  = card.dataset.name  || '';
         const matchTopic = dfFilters.topic === 'all' || topic === dfFilters.topic;
-        const matchSearch = !q || name.includes(q);
-        if (matchTopic && matchSearch) { card.classList.remove('hidden'); visible++; }
+        if (matchTopic) { card.classList.remove('hidden'); visible++; }
         else card.classList.add('hidden');
       });
       document.getElementById('dfCount').textContent = `${visible}篇文章`;

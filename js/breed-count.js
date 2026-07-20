@@ -12,8 +12,8 @@
    ✅  Other pages update the moment anyone views the breeds page.
    ────────────────────────────────────────────────────────────────────────────── */
 (function () {
-  var FALLBACK_TOTAL    = 607;
-  var FALLBACK_PUREBRED = 416;
+  var FALLBACK_TOTAL    = 608;
+  var FALLBACK_PUREBRED = 417;
   var FALLBACK_HYBRID   = 191;
   var FALLBACK_FCI      = 360;
 

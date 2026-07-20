@@ -10,6 +10,9 @@
     gtag('config', 'G-C8QDN9HH5F');
   </script>
   <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dog Nutrition — Feeding Guides, Best Food & Toxic Foods | AllDogFacts</title>
   <meta name="description" content="Complete dog nutrition guides — how much to feed, best dog food by size, dry vs wet vs raw food, foods toxic to dogs, treats, supplements, and weight management." />
@@ -63,9 +66,6 @@
       <div class="si-hero-tag">Evidence-Based Feeding Advice</div>
       <h1>Dog<br /><span style="color:#fbbf24">Nutrition</span></h1>
       <p>What your dog eats affects everything — weight, coat, energy, joints, and lifespan. Find the right food, the right amount, and avoid dangerous mistakes.</p>
-      <div class="si-search-wrap">
-        <input type="text" id="nuSearch" placeholder="Search guides... (e.g. puppy, toxic, raw food)" />
-      </div>
     </div>
   </section>
 
@@ -325,9 +325,9 @@
           <div class="ttp-right">
             <span class="ttp-tag">Dog Breeds</span>
             <h3>Find Your Perfect Breed</h3>
-            <p class="js-breed-desc">Profiles for 607 breeds — 416 purebreds and 191 designer hybrids. Covers temperament, size, exercise needs, grooming, health issues, and cost to own.</p>
+            <p class="js-breed-desc">Profiles for 608 breeds — 417 purebreds and 191 designer hybrids. Covers temperament, size, exercise needs, grooming, health issues, and cost to own.</p>
             <div class="ttp-highlights"><span class="ttp-highlight js-purebred-count">🏆 380 purebred breeds</span><span class="ttp-highlight js-hybrid-count">🌟 191 hybrid breeds</span><span class="ttp-highlight">📊 AKC 2025 ranked</span></div>
-            <div class="ttp-cta"><a href="/breeds/" class="btn btn-primary js-breed-btn">Browse All 607 breeds →</a></div>
+            <div class="ttp-cta"><a href="/breeds/" class="btn btn-primary js-breed-btn">Browse All 608 breeds →</a></div>
           </div>
         </div>
         <div class="topic-tab-panel" id="tab-getting">
@@ -428,11 +428,7 @@
   <script src="../js/main.js"></script>
   <script src="../js/breed-count.js?v=9"></script>
   <script>
-    const nuSearch = document.getElementById('nuSearch');
-    nuSearch.addEventListener('keydown', e => { if (e.key === 'Enter' && nuSearch.value.trim()) window.location.href = '/search/?q=' + encodeURIComponent(nuSearch.value.trim()); });
     const nuFilters = { topic: 'all' };
-
-    nuSearch.addEventListener('input', filterNu);
 
     document.querySelectorAll('#nuTopicChips .si-chip').forEach(chip => {
       chip.addEventListener('click', () => {
@@ -444,15 +440,12 @@
     });
 
     function filterNu() {
-      const q = nuSearch.value.toLowerCase().trim();
       const cards = document.querySelectorAll('#nuGrid .gi-card');
       let visible = 0;
       cards.forEach(card => {
         const topic = card.dataset.topic || '';
-        const name  = card.dataset.name  || '';
         const matchTopic  = nuFilters.topic === 'all' || topic === nuFilters.topic;
-        const matchSearch = !q || name.includes(q);
-        if (matchTopic && matchSearch) { card.classList.remove('hidden'); visible++; }
+        if (matchTopic) { card.classList.remove('hidden'); visible++; }
         else card.classList.add('hidden');
       });
       document.getElementById('nuCount').textContent = `${visible} guide${visible !== 1 ? 's' : ''}`;
