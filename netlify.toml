@@ -1,6 +1,16 @@
 # Cache static assets longer to reduce bandwidth (credit) usage on Netlify.
 # HTML is intentionally NOT long-cached so content updates appear immediately.
 
+# Netlify's "Pretty URLs" rewrites internal links from /page.html to /page.
+# But our _redirects file 301-redirects /page back to /page.html (to match our
+# canonical tags and sitemap, which both use .html). Those two settings fight
+# each other, so EVERY internal link became a needless 301 redirect hop.
+# Disabling pretty_urls keeps links as .html — matching canonical + sitemap.
+# The _redirects rules stay in place, so any already-indexed extensionless
+# URLs and external inbound links still resolve correctly.
+[build.processing.html]
+  pretty_urls = false
+
 [[headers]]
   for = "/css/*"
   [headers.values]
