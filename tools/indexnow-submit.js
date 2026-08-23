@@ -11,6 +11,13 @@
      node tools/indexnow-submit.js              → submits every URL in sitemap.xml
      node tools/indexnow-submit.js /breeds/beagle.html /zh/breeds/beagle.html
                                                 → submits just those pages
+     ... | node tools/indexnow-submit.js --stdin
+                                                → reads URLs from stdin, one per
+                                                  line. Chains with the sitemap
+                                                  date tool so you only submit
+                                                  what actually changed:
+
+     node tools/sync-sitemap-dates.js --apply --print-changed | node tools/indexnow-submit.js --stdin
 
    WHEN TO USE
    After a Netlify deploy that changed or added pages. Submitting unchanged
@@ -76,9 +83,30 @@ function submit(urlList) {
   });
 }
 
+function readStdin() {
+  return new Promise(resolve => {
+    let buf = '';
+    process.stdin.setEncoding('utf8');
+    process.stdin.on('data', d => (buf += d));
+    process.stdin.on('end', () => resolve(buf));
+  });
+}
+
 (async () => {
   const args = process.argv.slice(2);
-  const urls = args.length ? args.map(normalize) : urlsFromSitemap();
+  const useStdin = args.includes('--stdin');
+  const rest = args.filter(a => a !== '--stdin');
+
+  let urls;
+  if (useStdin) {
+    urls = (await readStdin())
+      .split(/\r?\n/)
+      .map(s => s.trim())
+      .filter(Boolean)
+      .map(normalize);
+  } else {
+    urls = rest.length ? rest.map(normalize) : urlsFromSitemap();
+  }
 
   if (!urls.length) {
     console.error('No URLs to submit.');
